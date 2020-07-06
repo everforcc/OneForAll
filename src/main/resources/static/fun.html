@@ -1,0 +1,84 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>c.c.</title>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+
+<body>
+<div id="temp" >心灵鸡汤:</div>
+<div ><h4 id="getfun" >来一碗吗?</h4></div>
+<button id="getfun_button" type="button">GetFun</button>
+<hr>
+<br>
+
+<div ><img id="bilibili_cover_img" src="https://dss1.baidu.com/6ONXsjip0QIZ8tyhnq/it/u=2810627290,1080409091&fm=58&s=8197C732C535FA313E526557030030BB&bpow=121&bpoh=75"></div>
+<!-- 给个录入框 -->
+<div>bilibili视频的封面（日↓后视频也行）</div>
+<div><h5>av号/bv也行吧:</h5><input id="input"  ></div>
+
+<button id="bilibili_cover_button" type="button">GetCover</button>
+
+<button id="adiv" style="display: none"></button>
+<!-- 给个图片的链接 -->
+<a type="visibility" id="bilibili_cover" style="display: none;" href="#" download="" >链接</a>
+<div></div>
+<hr>
+<iframe src="http://www.staggeringbeauty.com/" style="border: 1px inset #ddd" width="498" height="598"></iframe>
+
+</body>
+
+<!-- 用pom文件导入的jquery -->
+<script src="https://cdn.staticfile.org/jquery/1.10.2/jquery.min.js"></script>
+<script>
+    $(document).ready(function () {
+
+        // 1.getfun
+        $("#getfun_button").click(function () {
+            // /代表了当前项目的根目录
+            htmlobj = $.ajax(
+                {
+                    url: "/getfun",
+                    async: false
+                }
+            );
+            $("#getfun").html(htmlobj.responseText);
+        });
+
+        //nodel
+
+
+        // 2.getCover
+        $("#bilibili_cover_button").click(function () {
+            var value=$("#input").val();
+            $.ajax({
+                url : "/bilibili_cover",
+                type : "post",
+                data : {"num": value } ,
+                async : false,
+                dataType : "text",
+                success : function (objReturn) {
+                    $("#bilibili_cover").show();
+                    $("#bilibili_cover").attr("href",objReturn);
+                    $("#bilibili_cover").attr("download",objReturn);
+                },
+                error : function (objReturn) {
+                    $("#bilibili_cover").attr("href","#");
+                }
+            })
+        });
+
+
+        /**
+         * 打开新页面
+         */
+        $("#adiv").click(function () {
+            var tempwindow=window.open('_blank');
+            tempwindow.location= $("#bilibili_cover").val() ;
+        });
+
+
+    });
+</script>
+
+</html>
