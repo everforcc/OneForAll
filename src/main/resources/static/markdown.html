@@ -1,0 +1,62 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>测试使用markdown</title>
+    <script type="text/javascript" src="./js/showdown.min.js"></script>
+    <style>
+        blockquote {
+            border-left:#eee solid 5px;
+            padding-left:20px;
+        }
+
+        ul li {
+            line-height: 20px;
+        }
+
+        code {
+            color:#D34B62;
+            background: #F6F6F6;
+        }
+
+    </style>
+</head>
+
+<body>
+
+<div>
+    <!--<&#45;&#45;设置id为oriContent，如果想实现实时更新，使用onkeyup方法&#45;&#45;!>-->
+
+    <textarea id="oriContent" style="height:400px;width:600px;" onkeyup="convert()"></textarea>
+
+    <!--<-&#45;&#45;设置展示的div添加id-!>-->
+    <div id="result"></div>
+
+</div>
+
+<!--<&#45;&#45;写转化函数&#45;&#45;!>-->
+<script type="text/javascript">
+    /*function convert(){
+        var text = document.getElementById("oriContent").value;
+        var converter = new showdown.Converter();
+        var html = converter.makeHtml(text);
+        document.getElementById("result").innerHTML = html;
+    }*/
+
+    function convert(){
+        var text = document.getElementById("oriContent").value;
+        //var show = new showdown;
+        var converter = new showdown.Converter();
+        var defaultOptions = converter.getOptions();
+        defaultOptions.strikethrough=!0;
+        //defaultOptions.helper.emojis=!0;
+        defaultOptions.emoji=!0;
+        defaultOptions.tables=!0;
+        var html = converter.makeHtml(text);
+        document.getElementById("result").innerHTML = html;
+    }
+
+</script>
+
+</body>
+</html>
