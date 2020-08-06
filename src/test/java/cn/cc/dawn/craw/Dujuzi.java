@@ -9,6 +9,8 @@ import org.junit.jupiter.api.Test;
 import org.springframework.boot.test.context.SpringBootTest;
 
 import java.io.File;
+import java.util.HashMap;
+import java.util.Map;
 
 /**
  * Yukino
@@ -61,6 +63,15 @@ public class Dujuzi {
         inputStream_io_write.IO_PrintWriter_Append(new String[]{"123","321123123"});
 
         System.out.println(System.getProperty("user.dir"));
+   }
+
+   void a1(){
+       HashMap<String,String> hashMap = new HashMap<String, String>();
+       hashMap.put("","");
+       for(Map.Entry entry:hashMap.entrySet()){
+
+       }
+
    }
 
 }

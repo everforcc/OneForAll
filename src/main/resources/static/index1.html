@@ -2,29 +2,6 @@
 <html>
 <head>
     <title>c.c.</title>
-    <script type="text/javascript" src="./js/showdown.min.js"></script>
-    <style>
-        blockquote {
-            border-left:#eee solid 5px;
-            padding-left:20px;
-        }
-
-        ul li {
-            line-height: 20px;
-        }
-
-        code {
-            color:#D34B62;
-            background: #F6F6F6;
-        }
-
-        #result {
-            border: 1px dashed #333333;
-            width: 600px;
-            height: 400px;
-        }
-
-    </style>
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1">
 
@@ -47,40 +24,28 @@
 <a type="visibility" id="bilibili_cover" style="display: none;" href="#" download="" >链接</a>
 <div></div>
 <hr>
-<h1>md区域</h1>
-<hr>
-<!--<&#45;&#45;设置id为oriContent，如果想实现实时更新，使用onkeyup方法&#45;&#45;!>-->
-
-<textarea id="oriContent" style="height:900px;width:900px;" onkeyup="convert()"></textarea>
-→
-<!--<-&#45;&#45;设置展示的div添加id-!>-->
-<div id="result" style="height:auto;width:900px;float:right" ></div>
-<hr>
-
-
-
 <iframe src="http://www.staggeringbeauty.com/" style="border: 1px inset #ddd" width="498" height="598"></iframe>
 
 </body>
 
 <!-- 用pom文件导入的jquery -->
-<script src="https://cdn.staticfile.org/jquery/1.10.2/jquery.min.js"></script>
+<script src="/webjars/jquery/3.3.1/jquery.js"></script>
 <script>
     $(document).ready(function () {
 
         // 1.getfun
-        $("#getfun_button").click(function () {
+       $("#getfun_button").click(function () {
             // /代表了当前项目的根目录
             htmlobj = $.ajax(
                 {
-                    url: "/getfun",
-                    async: false
+                url: "/getfun",
+                async: false
                 }
             );
             $("#getfun").html(htmlobj.responseText);
         });
 
-        //nodel
+       //nodel
 
 
         // 2.getCover
@@ -98,7 +63,7 @@
                     $("#bilibili_cover").attr("download",objReturn);
                 },
                 error : function (objReturn) {
-                    $("#bilibili_cover").attr("href","#");
+                  $("#bilibili_cover").attr("href","#");
                 }
             })
         });
@@ -108,29 +73,12 @@
          * 打开新页面
          */
         $("#adiv").click(function () {
-            var tempwindow=window.open('_blank');
-            tempwindow.location= $("#bilibili_cover").val() ;
+                var tempwindow=window.open('_blank');
+                tempwindow.location= $("#bilibili_cover").val() ;
         });
 
 
-
     });
-
-    function convert(){
-        var text = document.getElementById("oriContent").value;
-        //var show = new showdown;
-        var converter = new showdown.Converter();
-        var defaultOptions = converter.getOptions();
-        defaultOptions.strikethrough=!0;
-        //defaultOptions.helper.emojis=!0;
-        defaultOptions.emoji=!0;
-        defaultOptions.tables=!0;
-        defaultOptions.tasklists=!0;
-        defaultOptions.parseImgDimensions=!0;
-        var html = converter.makeHtml(text);
-        document.getElementById("result").innerHTML = html;
-    }
-
 </script>
 
 </html>

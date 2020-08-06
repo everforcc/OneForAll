@@ -12,6 +12,7 @@ public class ViewController {
 
     @RequestMapping("/")
     public String index(){
-        return "index";
+        return "fun ";
+        //return "index";
     }
 }
