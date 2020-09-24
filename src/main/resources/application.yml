@@ -5,3 +5,6 @@ spring:
       suffix: .html
 server:
   port: 80
+  tomcat:
+    connection-timeout: 600s
+

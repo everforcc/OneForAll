@@ -1,6 +1,6 @@
 package cn.cc.dawn.controller;
 
-import cn.cc.dawn.craw.Bilibili_Cover;
+import cn.cc.dawn.jdkcraw.Bilibili_Cover;
 import cn.cc.dawn.utils.Init;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestParam;
@@ -12,6 +12,11 @@ import org.springframework.web.bind.annotation.RestController;
  */
 @RestController
 public class MsgRestController {
+
+    /**
+     *  controller
+     *  管理链接，和前端对接
+     */
 
     Bilibili_Cover bilibili_cover = new Bilibili_Cover();
     Init init =  Init.getInstanse();

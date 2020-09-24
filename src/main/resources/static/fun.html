@@ -42,6 +42,13 @@
 
 <button id="bilibili_cover_button" type="button">GetCover</button>
 
+
+<!-- 给个录入框 -->
+<div>bilibili视频</div>
+<div><h5>av号/bv也行吧:</h5><input id="Video"  ></div>
+
+<button id="bilibili_Video_button" type="button">GetVideo</button>
+
 <button id="adiv" style="display: none"></button>
 <!-- 给个图片的链接 -->
 <a type="visibility" id="bilibili_cover" style="display: none;" href="#" download="" >链接</a>
@@ -103,6 +110,27 @@
             })
         });
 
+        // 2.getCover
+        $("#bilibili_Video_button").click(function () {
+            var value=$("#Video").val();
+
+            window.location.href = '/bilibili?num=' + value;
+            /*$.ajax({
+                url : "/bilibili",
+                type : "post",
+                data : {"num": value } ,
+                async : false,
+                dataType : "text",
+                success : function (objReturn) {
+                    $("#bilibili_cover").show();
+                    $("#bilibili_cover").attr("href",objReturn);
+                    $("#bilibili_cover").attr("download",objReturn);
+                },
+                error : function (objReturn) {
+                    $("#bilibili_cover").attr("href","#");
+                }
+            })*/
+        });
 
         /**
          * 打开新页面
