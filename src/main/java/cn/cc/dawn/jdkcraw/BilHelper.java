@@ -1,4 +1,4 @@
-package cn.cc.dawn.craw;
+package cn.cc.dawn.jdkcraw;
 
 /**
  * Yukino
@@ -11,7 +11,8 @@ public class BilHelper {
         if("".equals(aid)||null==aid){
             return "false";
         }
-        aid=aid.toUpperCase();
+        // BV的大写的话算法会出现问题
+        //aid=aid.toUpperCase();
         if(aid.startsWith("AV")){
             return  aid.substring(2,aid.length());
         }else if (aid.startsWith("BV")){ // BV格式的判断       'BV1  4 1 7  '    正则表达式来判断

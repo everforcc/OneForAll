@@ -1,4 +1,4 @@
-package cn.cc.dawn.craw.webmagic;
+package cn.cc.dawn.jdkcraw.webmagic;
 
 
 import com.alibaba.fastjson.JSONObject;

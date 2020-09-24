@@ -1,4 +1,4 @@
-package cn.cc.dawn.craw.webmagic.datahelp;
+package cn.cc.dawn.jdkcraw.webmagic.datahelp;
 
 import cn.cc.dawn.utils.Constant;
 import org.jsoup.Connection;

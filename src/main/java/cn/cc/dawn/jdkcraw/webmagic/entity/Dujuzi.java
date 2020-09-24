@@ -1,4 +1,4 @@
-package cn.cc.dawn.craw.webmagic.entity;
+package cn.cc.dawn.jdkcraw.webmagic.entity;
 
 import java.util.List;
 

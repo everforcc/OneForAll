@@ -1,6 +1,4 @@
-package cn.cc.dawn.craw.webmagic;
-
-import org.springframework.core.io.ClassPathResource;
+package cn.cc.dawn.jdkcraw.webmagic;
 
 /**
  * Yukino

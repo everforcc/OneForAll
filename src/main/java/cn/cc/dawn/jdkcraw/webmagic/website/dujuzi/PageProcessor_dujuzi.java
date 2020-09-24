@@ -1,6 +1,6 @@
-package cn.cc.dawn.craw.webmagic.website.dujuzi;
+package cn.cc.dawn.jdkcraw.webmagic.website.dujuzi;
 
-import cn.cc.dawn.craw.webmagic.datahelp.HtmlHelper;
+import cn.cc.dawn.jdkcraw.webmagic.datahelp.HtmlHelper;
 import cn.cc.dawn.persistence.io.InputStream_IO_Write;
 import org.jsoup.nodes.Document;
 import org.jsoup.nodes.Element;
