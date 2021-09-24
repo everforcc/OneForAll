@@ -55,6 +55,13 @@
         </dependency>
 
 
+        <!-- 解析json JSONObject -->
+        <dependency>
+            <groupId>net.sf.json-lib</groupId>
+            <artifactId>json-lib</artifactId>
+            <version>2.4</version>
+            <classifier>jdk15</classifier>
+        </dependency>
         <!-- json解析，spring自带的也有，还是用阿里巴巴的好了-->
         <!-- https://mvnrepository.com/artifact/com.alibaba/fastjson -->
         <dependency>
@@ -99,12 +106,17 @@
             <version>0.7.3</version>
         </dependency>
 
-        <!-- 解析json JSONObject -->
+
+        <!--AOP -->
         <dependency>
-            <groupId>net.sf.json-lib</groupId>
-            <artifactId>json-lib</artifactId>
-            <version>2.4</version>
-            <classifier>jdk15</classifier>
+            <groupId>org.aspectj</groupId>
+            <artifactId>aspectjrt</artifactId>
+            <version>1.6.11</version>
+        </dependency>
+        <dependency>
+            <groupId>org.aspectj</groupId>
+            <artifactId>aspectjweaver</artifactId>
+            <version>1.6.11</version>
         </dependency>
 
     </dependencies>

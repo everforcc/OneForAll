@@ -1,6 +1,6 @@
 package cn.cc.dawn.jdkcraw;
 
-import cn.cc.dawn.jdkcraw.webmagic.datahelp.HtmlHelper;
+import cn.cc.dawn.business.jdkcraw.webmagic.datahelp.HtmlHelper;
 import cn.cc.dawn.persistence.io.InputStream_IO_Write;
 import org.jsoup.nodes.Document;
 import org.jsoup.nodes.Element;
@@ -17,6 +17,11 @@ import java.util.Map;
  */
 @SpringBootTest
 public class Dujuzi {
+
+    @Test
+    public void compile(){
+        System.out.println("1");
+    }
 
     private static final String url_dujuzi_Info = "https://www.dujuzi.cn/Home/JujiInfo/1947.html";
 
