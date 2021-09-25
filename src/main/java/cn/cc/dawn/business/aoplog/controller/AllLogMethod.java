@@ -1,4 +1,4 @@
-package cn.cc.dawn.business.aoplog;
+package cn.cc.dawn.business.aoplog.controller;
 
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PathVariable;

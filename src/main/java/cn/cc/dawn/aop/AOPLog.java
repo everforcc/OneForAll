@@ -36,6 +36,7 @@ public class AOPLog {
     @AfterThrowing("pointCut(id)")
     public void afterThrowingLog(int id) {
         System.out.println("方法抛出异常后执行通知 日志记录"+id);
+        System.out.printf("",id);
     }
 
     //    环绕通知
