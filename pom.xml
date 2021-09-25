@@ -78,14 +78,6 @@
             <version>3.10</version>
         </dependency>
 
-        <!-- 没啥选的就用最新的日志吧 -->
-        <!-- https://mvnrepository.com/artifact/org.apache.logging.log4j/log4j-core -->
-        <!--<dependency>
-            <groupId>org.apache.logging.log4j</groupId>
-            <artifactId>log4j-core</artifactId>
-            <version>2.13.3</version>
-        </dependency>-->
-
         <!-- 自带的也有 -->
         <dependency>
             <groupId>org.awaitility</groupId>
@@ -118,6 +110,7 @@
             <artifactId>aspectjweaver</artifactId>
             <version>1.6.11</version>
         </dependency>
+
 
     </dependencies>
 
