@@ -121,9 +121,34 @@
                 <groupId>org.springframework.boot</groupId>
                 <artifactId>spring-boot-maven-plugin</artifactId>
             </plugin>
+            <plugin>
+                <groupId>com.spotify</groupId>
+                <artifactId>docker-maven-plugin</artifactId>
+                <version>1.0.0</version>
+                <configuration>
+                    <imageName>mavendemo-4</imageName>
+                    <baseImage>java</baseImage>
+                    <!--<maintainer>docker_maven docker_maven@email.com</maintainer>-->
+                    <workdir>/ROOT</workdir>
+                    <cmd>["java", "-version"]</cmd>
+                    <!-- ${project.build.finalName}.jar -->
+                    <entryPoint>["java", "-jar", "/target/${project.build.finalName}.jar"]</entryPoint>
+                    <!--docker服务器上的ip-->
+                    <dockerHost>http://42.192.18.126:80</dockerHost>
+                    <exposes>
+                        <expose>8080</expose>
+                    </exposes>
+                    <!-- 这里是复制 jar 包到 docker 容器指定目录配置 -->
+                    <resources>
+                        <resource>
+                            <targetPath>/target</targetPath>
+                            <directory>${project.build.directory}</directory>
+                            <include>${project.build.finalName}.jar</include>
+                        </resource>
+                    </resources>
+                </configuration>
+            </plugin>
         </plugins>
-
-
     </build>
 
 </project>
