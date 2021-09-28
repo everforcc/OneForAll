@@ -125,10 +125,21 @@
                 <groupId>com.spotify</groupId>
                 <artifactId>docker-maven-plugin</artifactId>
                 <version>1.0.0</version>
+                <!--设置maven在install的时候build-->
+                <!--<executions>
+                    <execution>
+                        <id>build-image</id>
+                        <phase>install</phase>
+                        <goals>
+                            <goal>build</goal>
+                        </goals>
+                    </execution>
+                </executions>-->
                 <configuration>
                     <imageName>mavendemo-4</imageName>
                     <baseImage>java</baseImage>
                     <!--<maintainer>docker_maven docker_maven@email.com</maintainer>-->
+                    <!-- 在服务器根目录测试切换别的目录/root /dockerdirtest -->
                     <workdir>/ROOT</workdir>
                     <cmd>["java", "-version"]</cmd>
                     <!-- ${project.build.finalName}.jar -->

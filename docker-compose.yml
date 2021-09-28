@@ -1,0 +1,31 @@
+# mkdir -p ./docker/logs && mkdir -p ./docker/logs && mvn clean package -Dmaven.test.skip=true && docker-compose up --build
+# version 参考：https://docs.docker.com/compose/compose-file/#reference-and-guidelines
+version: '3.7'
+# 可以指定多个服务
+services:
+  oneforall:
+    build: OneForAll/.
+    container_name: OneForAll
+    image: oneforall:latest
+    restart: 'no'
+    ports:
+      - 8521:8080 # 前linux端口，后docke启动镜像的端口
+    environment:
+      TZ: 'Asia/Shanghai' # timeZone 时区
+      SPRING_PROFILES_ACTIVE: dev # dev|sit|uat|prod 动态切换 spring 配置文件
+      # ****************************************************************************************************************
+      # -Dlog.home=日志文件存储路径
+      # -Dlog.file.name=日志文件名
+      # -Dlog.level=日志输出等级
+      # -Dlog.console=日志是否输出到控制台； YES：是， NO：否
+      # ****************************************************************************************************************
+      JAVA_OPTS:  # 配置 jvm 参数 -Ddruid.mysql.usePingMethod=false
+        -Dlog.home=/app
+        -Dlog.file.name=boc-applet
+        -Dlog.level=DEBUG
+        -Dlog.console=YES
+    volumes:
+      - './docker/logs:/app/logs'
+      - './docker/files:/app/files'
+    network_mode: bridge
+  # 同一级别的可以配置多个
