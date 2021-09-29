@@ -9,8 +9,7 @@ public class TAllLog {
 
     @Test
     public void t1(){
-        AllLog allLog = new AllLog();
-        allLog.tAOPLog(1);
+
     }
 
 }
