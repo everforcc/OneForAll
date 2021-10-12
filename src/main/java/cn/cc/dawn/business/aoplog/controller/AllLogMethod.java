@@ -5,7 +5,7 @@ import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.RestController;
 
 /**
- * @author guokailong 2021-09-25
+ * @author everforcc 2021-09-25
  */
 @RestController
 public class AllLogMethod {
