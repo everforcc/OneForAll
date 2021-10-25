@@ -3,7 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <title>测试使用markdown</title>
-    <script type="text/javascript" src="../js/showdown.min.js"></script>
+    <script type="text/javascript" src="js/showdown.min.js"></script>
     <style>
         blockquote {
             border-left:#eee solid 5px;
@@ -19,12 +19,6 @@
             background: #F6F6F6;
         }
 
-        #result {
-            border: 1px dashed #333333;
-            width: 600px;
-            height: 400px;
-        }
-
     </style>
 </head>
 
@@ -33,10 +27,10 @@
 <div>
     <!--<&#45;&#45;设置id为oriContent，如果想实现实时更新，使用onkeyup方法&#45;&#45;!>-->
 
-    <textarea id="oriContent" style="height:900px;width:900px;" onkeyup="convert()"></textarea>
-    →
+    <textarea id="oriContent" style="height:400px;width:600px;" onkeyup="convert()"></textarea>
+
     <!--<-&#45;&#45;设置展示的div添加id-!>-->
-    <div id="result" style="height:auto;width:900px;float:right" ></div>
+    <div id="result"></div>
 
 </div>
 
@@ -58,8 +52,6 @@
         //defaultOptions.helper.emojis=!0;
         defaultOptions.emoji=!0;
         defaultOptions.tables=!0;
-        defaultOptions.tasklists=!0;
-        defaultOptions.parseImgDimensions=!0;
         var html = converter.makeHtml(text);
         document.getElementById("result").innerHTML = html;
     }
