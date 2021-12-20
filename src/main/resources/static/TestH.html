@@ -1,0 +1,141 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+
+<h1> 测试html </h1>
+<button id="testgety">GET跨域</button>
+
+<button id="testgetn">GET不跨域</button>
+
+<button id="bilibili_flv">多个代理-bil</button>
+
+<a href="https://gitee.com/MyYukino/media/raw/master/picture/%E9%9D%A2%E5%8C%85.jpg" download="filename">down pic</a>
+
+</body>
+
+<script src="https://cdn.staticfile.org/jquery/1.10.2/jquery.min.js"></script>
+<script>
+
+    // $(document).ready(function(){
+    //     $("button").click(function(){
+    //         $.get("https://cloud.bankofchina.com/su/beta/test_vr/server/game-config/2/43affb770a4e49988299a12ae5e74ec0",function(data,status){
+    //             alert("数据: " + data + "\n状态: " + status);
+    //         });
+    //     });
+    // });
+
+    $("#testgety").click(function () {
+        var value = $("#input").val();
+        //jQuery.support.cors = true;
+        $.support.cors = true;
+        $.ajax({
+            //url : "https://cloud.bankofchina.com/su/beta/test_vr/server/game-config/2/43affb770a4e49988299a12ae5e74ec0",
+            url: "/sjgameproxy/game-config/2/43affb770a4e49988299a12ae5e74ec0",
+            //url : "https://boc.91tests.net/game-config/2/43affb770a4e49988299a12ae5e74ec0",
+            type : "get",
+            async : false,
+            dataType : "application/json",
+            /*before:function (request){
+                request.set("token","MTAwMDI6OWQ1YjEyMDdmMGRjNDQwZDgxNzU3ZWI0ZDlmNzdiYzA=");
+            },*/
+            //headers:{"token":"MTAwMDI6OWQ1YjEyMDdmMGRjNDQwZDgxNzU3ZWI0ZDlmNzdiYzA="},
+            headers:{"token":"MTAwMDI6MzhmZjlmNWY3YWUzNDgzYzg1ODNjNzQxNmY3YzEyZjU="},
+            success : function (data,status) {
+                alert("数据: " + data + "\n状态: " + status);
+            },
+            error : function (data,status) {
+                alert("数据: " + data + "\n状态: " + status);
+            }
+        })
+    });
+
+    $("#testgetn").click(function () {
+        var value = $("#input").val();
+        //jQuery.support.cors = true;
+        $.support.cors = true;
+        $.ajax({
+            url : "https://cloud.bankofchina.com/su/beta/test_vr/server/game-config/2/43affb770a4e49988299a12ae5e74ec0",
+            //url: "/sjgameproxy/game-config/2/43affb770a4e49988299a12ae5e74ec0",
+            //url : "https://boc.91tests.net/game-config/2/43affb770a4e49988299a12ae5e74ec0",
+            type : "get",
+            async : false,
+            dataType : "application/json",
+            /*before:function (request){
+                request.set("token","MTAwMDI6OWQ1YjEyMDdmMGRjNDQwZDgxNzU3ZWI0ZDlmNzdiYzA=");
+            },*/
+            //headers:{"token":"MTAwMDI6OWQ1YjEyMDdmMGRjNDQwZDgxNzU3ZWI0ZDlmNzdiYzA="},
+            headers:{"token":"MTAwMDI6MzhmZjlmNWY3YWUzNDgzYzg1ODNjNzQxNmY3YzEyZjU="},
+            success : function (data,status) {
+                alert("数据: " + data + "\n状态: " + status);
+            },
+            error : function (data,status) {
+                alert("数据: " + data + "\n状态: " + status);
+            }
+        })
+    });
+
+    $("#bilibili_flv").click(function () {
+        var value = $("#input").val();
+        //jQuery.support.cors = true;
+        $.support.cors = true;
+        $.ajax({
+            //url : "https://cloud.bankofchina.com/su/beta/test_vr/server/game-config/2/43affb770a4e49988299a12ae5e74ec0",
+            url: "/api.bilibili.com/x/player/playurl?fnval=2&otype=json&fnver=0&player=1&avid=807266271&cid=460010802&qn=16",
+            //url : "https://boc.91tests.net/game-config/2/43affb770a4e49988299a12ae5e74ec0",
+            type : "get",
+            // data : {"num": value,
+            //     "num": value
+            //     "num": value
+            //     "num": value} ,
+            async : false,
+            dataType : "application/json",
+            /*before:function (request){
+                request.set("token","MTAwMDI6OWQ1YjEyMDdmMGRjNDQwZDgxNzU3ZWI0ZDlmNzdiYzA=");
+            },*/
+            //headers:{"token":"MTAwMDI6OWQ1YjEyMDdmMGRjNDQwZDgxNzU3ZWI0ZDlmNzdiYzA="},
+            headers:{"accept":"text/html,application/xhtml+xml,application/xml;q=0.9,image/avif,image/webp,image/apng,*/*;q=0.8,application/signed-exchange;v=b3;q=0.9"
+            ,"user-agent":"Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/92.0.4515.131 Safari/537.36"
+            ,"accept-language":"zh-CN,zh;q=0.9"
+            },
+            success : function (data,status) {
+                alert("数据: " + data + "\n状态: " + status);
+                var $form = $('<form method="GET"></form>');
+                $form.attr('action', 'https://xy140x207x21x27xy.mcdn.bilivideo.cn:4483/upgcxcode/02/08/460010802/460010802_nb2-1-16.mp4?e=ig8euxZM2rNcNbRVhwdVhwdlhWdVhwdVhoNvNC8BqJIzNbfqXBvEqxTEto8BTrNvN0GvT90W5JZMkX_YN0MvXg8gNEV4NC8xNEV4N03eN0B5tZlqNxTEto8BTrNvNeZVuJ10Kj_g2UB02J0mN0B5tZlqNCNEto8BTrNvNC7MTX502C8f2jmMQJ6mqF2fka1mqx6gqj0eN0B599M=&uipk=5&nbs=1&deadline=1639544105&gen=playurlv2&os=mcdn&oi=2362328470&trid=0000a18af6f923ab4c4aa67c86212e9aa430u&platform=pc&upsig=256e4f0a7f9daacd1ca1c9857d5989a1&uparams=e,uipk,nbs,deadline,gen,os,oi,trid,platform&mcdnid=2001405&mid=0&bvc=vod&nettype=0&orderid=0,3&agrr=1&bw=35879&logo=A0000002');
+                $form.appendTo($('body'));
+                $form.submit();
+            },
+            error : function (data,status) {
+                alert("数据: " + data + "\n状态: " + status);
+                /*var $form = $('<form method="GET"></form>');
+                $form.attr('action', 'https://gitee.com/MyYukino/media/raw/master/picture/%E9%9D%A2%E5%8C%85.jpg');
+                $form.appendTo($('body'));
+                $form.submit();*/
+                window.open('https://gitee.com/MyYukino/media/raw/master/picture/%E9%9D%A2%E5%8C%85.jpg','_blank');
+                funDownload();
+            }
+        })
+
+
+        var funDownload = function (content, filename) {
+            // 创建隐藏的可下载链接
+            var eleLink = document.createElement('a');
+            eleLink.download = filename;
+            eleLink.style.display = 'none';
+            // 字符内容转变成blob地址
+            var blob = new Blob([content]);
+            eleLink.href = URL.createObjectURL(blob);
+            // 触发点击
+            document.body.appendChild(eleLink);
+            eleLink.click();
+            // 然后移除
+            document.body.removeChild(eleLink);
+        };
+
+    });
+
+</script>
+</html>

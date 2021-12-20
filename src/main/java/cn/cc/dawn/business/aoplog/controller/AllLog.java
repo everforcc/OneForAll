@@ -1,10 +1,7 @@
 package cn.cc.dawn.business.aoplog.controller;
 
 import org.springframework.stereotype.Controller;
-import org.springframework.web.bind.annotation.GetMapping;
-import org.springframework.web.bind.annotation.PathVariable;
-import org.springframework.web.bind.annotation.RequestMapping;
-import org.springframework.web.bind.annotation.RestController;
+import org.springframework.web.bind.annotation.*;
 
 /**
  * @author everforcc 2021-09-25
@@ -13,9 +10,21 @@ import org.springframework.web.bind.annotation.RestController;
 @RestController
 public class AllLog {
 
-    @GetMapping("/taop/{id}")
-    public void tAOPLog(@PathVariable("id")int id){
+    @GetMapping("/taop/{id}/{name}")
+    public void aopLog(@PathVariable("id")int id){
         System.out.println("tAOPLog()");
+        System.out.println("当前线程id:" + Thread.currentThread ().getId());
+        id++;
+        tAOPLog(id);
+    }
+
+    @PostMapping("/callback")
+    public void callback(@RequestBody String data){
+        System.out.println("data(): " + data);
+    }
+
+    public void tAOPLog(int id){
+        System.out.println(id + "tAOPLog()");
     }
 
 }

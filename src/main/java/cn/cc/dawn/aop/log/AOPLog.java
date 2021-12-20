@@ -1,4 +1,4 @@
-package cn.cc.dawn.aop;
+package cn.cc.dawn.aop.log;
 
 import org.aspectj.lang.ProceedingJoinPoint;
 import org.aspectj.lang.annotation.*;
@@ -12,7 +12,8 @@ import org.springframework.stereotype.Service;
 public class AOPLog {
 
     //@Pointcut("execution(* cn.cc.dawn.business.user.UserService.GetDemoUser(..)) && args(id)")
-    @Pointcut("execution(* cn.cc.dawn.business.aoplog..tAOPLog(..)) && args(id)")
+    //@Pointcut("execution(* cn.cc.dawn.business.aoplog..tAOPLog(..)) && args(id)")
+    @Pointcut("execution(* cn.cc.dawn.business.aoplog..*.*(..)) && args(id)")
     public void pointCut(int id){
 
     }
@@ -20,6 +21,7 @@ public class AOPLog {
     // 配置连接点 方法开始执行时通知
     @Before("pointCut(id)")
     public void beforeLog(int id) {
+        System.out.println("当前线程id:" + Thread.currentThread ().getId());
         System.out.println("开始执行前置通知  日志记录:"+id);
     }
     //    方法执行完后通知
