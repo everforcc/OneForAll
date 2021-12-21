@@ -1,4 +1,4 @@
-package cn.cc.dawn.aop.redis;
+package cn.cc.dawn.common.redis;
 
 import org.aspectj.lang.ProceedingJoinPoint;
 import org.aspectj.lang.annotation.*;
@@ -11,7 +11,7 @@ import org.springframework.stereotype.Service;
 @Service
 public class AOPRedisProcess {
 
-    @Pointcut("execution(* cn.cc.dawn.business.aopredis..RedisProcess*(..)) && args(key)")
+    @Pointcut("execution(* cn.cc.dawn.business.cacheredis..RedisProcess*(..)) && args(key)")
     public void pointCut(String key){
 
     }

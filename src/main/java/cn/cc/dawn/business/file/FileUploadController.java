@@ -4,7 +4,10 @@ import com.alibaba.fastjson.JSONObject;
 import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.*;
 import org.springframework.web.multipart.MultipartFile;
+import org.springframework.web.multipart.MultipartHttpServletRequest;
 
+import javax.servlet.http.HttpServletRequest;
+import javax.servlet.http.HttpServletResponse;
 import java.io.FileOutputStream;
 import java.io.IOException;
 import java.io.InputStream;
@@ -17,6 +20,7 @@ public class FileUploadController {
 
     // 存文件信息
     public static Map<String,FileObj> mapCache = new HashMap<>();
+    public static Map<String,InputStream> streamMapCache = new HashMap<>();
 
     //public static Map<String,FileObj> mapCache = new HashMap<>();
 
@@ -28,28 +32,11 @@ public class FileUploadController {
      */
 
     /*@PostMapping("/hand")
-    public void handleFileUpload(@RequestParam("file") MultipartFile file,
-                                 @RequestBody String body) {
-        long range = 0L;
-        // 校验
-        FileObj fileObj = JSONObject.parseObject(body,FileObj.class);
-        String fileName = fileObj.getFileName();
-        try (InputStream in = file.getInputStream();){
-            FileOutputStream fo = new FileOutputStream("C:/test/" + fileName);
-            byte[] buf = new byte[1024];
-            int length = 0;
-            while ((length = in.read(buf, 0, buf.length)) != -1) {
-                fo.write(buf, 0, length);
-                range+=length;
-            }
-            in.close();
-            fo.close();
-        } catch (IOException e) {
-            e.printStackTrace();
-            fileObj.setRange(range);
-            fileObj.setSize(file.getSize());
-            mapCache.put(fileObj.getMd5(),fileObj);
-        }
+    public void handleFileUploadReq(HttpServletRequest httpServletRequest, HttpServletResponse httpServletResponse) {
+        MultipartHttpServletRequest multipartRequest = (MultipartHttpServletRequest) httpServletRequest;
+
+        MultipartFile file = multipartRequest.getFile("ImFileName");
+
     }*/
 
     @PostMapping("/hand")
@@ -61,7 +48,11 @@ public class FileUploadController {
         fileObj.setFileName(file.getOriginalFilename());
         String fileName = fileObj.getFileName();
         System.out.println("file.getSize(): " + file.getSize());
-        try (InputStream in = file.getInputStream();){
+        InputStream in = null;
+
+        try {
+            in = file.getInputStream();
+            streamMapCache.put(fileObj.getMd5(),in);
             FileOutputStream fo = new FileOutputStream("C:/test/" + fileName,true);
             byte[] buf = new byte[1024];
             int length = 0;
@@ -74,6 +65,7 @@ public class FileUploadController {
             fileObj.setRange(range);
             fileObj.setSize(file.getSize());
             mapCache.put(fileObj.getMd5(),fileObj);
+
         }finally {
             System.out.println("fileName:" + fileName + "[end]");
         }

@@ -7,7 +7,13 @@ spring:
     multipart:
       max-file-size: 10240000000
       max-request-size: 10240000000
+  redis:
+    host: 127.0.0.1
+    port: 6379
+    password: 11111111
+  cache:
+    type: redis
 server:
   port: 8081
   tomcat:
-    connection-timeout: 1s
+    connection-timeout: 10ms

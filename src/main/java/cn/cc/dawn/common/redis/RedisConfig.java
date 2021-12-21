@@ -1,4 +1,4 @@
-package cn.cc.dawn.aop.redis;
+package cn.cc.dawn.common.redis;
 
 import java.util.HashMap;
 import java.util.Map;

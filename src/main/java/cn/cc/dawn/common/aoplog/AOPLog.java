@@ -1,4 +1,4 @@
-package cn.cc.dawn.aop.log;
+package cn.cc.dawn.common.aoplog;
 
 import org.aspectj.lang.ProceedingJoinPoint;
 import org.aspectj.lang.annotation.*;

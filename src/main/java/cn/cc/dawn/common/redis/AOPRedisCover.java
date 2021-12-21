@@ -1,11 +1,8 @@
-package cn.cc.dawn.aop.redis;
+package cn.cc.dawn.common.redis;
 
 import org.aspectj.lang.ProceedingJoinPoint;
 import org.aspectj.lang.annotation.*;
 import org.springframework.stereotype.Service;
-
-import java.util.HashMap;
-import java.util.Map;
 
 /**
  * @author everforcc 2021-09-25
@@ -14,7 +11,7 @@ import java.util.Map;
 @Service
 public class AOPRedisCover {
 
-    @Pointcut("execution(* cn.cc.dawn.business.aopredis..RedisCover*(..)) && args(id,name)")
+    @Pointcut("execution(* cn.cc.dawn.business.cacheredis..RedisCover*(..)) && args(id,name)")
     public void pointCut(int id,String name){}
 
     @Before("pointCut(id,name)")
