@@ -1,7 +1,7 @@
 package cn.cc.dawn.business.crawbilibili.controller;
 
 import cn.cc.dawn.business.jdkcraw.Bilibili_Cover;
-import cn.cc.dawn.utils.Init;
+import cn.cc.dawn.config.init.Init;
 import org.springframework.web.bind.annotation.*;
 import org.springframework.web.multipart.MultipartFile;
 

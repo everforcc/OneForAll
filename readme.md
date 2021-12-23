@@ -1,61 +1,23 @@
-######这是一个普通的网站
-`java`  
-**加粗**
+<font face="SimSun" size=3>
 
-```删除线```
+- 目录说明
+- doc项目相关文档
+- shell脚本
+- src源代码
+- temp 临时文件，可删
 
-- 无序列表
+---
 
-this is a :smile: smile emoji
-:boy:
-:cherries:
+- src
+- aop 公共的aop，日志类的
+- business所有业务都写到这个地方
+- config spring的配置
+- demo代码示例
+- task定时任务
+- utils工具类
+- constant 
 
-~~java删除线~~
+---
+- business
 
-####java 标题
-
-`java`
-
-
-`
-helloword
-syso
-sout
-`
-
-
-| Tables        | Are           | Cool  |
-
-| ------------- |:-------------:| -----:|
-
-| **col 3 is**  | right-aligned | $1600 |
-
-| col 2 is      | *centered*    |   $12 |
-
-| zebra stripes | ~~are neat~~  |    $1 |
-
-[百度链接](https://www.baidu.com)
-
-link to <http://www.baidu.com>
-
-+ 无序列表
-+ 无序列表
-+ 无序列表
-
-1. 有序列表
-1. 有序列表
-1. 有序列表
-
-*字体格式*       **字体格式**
-
-_字体格式2_      __字体格式2__
-
-```
-x = 0
-x = 2 + 2
-what is x
-```
-\   backslash
-
-!   exclamation mark
-
+</font>

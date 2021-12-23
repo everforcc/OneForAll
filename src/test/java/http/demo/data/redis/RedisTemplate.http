@@ -1,0 +1,13 @@
+
+### 增
+GET http://localhost:8081/redisTemplate/add/key_20211223_1716/a
+Accept: application/json
+
+### 查
+GET http://localhost:8081/redisTemplate/getValue/key_20211223_1716
+Accept: application/json
+
+### 删
+GET http://localhost:8081/redisTemplate/remove/key_20211223_1716
+Accept: application/json
+

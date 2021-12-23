@@ -19,6 +19,7 @@
     </properties>
 
     <dependencies>
+        <!-- spring start -->
         <dependency>
             <groupId>org.springframework.boot</groupId>
             <artifactId>spring-boot-starter-web</artifactId>
@@ -43,6 +44,31 @@
                 </exclusion>
             </exclusions>
         </dependency>
+
+        <!-- convert -->
+        <dependency>
+            <groupId>jakarta.persistence</groupId>
+            <artifactId>jakarta.persistence-api</artifactId>
+            <version>2.2.3</version>
+        </dependency>
+
+        <dependency>
+            <groupId>org.springframework.cloud</groupId>
+            <artifactId>spring-cloud-starter-openfeign</artifactId>
+            <version>2.2.8.RELEASE</version>
+        </dependency>
+        <dependency>
+            <groupId>org.springframework.cloud</groupId>
+            <artifactId>spring-cloud-openfeign-core</artifactId>
+            <version>2.2.8.RELEASE</version>
+        </dependency>
+        <!--<dependency>
+            <groupId>io.github.openfeign</groupId>
+            <artifactId>feign-httpclient</artifactId>
+            <version>11.2</version>
+        </dependency>-->
+
+        <!-- spring end -->
 
         <!--引入jquery‐webjar‐‐>在访问的时候只需要写webjars下面资源的名称即可-->
         <dependency>
@@ -118,6 +144,7 @@
             <artifactId>aspectjweaver</artifactId>
             <version>1.6.11</version>
         </dependency>
+
 
 
     </dependencies>

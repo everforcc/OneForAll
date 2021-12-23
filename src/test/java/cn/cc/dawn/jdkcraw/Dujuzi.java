@@ -1,7 +1,7 @@
 package cn.cc.dawn.jdkcraw;
 
 import cn.cc.dawn.business.jdkcraw.webmagic.datahelp.HtmlHelper;
-import cn.cc.dawn.persistence.io.InputStream_IO_Write;
+import cn.cc.dawn.utils.data.io.InputStream_IO_Write;
 import org.jsoup.nodes.Document;
 import org.jsoup.nodes.Element;
 import org.junit.jupiter.api.Test;
