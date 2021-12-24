@@ -17,3 +17,9 @@ server:
   port: 8081
   tomcat:
     connection-timeout: 10ms
+data:
+  str: string
+  stringList:
+    - str1
+    - str2
+    - str3

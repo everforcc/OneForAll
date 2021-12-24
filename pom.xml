@@ -68,6 +68,13 @@
             <version>11.2</version>
         </dependency>-->
 
+        <!-- config配置文件读到类 -->
+        <dependency>
+            <groupId>org.springframework.boot</groupId>
+            <artifactId>spring-boot-configuration-processor</artifactId>
+            <optional>true</optional>
+        </dependency>
+
         <!-- spring end -->
 
         <!--引入jquery‐webjar‐‐>在访问的时候只需要写webjars下面资源的名称即可-->

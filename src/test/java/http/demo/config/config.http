@@ -1,0 +1,9 @@
+
+
+###
+GET http://localhost:8081/config/str
+Accept: application/json
+
+###
+GET http://localhost:8081/config/strList
+Accept: application/json
