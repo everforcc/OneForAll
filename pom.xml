@@ -2,22 +2,29 @@
 <project xmlns="http://maven.apache.org/POM/4.0.0" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
          xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 https://maven.apache.org/xsd/maven-4.0.0.xsd">
     <modelVersion>4.0.0</modelVersion>
-    <parent>
-        <groupId>org.springframework.boot</groupId>
-        <artifactId>spring-boot-starter-parent</artifactId>
-        <version>2.3.1.RELEASE</version>
-        <relativePath/> <!-- lookup parent from repository -->
-    </parent>
     <groupId>cn.cc</groupId>
     <artifactId>OneForAll</artifactId>
     <version>0.0.1-SNAPSHOT</version>
     <name>OneForAll</name>
     <description>常用的小功能</description>
 
+    <!-- 菜鸟教程 文档 -->
+    <!-- https://www.runoob.com/maven/maven-pom.html -->
+
+    <parent>
+        <groupId>org.springframework.boot</groupId>
+        <artifactId>spring-boot-starter-parent</artifactId>
+        <version>2.3.1.RELEASE</version>
+        <relativePath/> <!-- lookup parent from repository -->
+    </parent>
+
+    <!--  可选配置多模块 modules -->
+
     <properties>
         <java.version>1.8</java.version>
     </properties>
 
+    <!-- 依赖包 -->
     <dependencies>
         <!-- spring start -->
         <dependency>
@@ -152,17 +159,47 @@
             <version>1.6.11</version>
         </dependency>
 
-
-
+        <!-- 方便写代码 -->
+        <!-- https://mvnrepository.com/artifact/org.projectlombok/lombok -->
+        <dependency>
+            <groupId>org.projectlombok</groupId>
+            <artifactId>lombok</artifactId>
+            <version>1.18.20</version>
+            <scope>provided</scope>
+        </dependency>
     </dependencies>
+    <!-- 依赖包 -->
 
-    <!-- 设置编译的jdk的版本 -->
+    <!-- 许可证 -->
+    <licenses>
+        <license>
+            <name>Apache 2.0</name>
+            <url>https://www.apache.org/licenses/LICENSE-2.0.txt</url>
+        </license>
+    </licenses>
+
+    <!-- 开发者 -->
+
+
     <build>
+
+        <resources>
+            <resource>
+                <directory>${basedir}/src/main/resources</directory>
+                <targetPath>${basedir}/target/classes</targetPath>
+                <!-- 开启 filtering 会替换静态资源（html|js|...）中使用 ${key:属性名} 占位的属性，可以定义在 pom.xml -> properties -> key  -->
+                <filtering>true</filtering>
+            </resource>
+        </resources>
+
         <plugins>
             <plugin>
                 <groupId>org.springframework.boot</groupId>
                 <artifactId>spring-boot-maven-plugin</artifactId>
             </plugin>
+
+            <!-- 发布docker到服务器 -->
+            <!-- 不好用还是要配置compose然后再在服务器更新 -->
             <plugin>
                 <groupId>com.spotify</groupId>
                 <artifactId>docker-maven-plugin</artifactId>
@@ -178,8 +215,8 @@
                     </execution>
                 </executions>-->
                 <configuration>
-                    <imageName>mavendemo-4</imageName>
-                    <baseImage>java</baseImage>
+                    <imageName>oneforall_imageName</imageName>
+                    <baseImage>oneforall_baseImage</baseImage>
                     <!--<maintainer>docker_maven docker_maven@email.com</maintainer>-->
                     <!-- 在服务器根目录测试切换别的目录/root /dockerdirtest -->
                     <workdir>/ROOT</workdir>
@@ -187,7 +224,7 @@
                     <!-- ${project.build.finalName}.jar -->
                     <entryPoint>["java", "-jar", "/target/${project.build.finalName}.jar"]</entryPoint>
                     <!--docker服务器上的ip-->
-                    <dockerHost>http://42.192.18.126:80</dockerHost>
+                    <dockerHost>http://ip:port</dockerHost>
                     <exposes>
                         <expose>8080</expose>
                     </exposes>
@@ -201,7 +238,34 @@
                     </resources>
                 </configuration>
             </plugin>
+
         </plugins>
     </build>
+
+    <!-- 多环境打包 -->
+    <profiles>
+        <profile>
+            <id>local</id>
+            <!-- 默认 -->
+            <activation>
+                <activeByDefault>true</activeByDefault>
+            </activation>
+            <properties>
+                <deploy.type>local</deploy.type>
+            </properties>
+        </profile>
+        <profile>
+            <id>sj</id>
+            <properties>
+                <deploy.type>sj</deploy.type>
+            </properties>
+        </profile>
+        <profile>
+            <id>bdy</id>
+            <properties>
+                <deploy.type>bdy</deploy.type>
+            </properties>
+        </profile>
+    </profiles>
 
 </project>

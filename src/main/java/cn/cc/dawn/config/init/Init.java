@@ -1,5 +1,6 @@
 package cn.cc.dawn.config.init;
 
+import lombok.extern.slf4j.Slf4j;
 import org.springframework.core.io.ClassPathResource;
 
 import java.io.BufferedReader;
@@ -13,6 +14,7 @@ import java.util.Map;
  * Yukino
  * 2020/3/9
  */
+@Slf4j
 public class Init {
 
     private static Map<Integer,String> map ;
@@ -24,9 +26,9 @@ public class Init {
 
     public static synchronized  Init getInstanse(){
         if(map == null){
-            map = new HashMap<Integer, String>();
+            map = new HashMap<>();
             map = initNOWSFUN();
-            System.out.println("初始化--------");
+            log.info("初始化--------");
         }
         return new Init(map);
     }
@@ -50,7 +52,7 @@ public class Init {
           * ClassPathResource classPathResource = new ClassPathResource("static/assets/test.txt");
           * InputStream inputStream = classPathResource.getInputStream();
           */
-        ClassPathResource classPathResource = new ClassPathResource("NOWSFUN.txt");
+        ClassPathResource classPathResource = new ClassPathResource("init/NOWSFUN.txt");
 
         try {
             InputStream inputStream = classPathResource.getInputStream();

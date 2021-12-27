@@ -1,0 +1,307 @@
+11:23:02.578 [INFO ] [main] [cn.cc.dawn.OneForAllApplication] No active profile set, falling back to default profiles: default
+11:23:02.933 [INFO ] [main] [org.springframework.data.repository.config.RepositoryConfigurationDelegate] Multiple Spring Data modules found, entering strict repository configuration mode!
+11:23:02.934 [INFO ] [main] [org.springframework.data.repository.config.RepositoryConfigurationDelegate] Bootstrapping Spring Data Redis repositories in DEFAULT mode.
+11:23:02.952 [INFO ] [main] [org.springframework.data.repository.config.RepositoryConfigurationDelegate] Finished Spring Data repository scanning in 10ms. Found 0 Redis repository interfaces.
+11:23:03.051 [INFO ] [main] [org.springframework.cloud.context.scope.GenericScope] BeanFactory id=70ce93c8-1f46-3a95-b096-9f7115409e46
+11:23:03.444 [INFO ] [main] [org.springframework.boot.web.embedded.tomcat.TomcatWebServer] Tomcat initialized with port(s): 8081 (http)
+11:23:03.449 [INFO ] [main] [org.apache.coyote.http11.Http11NioProtocol] Initializing ProtocolHandler ["http-nio-8081"]
+11:23:03.450 [INFO ] [main] [org.apache.catalina.core.StandardService] Starting service [Tomcat]
+11:23:03.450 [INFO ] [main] [org.apache.catalina.core.StandardEngine] Starting Servlet engine: [Apache Tomcat/9.0.36]
+11:23:03.515 [INFO ] [main] [org.apache.catalina.core.ContainerBase.[Tomcat].[localhost].[/]] Initializing Spring embedded WebApplicationContext
+11:23:03.515 [INFO ] [main] [org.springframework.boot.web.servlet.context.ServletWebServerApplicationContext] Root WebApplicationContext: initialization completed in 925 ms
+11:23:03.561 [INFO ] [main] [cn.cc.dawn.config.init.Init] 初始化--------
+11:23:04.111 [WARN ] [main] [org.springframework.cloud.netflix.archaius.ArchaiusAutoConfiguration] No spring.application.name found, defaulting to 'application'
+11:23:04.113 [WARN ] [main] [com.netflix.config.sources.URLConfigurationSource] No URLs will be polled as dynamic configuration sources.
+11:23:04.113 [INFO ] [main] [com.netflix.config.sources.URLConfigurationSource] To enable URLs as dynamic configuration sources, define System property archaius.configurationSource.additionalUrls or make config.properties available on classpath.
+11:23:04.115 [WARN ] [main] [com.netflix.config.sources.URLConfigurationSource] No URLs will be polled as dynamic configuration sources.
+11:23:04.115 [INFO ] [main] [com.netflix.config.sources.URLConfigurationSource] To enable URLs as dynamic configuration sources, define System property archaius.configurationSource.additionalUrls or make config.properties available on classpath.
+11:23:04.345 [INFO ] [main] [org.springframework.scheduling.concurrent.ThreadPoolTaskExecutor] Initializing ExecutorService 'applicationTaskExecutor'
+11:23:05.048 [INFO ] [main] [org.apache.coyote.http11.Http11NioProtocol] Starting ProtocolHandler ["http-nio-8081"]
+11:23:05.061 [INFO ] [main] [org.springframework.boot.web.embedded.tomcat.TomcatWebServer] Tomcat started on port(s): 8081 (http) with context path ''
+11:23:05.360 [INFO ] [main] [cn.cc.dawn.OneForAllApplication] Started OneForAllApplication in 3.856 seconds (JVM running for 4.638)
+11:27:04.055 [INFO ] [SpringContextShutdownHook] [org.springframework.scheduling.concurrent.ThreadPoolTaskExecutor] Shutting down ExecutorService 'applicationTaskExecutor'
+11:27:32.974 [INFO ] [main] [cn.cc.dawn.OneForAllApplication] No active profile set, falling back to default profiles: default
+11:27:33.328 [INFO ] [main] [org.springframework.data.repository.config.RepositoryConfigurationDelegate] Multiple Spring Data modules found, entering strict repository configuration mode!
+11:27:33.330 [INFO ] [main] [org.springframework.data.repository.config.RepositoryConfigurationDelegate] Bootstrapping Spring Data Redis repositories in DEFAULT mode.
+11:27:33.348 [INFO ] [main] [org.springframework.data.repository.config.RepositoryConfigurationDelegate] Finished Spring Data repository scanning in 10ms. Found 0 Redis repository interfaces.
+11:27:33.441 [INFO ] [main] [org.springframework.cloud.context.scope.GenericScope] BeanFactory id=70ce93c8-1f46-3a95-b096-9f7115409e46
+11:27:33.839 [INFO ] [main] [org.springframework.boot.web.embedded.tomcat.TomcatWebServer] Tomcat initialized with port(s): 8081 (http)
+11:27:33.844 [INFO ] [main] [org.apache.coyote.http11.Http11NioProtocol] Initializing ProtocolHandler ["http-nio-8081"]
+11:27:33.845 [INFO ] [main] [org.apache.catalina.core.StandardService] Starting service [Tomcat]
+11:27:33.845 [INFO ] [main] [org.apache.catalina.core.StandardEngine] Starting Servlet engine: [Apache Tomcat/9.0.36]
+11:27:33.916 [INFO ] [main] [org.apache.catalina.core.ContainerBase.[Tomcat].[localhost].[/]] Initializing Spring embedded WebApplicationContext
+11:27:33.917 [INFO ] [main] [org.springframework.boot.web.servlet.context.ServletWebServerApplicationContext] Root WebApplicationContext: initialization completed in 931 ms
+11:27:33.964 [INFO ] [main] [cn.cc.dawn.config.init.Init] 初始化--------
+11:27:34.533 [WARN ] [main] [org.springframework.cloud.netflix.archaius.ArchaiusAutoConfiguration] No spring.application.name found, defaulting to 'application'
+11:27:34.535 [WARN ] [main] [com.netflix.config.sources.URLConfigurationSource] No URLs will be polled as dynamic configuration sources.
+11:27:34.535 [INFO ] [main] [com.netflix.config.sources.URLConfigurationSource] To enable URLs as dynamic configuration sources, define System property archaius.configurationSource.additionalUrls or make config.properties available on classpath.
+11:27:34.537 [WARN ] [main] [com.netflix.config.sources.URLConfigurationSource] No URLs will be polled as dynamic configuration sources.
+11:27:34.537 [INFO ] [main] [com.netflix.config.sources.URLConfigurationSource] To enable URLs as dynamic configuration sources, define System property archaius.configurationSource.additionalUrls or make config.properties available on classpath.
+11:27:34.770 [INFO ] [main] [org.springframework.scheduling.concurrent.ThreadPoolTaskExecutor] Initializing ExecutorService 'applicationTaskExecutor'
+11:27:35.475 [INFO ] [main] [org.apache.coyote.http11.Http11NioProtocol] Starting ProtocolHandler ["http-nio-8081"]
+11:27:35.489 [INFO ] [main] [org.springframework.boot.web.embedded.tomcat.TomcatWebServer] Tomcat started on port(s): 8081 (http) with context path ''
+11:27:35.785 [INFO ] [main] [cn.cc.dawn.OneForAllApplication] Started OneForAllApplication in 3.855 seconds (JVM running for 4.557)
+11:29:27.327 [INFO ] [http-nio-8081-exec-1] [org.apache.catalina.core.ContainerBase.[Tomcat].[localhost].[/]] Initializing Spring DispatcherServlet 'dispatcherServlet'
+11:29:27.327 [INFO ] [http-nio-8081-exec-1] [org.springframework.web.servlet.DispatcherServlet] Initializing Servlet 'dispatcherServlet'
+11:29:27.337 [INFO ] [http-nio-8081-exec-1] [org.springframework.web.servlet.DispatcherServlet] Completed initialization in 10 ms
+11:33:28.500 [INFO ] [SpringContextShutdownHook] [org.springframework.scheduling.concurrent.ThreadPoolTaskExecutor] Shutting down ExecutorService 'applicationTaskExecutor'
+11:36:48.813 [INFO ] [main] [cn.cc.dawn.OneForAllApplication] No active profile set, falling back to default profiles: default
+11:36:49.165 [INFO ] [main] [org.springframework.data.repository.config.RepositoryConfigurationDelegate] Multiple Spring Data modules found, entering strict repository configuration mode!
+11:36:49.167 [INFO ] [main] [org.springframework.data.repository.config.RepositoryConfigurationDelegate] Bootstrapping Spring Data Redis repositories in DEFAULT mode.
+11:36:49.185 [INFO ] [main] [org.springframework.data.repository.config.RepositoryConfigurationDelegate] Finished Spring Data repository scanning in 10ms. Found 0 Redis repository interfaces.
+11:36:49.276 [INFO ] [main] [org.springframework.cloud.context.scope.GenericScope] BeanFactory id=84b0906a-cf96-3520-a08c-95dff45ecd85
+11:36:49.665 [INFO ] [main] [org.springframework.boot.web.embedded.tomcat.TomcatWebServer] Tomcat initialized with port(s): 8081 (http)
+11:36:49.670 [INFO ] [main] [org.apache.coyote.http11.Http11NioProtocol] Initializing ProtocolHandler ["http-nio-8081"]
+11:36:49.671 [INFO ] [main] [org.apache.catalina.core.StandardService] Starting service [Tomcat]
+11:36:49.671 [INFO ] [main] [org.apache.catalina.core.StandardEngine] Starting Servlet engine: [Apache Tomcat/9.0.36]
+11:36:49.740 [INFO ] [main] [org.apache.catalina.core.ContainerBase.[Tomcat].[localhost].[/]] Initializing Spring embedded WebApplicationContext
+11:36:49.740 [INFO ] [main] [org.springframework.boot.web.servlet.context.ServletWebServerApplicationContext] Root WebApplicationContext: initialization completed in 915 ms
+11:36:49.789 [INFO ] [main] [cn.cc.dawn.config.init.Init] 初始化--------
+11:36:50.340 [WARN ] [main] [org.springframework.cloud.netflix.archaius.ArchaiusAutoConfiguration] No spring.application.name found, defaulting to 'application'
+11:36:50.342 [WARN ] [main] [com.netflix.config.sources.URLConfigurationSource] No URLs will be polled as dynamic configuration sources.
+11:36:50.342 [INFO ] [main] [com.netflix.config.sources.URLConfigurationSource] To enable URLs as dynamic configuration sources, define System property archaius.configurationSource.additionalUrls or make config.properties available on classpath.
+11:36:50.344 [WARN ] [main] [com.netflix.config.sources.URLConfigurationSource] No URLs will be polled as dynamic configuration sources.
+11:36:50.344 [INFO ] [main] [com.netflix.config.sources.URLConfigurationSource] To enable URLs as dynamic configuration sources, define System property archaius.configurationSource.additionalUrls or make config.properties available on classpath.
+11:36:50.576 [INFO ] [main] [org.springframework.scheduling.concurrent.ThreadPoolTaskExecutor] Initializing ExecutorService 'applicationTaskExecutor'
+11:36:51.286 [INFO ] [main] [org.apache.coyote.http11.Http11NioProtocol] Starting ProtocolHandler ["http-nio-8081"]
+11:36:51.293 [WARN ] [main] [org.springframework.boot.web.servlet.context.AnnotationConfigServletWebServerApplicationContext] Exception encountered during context initialization - cancelling refresh attempt: org.springframework.context.ApplicationContextException: Failed to start bean 'webServerStartStop'; nested exception is org.springframework.boot.web.server.PortInUseException: Port 8081 is already in use
+11:36:51.293 [INFO ] [main] [org.springframework.scheduling.concurrent.ThreadPoolTaskExecutor] Shutting down ExecutorService 'applicationTaskExecutor'
+11:36:51.303 [INFO ] [main] [org.apache.coyote.http11.Http11NioProtocol] Pausing ProtocolHandler ["http-nio-8081"]
+11:36:51.303 [INFO ] [main] [org.apache.catalina.core.StandardService] Stopping service [Tomcat]
+11:36:51.306 [INFO ] [main] [org.apache.coyote.http11.Http11NioProtocol] Stopping ProtocolHandler ["http-nio-8081"]
+11:36:51.306 [INFO ] [main] [org.apache.coyote.http11.Http11NioProtocol] Destroying ProtocolHandler ["http-nio-8081"]
+11:36:51.311 [INFO ] [main] [org.springframework.boot.autoconfigure.logging.ConditionEvaluationReportLoggingListener] 
+
+Error starting ApplicationContext. To display the conditions report re-run your application with 'debug' enabled.
+11:36:51.314 [ERROR] [main] [org.springframework.boot.diagnostics.LoggingFailureAnalysisReporter] 
+
+***************************
+APPLICATION FAILED TO START
+***************************
+
+Description:
+
+Web server failed to start. Port 8081 was already in use.
+
+Action:
+
+Identify and stop the process that's listening on port 8081 or configure this application to listen on another port.
+
+11:37:04.877 [INFO ] [main] [cn.cc.dawn.OneForAllApplication] No active profile set, falling back to default profiles: default
+11:37:05.228 [INFO ] [main] [org.springframework.data.repository.config.RepositoryConfigurationDelegate] Multiple Spring Data modules found, entering strict repository configuration mode!
+11:37:05.229 [INFO ] [main] [org.springframework.data.repository.config.RepositoryConfigurationDelegate] Bootstrapping Spring Data Redis repositories in DEFAULT mode.
+11:37:05.247 [INFO ] [main] [org.springframework.data.repository.config.RepositoryConfigurationDelegate] Finished Spring Data repository scanning in 10ms. Found 0 Redis repository interfaces.
+11:37:05.339 [INFO ] [main] [org.springframework.cloud.context.scope.GenericScope] BeanFactory id=84b0906a-cf96-3520-a08c-95dff45ecd85
+11:37:05.727 [INFO ] [main] [org.springframework.boot.web.embedded.tomcat.TomcatWebServer] Tomcat initialized with port(s): 8081 (http)
+11:37:05.732 [INFO ] [main] [org.apache.coyote.http11.Http11NioProtocol] Initializing ProtocolHandler ["http-nio-8081"]
+11:37:05.733 [INFO ] [main] [org.apache.catalina.core.StandardService] Starting service [Tomcat]
+11:37:05.733 [INFO ] [main] [org.apache.catalina.core.StandardEngine] Starting Servlet engine: [Apache Tomcat/9.0.36]
+11:37:05.802 [INFO ] [main] [org.apache.catalina.core.ContainerBase.[Tomcat].[localhost].[/]] Initializing Spring embedded WebApplicationContext
+11:37:05.802 [INFO ] [main] [org.springframework.boot.web.servlet.context.ServletWebServerApplicationContext] Root WebApplicationContext: initialization completed in 913 ms
+11:37:05.852 [INFO ] [main] [cn.cc.dawn.config.init.Init] 初始化--------
+11:37:06.404 [WARN ] [main] [org.springframework.cloud.netflix.archaius.ArchaiusAutoConfiguration] No spring.application.name found, defaulting to 'application'
+11:37:06.406 [WARN ] [main] [com.netflix.config.sources.URLConfigurationSource] No URLs will be polled as dynamic configuration sources.
+11:37:06.406 [INFO ] [main] [com.netflix.config.sources.URLConfigurationSource] To enable URLs as dynamic configuration sources, define System property archaius.configurationSource.additionalUrls or make config.properties available on classpath.
+11:37:06.408 [WARN ] [main] [com.netflix.config.sources.URLConfigurationSource] No URLs will be polled as dynamic configuration sources.
+11:37:06.408 [INFO ] [main] [com.netflix.config.sources.URLConfigurationSource] To enable URLs as dynamic configuration sources, define System property archaius.configurationSource.additionalUrls or make config.properties available on classpath.
+11:37:06.641 [INFO ] [main] [org.springframework.scheduling.concurrent.ThreadPoolTaskExecutor] Initializing ExecutorService 'applicationTaskExecutor'
+11:37:07.349 [INFO ] [main] [org.apache.coyote.http11.Http11NioProtocol] Starting ProtocolHandler ["http-nio-8081"]
+11:37:07.362 [INFO ] [main] [org.springframework.boot.web.embedded.tomcat.TomcatWebServer] Tomcat started on port(s): 8081 (http) with context path ''
+11:37:07.664 [INFO ] [main] [cn.cc.dawn.OneForAllApplication] Started OneForAllApplication in 3.818 seconds (JVM running for 4.596)
+11:37:27.579 [INFO ] [http-nio-8081-exec-1] [org.apache.catalina.core.ContainerBase.[Tomcat].[localhost].[/]] Initializing Spring DispatcherServlet 'dispatcherServlet'
+11:37:27.579 [INFO ] [http-nio-8081-exec-1] [org.springframework.web.servlet.DispatcherServlet] Initializing Servlet 'dispatcherServlet'
+11:37:27.589 [INFO ] [http-nio-8081-exec-1] [org.springframework.web.servlet.DispatcherServlet] Completed initialization in 10 ms
+11:37:52.874 [INFO ] [SpringContextShutdownHook] [org.springframework.scheduling.concurrent.ThreadPoolTaskExecutor] Shutting down ExecutorService 'applicationTaskExecutor'
+11:38:43.794 [INFO ] [main] [cn.cc.dawn.OneForAllApplication] No active profile set, falling back to default profiles: default
+11:38:44.200 [INFO ] [main] [org.springframework.data.repository.config.RepositoryConfigurationDelegate] Multiple Spring Data modules found, entering strict repository configuration mode!
+11:38:44.202 [INFO ] [main] [org.springframework.data.repository.config.RepositoryConfigurationDelegate] Bootstrapping Spring Data Redis repositories in DEFAULT mode.
+11:38:44.222 [INFO ] [main] [org.springframework.data.repository.config.RepositoryConfigurationDelegate] Finished Spring Data repository scanning in 11ms. Found 0 Redis repository interfaces.
+11:38:44.330 [INFO ] [main] [org.springframework.cloud.context.scope.GenericScope] BeanFactory id=28b02465-e41e-3bc1-a209-159131ccf254
+11:38:44.777 [INFO ] [main] [org.springframework.boot.web.embedded.tomcat.TomcatWebServer] Tomcat initialized with port(s): 8081 (http)
+11:38:44.783 [INFO ] [main] [org.apache.coyote.http11.Http11NioProtocol] Initializing ProtocolHandler ["http-nio-8081"]
+11:38:44.783 [INFO ] [main] [org.apache.catalina.core.StandardService] Starting service [Tomcat]
+11:38:44.783 [INFO ] [main] [org.apache.catalina.core.StandardEngine] Starting Servlet engine: [Apache Tomcat/9.0.36]
+11:38:44.855 [INFO ] [main] [org.apache.catalina.core.ContainerBase.[Tomcat].[localhost].[/]] Initializing Spring embedded WebApplicationContext
+11:38:44.855 [INFO ] [main] [org.springframework.boot.web.servlet.context.ServletWebServerApplicationContext] Root WebApplicationContext: initialization completed in 1046 ms
+11:38:44.911 [INFO ] [main] [cn.cc.dawn.config.init.Init] 初始化--------
+11:38:45.549 [WARN ] [main] [org.springframework.cloud.netflix.archaius.ArchaiusAutoConfiguration] No spring.application.name found, defaulting to 'application'
+11:38:45.550 [WARN ] [main] [com.netflix.config.sources.URLConfigurationSource] No URLs will be polled as dynamic configuration sources.
+11:38:45.550 [INFO ] [main] [com.netflix.config.sources.URLConfigurationSource] To enable URLs as dynamic configuration sources, define System property archaius.configurationSource.additionalUrls or make config.properties available on classpath.
+11:38:45.553 [WARN ] [main] [com.netflix.config.sources.URLConfigurationSource] No URLs will be polled as dynamic configuration sources.
+11:38:45.553 [INFO ] [main] [com.netflix.config.sources.URLConfigurationSource] To enable URLs as dynamic configuration sources, define System property archaius.configurationSource.additionalUrls or make config.properties available on classpath.
+11:38:45.808 [INFO ] [main] [org.springframework.scheduling.concurrent.ThreadPoolTaskExecutor] Initializing ExecutorService 'applicationTaskExecutor'
+11:38:46.574 [INFO ] [main] [org.apache.coyote.http11.Http11NioProtocol] Starting ProtocolHandler ["http-nio-8081"]
+11:38:46.590 [INFO ] [main] [org.springframework.boot.web.embedded.tomcat.TomcatWebServer] Tomcat started on port(s): 8081 (http) with context path ''
+11:38:46.885 [INFO ] [main] [cn.cc.dawn.OneForAllApplication] Started OneForAllApplication in 4.241 seconds (JVM running for 5.099)
+11:38:53.351 [INFO ] [http-nio-8081-exec-1] [org.apache.catalina.core.ContainerBase.[Tomcat].[localhost].[/]] Initializing Spring DispatcherServlet 'dispatcherServlet'
+11:38:53.351 [INFO ] [http-nio-8081-exec-1] [org.springframework.web.servlet.DispatcherServlet] Initializing Servlet 'dispatcherServlet'
+11:38:53.364 [INFO ] [http-nio-8081-exec-1] [org.springframework.web.servlet.DispatcherServlet] Completed initialization in 13 ms
+14:21:15.507 [INFO ] [SpringContextShutdownHook] [org.springframework.scheduling.concurrent.ThreadPoolTaskExecutor] Shutting down ExecutorService 'applicationTaskExecutor'
+15:22:53.934 [ERROR] [main] [org.springframework.boot.SpringApplication] Application run failed
+java.lang.IllegalStateException: Failed to load property source from 'file:/C:/environment/test/OneForAll/target/classes/bootstrap.yml' (classpath:/bootstrap.yml)
+	at org.springframework.boot.context.config.ConfigFileApplicationListener$Loader.load(ConfigFileApplicationListener.java:554)
+	at org.springframework.boot.context.config.ConfigFileApplicationListener$Loader.loadForFileExtension(ConfigFileApplicationListener.java:499)
+	at org.springframework.boot.context.config.ConfigFileApplicationListener$Loader.load(ConfigFileApplicationListener.java:469)
+	at org.springframework.boot.context.config.ConfigFileApplicationListener$Loader.lambda$null$7(ConfigFileApplicationListener.java:448)
+	at java.lang.Iterable.forEach(Iterable.java:75)
+	at org.springframework.boot.context.config.ConfigFileApplicationListener$Loader.lambda$load$8(ConfigFileApplicationListener.java:448)
+	at java.lang.Iterable.forEach(Iterable.java:75)
+	at org.springframework.boot.context.config.ConfigFileApplicationListener$Loader.load(ConfigFileApplicationListener.java:445)
+	at org.springframework.boot.context.config.ConfigFileApplicationListener$Loader.lambda$load$0(ConfigFileApplicationListener.java:348)
+	at org.springframework.boot.context.config.FilteredPropertySource.apply(FilteredPropertySource.java:54)
+	at org.springframework.boot.context.config.ConfigFileApplicationListener$Loader.load(ConfigFileApplicationListener.java:336)
+	at org.springframework.boot.context.config.ConfigFileApplicationListener.addPropertySources(ConfigFileApplicationListener.java:226)
+	at org.springframework.boot.context.config.ConfigFileApplicationListener.postProcessEnvironment(ConfigFileApplicationListener.java:210)
+	at org.springframework.boot.context.config.ConfigFileApplicationListener.onApplicationEnvironmentPreparedEvent(ConfigFileApplicationListener.java:200)
+	at org.springframework.boot.context.config.ConfigFileApplicationListener.onApplicationEvent(ConfigFileApplicationListener.java:188)
+	at org.springframework.context.event.SimpleApplicationEventMulticaster.doInvokeListener(SimpleApplicationEventMulticaster.java:172)
+	at org.springframework.context.event.SimpleApplicationEventMulticaster.invokeListener(SimpleApplicationEventMulticaster.java:165)
+	at org.springframework.context.event.SimpleApplicationEventMulticaster.multicastEvent(SimpleApplicationEventMulticaster.java:139)
+	at org.springframework.context.event.SimpleApplicationEventMulticaster.multicastEvent(SimpleApplicationEventMulticaster.java:127)
+	at org.springframework.boot.context.event.EventPublishingRunListener.environmentPrepared(EventPublishingRunListener.java:80)
+	at org.springframework.boot.SpringApplicationRunListeners.environmentPrepared(SpringApplicationRunListeners.java:53)
+	at org.springframework.boot.SpringApplication.prepareEnvironment(SpringApplication.java:345)
+	at org.springframework.boot.SpringApplication.run(SpringApplication.java:308)
+	at org.springframework.boot.builder.SpringApplicationBuilder.run(SpringApplicationBuilder.java:140)
+	at org.springframework.cloud.bootstrap.BootstrapApplicationListener.bootstrapServiceContext(BootstrapApplicationListener.java:212)
+	at org.springframework.cloud.bootstrap.BootstrapApplicationListener.onApplicationEvent(BootstrapApplicationListener.java:117)
+	at org.springframework.cloud.bootstrap.BootstrapApplicationListener.onApplicationEvent(BootstrapApplicationListener.java:74)
+	at org.springframework.context.event.SimpleApplicationEventMulticaster.doInvokeListener(SimpleApplicationEventMulticaster.java:172)
+	at org.springframework.context.event.SimpleApplicationEventMulticaster.invokeListener(SimpleApplicationEventMulticaster.java:165)
+	at org.springframework.context.event.SimpleApplicationEventMulticaster.multicastEvent(SimpleApplicationEventMulticaster.java:139)
+	at org.springframework.context.event.SimpleApplicationEventMulticaster.multicastEvent(SimpleApplicationEventMulticaster.java:127)
+	at org.springframework.boot.context.event.EventPublishingRunListener.environmentPrepared(EventPublishingRunListener.java:80)
+	at org.springframework.boot.SpringApplicationRunListeners.environmentPrepared(SpringApplicationRunListeners.java:53)
+	at org.springframework.boot.SpringApplication.prepareEnvironment(SpringApplication.java:345)
+	at org.springframework.boot.SpringApplication.run(SpringApplication.java:308)
+	at org.springframework.boot.SpringApplication.run(SpringApplication.java:1237)
+	at org.springframework.boot.SpringApplication.run(SpringApplication.java:1226)
+	at cn.cc.dawn.OneForAllApplication.main(OneForAllApplication.java:16)
+Caused by: org.yaml.snakeyaml.scanner.ScannerException: while scanning for the next token
+found character '@' that cannot start any token. (Do not use @ for indentation)
+ in 'reader', line 17, column 13:
+        active: @deploy.type@ # 采坑记录，使用 @@ 获取 po ... 
+                ^
+
+	at org.yaml.snakeyaml.scanner.ScannerImpl.fetchMoreTokens(ScannerImpl.java:419)
+	at org.yaml.snakeyaml.scanner.ScannerImpl.checkToken(ScannerImpl.java:227)
+	at org.yaml.snakeyaml.parser.ParserImpl$ParseBlockMappingValue.produce(ParserImpl.java:586)
+	at org.yaml.snakeyaml.parser.ParserImpl.peekEvent(ParserImpl.java:158)
+	at org.yaml.snakeyaml.parser.ParserImpl.checkEvent(ParserImpl.java:148)
+	at org.yaml.snakeyaml.composer.Composer.composeNode(Composer.java:136)
+	at org.yaml.snakeyaml.composer.Composer.composeValueNode(Composer.java:257)
+	at org.yaml.snakeyaml.composer.Composer.composeMappingChildren(Composer.java:248)
+	at org.yaml.snakeyaml.composer.Composer.composeMappingNode(Composer.java:236)
+	at org.yaml.snakeyaml.composer.Composer.composeNode(Composer.java:162)
+	at org.yaml.snakeyaml.composer.Composer.composeValueNode(Composer.java:257)
+	at org.yaml.snakeyaml.composer.Composer.composeMappingChildren(Composer.java:248)
+	at org.yaml.snakeyaml.composer.Composer.composeMappingNode(Composer.java:236)
+	at org.yaml.snakeyaml.composer.Composer.composeNode(Composer.java:162)
+	at org.yaml.snakeyaml.composer.Composer.composeValueNode(Composer.java:257)
+	at org.yaml.snakeyaml.composer.Composer.composeMappingChildren(Composer.java:248)
+	at org.yaml.snakeyaml.composer.Composer.composeMappingNode(Composer.java:236)
+	at org.yaml.snakeyaml.composer.Composer.composeNode(Composer.java:162)
+	at org.yaml.snakeyaml.composer.Composer.getNode(Composer.java:95)
+	at org.yaml.snakeyaml.constructor.BaseConstructor.getData(BaseConstructor.java:134)
+	at org.yaml.snakeyaml.Yaml$1.next(Yaml.java:494)
+	at org.springframework.beans.factory.config.YamlProcessor.process(YamlProcessor.java:200)
+	at org.springframework.beans.factory.config.YamlProcessor.process(YamlProcessor.java:164)
+	at org.springframework.boot.env.OriginTrackedYamlLoader.load(OriginTrackedYamlLoader.java:76)
+	at org.springframework.boot.env.YamlPropertySourceLoader.load(YamlPropertySourceLoader.java:50)
+	at org.springframework.boot.context.config.ConfigFileApplicationListener$Loader.loadDocuments(ConfigFileApplicationListener.java:608)
+	at org.springframework.boot.context.config.ConfigFileApplicationListener$Loader.load(ConfigFileApplicationListener.java:524)
+	... 37 common frames omitted
+15:23:10.565 [ERROR] [main] [org.springframework.boot.SpringApplication] Application run failed
+java.lang.IllegalStateException: Failed to load property source from 'file:/C:/environment/test/OneForAll/target/classes/bootstrap.yml' (classpath:/bootstrap.yml)
+	at org.springframework.boot.context.config.ConfigFileApplicationListener$Loader.load(ConfigFileApplicationListener.java:554)
+	at org.springframework.boot.context.config.ConfigFileApplicationListener$Loader.loadForFileExtension(ConfigFileApplicationListener.java:499)
+	at org.springframework.boot.context.config.ConfigFileApplicationListener$Loader.load(ConfigFileApplicationListener.java:469)
+	at org.springframework.boot.context.config.ConfigFileApplicationListener$Loader.lambda$null$7(ConfigFileApplicationListener.java:448)
+	at java.lang.Iterable.forEach(Iterable.java:75)
+	at org.springframework.boot.context.config.ConfigFileApplicationListener$Loader.lambda$load$8(ConfigFileApplicationListener.java:448)
+	at java.lang.Iterable.forEach(Iterable.java:75)
+	at org.springframework.boot.context.config.ConfigFileApplicationListener$Loader.load(ConfigFileApplicationListener.java:445)
+	at org.springframework.boot.context.config.ConfigFileApplicationListener$Loader.lambda$load$0(ConfigFileApplicationListener.java:348)
+	at org.springframework.boot.context.config.FilteredPropertySource.apply(FilteredPropertySource.java:54)
+	at org.springframework.boot.context.config.ConfigFileApplicationListener$Loader.load(ConfigFileApplicationListener.java:336)
+	at org.springframework.boot.context.config.ConfigFileApplicationListener.addPropertySources(ConfigFileApplicationListener.java:226)
+	at org.springframework.boot.context.config.ConfigFileApplicationListener.postProcessEnvironment(ConfigFileApplicationListener.java:210)
+	at org.springframework.boot.context.config.ConfigFileApplicationListener.onApplicationEnvironmentPreparedEvent(ConfigFileApplicationListener.java:200)
+	at org.springframework.boot.context.config.ConfigFileApplicationListener.onApplicationEvent(ConfigFileApplicationListener.java:188)
+	at org.springframework.context.event.SimpleApplicationEventMulticaster.doInvokeListener(SimpleApplicationEventMulticaster.java:172)
+	at org.springframework.context.event.SimpleApplicationEventMulticaster.invokeListener(SimpleApplicationEventMulticaster.java:165)
+	at org.springframework.context.event.SimpleApplicationEventMulticaster.multicastEvent(SimpleApplicationEventMulticaster.java:139)
+	at org.springframework.context.event.SimpleApplicationEventMulticaster.multicastEvent(SimpleApplicationEventMulticaster.java:127)
+	at org.springframework.boot.context.event.EventPublishingRunListener.environmentPrepared(EventPublishingRunListener.java:80)
+	at org.springframework.boot.SpringApplicationRunListeners.environmentPrepared(SpringApplicationRunListeners.java:53)
+	at org.springframework.boot.SpringApplication.prepareEnvironment(SpringApplication.java:345)
+	at org.springframework.boot.SpringApplication.run(SpringApplication.java:308)
+	at org.springframework.boot.builder.SpringApplicationBuilder.run(SpringApplicationBuilder.java:140)
+	at org.springframework.cloud.bootstrap.BootstrapApplicationListener.bootstrapServiceContext(BootstrapApplicationListener.java:212)
+	at org.springframework.cloud.bootstrap.BootstrapApplicationListener.onApplicationEvent(BootstrapApplicationListener.java:117)
+	at org.springframework.cloud.bootstrap.BootstrapApplicationListener.onApplicationEvent(BootstrapApplicationListener.java:74)
+	at org.springframework.context.event.SimpleApplicationEventMulticaster.doInvokeListener(SimpleApplicationEventMulticaster.java:172)
+	at org.springframework.context.event.SimpleApplicationEventMulticaster.invokeListener(SimpleApplicationEventMulticaster.java:165)
+	at org.springframework.context.event.SimpleApplicationEventMulticaster.multicastEvent(SimpleApplicationEventMulticaster.java:139)
+	at org.springframework.context.event.SimpleApplicationEventMulticaster.multicastEvent(SimpleApplicationEventMulticaster.java:127)
+	at org.springframework.boot.context.event.EventPublishingRunListener.environmentPrepared(EventPublishingRunListener.java:80)
+	at org.springframework.boot.SpringApplicationRunListeners.environmentPrepared(SpringApplicationRunListeners.java:53)
+	at org.springframework.boot.SpringApplication.prepareEnvironment(SpringApplication.java:345)
+	at org.springframework.boot.SpringApplication.run(SpringApplication.java:308)
+	at org.springframework.boot.SpringApplication.run(SpringApplication.java:1237)
+	at org.springframework.boot.SpringApplication.run(SpringApplication.java:1226)
+	at cn.cc.dawn.OneForAllApplication.main(OneForAllApplication.java:16)
+Caused by: org.yaml.snakeyaml.scanner.ScannerException: while scanning for the next token
+found character '@' that cannot start any token. (Do not use @ for indentation)
+ in 'reader', line 17, column 13:
+        active: @deploy.type@ # 采坑记录，使用 @@ 获取 po ... 
+                ^
+
+	at org.yaml.snakeyaml.scanner.ScannerImpl.fetchMoreTokens(ScannerImpl.java:419)
+	at org.yaml.snakeyaml.scanner.ScannerImpl.checkToken(ScannerImpl.java:227)
+	at org.yaml.snakeyaml.parser.ParserImpl$ParseBlockMappingValue.produce(ParserImpl.java:586)
+	at org.yaml.snakeyaml.parser.ParserImpl.peekEvent(ParserImpl.java:158)
+	at org.yaml.snakeyaml.parser.ParserImpl.checkEvent(ParserImpl.java:148)
+	at org.yaml.snakeyaml.composer.Composer.composeNode(Composer.java:136)
+	at org.yaml.snakeyaml.composer.Composer.composeValueNode(Composer.java:257)
+	at org.yaml.snakeyaml.composer.Composer.composeMappingChildren(Composer.java:248)
+	at org.yaml.snakeyaml.composer.Composer.composeMappingNode(Composer.java:236)
+	at org.yaml.snakeyaml.composer.Composer.composeNode(Composer.java:162)
+	at org.yaml.snakeyaml.composer.Composer.composeValueNode(Composer.java:257)
+	at org.yaml.snakeyaml.composer.Composer.composeMappingChildren(Composer.java:248)
+	at org.yaml.snakeyaml.composer.Composer.composeMappingNode(Composer.java:236)
+	at org.yaml.snakeyaml.composer.Composer.composeNode(Composer.java:162)
+	at org.yaml.snakeyaml.composer.Composer.composeValueNode(Composer.java:257)
+	at org.yaml.snakeyaml.composer.Composer.composeMappingChildren(Composer.java:248)
+	at org.yaml.snakeyaml.composer.Composer.composeMappingNode(Composer.java:236)
+	at org.yaml.snakeyaml.composer.Composer.composeNode(Composer.java:162)
+	at org.yaml.snakeyaml.composer.Composer.getNode(Composer.java:95)
+	at org.yaml.snakeyaml.constructor.BaseConstructor.getData(BaseConstructor.java:134)
+	at org.yaml.snakeyaml.Yaml$1.next(Yaml.java:494)
+	at org.springframework.beans.factory.config.YamlProcessor.process(YamlProcessor.java:200)
+	at org.springframework.beans.factory.config.YamlProcessor.process(YamlProcessor.java:164)
+	at org.springframework.boot.env.OriginTrackedYamlLoader.load(OriginTrackedYamlLoader.java:76)
+	at org.springframework.boot.env.YamlPropertySourceLoader.load(YamlPropertySourceLoader.java:50)
+	at org.springframework.boot.context.config.ConfigFileApplicationListener$Loader.loadDocuments(ConfigFileApplicationListener.java:608)
+	at org.springframework.boot.context.config.ConfigFileApplicationListener$Loader.load(ConfigFileApplicationListener.java:524)
+	... 37 common frames omitted
+15:26:18.050 [INFO ] [main] [org.springframework.boot.test.context.SpringBootTestContextBootstrapper] Neither @ContextConfiguration nor @ContextHierarchy found for test class [cn.cc.dawn.OneForAllApplicationTests], using SpringBootContextLoader
+15:26:18.055 [INFO ] [main] [org.springframework.test.context.support.AbstractContextLoader] Could not detect default resource locations for test class [cn.cc.dawn.OneForAllApplicationTests]: no resource found for suffixes {-context.xml, Context.groovy}.
+15:26:18.055 [INFO ] [main] [org.springframework.test.context.support.AnnotationConfigContextLoaderUtils] Could not detect default configuration classes for test class [cn.cc.dawn.OneForAllApplicationTests]: OneForAllApplicationTests does not declare any static, non-private, non-final, nested classes annotated with @Configuration.
+15:26:18.142 [INFO ] [main] [org.springframework.boot.test.context.SpringBootTestContextBootstrapper] Found @SpringBootConfiguration cn.cc.dawn.OneForAllApplication for test class cn.cc.dawn.OneForAllApplicationTests
+15:26:18.223 [INFO ] [main] [org.springframework.boot.test.context.SpringBootTestContextBootstrapper] Loaded default TestExecutionListener class names from location [META-INF/spring.factories]: [org.springframework.boot.test.mock.mockito.MockitoTestExecutionListener, org.springframework.boot.test.mock.mockito.ResetMocksTestExecutionListener, org.springframework.boot.test.autoconfigure.restdocs.RestDocsTestExecutionListener, org.springframework.boot.test.autoconfigure.web.client.MockRestServiceServerResetTestExecutionListener, org.springframework.boot.test.autoconfigure.web.servlet.MockMvcPrintOnlyOnFailureTestExecutionListener, org.springframework.boot.test.autoconfigure.web.servlet.WebDriverTestExecutionListener, org.springframework.boot.test.autoconfigure.webservices.client.MockWebServiceServerTestExecutionListener, org.springframework.test.context.web.ServletTestExecutionListener, org.springframework.test.context.support.DirtiesContextBeforeModesTestExecutionListener, org.springframework.test.context.support.DependencyInjectionTestExecutionListener, org.springframework.test.context.support.DirtiesContextTestExecutionListener, org.springframework.test.context.transaction.TransactionalTestExecutionListener, org.springframework.test.context.jdbc.SqlScriptsTestExecutionListener, org.springframework.test.context.event.EventPublishingTestExecutionListener]
+15:26:18.237 [INFO ] [main] [org.springframework.boot.test.context.SpringBootTestContextBootstrapper] Using TestExecutionListeners: [org.springframework.test.context.web.ServletTestExecutionListener@1ebea008, org.springframework.test.context.support.DirtiesContextBeforeModesTestExecutionListener@72d6b3ba, org.springframework.boot.test.mock.mockito.MockitoTestExecutionListener@1787f2a0, org.springframework.boot.test.autoconfigure.SpringBootDependencyInjectionTestExecutionListener@7de62196, org.springframework.test.context.support.DirtiesContextTestExecutionListener@163370c2, org.springframework.test.context.transaction.TransactionalTestExecutionListener@51bf5add, org.springframework.test.context.jdbc.SqlScriptsTestExecutionListener@7905a0b8, org.springframework.test.context.event.EventPublishingTestExecutionListener@35a3d49f, org.springframework.boot.test.mock.mockito.ResetMocksTestExecutionListener@389b0789, org.springframework.boot.test.autoconfigure.restdocs.RestDocsTestExecutionListener@13d9cbf5, org.springframework.boot.test.autoconfigure.web.client.MockRestServiceServerResetTestExecutionListener@478db956, org.springframework.boot.test.autoconfigure.web.servlet.MockMvcPrintOnlyOnFailureTestExecutionListener@6ca18a14, org.springframework.boot.test.autoconfigure.web.servlet.WebDriverTestExecutionListener@c667f46, org.springframework.boot.test.autoconfigure.webservices.client.MockWebServiceServerTestExecutionListener@51bd8b5c]
+15:26:19.384 [INFO ] [main] [cn.cc.dawn.OneForAllApplicationTests] The following profiles are active: local
+15:26:19.823 [INFO ] [main] [org.springframework.data.repository.config.RepositoryConfigurationDelegate] Multiple Spring Data modules found, entering strict repository configuration mode!
+15:26:19.826 [INFO ] [main] [org.springframework.data.repository.config.RepositoryConfigurationDelegate] Bootstrapping Spring Data Redis repositories in DEFAULT mode.
+15:26:19.851 [INFO ] [main] [org.springframework.data.repository.config.RepositoryConfigurationDelegate] Finished Spring Data repository scanning in 13ms. Found 0 Redis repository interfaces.
+15:26:19.990 [INFO ] [main] [org.springframework.cloud.context.scope.GenericScope] BeanFactory id=316f5f71-8967-3e4d-94cf-c25f4fd5afc2
+15:26:20.411 [INFO ] [main] [cn.cc.dawn.config.init.Init] ��ʼ��--------
+15:26:21.500 [WARN ] [main] [org.springframework.cloud.netflix.archaius.ArchaiusAutoConfiguration] No spring.application.name found, defaulting to 'application'
+15:26:21.504 [WARN ] [main] [com.netflix.config.sources.URLConfigurationSource] No URLs will be polled as dynamic configuration sources.
+15:26:21.504 [INFO ] [main] [com.netflix.config.sources.URLConfigurationSource] To enable URLs as dynamic configuration sources, define System property archaius.configurationSource.additionalUrls or make config.properties available on classpath.
+15:26:21.509 [WARN ] [main] [com.netflix.config.sources.URLConfigurationSource] No URLs will be polled as dynamic configuration sources.
+15:26:21.509 [INFO ] [main] [com.netflix.config.sources.URLConfigurationSource] To enable URLs as dynamic configuration sources, define System property archaius.configurationSource.additionalUrls or make config.properties available on classpath.
+15:26:21.910 [INFO ] [main] [org.springframework.scheduling.concurrent.ThreadPoolTaskExecutor] Initializing ExecutorService 'applicationTaskExecutor'
+15:26:22.880 [INFO ] [main] [cn.cc.dawn.OneForAllApplicationTests] Started OneForAllApplicationTests in 4.612 seconds (JVM running for 5.375)
+15:26:23.104 [INFO ] [SpringContextShutdownHook] [org.springframework.scheduling.concurrent.ThreadPoolTaskExecutor] Shutting down ExecutorService 'applicationTaskExecutor'

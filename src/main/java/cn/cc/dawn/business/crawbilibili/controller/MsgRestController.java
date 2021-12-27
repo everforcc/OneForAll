@@ -23,13 +23,6 @@ public class MsgRestController {
      */
 
     Bilibili_Cover bilibili_cover = new Bilibili_Cover();
-    Init init =  Init.getInstanse();
-
-    @RequestMapping("/getfun")
-    public String getfun(){
-        return init.getFun();
-    }
-
 
     @RequestMapping("/bilibili_cover")
     public String getCover(@RequestParam("num") String num ){

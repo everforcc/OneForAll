@@ -7,3 +7,7 @@ Accept: application/json
 ###
 GET http://localhost:8081/config/strList
 Accept: application/json
+
+###
+GET http://localhost:8081/init//getfun
+Accept: application/json
