@@ -20,7 +20,7 @@ server:
   tomcat:
     connection-timeout: 10ms
 data:
-  str: string
+  str: sj
   stringList:
     - str1
     - str2
