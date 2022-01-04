@@ -11,14 +11,6 @@ services:
     restart: 'no'
     ports:
       - 80:8080 # 前linux端口，后docke启动镜像的端口
-    environment:
-      TZ: 'Asia/Shanghai' # timeZone 时区
-      SPRING_PROFILES_ACTIVE: bdy # dev|sit|uat|prod 动态切换 spring 配置文件
-      JAVA_OPTS:  # 配置 jvm 参数 -Ddruid.mysql.usePingMethod=false
-        -Dlog.home=/app
-        -Dlog.file.name=OneForAll
-        -Dlog.level=INFO
-        -Dlog.console=NO
     volumes:
       - './docker/logs:/app/logs'
       - './docker/files:/app/files'
