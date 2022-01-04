@@ -5,9 +5,9 @@ version: '3.7'
 # 可以指定多个服务
 services:
   oneforall:
-    build: OneForAll/.
+    build: ../OneForAll/.
     container_name: OneForAll
-    image: oneforall:latest
+    image: OneForAll:latest
     restart: 'no'
     ports:
       - 80:8080 # 前linux端口，后docke启动镜像的端口
