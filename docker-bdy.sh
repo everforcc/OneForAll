@@ -2,7 +2,7 @@
 git pull
 
 # 2. 卸载容器 -f 指定文件
-docker-compose -f docker-compose.yml down
+docker-compose -f docker-compose-bdy.yml down
 
 # 清理悬挂镜像
 docker image prune -f
@@ -18,4 +18,4 @@ mvn clean package -P bdy -D maven.test.skip=true
 # build 构建（重新构建）项目中的服务容器。
 # up 启动的容器都在前台
 # -d 在后台启动并运行所有的容器
-docker-compose -f docker-compose.yml up -d --build
+docker-compose -f docker-compose-bdy.yml up -d --build
