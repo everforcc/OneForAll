@@ -1,7 +1,7 @@
 
 
 ###
-GET http://localhost:8081/config/str
+GET http://localhost:8080/config/str
 Accept: application/json
 
 ###

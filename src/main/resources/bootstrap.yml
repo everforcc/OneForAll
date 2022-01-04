@@ -16,7 +16,7 @@ spring:
   profiles: # 动态环境
     active: @deploy.type@ # 采坑记录，使用 @@ 获取 pom.xml 环境变量时，必须指定 build > resources > resource > <filtering>true</filtering>
 server:
-  port: 8081
+  # port: 8081
   tomcat:
     connection-timeout: 10ms
 data:
