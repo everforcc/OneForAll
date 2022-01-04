@@ -159,6 +159,7 @@
             <version>1.6.11</version>
         </dependency>
 
+        <!-- 支持 logback if 判断条件 -->
         <!-- The org.codehaus.janino:commons-compiler:2.6.1 dependency -->
         <!-- will be automatically pulled in by Maven's transitivity rules -->
         <dependency>
