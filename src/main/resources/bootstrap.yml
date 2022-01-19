@@ -7,14 +7,50 @@ spring:
     multipart:
       max-file-size: 10240000000
       max-request-size: 10240000000
+  datasource:
+    username: cceverfor
+    password: 5664c.c.
+    url: jdbc:mysql://180.76.156.43:3308/oneforall?characterEncoding=UTF-8&&serverTimezone=GMT # 编码和时区
+    driver-class-name: com.mysql.jdbc.Driver
+    type: com.alibaba.druid.pool.DruidDataSource # 切换数据源
+    #   数据源其他配置
+    initialSize: 5
+    minIdle: 5
+    maxActive: 20
+    maxWait: 60000
+    timeBetweenEvictionRunsMillis: 60000
+    minEvictableIdleTimeMillis: 300000
+    validationQuery: SELECT 1 FROM DUAL
+    testWhileIdle: true
+    testOnBorrow: false
+    testOnReturn: false
+    poolPreparedStatements: true
+    #   配置监控统计拦截的filters，去掉后监控界面sql无法统计，'wall'用于防火墙
+    #filters: stat,wall,log4j 旧版配置
+    filters:
+      commons-log.connection-logger-name: stat,wall,log4j # 新版配置
+    maxPoolPreparedStatementPerConnectionSize: 20
+    useGlobalDataSourceStat: true
+    connectionProperties: druid.stat.mergeSql=true;druid.stat.slowSqlMillis=500
   redis:
-    host: 127.0.0.1
+    host: 180.76.156.43
     port: 6379
-    password: 11111111
+    password: c.c.5664
+    database: 10
   cache:
     type: redis
+  ftp:
+    username: everforcc
+    password: c.c.5664
+    path: /
   profiles: # 动态环境
     active: @deploy.type@ # 采坑记录，使用 @@ 获取 pom.xml 环境变量时，必须指定 build > resources > resource > <filtering>true</filtering>
+mybatis:
+  # 指定全局配置文件位置  便于管理和扫描
+  config-location: classpath:mybatis/mybatis-config.xml
+  # 指定sql映射文件位置
+  mapper-locations: classpath*:mybatis/mapper/**/*.xml
+  # mapper-locations: classpath*:mybatis/mapper/**/*.xml
 server:
   # port: 8081
   tomcat:
@@ -25,3 +61,9 @@ data:
     - str1
     - str2
     - str3
+  gproxy:
+    ip: 127.0.0.1
+    port: 41091
+
+conditional:
+  express: true

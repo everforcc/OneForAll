@@ -1,4 +1,4 @@
-package cn.cc.dawn.config.init;
+package cn.cc.dawn.config.init.txt;
 
 import lombok.extern.slf4j.Slf4j;
 import org.springframework.core.io.ClassPathResource;
@@ -52,7 +52,7 @@ public class Init {
           * ClassPathResource classPathResource = new ClassPathResource("static/assets/test.txt");
           * InputStream inputStream = classPathResource.getInputStream();
           */
-        ClassPathResource classPathResource = new ClassPathResource("init/NOWSFUN.txt");
+        ClassPathResource classPathResource = new ClassPathResource("init/txt/NOWSFUN.txt");
 
         try {
             InputStream inputStream = classPathResource.getInputStream();

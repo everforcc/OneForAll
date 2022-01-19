@@ -1,7 +1,6 @@
 package cn.cc.dawn.business.initmsg;
 
-import cn.cc.dawn.config.init.Init;
-import org.springframework.stereotype.Controller;
+import cn.cc.dawn.config.init.txt.Init;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
 

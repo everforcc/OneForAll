@@ -1,0 +1,26 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper
+        PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+        "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="cn.cc.dawn.demo.data.redis.dao.TOrderDaoMapper">
+
+    <!-- 插入 -->
+    <insert id="insertOrder">
+        INSERT INTO `oneforall`.`cc_t_order` (
+            `orderno`,
+            `userid`,
+            `productid`
+        )
+        VALUES
+            (
+                #{orderno},
+                #{userid},
+                #{productid}
+            );
+    </insert>
+
+    <select id="selectCount" resultType="int">
+        select count(*) from cc_t_order;
+    </select>
+
+</mapper>

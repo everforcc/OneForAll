@@ -1,0 +1,46 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper
+        PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+        "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="cn.cc.dawn.business.ys.dao.YsCardDaoMapper">
+
+    <!-- 列表查询 -->
+    <select id="selectByCardID" resultType="cn.cc.dawn.business.ys.dto.YsCardVO">
+        select * from cc_game_yscard where cardid = #{cardid};
+    </select>
+
+    <!-- 列表查询 -->
+    <select id="selectByUid" resultType="cn.cc.dawn.business.ys.dto.YsCardVO">
+        SELECT * FROM cc_game_yscard e WHERE e.`uid` = #{uid} and ;
+    </select>
+
+    <insert id="insert">
+        INSERT INTO `cc_game_yscard` (
+            `cardid`,
+            `uid`,
+            `gacha_type`,
+            `item_id`,
+            `count`,
+            `time`,
+            `name`,
+            `lang`,
+            `item_type`,
+            `rank_type`
+        )
+        VALUES
+            (
+                #{cardid},
+                #{uid},
+                #{gacha_type},
+                #{item_id},
+                #{count},
+                #{time},
+                #{name},
+                #{lang},
+                #{item_type},
+                #{rank_type}
+            );
+    </insert>
+
+
+</mapper>

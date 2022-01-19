@@ -1,0 +1,20 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper
+        PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+        "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="cn.cc.dawn.demo.data.redis.dao.TStockDaoMapper">
+
+    <!-- 插入 -->
+
+    <select id="selectCount" resultType="int">
+        SELECT stocknum FROM  cc_t_stock where id = #{id} ;
+    </select>
+
+    <update id="updateCount">
+        UPDATE `cc_t_stock`
+        SET `stocknum` = #{stocknum}
+        WHERE `id` = #{id};
+    </update>
+
+
+</mapper>

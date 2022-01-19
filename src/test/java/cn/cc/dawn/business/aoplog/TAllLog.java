@@ -9,7 +9,7 @@ public class TAllLog {
 
     @Test
     public void t1(){
-
+        System.out.println(1);
     }
 
 }

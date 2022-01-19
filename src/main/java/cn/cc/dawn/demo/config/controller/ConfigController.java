@@ -1,4 +1,4 @@
-package cn.cc.dawn.demo.config;
+package cn.cc.dawn.demo.config.controller;
 
 import cn.cc.dawn.config.yml.ConfigurationData;
 import com.alibaba.fastjson.JSONObject;
@@ -8,9 +8,9 @@ import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
 
-@RequestMapping(value = "/config")
+@RequestMapping(value = "/demo/config/yml")
 @RestController
-public class ConfigurationController {
+public class ConfigController {
 
     @Autowired
     private ConfigurationData configurationData;

@@ -1,6 +1,6 @@
 
 ### 增
-GET http://localhost:8081/redisTemplate/add/key_20211223_1716/a
+GET http://localhost:80/demo/data/redis/redisCacheController/redisCacheable/qwe
 Accept: application/json
 
 ### 查
