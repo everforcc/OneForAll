@@ -64,6 +64,11 @@ data:
   gproxy:
     ip: 127.0.0.1
     port: 41091
+  testCache:
+      expired: 30d  # 下面的暂时未使用,过期时间，30 天, Duration， ehcache 和 redis 共有配置
+      heap: 1     # ehcache 堆内保持数据行数
+      offheap: 1B  # ehcache 堆外占用内存
+      disk: 1B   # ehcache 磁盘占用空间
 
 conditional:
   express: true
