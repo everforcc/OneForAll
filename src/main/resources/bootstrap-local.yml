@@ -11,7 +11,7 @@ spring:
     host: 180.76.156.43
     port: 6379
     password: c.c.5664
-    database: 10
+    database: 15
   cache:
     type: redis
   app:

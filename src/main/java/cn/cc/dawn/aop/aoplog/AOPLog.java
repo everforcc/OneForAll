@@ -55,13 +55,13 @@ public class AOPLog {
     //    环绕通知
     @Around("pointCut()")
     public Object aroundLog(ProceedingJoinPoint joinpoint) {
-        ResultE result = null;
+        Object result = null;
         try {
             //log.info("环绕通知开始 日志记录: []");
             long start = System.currentTimeMillis();
 
-            //有返回参数 则需返回值
-            result =  (ResultE)joinpoint.proceed();
+            //有返回参数 则需返回值 (ResultE)
+            result =  joinpoint.proceed();
             //log.info("执行返回值: [" + result.toString() + "]");
             long end = System.currentTimeMillis();
             //log.info("总共执行时长: [" + (end - start) + "] 毫秒");

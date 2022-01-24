@@ -3,3 +3,21 @@ GET http://localhost:8081/httpclient/feign_post/632887
 Accept: application/json
 
 ###
+POST http://localhost:80/httpclient/MailThymeleaf
+
+{
+"subject":"这是个自定义标题",
+"from":"718497737@qq.com",
+"toMail":"2212355809@qq.com",
+"inlinePic":"https://gitee.com/MyYukino/media/raw/master/picture/面包.jpg",
+"attachmentURL":["https://gitee.com/MyYukino/media/raw/master/picture/面包.jpg"],
+"context":{
+  "username":"用户名",
+  "num":"007",
+  "salary":"999"
+   }
+}
+
+###
+###GET http://localhost:80/httpclient/MailFreemarker
+###Accept: application/json

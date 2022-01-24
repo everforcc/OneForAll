@@ -17,6 +17,7 @@ public class RedissonController {
 
     /**
      * 测试分布式锁
+     * [参考-但是并发数多还是有问题，已调整](https://www.cnblogs.com/niceyoo/p/13736140.html)
      */
     @GetMapping("/tLock/{id}")
     public ResultE<Boolean> tLock(@PathVariable("id")int id){

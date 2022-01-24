@@ -11,6 +11,7 @@ spring:
     host: 127.0.0.1
     port: 6379
     password: 11111111
+    database: 14
   cache:
     type: redis
   app:

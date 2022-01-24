@@ -7,7 +7,7 @@ import org.springframework.cache.annotation.EnableCaching;
 import org.springframework.cloud.openfeign.EnableFeignClients;
 
 @SpringBootApplication
-// 缓存
+// 缓存 CacheManager
 @EnableCaching
 // FeignClients
 @EnableFeignClients
