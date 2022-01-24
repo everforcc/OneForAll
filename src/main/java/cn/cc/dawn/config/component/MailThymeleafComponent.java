@@ -1,4 +1,4 @@
-package cn.cc.dawn.utils.component;
+package cn.cc.dawn.config.component;
 
 import cn.cc.dawn.common.dto.MailDto;
 import cn.cc.dawn.utils.StringUtils;

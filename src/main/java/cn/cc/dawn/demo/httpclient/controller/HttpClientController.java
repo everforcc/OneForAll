@@ -2,8 +2,8 @@ package cn.cc.dawn.demo.httpclient.controller;
 
 import cn.cc.dawn.common.dto.MailDto;
 import cn.cc.dawn.demo.httpclient.service.HttpClientService;
-import cn.cc.dawn.utils.component.MailFreemarkerComponent;
-import cn.cc.dawn.utils.component.MailThymeleafComponent;
+import cn.cc.dawn.config.component.MailFreemarkerComponent;
+import cn.cc.dawn.config.component.MailThymeleafComponent;
 import com.alibaba.fastjson.JSONObject;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.*;

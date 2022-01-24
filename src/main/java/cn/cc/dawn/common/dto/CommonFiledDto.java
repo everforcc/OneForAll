@@ -3,11 +3,15 @@ package cn.cc.dawn.common.dto;
 import cn.cc.dawn.common.enums.StatusEnum;
 import com.alibaba.fastjson.JSONObject;
 import com.alibaba.fastjson.annotation.JSONField;
-import lombok.Data;
+import lombok.*;
 
 import java.sql.Timestamp;
 
-@Data
+//@Data 会重写toString
+@Getter
+@Setter
+@AllArgsConstructor
+@NoArgsConstructor
 public class CommonFiledDto {
 
     private int id;

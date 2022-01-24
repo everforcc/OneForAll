@@ -1,4 +1,4 @@
-//package cn.cc.dawn.utils.component;
+//package cn.cc.dawn.config.component;
 //
 //import lombok.extern.slf4j.Slf4j;
 //<!--低版本mail-->
