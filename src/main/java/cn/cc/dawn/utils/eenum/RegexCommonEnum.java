@@ -9,7 +9,10 @@ public enum RegexCommonEnum {
      * @Pattern 无法直接引用，请对应调整
      */
     FILE_NAME_P("^((?!(\\<+|\\>+|\\/|\\\\+|\\|+|\\:+|\"+|\\*+|\\?+|\\；+|\\ +)).)*$","文件/文件夹命名有误"),
-    PHONE_NUMBER_P("^(1)\\d{10}$","手机号格式不正确");
+    PHONE_NUMBER_P("^(1)\\d{10}$","手机号格式不正确"),
+    CHINESE_CODE("u4e00-u9fa5","中文"),
+
+    ;
 
     private String regex;
     private String errormsg;

@@ -6,16 +6,16 @@
 
     <!-- 列表查询 -->
     <select id="selectByCardID" resultType="cn.cc.dawn.business.ys.dto.YsCardVO">
-        select * from cc_game_yscard where cardid = #{cardid};
+        select * from cc_game_ys_card where cardid = #{cardid};
     </select>
 
     <!-- 列表查询 -->
     <select id="selectByUid" resultType="cn.cc.dawn.business.ys.dto.YsCardVO">
-        SELECT * FROM cc_game_yscard e WHERE e.`uid` = #{uid} and ;
+        SELECT * FROM cc_game_ys_card e WHERE e.`uid` = #{uid} ;
     </select>
 
     <insert id="insert">
-        INSERT INTO `cc_game_yscard` (
+        INSERT INTO `cc_game_ys_card` (
             `cardid`,
             `uid`,
             `gacha_type`,

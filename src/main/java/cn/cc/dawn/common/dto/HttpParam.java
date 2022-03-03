@@ -17,6 +17,11 @@ import java.util.Map;
 @NoArgsConstructor
 public class HttpParam {
 
+    /**
+     * 入库的话加个执行顺序，
+     * 网站的请求流程 seq
+     */
+
     private String url;
     private HttpTypeEnum httpTypeEnum;
     private Proxy proxy;

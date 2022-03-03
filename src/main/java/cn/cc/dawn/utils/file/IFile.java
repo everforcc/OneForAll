@@ -1,5 +1,7 @@
 package cn.cc.dawn.utils.file;
 
+import java.io.IOException;
+
 public interface IFile {
 
     /**
@@ -14,5 +16,9 @@ public interface IFile {
     void move();
 
     void rename();
+
+    void write(String path,String content) throws IOException;
+
+    String read(String path) throws IOException;
 
 }

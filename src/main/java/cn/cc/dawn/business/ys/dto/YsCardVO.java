@@ -20,14 +20,14 @@ public class YsCardVO extends CommonFiledDto {
      */
     private String cardid;
     private String uid;
-    private String gacha_type;
-    private String item_id;
+    private String gachaType;
+    private String itemId;
     private String count;
     private String time;
     private String name;
     private String lang;
-    private String item_type;
-    private String rank_type;
+    private String itemType;
+    private String rankType;
 
     private String cardPool;
 

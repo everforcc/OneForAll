@@ -1,7 +1,7 @@
 package cn.cc.dawn.demo.file.controller;
 
 import cn.cc.dawn.demo.file.service.ResponseBytesService;
-import cn.cc.dawn.utils.constant.HttpContentTypeConstant;
+import cn.cc.dawn.utils.constant.HttpConstant;
 import lombok.Cleanup;
 import lombok.extern.slf4j.Slf4j;
 import org.apache.http.HttpHeaders;
@@ -29,7 +29,7 @@ public class ResponseBytesController {
         /**
          * - [ ] 待总结其他格式
          */
-        response.setContentType(HttpContentTypeConstant.image_jpeg);
+        response.setContentType(HttpConstant.image_jpeg);
 
         response.setHeader(HttpHeaders.CACHE_CONTROL, "max-age=" + bytes.length);
 

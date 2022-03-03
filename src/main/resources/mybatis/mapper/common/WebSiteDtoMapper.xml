@@ -1,0 +1,54 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper
+        PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+        "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="cn.cc.dawn.common.dao.WebSiteDtoMapper">
+
+    <!-- 列表查询 -->
+    <select id="selectAll" resultType="cn.cc.dawn.common.dto.WebSiteDto">
+        select * from cc_website;
+    </select>
+
+    <select id="selectByUrl" resultType="cn.cc.dawn.common.dto.WebSiteDto">
+        select * from cc_website where webroot = #{webroot};
+    </select>
+
+    <insert id="insert">
+        INSERT INTO `oneforall`.`cc_website` (
+            `webroot`,
+            `webname`,
+            `softtype`,
+            `webtype`,
+            `username`,
+            `password`,
+            `phone`,
+            `email`,
+            `cookie`,
+            `safequestion`,
+            `discription`,
+            `vip`,
+            `encrypt`,
+            `effect`,
+            `status`
+        )
+        VALUES
+            (
+                #{webroot},
+                #{webname},
+                #{softtype},
+                #{webtype},
+                #{username},
+                #{password},
+                #{phone},
+                #{email},
+                #{cookie},
+                #{safequestion},
+                #{discription},
+                #{vip},
+                #{encrypt},
+                #{effect},
+                #{status}
+            );
+    </insert>
+
+</mapper>
