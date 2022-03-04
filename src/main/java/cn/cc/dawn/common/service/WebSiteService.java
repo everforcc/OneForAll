@@ -1,7 +1,6 @@
 package cn.cc.dawn.common.service;
 
-import cn.cc.dawn.common.dao.WebSiteDtoMapper;
-import cn.cc.dawn.common.dto.WebSiteDo;
+import cn.cc.dawn.common.dao.WebSiteMapper;
 import cn.cc.dawn.common.dto.WebSiteDto;
 import com.alibaba.fastjson.JSONObject;
 import org.springframework.stereotype.Service;
@@ -16,7 +15,7 @@ import java.util.List;
 public class WebSiteService {
 
     @Resource
-    private WebSiteDtoMapper accountsDaoMapper;
+    private WebSiteMapper accountsDaoMapper;
 
     /**
      * 1. 插入首页类型

@@ -1,4 +1,4 @@
-package cn.cc.dawn.utils;
+package cn.cc.dawn.utils.jsoup;
 
 import org.jsoup.Jsoup;
 import org.jsoup.nodes.Document;
@@ -18,6 +18,14 @@ public class XSoupUtils {
 
     public static Document htmlToDocument(String html){
         return Jsoup.parse(html);
+    }
+
+    public static String htmlToStr(String html,String pattern){
+        return Xsoup.compile(pattern).evaluate(Jsoup.parse(html)).get();
+    }
+
+    public static List<String> htmlToList(String html,String pattern){
+        return Xsoup.compile(pattern).evaluate(Jsoup.parse(html)).list();
     }
 
 }

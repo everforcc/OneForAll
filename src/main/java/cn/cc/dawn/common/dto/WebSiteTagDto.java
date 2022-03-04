@@ -15,6 +15,4 @@ public class WebSiteTagDto extends CommonFiledDto{
 
     private String webname;
 
-    private int webdataid;
-
 }

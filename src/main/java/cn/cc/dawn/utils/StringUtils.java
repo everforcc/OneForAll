@@ -83,11 +83,11 @@ public class StringUtils {
 
         int i = 0;
         // true
-        System.out.println(LogConstant.format(i++,isEmpty(a)));
+        System.out.println(LogConstant.format(i++,!isEmpty(a)));
         // true
-        System.out.println(LogConstant.format(i++,isEmpty(b)));
+        System.out.println(LogConstant.format(i++,!isEmpty(b)));
         // false
-        System.out.println(LogConstant.format(i++,isEmpty(c)));
+        System.out.println(LogConstant.format(i++,!isEmpty(c)));
         System.out.println(LogConstant.SPLIT);
         System.out.println(LogConstant.format(i++,isBlank(d)));
         System.out.println(LogConstant.format(i++,isBlank(e)));

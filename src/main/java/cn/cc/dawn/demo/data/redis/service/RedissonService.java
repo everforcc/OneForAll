@@ -8,7 +8,6 @@ import lombok.extern.slf4j.Slf4j;
 import org.redisson.api.RBucket;
 import org.redisson.api.RLock;
 import org.redisson.api.RedissonClient;
-import org.springframework.data.relational.core.sql.In;
 import org.springframework.stereotype.Service;
 import org.springframework.transaction.annotation.Transactional;
 
@@ -66,7 +65,7 @@ public class RedissonService {
                      * primitiveNum 不能等于0
                      *
                      */
-                    AppCode.A02000.assertHasTrue(primitiveNum>0&&primitiveNum>usageNum);
+                    AppCode.A01003.assertHasTrue(primitiveNum>0&&primitiveNum>usageNum);
                     if(0!=usageNum){
                         stockNum = primitiveNum-usageNum;
                         tStockDao.updateCount(productId,stockNum);
@@ -81,7 +80,7 @@ public class RedissonService {
                 log.info("sql1耗时:" + (endsqlDate.getTime()-startDate.getTime()));
                 log.info("剩余数量:" + stockNum);
 
-                AppCode.A02000.assertHasTrue(stockNum>0);
+                AppCode.A01003.assertHasTrue(stockNum>0);
                 // AppCode.A01001.assertHasUpdate(tStockDao.updateCount(productId,--stockNum));
 
                 String orderNo = UUID.randomUUID().toString().replace("-", "").toUpperCase();

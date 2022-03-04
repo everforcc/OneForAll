@@ -1,7 +1,7 @@
 package cn.cc.dawn.common.service;
 
-import cn.cc.dawn.common.dao.WebSiteDtoMapper;
-import cn.cc.dawn.common.dao.WebSiteTagDtoMapper;
+import cn.cc.dawn.common.dao.WebSiteMapper;
+import cn.cc.dawn.common.dao.WebSiteTagMapper;
 import cn.cc.dawn.common.dto.WebSiteDto;
 import cn.cc.dawn.common.dto.WebSiteTagDto;
 import cn.cc.dawn.utils.http.HttpParamUtils;
@@ -10,7 +10,6 @@ import org.springframework.stereotype.Service;
 import org.springframework.transaction.annotation.Transactional;
 
 import javax.annotation.Resource;
-import java.net.MalformedURLException;
 import java.util.Objects;
 
 @Service
@@ -18,9 +17,9 @@ import java.util.Objects;
 public class WebSiteTagService {
 
     @Resource
-    private WebSiteTagDtoMapper webSiteTagDtoMapper;
+    private WebSiteTagMapper webSiteTagDtoMapper;
     @Resource
-    private WebSiteDtoMapper webSiteDtoMapper;
+    private WebSiteMapper webSiteDtoMapper;
 
     public int insert(String json){
         JSONObject jsonObject = JSONObject.parseObject(json);
@@ -32,7 +31,7 @@ public class WebSiteTagService {
              */
 
             String weburl = jsonObject.getString("weburl");
-            String rootUrl = HttpParamUtils.urlToRoot(weburl);
+            String rootUrl = HttpParamUtils.getRootUrl(weburl);
             WebSiteDto webSiteDto = webSiteDtoMapper.selectByUrl(rootUrl);
 
             // 如果root不存在，插入到主表

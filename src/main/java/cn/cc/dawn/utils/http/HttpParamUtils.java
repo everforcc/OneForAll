@@ -1,5 +1,9 @@
 package cn.cc.dawn.utils.http;
 
+import cn.cc.dawn.utils.constant.CharsetsConstant;
+import cn.cc.dawn.utils.constant.CommonCharConstant;
+import cn.cc.dawn.utils.constant.NumberConstant;
+import cn.cc.dawn.utils.exception.AppCode;
 import com.google.common.base.Joiner;
 import org.apache.commons.lang3.StringUtils;
 import org.apache.http.HttpHeaders;
@@ -21,10 +25,10 @@ public class HttpParamUtils {
      */
     public static String asUrlParamsGuava(Map<String, String> source){
         // TODO 如果要编码的话自己加下编码逻辑
-        return Joiner.on("&")
+        return Joiner.on(CommonCharConstant.AND)
                 // 用指定符号代替空值,key 或者value 为null都会被替换
-                .useForNull("")
-                .withKeyValueSeparator("=")
+                .useForNull(CommonCharConstant.EMP)
+                .withKeyValueSeparator(CommonCharConstant.EQ)
                 .join(source);
     }
 
@@ -42,27 +46,35 @@ public class HttpParamUtils {
             }
             try {
                 // URL 编码
-                value = URLEncoder.encode(value, "utf-8");
+                value = URLEncoder.encode(value, CharsetsConstant.UTF_8.toString());
             } catch (UnsupportedEncodingException e) {
                 // do nothing
             }
-            paramStr.append("&").append(key).append("=").append(value);
+            paramStr.append(CommonCharConstant.AND).append(key).append(CommonCharConstant.EQ).append(value);
         }
         // 去掉第一个&
-        return paramStr.substring(1);
+        return paramStr.substring(NumberConstant.N_1);
     }
 
-    public static String urlToRoot(String weburl){
+    public static String getRootUrl(String weburl){
         URL url = null;
         try {
             url = new URL(weburl);
         } catch (MalformedURLException e) {
             e.printStackTrace();
         }
-        return url.getProtocol() + "://" + url.getHost();
+        return url.getProtocol() + CommonCharConstant.URL_SPLIT + url.getHost();
     }
 
-
-
+    public static boolean checkUrlEffect(String weburl){
+        URL url = null;
+        try {
+            url = new URL(weburl);
+        } catch (MalformedURLException e) {
+            AppCode.A09000.toUserException(e.toString());
+            return false;
+        }
+        return true;
+    }
 
 }

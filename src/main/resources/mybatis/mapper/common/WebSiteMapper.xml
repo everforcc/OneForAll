@@ -2,7 +2,7 @@
 <!DOCTYPE mapper
         PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
         "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
-<mapper namespace="cn.cc.dawn.common.dao.WebSiteDtoMapper">
+<mapper namespace="cn.cc.dawn.common.dao.WebSiteMapper">
 
     <!-- 列表查询 -->
     <select id="selectAll" resultType="cn.cc.dawn.common.dto.WebSiteDto">
@@ -13,7 +13,11 @@
         select * from cc_website where webroot = #{webroot};
     </select>
 
-    <insert id="insert">
+    <select id="existByUrl" resultType="String">
+        select '1' from cc_website where webroot = #{webroot};
+    </select>
+
+    <insert id="insert" useGeneratedKeys="true" keyProperty="id"  keyColumn="id">
         INSERT INTO `oneforall`.`cc_website` (
             `webroot`,
             `webname`,

@@ -1,17 +1,16 @@
 package cn.cc.dawn.business.crawsp4u.service;
 
 import cn.cc.dawn.business.crawsp4u.constant.Sp4uUrl;
-import cn.cc.dawn.common.dao.WebSiteDoMapper;
+import cn.cc.dawn.common.dao.WebSiteDataMapper;
 import cn.cc.dawn.common.dto.HttpParam;
-import cn.cc.dawn.common.dto.WebSiteDo;
+import cn.cc.dawn.common.dto.WebSiteDataDto;
 import cn.cc.dawn.common.enums.CharsetsEnum;
 import cn.cc.dawn.common.enums.HttpTypeEnum;
 import cn.cc.dawn.config.init.properties.PropertiesHeader;
 import cn.cc.dawn.config.yml.ConfigurationData;
 import cn.cc.dawn.utils.MathUtils;
 import cn.cc.dawn.utils.ThreadUtils;
-import cn.cc.dawn.utils.XSoupUtils;
-import cn.cc.dawn.utils.constant.LogConstant;
+import cn.cc.dawn.utils.jsoup.XSoupUtils;
 import cn.cc.dawn.utils.http.HttpMethod;
 import cn.cc.dawn.utils.http.impl.HttpUrlConnectImpl;
 import lombok.extern.slf4j.Slf4j;
@@ -37,41 +36,41 @@ public class Sp4uService {
     @Autowired
     private ConfigurationData configurationData;
     @Resource
-    WebSiteDoMapper webSiteDoMapper;
+    WebSiteDataMapper webSiteDoMapper;
 
     public int flow(String url){
-        int result = 0;
-        WebSiteDo webSiteDo = new WebSiteDo();
-        try {
-            // 1. 组装请求数据
-            HttpParam httpParam = getHttpParam(url);
-            webSiteDo.dealUrl(httpParam.getUrl());
-            WebSiteDo resultVO = webSiteDoMapper.selectBYUrlParams(webSiteDo.getUrl(),webSiteDo.getParams());
-
-            if(Objects.isNull(resultVO)) {
-                log.info("网络获取数据: " + httpParam.toString());
-                // 2. 请求返回HTML
-                String html = httpMethod.getMsg(httpParam);
-                log.info(html);
-                webSiteDo.setHtml(html);
-                // 3. 将数据入库
-                result = webSiteDoMapper.insert(webSiteDo);
-                log.info("result:" + result);
-            }else {
-                log.info("从数据库获取: " + resultVO.toString());
-            }
-
-            //
-            extract(resultVO.getHtml());
-
-            // 4. 随机数延迟
-            ThreadUtils.sleep(MathUtils.getRandom(0,1));
-            // 5. 进行下一步
-
-            return result;
-        } catch (Exception e) {
-            e.printStackTrace();
-        }
+//        int result = 0;
+//        WebSiteDataDto webSiteDo = new WebSiteDataDto();
+//        try {
+//            // 1. 组装请求数据
+//            HttpParam httpParam = getHttpParam(url);
+////            webSiteDo.dealUrl(httpParam.getUrl());
+//            WebSiteDataDto resultVO = webSiteDoMapper.selectBYUrlParams(webSiteDo.getUrl(),webSiteDo.getParams());
+//
+//            if(Objects.isNull(resultVO)) {
+//                log.info("网络获取数据: " + httpParam.toString());
+//                // 2. 请求返回HTML
+//                String html = httpMethod.getMsg(httpParam);
+//                log.info(html);
+//                webSiteDo.setData(html);
+//                // 3. 将数据入库
+//                result = webSiteDoMapper.insert(webSiteDo);
+//                log.info("result:" + result);
+//            }else {
+//                log.info("从数据库获取: " + resultVO.toString());
+//            }
+//
+//            //
+//            extract(resultVO.getHtml());
+//
+//            // 4. 随机数延迟
+//            ThreadUtils.sleep(MathUtils.getRandom(0,1));
+//            // 5. 进行下一步
+//
+//            return result;
+//        } catch (Exception e) {
+//            e.printStackTrace();
+//        }
         return 0;
     }
 

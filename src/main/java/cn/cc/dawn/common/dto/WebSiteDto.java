@@ -1,10 +1,9 @@
 package cn.cc.dawn.common.dto;
 
-import lombok.AllArgsConstructor;
-import lombok.Data;
-import lombok.NoArgsConstructor;
+import lombok.*;
 
-@Data
+@Getter
+@Setter
 @AllArgsConstructor
 @NoArgsConstructor
 public class WebSiteDto extends CommonFiledDto{

@@ -10,7 +10,17 @@
 @Valid | 参数
 @NotNull(message = "【fileSystemDto】不能为null")| 方法调用上
 @JSONField(format = "yyyy-MM-dd HH:mm:ss") | 代码 AppConfig fastJsonHttpMessageConverter()
+@Options(useGeneratedKeys = true, keyProperty = "id", keyColumn = "id") | sql插入返回id
 
+### sql
+
+- 插入后返回id
+~~~
+-- 注解
+@Options(useGeneratedKeys = true, keyProperty = "id", keyColumn = "id")
+-- xml
+<insert id="insert" useGeneratedKeys="true" keyProperty="id"  keyColumn="id">
+~~~
 
 ### 邮件
 
