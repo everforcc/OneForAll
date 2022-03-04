@@ -14,7 +14,6 @@ import cn.cc.dawn.utils.exception.AppCode;
 import cn.cc.dawn.utils.http.HttpMethod;
 import cn.cc.dawn.utils.http.HttpParamUtils;
 import cn.cc.dawn.utils.http.impl.HttpApacheImpl;
-import cn.cc.dawn.utils.http.impl.HttpUrlConnectImpl;
 import cn.cc.dawn.utils.jsoup.XSoupUtils;
 import lombok.extern.slf4j.Slf4j;
 import org.springframework.stereotype.Service;
@@ -24,7 +23,6 @@ import javax.annotation.Resource;
 
 @Slf4j
 @Service
-@Transactional
 public class WebSiteCommonService {
 
     @Resource
@@ -46,7 +44,7 @@ public class WebSiteCommonService {
      * 5. 处理业务逻辑
      * @param httpParam
      */
-    @Transactional
+    @Transactional(rollbackFor = Exception.class)
     public boolean commonflow(HttpParam httpParam){
         log.info("web公共流程: " + httpParam);
         // 非空校验
@@ -66,46 +64,42 @@ public class WebSiteCommonService {
         }else {
             webSiteDto = webSiteDtoMapper.selectByUrl(rooturl);
         }
-
         log.info("主表信息: " + webSiteDto.toString());
-        try {
-            // 3. 处理子表标题
-            String html = httpMethod.getMsg(httpParam);
-            String title = XSoupUtils.htmlToStr(html, XSoupCommonConstant.REG_TITLE);
 
-            WebSiteTagDto webSiteTagDto = new WebSiteTagDto();
-            webSiteTagDto.setWeburl(weburl);
+        // 3. 处理子表标题
+        String html = httpMethod.getMsg(httpParam);
+        String title = XSoupUtils.htmlToStr(html, XSoupCommonConstant.REG_TITLE);
 
-            flag = webSiteTagMapper.existByUrl(webSiteTagDto);
+        WebSiteTagDto webSiteTagDto = new WebSiteTagDto();
+        webSiteTagDto.setWeburl(weburl);
 
-            if(StringUtils.isEmpty(flag)){
-                webSiteTagDto.setWebrootid(webSiteDto.getId());
-                webSiteTagDto.setWebname(title);
-                webSiteTagMapper.insert(webSiteTagDto);
-            }else {
-                webSiteTagDto = webSiteTagMapper.selectByUrl(webSiteTagDto);
-            }
+        flag = webSiteTagMapper.existByUrl(webSiteTagDto);
 
-            log.info("子表信息: " + webSiteTagDto);
-            // 4. 插入数据表
-            WebSiteDataDto webSiteDataDto = new WebSiteDataDto();
-            int parentid = webSiteTagDto.getId();
-            flag = webSiteDataMapper.existBYParentid(parentid);
-            if(StringUtils.isEmpty(flag)){
-                webSiteDataDto.setParentid(parentid);
-                webSiteDataDto.setType(1);
-                webSiteDataDto.setHtml(html);
-                webSiteDataMapper.insert(webSiteDataDto);
-            }else {
-                webSiteDataDto = webSiteDataMapper.selectBYParentid(parentid);
-            }
-
-            log.info("数据表表信息: " + webSiteDataDto);
-            return true;
-        } catch (Exception e) {
-            AppCode.A09000.toUserException(e.toString());
-            return false;
+        if(StringUtils.isEmpty(flag)){
+            webSiteTagDto.setWebrootid(webSiteDto.getId());
+            webSiteTagDto.setWebname(title);
+            webSiteTagMapper.insert(webSiteTagDto);
+        }else {
+            webSiteTagDto = webSiteTagMapper.selectByUrl(webSiteTagDto);
         }
+        log.info("子表信息: " + webSiteTagDto);
+
+        // 4. 插入数据表
+        WebSiteDataDto webSiteDataDto = new WebSiteDataDto();
+        int parentid = webSiteTagDto.getId();
+        flag = webSiteDataMapper.existBYParentid(parentid);
+        if(StringUtils.isEmpty(flag)){
+            webSiteDataDto.setParentid(parentid);
+            webSiteDataDto.setType(1);
+            webSiteDataDto.setHtml(html);
+            webSiteDataMapper.insert(webSiteDataDto);
+        }else {
+            webSiteDataDto = webSiteDataMapper.selectBYParentid(parentid);
+        }
+
+        log.info("数据表表信息: " + webSiteDataDto);
+
+        return true;
     }
 
 }

@@ -11,9 +11,9 @@ public interface HttpMethod {
      * 发送一个网络请求
      */
 
-    InputStream getStream(HttpParam httpParam) throws IOException;
+    InputStream getStream(HttpParam httpParam);
 
-    String getMsg(HttpParam httpParam) throws Exception;
+    String getMsg(HttpParam httpParam);
 
     boolean getFile(HttpParam httpParam);
 }

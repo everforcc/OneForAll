@@ -11,6 +11,7 @@
 @NotNull(message = "【fileSystemDto】不能为null")| 方法调用上
 @JSONField(format = "yyyy-MM-dd HH:mm:ss") | 代码 AppConfig fastJsonHttpMessageConverter()
 @Options(useGeneratedKeys = true, keyProperty = "id", keyColumn = "id") | sql插入返回id
+@Transactional(rollbackFor = Exception.class) |　如果使用 try catch 需要 在catch中 抛出异常
 
 ### sql
 
@@ -20,6 +21,13 @@
 @Options(useGeneratedKeys = true, keyProperty = "id", keyColumn = "id")
 -- xml
 <insert id="insert" useGeneratedKeys="true" keyProperty="id"  keyColumn="id">
+~~~
+
+### 事务
+
+- @Transactional(rollbackFor = Exception.class)
+~~~
+自定义异常，可以下载rollbackfor中
 ~~~
 
 ### 邮件
