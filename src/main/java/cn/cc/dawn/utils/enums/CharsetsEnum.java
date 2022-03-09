@@ -1,4 +1,4 @@
-package cn.cc.dawn.common.enums;
+package cn.cc.dawn.utils.enums;
 
 import lombok.SneakyThrows;
 
@@ -20,6 +20,7 @@ public enum CharsetsEnum {
     UTF_16LE("UTF-16LE", StandardCharsets.UTF_16LE),
     UTF_16("UTF-16", StandardCharsets.UTF_16),
     big5("big5", Charset.forName("big5")),
+    gb2312("gb2312", Charset.forName("gb2312")),
     ;
     public final String comment;
     public final Charset charset;

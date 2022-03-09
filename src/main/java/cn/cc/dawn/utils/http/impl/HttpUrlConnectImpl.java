@@ -1,7 +1,7 @@
 package cn.cc.dawn.utils.http.impl;
 
 import cn.cc.dawn.common.dto.HttpParam;
-import cn.cc.dawn.common.enums.BooleanEnum;
+import cn.cc.dawn.utils.enums.BooleanEnum;
 import cn.cc.dawn.utils.exception.AppCode;
 import cn.cc.dawn.utils.http.HttpMethod;
 import lombok.extern.slf4j.Slf4j;

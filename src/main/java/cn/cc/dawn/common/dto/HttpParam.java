@@ -1,8 +1,8 @@
 package cn.cc.dawn.common.dto;
 
-import cn.cc.dawn.common.enums.BooleanEnum;
-import cn.cc.dawn.common.enums.CharsetsEnum;
-import cn.cc.dawn.common.enums.HttpTypeEnum;
+import cn.cc.dawn.utils.enums.BooleanEnum;
+import cn.cc.dawn.utils.enums.CharsetsEnum;
+import cn.cc.dawn.utils.enums.HttpTypeEnum;
 import com.alibaba.fastjson.JSONObject;
 import lombok.AllArgsConstructor;
 import lombok.Data;

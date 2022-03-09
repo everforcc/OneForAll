@@ -1,4 +1,4 @@
-package cn.cc.dawn.common.enums;
+package cn.cc.dawn.utils.enums;
 
 public enum HttpTypeEnum {
 

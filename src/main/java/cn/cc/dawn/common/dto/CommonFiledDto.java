@@ -1,6 +1,6 @@
 package cn.cc.dawn.common.dto;
 
-import cn.cc.dawn.common.enums.StatusEnum;
+import cn.cc.dawn.utils.enums.StatusEnum;
 import com.alibaba.fastjson.JSONObject;
 import com.alibaba.fastjson.annotation.JSONField;
 import lombok.*;

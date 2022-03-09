@@ -1,6 +1,6 @@
 package cn.cc.dawn.config.handler;
 
-import cn.cc.dawn.common.enums.StatusEnum;
+import cn.cc.dawn.utils.enums.StatusEnum;
 import org.apache.ibatis.type.BaseTypeHandler;
 import org.apache.ibatis.type.JdbcType;
 

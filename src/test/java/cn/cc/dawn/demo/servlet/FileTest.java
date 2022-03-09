@@ -1,4 +1,4 @@
-package cn.cc.dawn.demo.file;
+package cn.cc.dawn.demo.servlet;
 
 
 import com.google.common.io.ByteStreams;

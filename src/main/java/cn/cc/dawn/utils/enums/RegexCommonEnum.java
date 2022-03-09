@@ -1,4 +1,4 @@
-package cn.cc.dawn.utils.eenum;
+package cn.cc.dawn.utils.enums;
 
 public enum RegexCommonEnum {
 

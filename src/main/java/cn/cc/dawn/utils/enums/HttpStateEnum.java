@@ -1,4 +1,4 @@
-package cn.cc.dawn.common.enums;
+package cn.cc.dawn.utils.enums;
 
 /**
  * Http 状态码

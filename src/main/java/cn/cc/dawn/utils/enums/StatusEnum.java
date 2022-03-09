@@ -1,4 +1,4 @@
-package cn.cc.dawn.common.enums;
+package cn.cc.dawn.utils.enums;
 
 /**
  * @author guokailong 2021-09-07

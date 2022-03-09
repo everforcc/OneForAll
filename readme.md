@@ -10,7 +10,7 @@
 @Valid | 参数
 @NotNull(message = "【fileSystemDto】不能为null")| 方法调用上
 @JSONField(format = "yyyy-MM-dd HH:mm:ss") | 代码 AppConfig fastJsonHttpMessageConverter()
-@Options(useGeneratedKeys = true, keyProperty = "id", keyColumn = "id") | sql插入返回id
+@Options(useGeneratedKeys = true, keyProperty = "id", keyColumn = "id") | sql插入返回id，xml中也支持批量插入返回id
 @Transactional(rollbackFor = Exception.class) |　如果使用 try catch 需要 在catch中 抛出异常
 
 ### sql

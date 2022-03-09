@@ -3,13 +3,10 @@ package cn.cc.dawn.business.crawsp4u.service;
 import cn.cc.dawn.business.crawsp4u.constant.Sp4uUrl;
 import cn.cc.dawn.common.dao.WebSiteDataMapper;
 import cn.cc.dawn.common.dto.HttpParam;
-import cn.cc.dawn.common.dto.WebSiteDataDto;
-import cn.cc.dawn.common.enums.CharsetsEnum;
-import cn.cc.dawn.common.enums.HttpTypeEnum;
+import cn.cc.dawn.utils.enums.CharsetsEnum;
+import cn.cc.dawn.utils.enums.HttpTypeEnum;
 import cn.cc.dawn.config.init.properties.PropertiesHeader;
 import cn.cc.dawn.config.yml.ConfigurationData;
-import cn.cc.dawn.utils.MathUtils;
-import cn.cc.dawn.utils.ThreadUtils;
 import cn.cc.dawn.utils.jsoup.XSoupUtils;
 import cn.cc.dawn.utils.http.HttpMethod;
 import cn.cc.dawn.utils.http.impl.HttpUrlConnectImpl;
@@ -21,7 +18,6 @@ import org.springframework.transaction.annotation.Transactional;
 
 import javax.annotation.Resource;
 import java.util.List;
-import java.util.Objects;
 
 @Slf4j
 @Service("sp4uService")

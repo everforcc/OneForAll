@@ -1,9 +1,8 @@
 package cn.cc.dawn.common.controller;
 
 import cn.cc.dawn.common.dto.HttpParam;
-import cn.cc.dawn.common.enums.CharsetsEnum;
+import cn.cc.dawn.utils.enums.CharsetsEnum;
 import cn.cc.dawn.common.flow.WebSiteCommonService;
-import cn.cc.dawn.utils.constant.CharsetsConstant;
 import cn.cc.dawn.utils.entity.ResultE;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.RequestMapping;

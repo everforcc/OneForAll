@@ -1,4 +1,4 @@
-package cn.cc.dawn.business.balance;
+package cn.cc.dawn.demo.ngbalance;
 
 import org.springframework.beans.factory.annotation.Value;
 import org.springframework.web.bind.annotation.GetMapping;

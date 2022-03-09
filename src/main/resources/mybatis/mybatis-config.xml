@@ -9,8 +9,8 @@
     </settings>
     
     <typeHandlers>
-        <typeHandler handler="cn.cc.dawn.config.handler.StatusEnumHandler" javaType="cn.cc.dawn.common.enums.StatusEnum" jdbcType="INTEGER"/>
-        <!--<typeHandler handler="org.apache.ibatis.type.IntegerTypeHandler" javaType="cn.cc.dawn.common.enums.StatusEnum" jdbcType="INTEGER"/>-->
+        <typeHandler handler="cn.cc.dawn.config.handler.StatusEnumHandler" javaType="cn.cc.dawn.utils.enums.StatusEnum" jdbcType="INTEGER"/>
+        <!--<typeHandler handler="org.apache.ibatis.type.IntegerTypeHandler" javaType="cn.cc.dawn.utils.enums.StatusEnum" jdbcType="INTEGER"/>-->
     </typeHandlers>
     <!--IntegerTypeHandler-->
     

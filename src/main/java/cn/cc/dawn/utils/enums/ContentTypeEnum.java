@@ -1,4 +1,4 @@
-package cn.cc.dawn.common.enums;
+package cn.cc.dawn.utils.enums;
 
 /**
  * HTTP Content-type
@@ -69,6 +69,7 @@ public enum ContentTypeEnum {
     tiff(".tiff", "image/tiff"),
     ttf(".ttf", "font/ttf"),
     txt(".txt", "text/plain"),
+    txt_UTF_8(".txt", "text/plain;charset=utf-8"),
     vsd(".vsd", "application/vnd.visio"),
     wav(".wav", "audio/wav"),
     weba(".weba", "audio/webm"),

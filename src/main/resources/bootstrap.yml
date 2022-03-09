@@ -65,9 +65,10 @@ mybatis:
   mapper-locations: classpath*:mybatis/mapper/**/*.xml
   # mapper-locations: classpath*:mybatis/mapper/**/*.xml
 server:
-  # port: 8081
+  port: 80
   tomcat:
     connection-timeout: 10ms
+    uri-encoding: UTF-8
 data:
   str: string
   stringList:

@@ -1,6 +1,6 @@
 package cn.cc.dawn.common.dto;
 
-import cn.cc.dawn.utils.eenum.RegexCommonEnum;
+import cn.cc.dawn.utils.enums.RegexCommonEnum;
 import lombok.AllArgsConstructor;
 import lombok.Getter;
 import lombok.NoArgsConstructor;

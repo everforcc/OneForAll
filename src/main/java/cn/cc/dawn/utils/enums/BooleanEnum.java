@@ -1,7 +1,4 @@
-package cn.cc.dawn.common.enums;
-
-import java.nio.charset.Charset;
-import java.nio.charset.StandardCharsets;
+package cn.cc.dawn.utils.enums;
 
 public enum BooleanEnum {
 
