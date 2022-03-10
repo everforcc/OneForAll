@@ -4,9 +4,9 @@ import cn.cc.dawn.common.dto.WebSiteTagDto;
 
 public interface WebSiteTagMapper {
 
-    String existByUrl(WebSiteTagDto webSiteTagDto);
+    String existByUrl(String weburl);
 
-    WebSiteTagDto selectByUrl(WebSiteTagDto webSiteTagDto);
+    WebSiteTagDto selectByUrl(String weburl);
 
     int insert(WebSiteTagDto webSiteTagDto);
 

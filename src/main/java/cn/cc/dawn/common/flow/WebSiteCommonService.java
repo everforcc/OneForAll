@@ -73,14 +73,14 @@ public class WebSiteCommonService {
         WebSiteTagDto webSiteTagDto = new WebSiteTagDto();
         webSiteTagDto.setWeburl(weburl);
 
-        flag = webSiteTagMapper.existByUrl(webSiteTagDto);
+        flag = webSiteTagMapper.existByUrl(weburl);
 
         if(StringUtils.isEmpty(flag)){
             webSiteTagDto.setWebrootid(webSiteDto.getId());
             webSiteTagDto.setWebname(title);
             webSiteTagMapper.insert(webSiteTagDto);
         }else {
-            webSiteTagDto = webSiteTagMapper.selectByUrl(webSiteTagDto);
+            webSiteTagDto = webSiteTagMapper.selectByUrl(weburl);
         }
         log.info("子表信息: " + webSiteTagDto);
 

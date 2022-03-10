@@ -1,0 +1,80 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+    <style>
+        body {
+            background-color: rgba(255, 255, 255, 0.98);
+            margin-left: 20px;
+            margin-top: 20px;
+            font-family: "新宋体","宋体",sans-serif;
+        }
+    </style>
+</head>
+<body>
+
+<br>
+<div id="novelContent"></div>
+<button id="novelList"> 小说清单 </button>
+
+<br>
+<div id="capterContent"></div>
+<button id="capterList"> 章节清单 </button>
+
+<br>
+<div id="content"></div>
+
+</body>
+<script src="../../package/jquery/jquery.min.js"></script>
+
+
+<script>
+
+    /* 动态前端 */
+
+    /*
+    * 1. 列表
+    * 2. 选中后目录
+    * 3. 选中目录后数据
+    * */
+
+    var pn = 0;
+    var size = 5;
+
+    $("#novelList").click(function () {
+        $.ajax({
+            url: "/novelController/listNovel/0/5",
+            type: "GET",
+            async: false,
+            dataType: "json",
+            success: function (objReturn) {
+                //$("#content").html(objReturn);
+
+                alert(objReturn.eList[0].name);
+            },
+            error: function (objReturn) {
+                // 跳转后台给我发邮件
+                alert("系统故障,请联系管理员");
+            }
+        })
+    });
+
+    // $("#submit").click(function () {
+    //     $.ajax({
+    //         url: "/novelController/chapter",
+    //         type: "GET",
+    //         async: false,
+    //         dataType: "json",
+    //         success: function (objReturn) {
+    //             $("#content").html(objReturn);
+    //         },
+    //         error: function (objReturn) {
+    //             // 跳转后台给我发邮件
+    //             alert("系统故障,请联系管理员");
+    //         }
+    //     })
+    // });
+
+</script>
+</html>

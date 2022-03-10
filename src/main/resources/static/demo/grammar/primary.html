@@ -1,0 +1,64 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>基本数据类型等</title>
+    <link rel="stylesheet" href="../css/CommonCSS.css" type="text/css">
+</head>
+<body>
+
+<p>
+   文本测试
+</p>
+
+<button id="defined" onclick="vlc()"> 定义数据 </button>
+
+</body>
+
+<script src="../../package/jquery/jquery.min.js"></script>
+<script>
+    /* 声明数据的三种方式 */
+    //
+    /**
+     * 版本SCMAScript6+
+     * 1. var 全局可以用windows. 调用
+     * 2. let，const 局部块作用域
+     * 3. const
+     * 3.1.必须赋值不能为空
+     * 3.2 不能修改，只读
+     * 3.3 如果是复合数据类型，可以修改值
+     */
+    var a = 100;
+    let b =10;
+    const c = 1;
+
+    function vlc(){
+        console.log(a,window.a);
+        console.log(b,window.b);
+        console.log(c,window.c);
+
+        if(1){
+            var d = 100;
+            let e = 10;
+        }
+        console.log("局部块作用域");
+        console.log(d);
+        //console.log(e);// Uncaught ReferenceError: e is not defined
+
+        console.log("const list");
+        const list = [];
+        list[0] = 10;
+        console.log(list);　　// [10]
+
+        console.log("const map");
+        const obj = {a:100};
+        obj.name = 'apple';
+        obj.a = 10000;
+        console.log(obj);　　// {a:10000,name:'apple'}
+    }
+
+
+
+</script>
+
+</html>

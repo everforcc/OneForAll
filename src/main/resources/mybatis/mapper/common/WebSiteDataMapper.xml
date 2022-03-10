@@ -7,21 +7,15 @@
     <!-- 列表查询 -->
     <insert id="insert" useGeneratedKeys="true" keyProperty="id"  keyColumn="id">
         INSERT INTO `oneforall`.`cc_websitedata` (
-            `uuid`,
             `parentid`,
             `type`,
-            `html`,
-            `effect`,
-            `status`
+            `html`
         )
         VALUES
             (
-                #{uuid },
                 #{parentid},
                 #{type},
-                #{html},
-                #{effect},
-                #{status}
+                #{html}
             );
     </insert>
 

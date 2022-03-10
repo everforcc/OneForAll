@@ -5,6 +5,10 @@ import org.apache.http.HttpHeaders;
 
 public class HttpConstant {
 
+    public static String REQUEST_GET = "GET";
+
+    public static String REQUEST_POST = "POST";
+
     /**
      * apache的工具包常用的请求头
      */
@@ -21,6 +25,8 @@ public class HttpConstant {
     public static final String txt_plain_UTF_8 = ContentTypeEnum.txt_UTF_8.type;
 
     public static final String txt_html = ContentTypeEnum.html.type;
+
+    public static final String txt_html_UTF_8 = ContentTypeEnum.html_UTF_8.type;
 
     public static String max_age= "max-age=";
 

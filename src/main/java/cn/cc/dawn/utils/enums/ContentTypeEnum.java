@@ -28,6 +28,7 @@ public enum ContentTypeEnum {
     gif(".gif", "image/gif"),
     htm(".htm", "text/html"),
     html(".html", "text/html"),
+    html_UTF_8(".html", "text/html;charset=utf-8"),
     //ico(".ico", "image/x-icon"),
     ico(".ico", "image/vnd.microsoft.icon"),
     ics(".ics", "text/calendar"),

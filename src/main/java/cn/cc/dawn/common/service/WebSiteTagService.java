@@ -6,12 +6,14 @@ import cn.cc.dawn.common.dto.WebSiteDto;
 import cn.cc.dawn.common.dto.WebSiteTagDto;
 import cn.cc.dawn.utils.http.HttpParamUtils;
 import com.alibaba.fastjson.JSONObject;
+import lombok.extern.slf4j.Slf4j;
 import org.springframework.stereotype.Service;
 import org.springframework.transaction.annotation.Transactional;
 
 import javax.annotation.Resource;
 import java.util.Objects;
 
+@Slf4j
 @Service
 @Transactional
 public class WebSiteTagService {
@@ -55,6 +57,17 @@ public class WebSiteTagService {
             return webSiteTagDtoMapper.insert(webSiteTagDto);
         }
         return 0;
+    }
+
+    public WebSiteTagDto insert(WebSiteTagDto webSiteTagDto){
+        if("1".equals(webSiteTagDtoMapper.existByUrl(webSiteTagDto.getWeburl()))){
+            webSiteTagDto = webSiteTagDtoMapper.selectByUrl(webSiteTagDto.getWeburl());
+            log.info("tag表已存在: " + webSiteTagDto.getWeburl());
+        }else {
+            int tagResult = webSiteTagDtoMapper.insert(webSiteTagDto);
+            log.info("tagResult: " + tagResult);
+        }
+        return webSiteTagDto;
     }
 
 }

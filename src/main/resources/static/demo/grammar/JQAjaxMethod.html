@@ -1,0 +1,76 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>ajax常用的方法</title>
+    <link rel="stylesheet" href="../css/CommonCSS.css" type="text/css">
+</head>
+<body>
+
+<br>
+<button onclick="ajaxGetRest()">rest风格返回txt</button>
+<br>
+<br>
+<button onclick="ajaxGetParams()">params风格返回json</button>
+
+</body>
+
+<script src="../../package/jquery/jquery.min.js"></script>
+<script>
+
+    /* https://www.w3school.com.cn/jquery/ajax_ajax.asp */
+    /* ajax的 dataType 取值范围 */
+    const dataType_xml = 'xml';
+    const dataType_html = 'html';
+    const dataType_script = 'script';
+    const dataType_json = 'json';
+    const dataType_jsonp = 'jsonp';
+    const dataType_text = 'text';
+
+    const getParam = 5;
+    /**
+     *  1. get rest 返回txt
+     */
+    function ajaxGetRest(){
+        $.ajax({
+            url: "/demo/htmlController/rest/" + restParam,
+            type: "GET",
+            async: false,
+            dataType: dataType_text,
+            success: function (objReturn) {
+                console.log("返回txt: " + objReturn);
+            },
+            error: function (objReturn) {
+                alert("系统故障,请联系管理员");
+            }
+        })
+    }
+
+    /**
+     *  2. get params 返回json
+     */
+    function ajaxGetParams(){
+        $.ajax({
+            url: "/demo/htmlController/params",
+            type: "GET",
+            data:{
+                pm: restParam
+            },
+            async: false,
+            dataType: dataType_json,
+            success: function (objReturn) {
+                console.log("返回json: " + objReturn.eList[0]);
+            },
+            error: function (objReturn) {
+                console.log("系统故障,请联系管理员");
+            }
+        })
+    }
+
+    /**
+     * 3. post
+     */
+
+</script>
+
+</html>

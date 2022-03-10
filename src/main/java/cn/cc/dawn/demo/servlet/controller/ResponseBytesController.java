@@ -76,7 +76,7 @@ public class ResponseBytesController {
 
         response.setDateHeader(HttpConstant.EXPIRES, System.currentTimeMillis() + 1 * 1000);
         // 返回类型 txt
-        response.setContentType(HttpConstant.txt_plain);
+        response.setContentType(HttpConstant.txt_plain_UTF_8);
         //
         response.setHeader(HttpConstant.CACHE_CONTROL, "max-age=" + bytes.length);
         @Cleanup ServletOutputStream outputStream = response.getOutputStream();

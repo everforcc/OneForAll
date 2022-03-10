@@ -3,19 +3,21 @@ package cn.cc.dawn.common.service;
 import cn.cc.dawn.common.dao.WebSiteMapper;
 import cn.cc.dawn.common.dto.WebSiteDto;
 import com.alibaba.fastjson.JSONObject;
+import lombok.extern.slf4j.Slf4j;
 import org.springframework.stereotype.Service;
 import org.springframework.transaction.annotation.Transactional;
 
 import javax.annotation.Resource;
 import java.util.List;
 
+@Slf4j
 @Service
 @Transactional
 //@RequiredArgsConstructor
 public class WebSiteService {
 
     @Resource
-    private WebSiteMapper accountsDaoMapper;
+    private WebSiteMapper webSiteMapper;
 
     /**
      * 1. 插入首页类型
@@ -26,7 +28,7 @@ public class WebSiteService {
      */
 
     public List<WebSiteDto> selectAll(){
-        return accountsDaoMapper.selectAll();
+        return webSiteMapper.selectAll();
     }
 
     public int insert(String json){
@@ -82,9 +84,20 @@ public class WebSiteService {
             webSiteDto.setVip(webSiteJSON.getIntValue("vip"));
         }
 
-        int result = accountsDaoMapper.insert(webSiteDto);
-        System.out.println(result);
+        int result = webSiteMapper.insert(webSiteDto);
+        log.info("result: " + result);
         return result;
+    }
+
+    public WebSiteDto insert(WebSiteDto webSiteDto){
+        if("1".equals(webSiteMapper.existByUrl(webSiteDto.getWebroot()))){
+            webSiteDto = webSiteMapper.selectByUrl(webSiteDto.getWebroot());
+            log.info("web主表已存在: " + webSiteDto.getWebroot());
+        }else {
+            int webResult = webSiteMapper.insert(webSiteDto);
+            log.info("webResult: " + webResult);
+        }
+        return webSiteDto;
     }
 
 

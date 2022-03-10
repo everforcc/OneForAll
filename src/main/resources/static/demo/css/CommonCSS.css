@@ -1,0 +1,15 @@
+body {
+    background-color: rgba(255, 255, 255, 0.98);
+    margin-left: 20px;
+    margin-top: 20px;
+    font-family: "新宋体","宋体",sans-serif;
+    font-size: 20px;
+}
+
+button {
+    background-color: rgb(209, 246, 79);
+    margin-left: 10px;
+    margin-top: 10px;
+    font-family: "新宋体","宋体",sans-serif;
+    font-size: 13px;
+}
