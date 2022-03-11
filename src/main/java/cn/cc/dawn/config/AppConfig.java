@@ -11,6 +11,8 @@ import org.springframework.context.annotation.Configuration;
 import org.springframework.http.MediaType;
 import org.springframework.validation.beanvalidation.MethodValidationPostProcessor;
 import org.springframework.web.bind.annotation.RestControllerAdvice;
+import org.springframework.web.servlet.config.annotation.CorsRegistry;
+import org.springframework.web.servlet.config.annotation.WebMvcConfigurer;
 
 import java.nio.charset.Charset;
 import java.util.Collections;
@@ -39,6 +41,16 @@ import java.util.Collections;
 @Configuration(proxyBeanMethods = false)
 @RequiredArgsConstructor
 public class AppConfig {
+
+    @Configuration
+    public static class APPWebMvcConfigurer implements WebMvcConfigurer {
+        @Override
+        public void addCorsMappings(CorsRegistry registry) {
+            registry.addMapping("/**").allowedOrigins("*")
+                    .allowedMethods("GET", "HEAD", "POST","PUT", "DELETE", "OPTIONS")
+                    .allowCredentials(false).maxAge(3600);
+        }
+    }
 
     /**
      * 启用 FastJson
