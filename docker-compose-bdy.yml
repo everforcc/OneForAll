@@ -5,7 +5,7 @@ version: '3.7'
 # 可以指定多个服务
 services:
   oneforall:
-    build: ../OneForAll/.
+    build: .
     container_name: oneforall-bdy
     image: oneforall-bdy:latest # Error response from daemon: no such image: OneForAll:latest: invalid reference format: repository name must be lowercase
     restart: 'no'
