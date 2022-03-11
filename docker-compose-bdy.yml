@@ -10,7 +10,7 @@ services:
     image: oneforall-bdy:latest # Error response from daemon: no such image: OneForAll:latest: invalid reference format: repository name must be lowercase
     restart: 'no'
     ports:
-      - 80:8080 # 前linux端口，后docke启动镜像的端口
+      - 8080:8080 # 前linux端口，后docke启动镜像的端口
     volumes:
       - './docker/logs:/app/logs'
       - './docker/files:/app/files'
