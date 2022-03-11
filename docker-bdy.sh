@@ -18,4 +18,4 @@ mvn clean package -P bdy -D maven.test.skip=true
 # build 构建（重新构建）项目中的服务容器。
 # up 启动的容器都在前台
 # -d 在后台启动并运行所有的容器
-docker-compose up -d --build
+docker-compose -f docker-compose-bdy.yml up -d --build
