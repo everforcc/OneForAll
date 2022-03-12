@@ -2,7 +2,7 @@
 git pull
 
 # 2. 卸载容器 -f 指定文件
-docker-compose down
+docker-compose -f docker-compose-bdy.yml down
 
 # 清理悬挂镜像
 docker image prune -f

@@ -13,16 +13,17 @@ import java.nio.charset.StandardCharsets;
  */
 public enum CharsetsEnum {
     // UTF-8 字符编码
-    UTF_8("UTF-8", StandardCharsets.UTF_8),
-    GBK("GBK", Charset.forName("GBK")),
-    ISO_8859_1("ISO-8859-1", StandardCharsets.ISO_8859_1),
-    UTF_16BE("UTF-16BE", StandardCharsets.UTF_16BE),
-    UTF_16LE("UTF-16LE", StandardCharsets.UTF_16LE),
-    UTF_16("UTF-16", StandardCharsets.UTF_16),
-    big5("big5", Charset.forName("big5")),
-    gb2312("gb2312", Charset.forName("gb2312")),
+    // 如果有新的必须在下面添加否则会影响已有数据
+    UTF_8(StandardCharsets.UTF_8),
+    GBK(Charset.forName("GBK")),
+    ISO_8859_1(StandardCharsets.ISO_8859_1),
+    UTF_16BE(StandardCharsets.UTF_16BE),
+    UTF_16LE(StandardCharsets.UTF_16LE),
+    UTF_16(StandardCharsets.UTF_16),
+    big5(Charset.forName("big5")),
+    gb2312(Charset.forName("gb2312")),
+
     ;
-    public final String comment;
     public final Charset charset;
 
     public String displayName() {
@@ -72,8 +73,7 @@ public enum CharsetsEnum {
 //        return ByteBuffer.wrap(value.getBytes(charset));
 //    }
 
-    CharsetsEnum(final String comment, final Charset charset) {
-        this.comment = comment;
+    CharsetsEnum(final Charset charset) {
         this.charset = charset;
     }
 

@@ -1,4 +1,4 @@
-package cn.cc.dawn.business.file;
+package cn.cc.dawn.business.file.dto;
 
 public class FileObj {
 

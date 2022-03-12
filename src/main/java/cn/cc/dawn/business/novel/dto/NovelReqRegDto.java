@@ -1,5 +1,6 @@
 package cn.cc.dawn.business.novel.dto;
 
+import cn.cc.dawn.config.convert.StringMapTranConvert;
 import cn.cc.dawn.utils.constant.HttpConstant;
 import cn.cc.dawn.utils.enums.CharsetsEnum;
 import cn.cc.dawn.utils.enums.HttpTypeEnum;
@@ -8,6 +9,7 @@ import lombok.Getter;
 import lombok.NoArgsConstructor;
 import lombok.Setter;
 
+import javax.persistence.Convert;
 import java.util.Map;
 
 @Getter
@@ -26,13 +28,15 @@ public class NovelReqRegDto {
     private int defaultTimeout = 6000;
 
     /**
-     * 1. 请求头
+     * 1. 请求头 StringMapTranConvert
      */
+    @Convert(converter = StringMapTranConvert.class)
     private Map<String,String> headers;
 
     /**
      * 2. 不同网站的认证方式，有的是cookie，有的是其他
      */
+    @Convert(converter = StringMapTranConvert.class)
     private Map<String,String> authon;
 
     // 3. 网站名

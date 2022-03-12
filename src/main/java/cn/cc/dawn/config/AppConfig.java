@@ -44,6 +44,8 @@ public class AppConfig {
 
     @Configuration
     public static class APPWebMvcConfigurer implements WebMvcConfigurer {
+
+        // 支持跨域
         @Override
         public void addCorsMappings(CorsRegistry registry) {
             registry.addMapping("/**").allowedOrigins("*")

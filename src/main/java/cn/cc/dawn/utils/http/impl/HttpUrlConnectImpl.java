@@ -68,7 +68,7 @@ public class HttpUrlConnectImpl implements HttpMethod {
             }
             //4. 设置提交类型
             if (Objects.nonNull(httpParam.getHttpTypeEnum())) {
-                conn.setRequestMethod(httpParam.getHttpTypeEnum().comment);
+                conn.setRequestMethod(httpParam.getHttpTypeEnum().type);
             }
 
 

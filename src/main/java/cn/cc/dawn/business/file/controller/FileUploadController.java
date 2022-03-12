@@ -1,13 +1,10 @@
-package cn.cc.dawn.business.file;
+package cn.cc.dawn.business.file.controller;
 
+import cn.cc.dawn.business.file.dto.FileObj;
 import com.alibaba.fastjson.JSONObject;
-import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.*;
 import org.springframework.web.multipart.MultipartFile;
-import org.springframework.web.multipart.MultipartHttpServletRequest;
 
-import javax.servlet.http.HttpServletRequest;
-import javax.servlet.http.HttpServletResponse;
 import java.io.FileOutputStream;
 import java.io.IOException;
 import java.io.InputStream;
@@ -19,7 +16,7 @@ import java.util.Map;
 public class FileUploadController {
 
     // 存文件信息
-    public static Map<String,FileObj> mapCache = new HashMap<>();
+    public static Map<String, FileObj> mapCache = new HashMap<>();
     public static Map<String,InputStream> streamMapCache = new HashMap<>();
 
     //public static Map<String,FileObj> mapCache = new HashMap<>();
