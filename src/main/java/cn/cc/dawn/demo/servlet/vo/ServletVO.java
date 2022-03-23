@@ -54,6 +54,12 @@ public class ServletVO {
         this.contentType = contentType;
     }
 
+    /**
+     * 当中文文字超过17个时，IE6 无法下载文件。这是IE的bug，懒得适配改没必要
+     *
+     * @param downFileName
+     * @throws UnsupportedEncodingException
+     */
     public void setDownFileName(String downFileName) throws UnsupportedEncodingException {
         this.downFileName = downFileName;
         // "attachment;filename="+ new String( "webmagic中文.txt".getBytes("gb2312"), "ISO8859-1" )

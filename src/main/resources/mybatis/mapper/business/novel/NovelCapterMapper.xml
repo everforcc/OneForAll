@@ -2,22 +2,22 @@
 <!DOCTYPE mapper
         PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
         "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
-<mapper namespace="cn.cc.dawn.business.novel.dao.NovelCapterMapper">
+<mapper namespace="cn.cc.dawn.open.novel.dao.NovelCapterMapper">
 
     <!-- 列表查询 -->
     <select id="existUrl" resultType="string">
         SELECT '1' FROM cc_novel_capter WHERE sourceurl = #{sourceurl};
     </select>
 
-    <select id="selectUrl" resultType="cn.cc.dawn.business.novel.dto.NovelCapterDto">
+    <select id="selectUrl" resultType="cn.cc.dawn.open.novel.dto.NovelCapterDto">
         SELECT * FROM cc_novel_capter WHERE sourceurl = #{sourceurl};
     </select>
 
-    <select id="selectPage" resultType="cn.cc.dawn.business.novel.dto.NovelCapterDto">
+    <select id="selectPage" resultType="cn.cc.dawn.open.novel.dto.NovelCapterDto">
         SELECT `id`,`captername` FROM cc_novel_capter WHERE parentid=#{parentid} ORDER BY `sourceurl` LIMIT #{pn},#{size};
     </select>
 
-    <select id="selectContent" resultType="cn.cc.dawn.business.novel.dto.NovelCapterDto">
+    <select id="selectContent" resultType="cn.cc.dawn.open.novel.dto.NovelCapterDto">
         SELECT `content` FROM cc_novel_capter WHERE id=#{parentid} and captername=#{captername};
     </select>
 

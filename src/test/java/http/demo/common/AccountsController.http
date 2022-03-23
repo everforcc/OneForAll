@@ -1,6 +1,0 @@
-
-###
-GET http://localhost:80/common/findAll
-Accept: application/json
-
-###

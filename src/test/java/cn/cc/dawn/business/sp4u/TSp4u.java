@@ -1,6 +1,6 @@
 package cn.cc.dawn.business.sp4u;
 
-import cn.cc.dawn.business.crawsp4u.service.Sp4uService;
+import cn.cc.dawn.business.craw.crawsp4u.service.Sp4uService;
 import org.junit.jupiter.api.Test;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.boot.test.context.SpringBootTest;

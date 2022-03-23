@@ -22,7 +22,7 @@ public class HttpConstant {
 
     public static final String txt_plain = ContentTypeEnum.txt.type;
 
-    public static final String txt_plain_UTF_8 = ContentTypeEnum.txt_UTF_8.type;
+    public static final String txt_plain_UTF_8 = ContentTypeEnum.txt.utf8();
 
     public static final String txt_html = ContentTypeEnum.html.type;
 
@@ -30,12 +30,34 @@ public class HttpConstant {
 
     public static String max_age= "max-age=";
 
+    /**
+     * 内容类型
+     */
     public static String Content_Type = HttpHeaders.CONTENT_TYPE;
 
+
+    /**
+     * 下载文件用
+     */
+    public static String CONTENT_DISPOSITION = com.google.common.net.HttpHeaders.CONTENT_DISPOSITION;
+
+    /**
+     * 内容大小
+     */
+    public static String CONTENT_LENGTH = HttpHeaders.CONTENT_LENGTH;
+
+    /**
+     * 缓存
+     */
     public static String CACHE_CONTROL = HttpHeaders.CACHE_CONTROL;
+    public static String PRAGMA = HttpHeaders.PRAGMA;
 
+    /**
+     * 过期时间
+     */
     public static String LAST_MODIFIED = HttpHeaders.LAST_MODIFIED;
-
     public static String EXPIRES = HttpHeaders.EXPIRES;
+
+
 
 }

@@ -1,8 +1,7 @@
 package cn.cc.dawn.utils.http;
 
-import cn.cc.dawn.common.dto.HttpParam;
+import cn.cc.dawn.demo.craw.website.dto.HttpParam;
 
-import java.io.IOException;
 import java.io.InputStream;
 
 public interface HttpMethod {

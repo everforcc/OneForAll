@@ -1,7 +1,7 @@
 package cn.cc.dawn.config.data;
 
 import cn.cc.dawn.config.cache.impl.TestCache;
-import cn.cc.dawn.config.yml.ConfigurationData;
+import cn.cc.dawn.config.init.yml.ConfigurationData;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.cache.CacheManager;
 import org.springframework.context.annotation.Bean;
@@ -11,8 +11,6 @@ import org.springframework.data.redis.cache.RedisCacheManager;
 import org.springframework.data.redis.connection.RedisConnectionFactory;
 import org.springframework.data.redis.serializer.RedisSerializationContext;
 import org.springframework.data.redis.serializer.StringRedisSerializer;
-
-import java.time.Duration;
 
 @Configuration
 public class RedisCacheManagerConfig {

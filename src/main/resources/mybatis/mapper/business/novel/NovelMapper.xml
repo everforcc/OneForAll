@@ -2,32 +2,46 @@
 <!DOCTYPE mapper
         PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
         "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
-<mapper namespace="cn.cc.dawn.business.novel.dao.NovelMapper">
+<mapper namespace="cn.cc.dawn.open.novel.dao.NovelMapper">
+
+    <sql id="effect_sql">
+        WHERE effect=1 AND STATUS=1
+    </sql>
 
     <!-- 列表查询 -->
     <select id="existUrl" resultType="string">
-        SELECT '1' FROM cc_novel WHERE sourceurl = #{sourceurl} ;
+        SELECT '1' FROM cc_novel
+        <include refid="effect_sql" />
+        and sourceurl = #{sourceurl} ;
     </select>
 
-    <select id="selectSourceurl" resultType="cn.cc.dawn.business.novel.dto.NovelDto">
-        SELECT * FROM cc_novel WHERE sourceurl = #{sourceurl} ;
+    <select id="selectSourceurl" resultType="cn.cc.dawn.open.novel.dto.NovelDto">
+        SELECT * FROM cc_novel
+        <include refid="effect_sql" />
+        and sourceurl = #{sourceurl} ;
     </select>
 
-    <select id="selectPage" resultType="cn.cc.dawn.business.novel.dto.NovelDto">
-        SELECT * FROM cc_novel ORDER BY `sourceurl` LIMIT #{pn},#{size};
+    <select id="selectPage" resultType="cn.cc.dawn.open.novel.dto.NovelDto">
+        SELECT * FROM cc_novel
+        <include refid="effect_sql" />
+        ORDER BY `sourceurl` LIMIT #{pn},#{size};
     </select>
 
     <insert id="insert">
         INSERT INTO `oneforall`.`cc_novel` (
             `name`,
             `sourceurl`,
-            `sourcename`
+            `sourcename`,
+            `effect`,
+            `STATUS`
         )
         VALUES
             (
                 #{name},
                 #{sourceurl},
-                #{sourcename}
+                #{sourcename},
+                #{effect},
+                #{STATUS}
             );
     </insert>
 

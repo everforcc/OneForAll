@@ -2,7 +2,7 @@ package cn.cc.dawn.business.ys.service;
 
 import cn.cc.dawn.business.ys.dao.YsCardDaoMapper;
 import cn.cc.dawn.business.ys.dto.YsCardVO;
-import cn.cc.dawn.common.dto.HttpParam;
+import cn.cc.dawn.demo.craw.website.dto.HttpParam;
 import cn.cc.dawn.utils.enums.CharsetsEnum;
 import cn.cc.dawn.utils.enums.HttpTypeEnum;
 import cn.cc.dawn.config.init.properties.PropertiesHeader;

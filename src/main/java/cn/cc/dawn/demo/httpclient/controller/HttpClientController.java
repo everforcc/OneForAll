@@ -1,6 +1,6 @@
 package cn.cc.dawn.demo.httpclient.controller;
 
-import cn.cc.dawn.common.dto.MailDto;
+import cn.cc.dawn.demo.craw.website.dto.MailDto;
 import cn.cc.dawn.demo.httpclient.service.HttpClientService;
 import cn.cc.dawn.config.component.MailFreemarkerComponent;
 import cn.cc.dawn.config.component.MailThymeleafComponent;

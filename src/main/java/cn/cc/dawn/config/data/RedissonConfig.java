@@ -1,6 +1,6 @@
 package cn.cc.dawn.config.data;
 
-import cn.cc.dawn.config.yml.ConfigurationSpring;
+import cn.cc.dawn.config.init.yml.ConfigurationSpring;
 import org.redisson.Redisson;
 import org.redisson.api.RAtomicLong;
 import org.redisson.api.RAtomicLongReactive;
