@@ -1,6 +1,6 @@
 package cn.cc.dawn.business.ys.dto;
 
-import cn.cc.dawn.demo.craw.website.dto.CommonFiledDto;
+import cn.cc.dawn.demo.craw.webcommon.dto.CommonFiledDto;
 import lombok.AllArgsConstructor;
 import lombok.Data;
 import lombok.NoArgsConstructor;

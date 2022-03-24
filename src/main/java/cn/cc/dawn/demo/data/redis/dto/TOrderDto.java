@@ -1,6 +1,6 @@
 package cn.cc.dawn.demo.data.redis.dto;
 
-import cn.cc.dawn.demo.craw.website.dto.CommonFiledDto;
+import cn.cc.dawn.demo.craw.webcommon.dto.CommonFiledDto;
 import lombok.AllArgsConstructor;
 import lombok.Getter;
 import lombok.NoArgsConstructor;

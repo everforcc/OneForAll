@@ -2,14 +2,14 @@
 <!DOCTYPE mapper
         PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
         "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
-<mapper namespace="cn.cc.dawn.demo.craw.website.dao.WebSiteMapper">
+<mapper namespace="cn.cc.dawn.demo.craw.webcommon.dao.WebSiteMapper">
 
     <!-- 列表查询 -->
-    <select id="selectAll" resultType="cn.cc.dawn.demo.craw.website.dto.WebSiteDto">
+    <select id="selectAll" resultType="cn.cc.dawn.demo.craw.webcommon.dto.WebSiteDto">
         select * from cc_website;
     </select>
 
-    <select id="selectByUrl" resultType="cn.cc.dawn.demo.craw.website.dto.WebSiteDto">
+    <select id="selectByUrl" resultType="cn.cc.dawn.demo.craw.webcommon.dto.WebSiteDto">
         select * from cc_website where webroot = #{webroot};
     </select>
 

@@ -1,9 +1,11 @@
 package cn.cc.dawn.utils.entity;
 
+import cn.cc.dawn.utils.constant.HttpHeadersConstant;
 import com.alibaba.fastjson.JSON;
 import lombok.Getter;
 import lombok.Setter;
 import lombok.extern.slf4j.Slf4j;
+import org.slf4j.MDC;
 
 import java.util.Collections;
 import java.util.List;
@@ -18,6 +20,12 @@ public class ResultE<E> implements IJson{
     private String exception;
 
     private List<E> eList;
+
+    private String mdc;
+
+    public String getMdc() {
+        return MDC.get(HttpHeadersConstant.MDC_header);
+    }
 
     public ResultE<E> execute(final Consumer<ResultE<E>> consumer) {
         try {

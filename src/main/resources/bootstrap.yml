@@ -1,4 +1,6 @@
 spring:
+  thymeleaf:
+    enabled: false # 导入thymeleaf作为邮件模板，但是不处理页面，所以关闭
   mvc:
     view:
       prefix: /

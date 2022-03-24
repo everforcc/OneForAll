@@ -8,7 +8,7 @@ import org.springframework.web.bind.annotation.RestController;
 /**
  * @author everforcc 2021-09-25
  */
-@RequestMapping(value = "/alllog1")
+@RequestMapping(value = "/d/alllog1")
 @RestController
 public class AllLogMethod {
 

@@ -3,7 +3,7 @@ package cn.cc.dawn.open.novel.controller;
 import cn.cc.dawn.open.novel.dto.NovelCapterDto;
 import cn.cc.dawn.open.novel.dto.NovelDto;
 import cn.cc.dawn.open.novel.service.NovelService;
-import cn.cc.dawn.demo.craw.website.dto.HttpParam;
+import cn.cc.dawn.demo.craw.webcommon.dto.HttpParam;
 import cn.cc.dawn.utils.constant.HttpConstant;
 import cn.cc.dawn.utils.entity.ResultE;
 import cn.cc.dawn.utils.http.HttpMethod;
@@ -38,7 +38,7 @@ public class NovelController {
 
         String result = "";
         HttpParam httpParam = new HttpParam();
-        //httpParam.setUrl("https://gitee.com/MyYukino/media/raw/master/README.md");
+        //httpParam.setUrl("https://gitee.com/MyYukino/media/raw/master/READ  ME.md");
 
         httpParam.setUrl("http://www.w2ks.org/detail/202/14786.html");
         try {

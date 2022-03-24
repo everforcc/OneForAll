@@ -1,6 +1,6 @@
 package cn.cc.dawn.http;
 
-import cn.cc.dawn.demo.craw.website.dto.HttpParam;
+import cn.cc.dawn.demo.craw.webcommon.dto.HttpParam;
 import cn.cc.dawn.utils.http.HttpMethod;
 import cn.cc.dawn.utils.http.impl.HttpApacheImpl;
 import cn.cc.dawn.utils.jsoup.XSoupUtils;

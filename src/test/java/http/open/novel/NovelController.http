@@ -1,4 +1,4 @@
-GET http://localhost:81/novelController/show
+GET http://localhost:81/open/novelController/show
 Accept: application/json
 
 ###

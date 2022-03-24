@@ -1,4 +1,0 @@
-http://webmagic.io/docs/zh/posts/ch1-overview/
-模拟分类的方法
-
-要总结个通用的方法，每次都重复下麻烦

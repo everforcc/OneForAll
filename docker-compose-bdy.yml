@@ -11,6 +11,8 @@ services:
     restart: 'no'
     ports:
       - 8080:8080 # 前linux端口，后docke启动镜像的端口
+    environment:
+      LOG_HOME: byd_log_home
     volumes:
       - './docker/logs:/app/logs'
       - './docker/files:/app/files'

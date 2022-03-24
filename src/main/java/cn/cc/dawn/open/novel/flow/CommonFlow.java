@@ -1,9 +1,9 @@
 package cn.cc.dawn.open.novel.flow;
 
 import cn.cc.dawn.open.novel.dto.NovelReqRegDto;
-import cn.cc.dawn.demo.craw.website.dto.HttpParam;
-import cn.cc.dawn.utils.ObectUtils;
-import cn.cc.dawn.utils.StringUtils;
+import cn.cc.dawn.demo.craw.webcommon.dto.HttpParam;
+import cn.cc.dawn.utils.check.ObectUtils;
+import cn.cc.dawn.utils.check.StringUtils;
 import cn.cc.dawn.utils.constant.LogConstant;
 import cn.cc.dawn.utils.http.HttpMethod;
 import cn.cc.dawn.utils.http.impl.HttpApacheImpl;

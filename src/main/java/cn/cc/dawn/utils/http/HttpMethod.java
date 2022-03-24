@@ -1,6 +1,6 @@
 package cn.cc.dawn.utils.http;
 
-import cn.cc.dawn.demo.craw.website.dto.HttpParam;
+import cn.cc.dawn.demo.craw.webcommon.dto.HttpParam;
 
 import java.io.InputStream;
 

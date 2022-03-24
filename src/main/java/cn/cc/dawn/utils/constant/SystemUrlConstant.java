@@ -7,19 +7,30 @@ public class SystemUrlConstant {
      */
 
     /**
+     * 表示下所有路径
+     */
+    public static String all_url = "/**";
+
+    /**
      * druid的访问路径
      */
     public static String druid_view = "/druid/*";
 
     /**
-     * 不需要登录就能访问的地址
+     * 在给定层级下面 命名 路径
      */
-    public static String open_url = "/open";
 
     /**
-     * 表示下所有路径
+     * 不需要登录就能访问的地址
      */
-    public static String all_url = "/**";
-
+    public static String package_open = "/open";
+    /**
+     * 业务
+     */
+    public static String package_business = "/business";
+    /**
+     * 示例代码
+     */
+    public static String package_demo = "/demo";
 
 }
