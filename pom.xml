@@ -11,42 +11,40 @@
     <!-- 菜鸟教程 文档 -->
     <!-- https://www.runoob.com/maven/maven-pom.html -->
 
+    <!-- 版本升级会有很多冲突，暂时不会 -->
+
     <parent>
         <groupId>org.springframework.boot</groupId>
         <artifactId>spring-boot-starter-parent</artifactId>
         <version>2.2.6.RELEASE</version>
+        <relativePath/>
     </parent>
 
     <!--  可选配置多模块 modules -->
-
     <properties>
         <java.version>1.8</java.version>
     </properties>
 
     <!-- 依赖包 -->
     <dependencies>
-        <!-- spring start -->
+        <!-- springstarter start -->
+
+        <!-- web -->
         <dependency>
             <groupId>org.springframework.boot</groupId>
             <artifactId>spring-boot-starter-web</artifactId>
         </dependency>
+        <!-- 数据校验 -->
         <dependency>
             <groupId>org.springframework.boot</groupId>
             <artifactId>spring-boot-starter-validation</artifactId>
         </dependency>
+        <!-- 邮件 -->
         <dependency>
             <groupId>org.springframework.boot</groupId>
             <artifactId>spring-boot-starter-mail</artifactId>
         </dependency>
-        <!--<dependency>
-            <groupId>org.springframework.boot</groupId>
-            <artifactId>spring-boot-starter-cache</artifactId>
-        </dependency>-->
-        <dependency>
-            <groupId>org.springframework.boot</groupId>
-            <artifactId>spring-boot-starter-data-redis</artifactId>
-        </dependency>
-
+        <!-- thymeleaf 模板 start TODO -->
         <dependency>
             <groupId>org.springframework.boot</groupId>
             <artifactId>spring-boot-starter-thymeleaf</artifactId>
@@ -56,17 +54,31 @@
             <groupId>org.springframework.boot</groupId>
             <artifactId>spring-boot-starter-freemarker</artifactId>
         </dependency>
+        <!-- thymeleaf 模板 end -->
 
+        <!-- 缓存 -->
+        <!--<dependency>
+            <groupId>org.springframework.boot</groupId>
+            <artifactId>spring-boot-starter-cache</artifactId>
+        </dependency>-->
+
+        <!-- redis -->
+        <dependency>
+            <groupId>org.springframework.boot</groupId>
+            <artifactId>spring-boot-starter-data-redis</artifactId>
+        </dependency>
+
+        <!-- springboot test -->
         <dependency>
             <groupId>org.springframework.boot</groupId>
             <artifactId>spring-boot-starter-test</artifactId>
-            <scope>test</scope>
+            <!--<scope>test</scope>
             <exclusions>
                 <exclusion>
                     <groupId>org.junit.vintage</groupId>
                     <artifactId>junit-vintage-engine</artifactId>
                 </exclusion>
-            </exclusions>
+            </exclusions>-->
         </dependency>
 
         <!-- convert -->
@@ -76,6 +88,14 @@
             <version>2.2.3</version>
         </dependency>
 
+        <!-- config配置文件读到类 -->
+        <dependency>
+            <groupId>org.springframework.boot</groupId>
+            <artifactId>spring-boot-configuration-processor</artifactId>
+            <!--<optional>true</optional>-->
+        </dependency>
+
+        <!-- feign start -->
         <dependency>
             <groupId>org.springframework.cloud</groupId>
             <artifactId>spring-cloud-starter-openfeign</artifactId>
@@ -91,17 +111,9 @@
             <artifactId>feign-httpclient</artifactId>
             <version>11.2</version>
         </dependency>
+        <!-- feign end -->
 
-        <!-- config配置文件读到类 -->
-        <dependency>
-            <groupId>org.springframework.boot</groupId>
-            <artifactId>spring-boot-configuration-processor</artifactId>
-            <optional>true</optional>
-        </dependency>
-
-        <!-- spring end -->
-
-        <!-- 数据库相关 start-->
+        <!-- 数据库相关starter start-->
         <dependency>
             <groupId>org.springframework.boot</groupId>
             <artifactId>spring-boot-starter-data-jdbc</artifactId>
@@ -113,8 +125,23 @@
         <dependency>
             <groupId>mysql</groupId>
             <artifactId>mysql-connector-java</artifactId>
-            <scope>runtime</scope>
+            <!--<scope>runtime</scope>-->
         </dependency>
+        <!-- 数据库相关starter end-->
+
+        <!--<dependency>
+            <groupId>org.springframework.boot</groupId>
+            <artifactId>spring-boot-starter-security</artifactId>
+            &lt;!&ndash;<version>5.2.2.RELEASE</version>&ndash;&gt;
+        </dependency>-->
+        <dependency>
+            <groupId>org.springframework.boot</groupId>
+            <artifactId>spring-boot-starter-security</artifactId>
+        </dependency>
+
+        <!-- springspringstarter end -->
+
+        <!-- 数据库相关 start -->
         <!--引入druid-->
         <!-- https://mvnrepository.com/artifact/com.alibaba/druid -->
         <dependency>
@@ -122,7 +149,7 @@
             <artifactId>druid</artifactId>
             <version>1.1.8</version>
         </dependency>
-        <!-- 引入mybatis -->
+        <!-- 引入mybatis 外部定义的start -->
         <dependency>
             <groupId>org.mybatis.spring.boot</groupId>
             <artifactId>mybatis-spring-boot-starter</artifactId>
@@ -136,8 +163,20 @@
             <artifactId>redisson</artifactId>
             <version>3.16.7</version>
         </dependency>
+        <!-- 数据库相关 end -->
 
-        <!-- 数据库相关 end-->
+        <!-- AOP start -->
+        <dependency>
+            <groupId>org.aspectj</groupId>
+            <artifactId>aspectjrt</artifactId>
+            <version>1.6.11</version>
+        </dependency>
+        <dependency>
+            <groupId>org.aspectj</groupId>
+            <artifactId>aspectjweaver</artifactId>
+            <version>1.6.11</version>
+        </dependency>
+        <!-- AOP end -->
 
         <!--引入jquery‐webjar‐‐>在访问的时候只需要写webjars下面资源的名称即可-->
         <dependency>
@@ -146,26 +185,13 @@
             <version>3.3.1</version>
         </dependency>
 
-        <!-- jsoup 解析html文档-->
-        <dependency>
-            <groupId>org.jsoup</groupId>
-            <artifactId>jsoup</artifactId>
-            <version>1.11.3</version>
-        </dependency>
-        <!-- https://mvnrepository.com/artifact/us.codecraft/xsoup -->
-        <dependency>
-            <groupId>us.codecraft</groupId>
-            <artifactId>xsoup</artifactId>
-            <version>0.3.1</version>
-        </dependency>
-
-        <dependency>
+        <!-- junit -->
+        <!--<dependency>
             <groupId>junit</groupId>
             <artifactId>junit</artifactId>
-        </dependency>
+        </dependency>-->
 
-
-        <!-- 解析json JSONObject -->
+        <!-- 解析json start -->
         <dependency>
             <groupId>net.sf.json-lib</groupId>
             <artifactId>json-lib</artifactId>
@@ -179,6 +205,10 @@
             <artifactId>fastjson</artifactId>
             <version>1.2.58</version>
         </dependency>
+        <!-- 解析json end -->
+
+        <!-- 封装常用的工具包 start -->
+        <!-- utils包 start -->
 
         <!-- https://mvnrepository.com/artifact/commons-io/commons-io -->
         <dependency>
@@ -186,7 +216,6 @@
             <artifactId>commons-io</artifactId>
             <version>2.6</version>
         </dependency>
-
 
         <!-- 封装的lang包，目前用来校验数据 -->
         <!-- https://mvnrepository.com/artifact/org.apache.commons/commons-lang3 -->
@@ -196,12 +225,59 @@
             <version>3.10</version>
         </dependency>
 
+        <!-- guava -->
+        <!-- https://mvnrepository.com/artifact/com.google.guava/guava -->
+        <dependency>
+            <groupId>com.google.guava</groupId>
+            <artifactId>guava</artifactId>
+            <version>30.1.1-jre</version>
+        </dependency>
+
+        <!-- lombok -->
+        <!-- https://mvnrepository.com/artifact/org.projectlombok/lombok -->
+        <dependency>
+            <groupId>org.projectlombok</groupId>
+            <artifactId>lombok</artifactId>
+            <version>1.18.20</version>
+            <scope>provided</scope>
+        </dependency>
+
+        <!-- utils包 end -->
+        <!-- 封装常用的工具包 end -->
+
+        <!-- logback start -->
+        <!-- 支持 logback if 判断条件 -->
+        <!-- The org.codehaus.janino:commons-compiler:2.6.1 dependency -->
+        <!-- will be automatically pulled in by Maven's transitivity rules -->
+        <dependency>
+            <groupId>org.codehaus.janino</groupId>
+            <artifactId>janino</artifactId>
+            <!--<version>2.6.1</version>-->
+        </dependency>
+        <!-- logback end -->
+
         <!-- 自带的也有 -->
         <dependency>
             <groupId>org.awaitility</groupId>
             <artifactId>awaitility</artifactId>
             <version>3.1.2</version>
-            <scope>test</scope>
+            <!--<scope>test</scope>-->
+        </dependency>
+
+        <!-- 爬虫相关 start -->
+
+        <!-- jsoup 解析html文档-->
+        <dependency>
+            <groupId>org.jsoup</groupId>
+            <artifactId>jsoup</artifactId>
+            <version>1.11.3</version>
+        </dependency>
+        <!-- xsoup -->
+        <!-- https://mvnrepository.com/artifact/us.codecraft/xsoup -->
+        <dependency>
+            <groupId>us.codecraft</groupId>
+            <artifactId>xsoup</artifactId>
+            <version>0.3.1</version>
         </dependency>
 
         <!-- webmagic -->
@@ -217,42 +293,7 @@
         </dependency>
 
 
-        <!--AOP -->
-        <dependency>
-            <groupId>org.aspectj</groupId>
-            <artifactId>aspectjrt</artifactId>
-            <version>1.6.11</version>
-        </dependency>
-        <dependency>
-            <groupId>org.aspectj</groupId>
-            <artifactId>aspectjweaver</artifactId>
-            <version>1.6.11</version>
-        </dependency>
-
-        <!-- 支持 logback if 判断条件 -->
-        <!-- The org.codehaus.janino:commons-compiler:2.6.1 dependency -->
-        <!-- will be automatically pulled in by Maven's transitivity rules -->
-        <dependency>
-            <groupId>org.codehaus.janino</groupId>
-            <artifactId>janino</artifactId>
-            <!--<version>2.6.1</version>-->
-        </dependency>
-
-        <!-- 封装常用的工具包 -->
-        <!-- https://mvnrepository.com/artifact/org.projectlombok/lombok -->
-        <dependency>
-            <groupId>org.projectlombok</groupId>
-            <artifactId>lombok</artifactId>
-            <version>1.18.20</version>
-            <scope>provided</scope>
-        </dependency>
-        <!-- https://mvnrepository.com/artifact/com.google.guava/guava -->
-        <dependency>
-            <groupId>com.google.guava</groupId>
-            <artifactId>guava</artifactId>
-            <version>30.1.1-jre</version>
-        </dependency>
-        <!-- 封装常用的工具包 -->
+        <!-- 爬虫相关 end -->
 
         <!--<dependency>
             <groupId>javax</groupId>

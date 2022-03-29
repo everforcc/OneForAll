@@ -1,7 +1,7 @@
-package cn.cc.dawn.config.data;
+package cn.cc.dawn.config.data.redis;
 
-import cn.cc.dawn.config.cache.impl.TestCache;
-import cn.cc.dawn.config.init.yml.ConfigurationData;
+import cn.cc.dawn.config.init.yml.APPCacheConfiguration;
+import cn.cc.dawn.open.auth.cache.CustomerUserCache;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.cache.CacheManager;
 import org.springframework.context.annotation.Bean;
@@ -15,18 +15,21 @@ import org.springframework.data.redis.serializer.StringRedisSerializer;
 @Configuration
 public class RedisCacheManagerConfig {
 
-
     @Autowired
-    ConfigurationData configurationData;
+    APPCacheConfiguration appCacheConfiguration;
+
+    //ConfigurationData configurationData;
+    //ConfigurationData.UserCache userCache = configurationData.getTestCache();
 
     @Bean
     public CacheManager cacheManager(final RedisConnectionFactory redisConnectionFactory) {
-        ConfigurationData.UserCache userCache = configurationData.getTestCache();
-        //Duration duration = Duration.ofSeconds(3600);
+
+        CustomerUserCache userCache = appCacheConfiguration.getCustomuser();
+
         final RedisCacheManager.RedisCacheManagerBuilder cacheManagerBuilder = RedisCacheManager.builder(redisConnectionFactory);
         return cacheManagerBuilder
                 // 设置指定类型key的参数
-                .withCacheConfiguration(TestCache.TestCacheKey, RedisCacheConfiguration.defaultCacheConfig()
+                .withCacheConfiguration(userCache.USER_TOKEN, RedisCacheConfiguration.defaultCacheConfig()
                                 .entryTtl(userCache.getExpired()) // 设置过期时间
                                 .disableCachingNullValues() // 禁止缓存 null 值
                         /**

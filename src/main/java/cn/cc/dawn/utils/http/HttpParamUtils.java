@@ -6,7 +6,6 @@ import cn.cc.dawn.utils.constant.NumberConstant;
 import cn.cc.dawn.utils.exception.AppCode;
 import com.google.common.base.Joiner;
 import org.apache.commons.lang3.StringUtils;
-import org.apache.http.HttpHeaders;
 
 import java.io.UnsupportedEncodingException;
 import java.net.MalformedURLException;
@@ -71,7 +70,7 @@ public class HttpParamUtils {
         try {
             url = new URL(weburl);
         } catch (MalformedURLException e) {
-            AppCode.A09000.toUserException(e.toString());
+            AppCode.A00100.toUserException(e.toString());
             return false;
         }
         return true;

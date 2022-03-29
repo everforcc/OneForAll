@@ -5,6 +5,8 @@ import org.apache.http.HttpHeaders;
 
 public class HttpConstant {
 
+    public static String AUTH_TOKEN = "token";
+
     public static String REQUEST_GET = "GET";
 
     public static String REQUEST_POST = "POST";

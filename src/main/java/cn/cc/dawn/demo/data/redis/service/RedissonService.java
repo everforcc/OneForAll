@@ -40,7 +40,7 @@ public class RedissonService {
             Date lockandDate = new Date();
             log.info("获取lock耗时:" + (lockandDate.getTime()-lockstartDate.getTime()));
             log.info("用户名: flag: {} " , flag);
-            AppCode.A01002.assertHasTrue(flag);
+            AppCode.A00112.assertHasTrue(flag);
             if(flag){
                 Date startDate = new Date();
                 //lock.lock(10,TimeUnit.SECONDS);
@@ -65,7 +65,7 @@ public class RedissonService {
                      * primitiveNum 不能等于0
                      *
                      */
-                    AppCode.A01003.assertHasTrue(primitiveNum>0&&primitiveNum>usageNum);
+                    AppCode.A00113.assertHasTrue(primitiveNum>0&&primitiveNum>usageNum);
                     if(0!=usageNum){
                         stockNum = primitiveNum-usageNum;
                         tStockDao.updateCount(productId,stockNum);
@@ -80,7 +80,7 @@ public class RedissonService {
                 log.info("sql1耗时:" + (endsqlDate.getTime()-startDate.getTime()));
                 log.info("剩余数量:" + stockNum);
 
-                AppCode.A01003.assertHasTrue(stockNum>0);
+                AppCode.A00113.assertHasTrue(stockNum>0);
                 // AppCode.A01001.assertHasUpdate(tStockDao.updateCount(productId,--stockNum));
 
                 String orderNo = UUID.randomUUID().toString().replace("-", "").toUpperCase();

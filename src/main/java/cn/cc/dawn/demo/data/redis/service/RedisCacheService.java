@@ -1,6 +1,7 @@
 package cn.cc.dawn.demo.data.redis.service;
 
-import cn.cc.dawn.config.cache.impl.TestCache;
+import cn.cc.dawn.open.auth.cache.CustomerUserCache;
+import cn.cc.dawn.config.cache.TesetRedisCache;
 import org.springframework.cache.annotation.CacheEvict;
 import org.springframework.cache.annotation.CachePut;
 import org.springframework.cache.annotation.Cacheable;
@@ -12,12 +13,14 @@ import org.springframework.stereotype.Service;
 @Service("redisCacheService")
 public class RedisCacheService {
 
+    CustomerUserCache cache;
+
     /**
      * 如果有就返回，如果没就添加
      * @param str
      * @return
      */
-    @Cacheable(cacheNames = TestCache.TestCacheKey,key = "#str")
+    @Cacheable(cacheNames = TesetRedisCache.TEST_CACHE,key = "#str")
     public String redisCacheable(String str){
         System.out.println("debug:" + str);
         return "abc" + str;
@@ -28,7 +31,7 @@ public class RedisCacheService {
      * @param str
      * @return
      */
-    @Cacheable(cacheNames = TestCache.TestCacheKey,key = "#str",condition = "#str.length() > 1")
+    @Cacheable(cacheNames = TesetRedisCache.TEST_CACHE,key = "#str",condition = "#str.length() > 1")
     public String redisCacheableCondition(String str){
         System.out.println("debug:" + str);
         return "abc" + str;
@@ -39,7 +42,7 @@ public class RedisCacheService {
      * @param str
      * @return
      */
-    @CachePut(cacheNames = TestCache.TestCacheKey,key = "#str")
+    @CachePut(cacheNames = TesetRedisCache.TEST_CACHE,key = "#str")
     public String redisCachePut(String str){
         System.out.println("debug:" + str);
         return "更新:" + str;
@@ -50,7 +53,7 @@ public class RedisCacheService {
      * @param str
      * @return
      */
-   @CacheEvict(cacheNames = TestCache.TestCacheKey,key = "#str")
+   @CacheEvict(cacheNames = TesetRedisCache.TEST_CACHE,key = "#str")
     public String redisCacheEvict(String str){
         System.out.println("删除:" + str);
         return str;

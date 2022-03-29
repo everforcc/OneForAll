@@ -24,13 +24,14 @@ public class APPFilter implements Filter {
      */
     @Override
     public void init(FilterConfig filterConfig) throws ServletException {
-        MDC.put(HttpHeadersConstant.MDC_header, UUIDUtils.uuid32());
+        //MDC.put(HttpHeadersConstant.MDC_header, UUIDUtils.uuid32());
         //Filter.super.init(filterConfig);
         log.info("初始化filter");
     }
 
     @Override
     public void doFilter(ServletRequest servletRequest, ServletResponse servletResponse, FilterChain filterChain) throws IOException, ServletException {
+        MDC.put(HttpHeadersConstant.MDC_header, UUIDUtils.uuid32());
         log.info("进入filter");
         filterChain.doFilter(servletRequest, servletResponse);//doFilter将请求转发给过滤器链下一个filter , 如果没有filter那就是你请求的资源
     }

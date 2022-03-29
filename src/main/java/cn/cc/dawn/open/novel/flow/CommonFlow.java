@@ -2,7 +2,7 @@ package cn.cc.dawn.open.novel.flow;
 
 import cn.cc.dawn.open.novel.dto.NovelReqRegDto;
 import cn.cc.dawn.demo.craw.webcommon.dto.HttpParam;
-import cn.cc.dawn.utils.check.ObectUtils;
+import cn.cc.dawn.utils.check.ObjectUtils;
 import cn.cc.dawn.utils.check.StringUtils;
 import cn.cc.dawn.utils.constant.LogConstant;
 import cn.cc.dawn.utils.http.HttpMethod;
@@ -31,7 +31,7 @@ public class CommonFlow {
      */
     public static String novelName(NovelReqRegDto novelReqRegDto, String novelUrl, String html){
 
-        if(ObectUtils.isNull(novelReqRegDto)){
+        if(ObjectUtils.isNull(novelReqRegDto)){
             return "";
         }
 
@@ -67,7 +67,7 @@ public class CommonFlow {
     public static Map<String,String> capterList(NovelReqRegDto novelReqRegDto,String html){
         Map<String,String> map = new LinkedHashMap<>();
 
-        if(ObectUtils.isNull(novelReqRegDto)){
+        if(ObjectUtils.isNull(novelReqRegDto)){
             return map;
         }
 
@@ -96,7 +96,7 @@ public class CommonFlow {
      * @param html
      */
     public static String content(NovelReqRegDto novelReqRegDto,String html){
-        if(ObectUtils.isNull(novelReqRegDto)){
+        if(ObjectUtils.isNull(novelReqRegDto)){
             return "";
         }
 
@@ -116,7 +116,7 @@ public class CommonFlow {
         httpParam.setHeaders(novelReqRegDto.getHeaders());
         httpParam.setUrl(url);
         httpParam.setHttpTypeEnum(
-                ObectUtils.isNull(novelReqRegDto.getRegNovelUrlReqType())?novelReqRegDto.getDefaultRequestType():novelReqRegDto.getRegNovelUrlReqType()
+                ObjectUtils.isNull(novelReqRegDto.getRegNovelUrlReqType())?novelReqRegDto.getDefaultRequestType():novelReqRegDto.getRegNovelUrlReqType()
         );
         httpParam.setCharset(novelReqRegDto.getCharset());
         httpParam.setTimeout(novelReqRegDto.getDefaultTimeout());

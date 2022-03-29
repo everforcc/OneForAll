@@ -1,0 +1,14 @@
+GET http://localhost:81/open/aes/t
+Accept: application/json
+
+###
+GET http://localhost:81/open/application/app
+Accept: application/json
+
+###
+GET http://localhost:81/open/application/singleThread
+Accept: application/json
+
+###
+GET http://localhost:81/open/application/thread1
+Accept: application/json

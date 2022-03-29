@@ -7,7 +7,7 @@ import cn.cc.dawn.demo.craw.webcommon.dto.HttpParam;
 import cn.cc.dawn.demo.craw.webcommon.dto.WebSiteDataDto;
 import cn.cc.dawn.demo.craw.webcommon.dto.WebSiteDto;
 import cn.cc.dawn.demo.craw.webcommon.dto.WebSiteTagDto;
-import cn.cc.dawn.utils.check.ObectUtils;
+import cn.cc.dawn.utils.check.ObjectUtils;
 import cn.cc.dawn.utils.check.StringUtils;
 import cn.cc.dawn.utils.constant.XSoupCommonConstant;
 import cn.cc.dawn.utils.exception.AppCode;
@@ -48,11 +48,11 @@ public class WebSiteCommonService {
     public boolean commonflow(HttpParam httpParam){
         log.info("web公共流程: " + httpParam);
         // 非空校验
-        AppCode.A09001.assertHasTrue(ObectUtils.nonNull(httpParam));
+        AppCode.A00301.assertHasTrue(ObjectUtils.nonNull(httpParam));
         String weburl = httpParam.getUrl();
-        AppCode.A09002.assertHasTrue(!StringUtils.isEmpty(weburl));
+        AppCode.A00302.assertHasTrue(!StringUtils.isEmpty(weburl));
         // 校验链接是否有效
-        AppCode.A09000.assertHasTrue(HttpParamUtils.checkUrlEffect(weburl));
+        AppCode.A00100.assertHasTrue(HttpParamUtils.checkUrlEffect(weburl));
         String rooturl = HttpParamUtils.getRootUrl(weburl);
         String flag = webSiteDtoMapper.existByUrl(rooturl);
         WebSiteDto webSiteDto;
@@ -60,7 +60,7 @@ public class WebSiteCommonService {
             // 2. 如果主表没有插入主表
             webSiteDto = new WebSiteDto();
             webSiteDto.setWebroot(rooturl);
-            AppCode.A09100.assertHasUpdate(webSiteDtoMapper.insert(webSiteDto));
+            AppCode.A00201.assertHasUpdate(webSiteDtoMapper.insert(webSiteDto));
         }else {
             webSiteDto = webSiteDtoMapper.selectByUrl(rooturl);
         }

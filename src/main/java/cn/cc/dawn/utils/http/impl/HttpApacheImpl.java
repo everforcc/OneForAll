@@ -39,7 +39,7 @@ public class HttpApacheImpl implements HttpMethod {
             return EntityUtils.toString(httpResponse.getEntity(),charset);
         } catch (IOException e) {
             e.printStackTrace();
-            throw AppCode.A09000.toUserException(e.toString());
+            throw AppCode.A00100.toUserException(e.toString());
         }
 
     }

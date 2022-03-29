@@ -23,7 +23,7 @@ public class SystemUrlConstant {
     /**
      * 不需要登录就能访问的地址
      */
-    public static String package_open = "/open";
+    public static String package_open = "/open1/**";
     /**
      * 业务
      */
@@ -32,5 +32,7 @@ public class SystemUrlConstant {
      * 示例代码
      */
     public static String package_demo = "/demo";
+
+
 
 }

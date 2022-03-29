@@ -1,4 +1,4 @@
-package cn.cc.dawn.config.data;
+package cn.cc.dawn.config.data.redis;
 
 import com.alibaba.fastjson.support.spring.FastJsonRedisSerializer;
 import org.springframework.boot.autoconfigure.condition.ConditionalOnMissingBean;

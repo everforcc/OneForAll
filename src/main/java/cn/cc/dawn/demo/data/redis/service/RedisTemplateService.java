@@ -1,6 +1,6 @@
 package cn.cc.dawn.demo.data.redis.service;
 
-import cn.cc.dawn.utils.data.redis.RedisBoundValueOperationsUtils;
+import cn.cc.dawn.utils.data.redis.impl.RedisBoundValueOperationsUtils;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 

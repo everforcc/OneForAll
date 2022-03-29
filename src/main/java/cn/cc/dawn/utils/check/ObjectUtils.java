@@ -4,7 +4,7 @@ import cn.cc.dawn.utils.constant.LogConstant;
 
 import java.util.Objects;
 
-public class ObectUtils {
+public class ObjectUtils {
 
     /**
      * 是否为空

@@ -2,7 +2,7 @@ package cn.cc.dawn.demo.servlet.controller;
 
 import cn.cc.dawn.demo.servlet.service.ResponseBytesService;
 import cn.cc.dawn.demo.servlet.vo.ServletVO;
-import cn.cc.dawn.utils.check.ObectUtils;
+import cn.cc.dawn.utils.check.ObjectUtils;
 import cn.cc.dawn.utils.check.StringUtils;
 import cn.cc.dawn.utils.constant.HttpConstant;
 import cn.cc.dawn.utils.constant.LogConstant;
@@ -16,7 +16,7 @@ import javax.servlet.http.HttpServletResponse;
 import java.util.Map;
 
 @Slf4j
-@RequestMapping(value = "/demo/file")
+@RequestMapping(value = "/open/file")
 @RestController
 public class ResponseBytesController {
 
@@ -31,7 +31,7 @@ public class ResponseBytesController {
 
         servletVO.getHeaderMap().forEach((k,v) -> log.info("servletVO: k: " + k + " ,v: " + v));
 
-        if(ObectUtils.isNull(servletVO)){
+        if(ObjectUtils.isNull(servletVO)){
             return;
         }
 
@@ -40,7 +40,7 @@ public class ResponseBytesController {
             response.setContentType(servletVO.getContentType());
         }
 
-        if(ObectUtils.nonNull(servletVO.getHeaderMap())){
+        if(ObjectUtils.nonNull(servletVO.getHeaderMap())){
             Map<String,String> headerMap = servletVO.getHeaderMap();
             headerMap.forEach((k,v) -> response.setHeader(k,v));
 
@@ -52,14 +52,14 @@ public class ResponseBytesController {
 
         }
 
-        if(ObectUtils.nonNull(servletVO.getDateHeaderMap())){
+        if(ObjectUtils.nonNull(servletVO.getDateHeaderMap())){
             Map<String,Long> dateHeaderMap = servletVO.getDateHeaderMap();
             dateHeaderMap.forEach((k,v) -> response.setDateHeader(k,v));
             //4. 有效期
             //response.setDateHeader(HttpConstant.EXPIRES, System.currentTimeMillis() + 1 * 1000);
         }
 
-        if(ObectUtils.nonNull(servletVO.getBytes())){
+        if(ObjectUtils.nonNull(servletVO.getBytes())){
             @Cleanup ServletOutputStream outputStream = response.getOutputStream();
             outputStream.write(servletVO.getBytes());
             outputStream.flush();

@@ -1,6 +1,6 @@
 
 ### 增
-GET http://localhost:80/demo/data/redis/redisCacheController/redisCacheable/qwe
+GET http://localhost:81/open/data/redis/redisTemplateController/add/redisCacheable/qwe
 Accept: application/json
 
 ### 查

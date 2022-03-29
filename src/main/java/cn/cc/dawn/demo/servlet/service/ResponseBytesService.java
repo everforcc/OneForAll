@@ -44,7 +44,7 @@ public class ResponseBytesService {
 
     public byte[] getTXTBytes(){
         String path = "<h1>这是个文本</h1>";
-        return path.getBytes(CharsetsEnum.gb2312.charset);
+        return path.getBytes(CharsetsEnum.UTF_8.charset);
     }
 
 }

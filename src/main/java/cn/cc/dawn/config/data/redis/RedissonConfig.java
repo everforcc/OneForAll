@@ -1,4 +1,4 @@
-package cn.cc.dawn.config.data;
+package cn.cc.dawn.config.data.redis;
 
 import cn.cc.dawn.config.init.yml.ConfigurationSpring;
 import org.redisson.Redisson;

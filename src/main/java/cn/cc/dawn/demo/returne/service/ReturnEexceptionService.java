@@ -8,8 +8,8 @@ public class ReturnEexceptionService {
 
     public String userException(){
         //throw new RuntimeException("自定义异常");
-        AppCode.A01000.assertHasTrue(1 == 0);
-        throw AppCode.A01000.toUserException();
+        AppCode.A00101.assertHasTrue(1 == 0);
+        throw AppCode.A00101.toUserException();
         //return "1";
     }
 

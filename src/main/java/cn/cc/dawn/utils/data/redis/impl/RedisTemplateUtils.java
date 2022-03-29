@@ -1,5 +1,6 @@
-package cn.cc.dawn.utils.data.redis;
+package cn.cc.dawn.utils.data.redis.impl;
 
+import cn.cc.dawn.utils.data.redis.IRedisTemplate;
 import org.springframework.data.redis.core.RedisTemplate;
 import org.springframework.stereotype.Component;
 import org.springframework.util.CollectionUtils;
@@ -14,7 +15,7 @@ import java.util.concurrent.TimeUnit;
  *
  */
 @Component
-public final class RedisTemplateUtils {
+public final class RedisTemplateUtils implements IRedisTemplate {
 
     @Resource
     private RedisTemplate<String, Object> redisTemplate;
@@ -63,14 +64,14 @@ public final class RedisTemplateUtils {
      * @param key 键
      * @return true 存在 false不存在
      */
-    public boolean hasKey(String key) {
+    /*public boolean hasKey(String key) {
         try {
             return redisTemplate.hasKey(key);
         } catch (Exception e) {
             e.printStackTrace();
             return false;
         }
-    }
+    }*/
 
     /**
      * 删除缓存

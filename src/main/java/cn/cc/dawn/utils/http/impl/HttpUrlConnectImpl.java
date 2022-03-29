@@ -105,7 +105,7 @@ public class HttpUrlConnectImpl implements HttpMethod {
             return conn.getInputStream();
         }catch (Exception e){
             e.printStackTrace();
-            throw AppCode.A09000.toUserException(e.toString());
+            throw AppCode.A00100.toUserException(e.toString());
         }
     }
 
@@ -131,7 +131,7 @@ public class HttpUrlConnectImpl implements HttpMethod {
             return result;
         }catch (Exception e){
             e.printStackTrace();
-            throw AppCode.A09000.toUserException(e.toString());
+            throw AppCode.A00100.toUserException(e.toString());
         }
     }
 
