@@ -1,6 +1,6 @@
 package cn.cc.dawn.config.data.redis;
 
-import cn.cc.dawn.config.init.yml.APPCacheConfiguration;
+import cn.cc.dawn.config.init.yml.APPConfigurationCache;
 import cn.cc.dawn.open.auth.cache.CustomerUserCache;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.cache.CacheManager;
@@ -16,7 +16,7 @@ import org.springframework.data.redis.serializer.StringRedisSerializer;
 public class RedisCacheManagerConfig {
 
     @Autowired
-    APPCacheConfiguration appCacheConfiguration;
+    APPConfigurationCache appConfigurationCache;
 
     //ConfigurationData configurationData;
     //ConfigurationData.UserCache userCache = configurationData.getTestCache();
@@ -24,7 +24,7 @@ public class RedisCacheManagerConfig {
     @Bean
     public CacheManager cacheManager(final RedisConnectionFactory redisConnectionFactory) {
 
-        CustomerUserCache userCache = appCacheConfiguration.getCustomuser();
+        CustomerUserCache userCache = appConfigurationCache.getCustomuser();
 
         final RedisCacheManager.RedisCacheManagerBuilder cacheManagerBuilder = RedisCacheManager.builder(redisConnectionFactory);
         return cacheManagerBuilder

@@ -62,6 +62,12 @@ public interface ICode {
             throw toUserException();
         }
     }
+    default void assertHasInsert(final int result) {
+        if (!(1==result)) {
+            throw toUserException();
+        }
+    }
+
 
 //    default void assertNonNull(final Object value) {
 //        if (Objects.isNull(value)) {

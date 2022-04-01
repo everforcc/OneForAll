@@ -6,6 +6,7 @@ import cn.cc.dawn.utils.exception.AppCode;
 import cn.cc.dawn.utils.exception.Code;
 import cn.cc.dawn.utils.exception.ICode;
 import cn.cc.dawn.utils.exception.UserException;
+import cn.cc.dawn.utils.i.ICall;
 import com.alibaba.fastjson.JSON;
 import lombok.Getter;
 import lombok.Setter;
@@ -69,18 +70,21 @@ public class ResultE<E> implements IJson{
      */
     public ResultE<E> execute(final Consumer<ResultE<E>> consumer) {
         try {
+            setICode(Code.A00000);
             consumer.accept(this);
         } catch (Exception e) {
-            exception = e.getMessage();
-            log.error(e.getMessage(), e);
-            if(e instanceof UserException){
-                UserException userException = (UserException)e;
-                code = userException.getCode().name();
-                exception = userException.getCode().getComment();
-            }else {
-                code = Code.A00001.name();
-                exception = e.getMessage();
-            }
+            setException(e);
+        }
+        return this;
+    }
+
+    public ResultE<E> call(final ICall iCall) {
+        try {
+            iCall.call();
+            setICode(Code.A00000);
+        } catch (Exception e) {
+
+            setException(e);
         }
         return this;
     }
@@ -179,6 +183,24 @@ public class ResultE<E> implements IJson{
      */
     public ResultE setException(String exception) {
         this.exception = exception;
+        return this;
+    }
+
+    public ResultE setException(Exception e) {
+
+        log.error(e.getMessage(), e);
+
+        exception = e.getMessage();
+        log.error(e.getMessage(), e);
+        if(e instanceof UserException){
+            UserException userException = (UserException)e;
+            this.code = userException.getCode().name();
+            this.exception = userException.getCode().getComment();
+        }else {
+            this.code = Code.A00001.name();
+            this.exception = e.getMessage();
+        }
+
         return this;
     }
 

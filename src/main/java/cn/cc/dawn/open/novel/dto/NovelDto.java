@@ -1,6 +1,6 @@
 package cn.cc.dawn.open.novel.dto;
 
-import cn.cc.dawn.demo.craw.webcommon.dto.CommonFiledDto;
+import cn.cc.dawn.common.sys.dto.CommonFiledDto;
 import lombok.AllArgsConstructor;
 import lombok.Getter;
 import lombok.NoArgsConstructor;

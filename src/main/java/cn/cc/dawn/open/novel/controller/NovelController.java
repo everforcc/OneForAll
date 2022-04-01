@@ -3,7 +3,7 @@ package cn.cc.dawn.open.novel.controller;
 import cn.cc.dawn.open.novel.dto.NovelCapterDto;
 import cn.cc.dawn.open.novel.dto.NovelDto;
 import cn.cc.dawn.open.novel.service.NovelService;
-import cn.cc.dawn.demo.craw.webcommon.dto.HttpParam;
+import cn.cc.dawn.open.web.data.dto.HttpParamDto;
 import cn.cc.dawn.utils.constant.HttpConstant;
 import cn.cc.dawn.utils.entity.ResultE;
 import cn.cc.dawn.utils.http.HttpMethod;
@@ -37,12 +37,12 @@ public class NovelController {
     public String content(){
 
         String result = "";
-        HttpParam httpParam = new HttpParam();
+        HttpParamDto httpParamDto = new HttpParamDto();
         //httpParam.setUrl("https://gitee.com/MyYukino/media/raw/master/READ  ME.md");
 
-        httpParam.setUrl("http://www.w2ks.org/detail/202/14786.html");
+        httpParamDto.setUrl("http://www.w2ks.org/detail/202/14786.html");
         try {
-            String html = httpMethod.getMsg(httpParam);
+            String html = httpMethod.getMsg(httpParamDto);
             log.info(html);
             Document document = XSoupUtils.htmlToDocument(html);
             result = XSoupUtils.compileStr("//div[@id=contents]",document);

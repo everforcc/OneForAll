@@ -1,0 +1,30 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper
+        PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+        "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="cn.cc.dawn.open.web.data.dao.WebSiteTagMapper">
+
+    <!-- 列表查询 -->
+    <select id="existByUrl" resultType="String">
+        select '1' from cc_websitetag where weburl = #{weburl} ;
+    </select>
+
+    <select id="selectByUrl" resultType="cn.cc.dawn.open.web.data.dto.WebSiteTagDto">
+        select * from cc_websitetag where weburl = #{weburl} ;
+    </select>
+
+    <insert id="insert" useGeneratedKeys="true" keyProperty="id"  keyColumn="id">
+        INSERT INTO `oneforall`.`cc_websitetag` (
+            `webrootid`,
+            `weburl`,
+            `webname`
+        )
+        VALUES
+            (
+                #{webrootid},
+                #{weburl},
+                #{webname}
+            );
+    </insert>
+
+</mapper>

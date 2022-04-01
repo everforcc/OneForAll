@@ -1,6 +1,6 @@
 package cn.cc.dawn.demo.init.yml.controller;
 
-import cn.cc.dawn.config.init.yml.ConfigurationData;
+import cn.cc.dawn.config.init.yml.APPConfigurationTest;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.RequestMapping;
@@ -14,7 +14,7 @@ public class ConfigController {
      * 从yml读取数据
      */
     @Autowired
-    private ConfigurationData configurationData;
+    private APPConfigurationTest configurationData;
 
     @GetMapping("/str")
     public String str(){

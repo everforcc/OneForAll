@@ -3,6 +3,7 @@ spring:
     view:
       prefix: /
       suffix: .html
+    throw-exception-if-no-handler-found: true
   servlet:
     multipart:
       max-file-size: 10240000000
@@ -14,16 +15,32 @@ spring:
     database: 14
   cache:
     type: redis
-  app:
-    env: local # 当前环境：[local:本地开发环境|dev:远程开发环境|sit:系统测试|uat:验收测试|prod:生产]
+  resources:
+    add-mappings: false
 server:
   port: 8080
   tomcat:
     connection-timeout: 10ms
     uri-encoding: UTF-8
-data:
-  str: local
-  stringList:
-    - str1
-    - str2
-    - str3
+
+app:
+  cache:
+    customuser: { cachekey: USER_TOKEN,expired: 1h }
+  defaultaeskey: defaultaeskey
+  conditional:
+    express: true
+  filepath: /home/filesystem
+  test:
+    str: bdy
+    stringList:
+      - str1
+      - str2
+      - str3
+    gproxy:
+      ip: 127.0.0.1
+      port: 41091
+    testCache:
+      expired: 30d  # 下面的暂时未使用,过期时间，30 天, Duration， ehcache 和 redis 共有配置
+      heap: 1     # ehcache 堆内保持数据行数
+      offheap: 1B  # ehcache 堆外占用内存
+      disk: 1B   # ehcache 磁盘占用空间

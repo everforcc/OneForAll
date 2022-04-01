@@ -2,7 +2,7 @@ package cn.cc.dawn.business.ys.service;
 
 import cn.cc.dawn.business.ys.dao.YsCardDaoMapper;
 import cn.cc.dawn.business.ys.dto.YsCardVO;
-import cn.cc.dawn.demo.craw.webcommon.dto.HttpParam;
+import cn.cc.dawn.open.web.data.dto.HttpParamDto;
 import cn.cc.dawn.utils.enums.CharsetsEnum;
 import cn.cc.dawn.utils.enums.HttpTypeEnum;
 import cn.cc.dawn.config.init.properties.PropertiesHeader;
@@ -117,14 +117,14 @@ public class YsCardService {
 
     private String getJSONByUrl(String url) throws Exception {
         log.info("url:" + url);
-        HttpParam httpParam = new HttpParam();
-        httpParam.setUrl(url);
-        httpParam.setCharset(CharsetsEnum.UTF_8);
-        httpParam.setHttpTypeEnum(HttpTypeEnum.GET);
-        httpParam.setTimeout(600);
-        httpParam.setHeaders(PropertiesHeader.ysCardMap());
+        HttpParamDto httpParamDto = new HttpParamDto();
+        httpParamDto.setUrl(url);
+        httpParamDto.setCharset(CharsetsEnum.UTF_8);
+        httpParamDto.setHttpTypeEnum(HttpTypeEnum.GET);
+        httpParamDto.setTimeout(600);
+        httpParamDto.setHeaders(PropertiesHeader.ysCardMap());
 
-        String json = httpMethod.getMsg(httpParam);
+        String json = httpMethod.getMsg(httpParamDto);
         log.info("json:" + json);
         return json;
     }

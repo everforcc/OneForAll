@@ -1,7 +1,7 @@
 package cn.cc.dawn.open.auth.dto;
 
 import cn.cc.dawn.config.convert.StringAryTranConvert;
-import cn.cc.dawn.demo.craw.webcommon.dto.CommonFiledDto;
+import cn.cc.dawn.common.sys.dto.CommonFiledDto;
 import cn.cc.dawn.open.auth.cache.ICustomerUser;
 import cn.cc.dawn.utils.algo.AESUtil;
 import cn.cc.dawn.utils.algo.UUIDUtils;

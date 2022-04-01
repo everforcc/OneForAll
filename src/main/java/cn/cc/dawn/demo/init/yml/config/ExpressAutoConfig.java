@@ -17,7 +17,7 @@ public class ExpressAutoConfig {
      */
     @Bean
     //@org.springframework.boot.autoconfigure.condition.ConditionalOnExpression("'true'.equals('${spring.app.aes.enable}')")
-    @ConditionalOnExpression("'true'.equals('${conditional.express}')")
+    @ConditionalOnExpression("'true'.equals('${app.conditional.express}')")
     public ExpressTrueBean expressTrueBean() {
         log.debug("expressTrueBean()");
         return new ExpressTrueBean("express true");
@@ -28,7 +28,7 @@ public class ExpressAutoConfig {
      * @return
      */
     @Bean
-    @ConditionalOnExpression("!'true'.equals('${conditional.express}')")
+    @ConditionalOnExpression("!'true'.equals('${app.conditional.express}')")
     public ExpressFalseBean expressFalseBean() {
         log.debug("expressFalseBean()");
         return new ExpressFalseBean("express != true");

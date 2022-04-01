@@ -1,6 +1,6 @@
 package cn.cc.dawn.http;
 
-import cn.cc.dawn.demo.craw.webcommon.dto.HttpParam;
+import cn.cc.dawn.open.web.data.dto.HttpParamDto;
 import cn.cc.dawn.utils.http.HttpMethod;
 import cn.cc.dawn.utils.http.impl.HttpApacheImpl;
 import cn.cc.dawn.utils.jsoup.XSoupUtils;
@@ -17,12 +17,12 @@ public class HttpMethodT {
 
     @Test
     public void readSimpUrl(){
-        HttpParam httpParam = new HttpParam();
+        HttpParamDto httpParamDto = new HttpParamDto();
         //httpParam.setUrl("https://gitee.com/MyYukino/media/raw/master/README.md");
 
-        httpParam.setUrl("http://www.w2ks.org/detail/202/14786.html");
+        httpParamDto.setUrl("http://www.w2ks.org/detail/202/14786.html");
         try {
-            String html = httpMethod.getMsg(httpParam);
+            String html = httpMethod.getMsg(httpParamDto);
             //log.info(html);
 
             Document document = XSoupUtils.htmlToDocument(html);

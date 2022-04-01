@@ -1,12 +1,12 @@
 package cn.cc.dawn.business.craw.sp4u.service;
 
 import cn.cc.dawn.business.craw.sp4u.constant.Sp4uUrl;
-import cn.cc.dawn.demo.craw.webcommon.dao.WebSiteDataMapper;
-import cn.cc.dawn.demo.craw.webcommon.dto.HttpParam;
+import cn.cc.dawn.open.web.data.dao.WebSiteDataMapper;
+import cn.cc.dawn.open.web.data.dto.HttpParamDto;
 import cn.cc.dawn.utils.enums.CharsetsEnum;
 import cn.cc.dawn.utils.enums.HttpTypeEnum;
 import cn.cc.dawn.config.init.properties.PropertiesHeader;
-import cn.cc.dawn.config.init.yml.ConfigurationData;
+import cn.cc.dawn.config.init.yml.APPConfigurationTest;
 import cn.cc.dawn.utils.jsoup.XSoupUtils;
 import cn.cc.dawn.utils.http.HttpMethod;
 import cn.cc.dawn.utils.http.impl.HttpUrlConnectImpl;
@@ -30,7 +30,7 @@ public class Sp4uService {
     HttpMethod httpMethod = new HttpUrlConnectImpl();
 
     @Autowired
-    private ConfigurationData configurationData;
+    private APPConfigurationTest configurationData;
     @Resource
     WebSiteDataMapper webSiteDoMapper;
 
@@ -70,16 +70,16 @@ public class Sp4uService {
         return 0;
     }
 
-    private HttpParam getHttpParam(String url){
-        HttpParam httpParam = new HttpParam();
-        httpParam.setCharset(CharsetsEnum.big5);
-        httpParam.setProxy(configurationData.getGproxy().getIp(),configurationData.getGproxy().getPort());
-        httpParam.setHttpTypeEnum(HttpTypeEnum.GET);
-        httpParam.setTimeout(600);
+    private HttpParamDto getHttpParam(String url){
+        HttpParamDto httpParamDto = new HttpParamDto();
+        httpParamDto.setCharset(CharsetsEnum.big5);
+        httpParamDto.setProxy(configurationData.getGproxy().getIp(),configurationData.getGproxy().getPort());
+        httpParamDto.setHttpTypeEnum(HttpTypeEnum.GET);
+        httpParamDto.setTimeout(600);
         //httpParam.setUrl("http://spring4u.info/viewthread.php?tid=61626&extra=page%3D2");
-        httpParam.setUrl(url);
-        httpParam.setHeaders(PropertiesHeader.spring4uMap());
-        return httpParam;
+        httpParamDto.setUrl(url);
+        httpParamDto.setHeaders(PropertiesHeader.spring4uMap());
+        return httpParamDto;
     }
 
     /**

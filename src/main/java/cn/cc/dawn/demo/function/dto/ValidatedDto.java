@@ -1,6 +1,6 @@
 package cn.cc.dawn.demo.function.dto;
 
-import cn.cc.dawn.demo.craw.webcommon.dto.CommonFiledDto;
+import cn.cc.dawn.common.sys.dto.CommonFiledDto;
 import cn.cc.dawn.utils.enums.RegexCommonEnum;
 import lombok.AllArgsConstructor;
 import lombok.Getter;

@@ -14,7 +14,7 @@ import org.springframework.transaction.annotation.EnableTransactionManagement;
 @EnableCaching
 // FeignClients
 @EnableFeignClients
-@MapperScan(value = "cn.cc.dawn.**.dao") //扫描包 找找文档， ** 任意多级包名
+@MapperScan(value = "cn.cc.dawn.**.dao") //扫描包 找找文档， ** 任意多级包名, 正式使用定好业务代码位置携程数据，全局写启动扫描慢
 public class OneForAllApplication {
 
 	public static void main(String[] args) {

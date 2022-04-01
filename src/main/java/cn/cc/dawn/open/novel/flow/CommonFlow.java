@@ -1,7 +1,7 @@
 package cn.cc.dawn.open.novel.flow;
 
 import cn.cc.dawn.open.novel.dto.NovelReqRegDto;
-import cn.cc.dawn.demo.craw.webcommon.dto.HttpParam;
+import cn.cc.dawn.open.web.data.dto.HttpParamDto;
 import cn.cc.dawn.utils.check.ObjectUtils;
 import cn.cc.dawn.utils.check.StringUtils;
 import cn.cc.dawn.utils.constant.LogConstant;
@@ -112,15 +112,15 @@ public class CommonFlow {
     }
 
     public static String regToParam(NovelReqRegDto novelReqRegDto,String url){
-        HttpParam httpParam = new HttpParam();
-        httpParam.setHeaders(novelReqRegDto.getHeaders());
-        httpParam.setUrl(url);
-        httpParam.setHttpTypeEnum(
+        HttpParamDto httpParamDto = new HttpParamDto();
+        httpParamDto.setHeaders(novelReqRegDto.getHeaders());
+        httpParamDto.setUrl(url);
+        httpParamDto.setHttpTypeEnum(
                 ObjectUtils.isNull(novelReqRegDto.getRegNovelUrlReqType())?novelReqRegDto.getDefaultRequestType():novelReqRegDto.getRegNovelUrlReqType()
         );
-        httpParam.setCharset(novelReqRegDto.getCharset());
-        httpParam.setTimeout(novelReqRegDto.getDefaultTimeout());
-        String html = httpMethod.getMsg(httpParam);
+        httpParamDto.setCharset(novelReqRegDto.getCharset());
+        httpParamDto.setTimeout(novelReqRegDto.getDefaultTimeout());
+        String html = httpMethod.getMsg(httpParamDto);
         return html;
     }
 

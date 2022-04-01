@@ -2,6 +2,7 @@ package cn.cc.dawn.config.security;
 
 import cn.cc.dawn.utils.constant.HttpConstant;
 import cn.cc.dawn.utils.entity.ResultE;
+import cn.cc.dawn.utils.exception.AppCode;
 import cn.cc.dawn.utils.exception.Code;
 import lombok.extern.slf4j.Slf4j;
 import org.springframework.security.access.AccessDeniedException;
@@ -62,7 +63,8 @@ public class AuthHandler implements
         //                         text/plain;charset=utf-8
         response.setContentType(HttpConstant.txt_plain_UTF_8);
         PrintWriter writer = response.getWriter();
-        writer.write("{\"key\",\"AuthenticationEntryPoint 用来解决匿名用户访问无权限资源时的异常\"}");
+        //writer.write("{\"key\",\"AuthenticationEntryPoint 用来解决匿名用户访问无权限资源时的异常\"}");
+        writer.write(new ResultE<String>(AppCode.A00103).toString());
         writer.flush();
         writer.close();
     }

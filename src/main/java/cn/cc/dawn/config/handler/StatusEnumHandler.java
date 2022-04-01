@@ -1,6 +1,6 @@
 package cn.cc.dawn.config.handler;
 
-import cn.cc.dawn.utils.enums.StatusEnum;
+import cn.cc.dawn.utils.enums.impl.StatusEnum;
 import org.apache.ibatis.type.BaseTypeHandler;
 import org.apache.ibatis.type.JdbcType;
 
@@ -12,7 +12,9 @@ import java.sql.SQLException;
 /**
  * 处理枚举和数据库的映射
  * @author guokailong 2021-09-07
+ * @Deprecated 使用 cn.cc.dawn.config.handler.EnumIntegerHandler
  */
+@Deprecated
 public class StatusEnumHandler extends BaseTypeHandler<StatusEnum> {
 
 
@@ -24,7 +26,8 @@ public class StatusEnumHandler extends BaseTypeHandler<StatusEnum> {
             throws SQLException {
         // baseTypeHandler已经帮我们做了parameter的null判断
         // 第二个参数 : 存入到数据库中的值
-        ps.setString(i, parameter.comment);
+        //ps.setString(i, parameter.comment);
+        ps.setInt(i, parameter.comment);
     }
 
     /**

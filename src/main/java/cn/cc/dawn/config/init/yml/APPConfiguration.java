@@ -17,4 +17,6 @@ public class APPConfiguration {
 
     private String defaultaeskey;
 
+    private String filepath;
+
 }
