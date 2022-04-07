@@ -1,6 +1,6 @@
 package cn.cc.dawn.demo.servlet.controller;
 
-import cn.cc.dawn.demo.servlet.dto.FileObj;
+import cn.cc.dawn.common.file.dto.FileObj;
 import com.alibaba.fastjson.JSONObject;
 import org.springframework.web.bind.annotation.*;
 import org.springframework.web.multipart.MultipartFile;
@@ -42,8 +42,8 @@ public class FileUploadController {
         long range = 0L;
         // 校验
         FileObj fileObj = new FileObj();
-        fileObj.setFileName(file.getOriginalFilename());
-        String fileName = fileObj.getFileName();
+        fileObj.setRname(file.getOriginalFilename());
+        String fileName = fileObj.getName();
         System.out.println("file.getSize(): " + file.getSize());
         InputStream in = null;
 

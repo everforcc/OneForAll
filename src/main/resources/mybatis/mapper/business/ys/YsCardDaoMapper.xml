@@ -4,14 +4,29 @@
         "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
 <mapper namespace="cn.cc.dawn.business.ys.dao.YsCardDaoMapper">
 
+    <!-- 如果没有的话默认为当前参数 -->
+    <sql id="effect_sql">
+        WHERE effect = 1 AND status = 1
+    </sql>
+
     <!-- 列表查询 -->
     <select id="selectByCardID" resultType="cn.cc.dawn.business.ys.dto.YsCardVO">
-        select * from cc_game_ys_card where cardid = #{cardid};
+        select * from cc_game_ys_card
+        <include refid="effect_sql" />
+        AND cardid = #{cardid};
     </select>
 
     <!-- 列表查询 -->
     <select id="selectByUid" resultType="cn.cc.dawn.business.ys.dto.YsCardVO">
-        SELECT * FROM cc_game_ys_card e WHERE e.`uid` = #{uid} ;
+        SELECT * FROM cc_game_ys_card e
+        <!--<include refid="effect_sql" />-->
+        WHERE e.`uid` = #{uid }
+        AND gacha_type in
+        <foreach item="type" collection="typeList" open="(" separator="," close=")">
+            #{type }
+        </foreach>
+        ORDER BY cardid
+        ;
     </select>
 
     <insert id="insert">
@@ -31,14 +46,14 @@
             (
                 #{cardid},
                 #{uid},
-                #{gacha_type},
-                #{item_id},
+                #{gachaType},
+                #{itemId},
                 #{count},
                 #{time},
                 #{name},
                 #{lang},
-                #{item_type},
-                #{rank_type}
+                #{itemType},
+                #{rankType}
             );
     </insert>
 

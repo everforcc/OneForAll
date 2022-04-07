@@ -25,7 +25,7 @@ server:
 
 app:
   cache:
-    customuser: { cachekey: USER_TOKEN,expired: 1h }
+    customuser: { cachekey: USER_TOKEN,expired: 24h }
   defaultaeskey: defaultaeskey
   conditional:
     express: true

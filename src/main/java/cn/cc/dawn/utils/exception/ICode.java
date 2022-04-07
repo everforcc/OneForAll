@@ -1,5 +1,7 @@
 package cn.cc.dawn.utils.exception;
 
+import cn.cc.dawn.utils.check.ObjectUtils;
+
 import java.util.Collection;
 import java.util.Objects;
 
@@ -69,11 +71,11 @@ public interface ICode {
     }
 
 
-//    default void assertNonNull(final Object value) {
-//        if (Objects.isNull(value)) {
-//            throw toUserException();
-//        }
-//    }
+    default void assertNonNull(final Object value) {
+        if(ObjectUtils.isNull(value)){
+            throw toUserException();
+        }
+    }
 //    default void assertNonNull(final Object value, final String exps, final Object... args) {
 //        if (Objects.isNull(value)) {
 //            throw toUserException(exps, args);

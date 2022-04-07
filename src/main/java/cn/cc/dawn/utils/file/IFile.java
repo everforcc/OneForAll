@@ -30,32 +30,64 @@ public interface IFile {
 
     String read(String path) throws IOException;
 
+    /**
+     * 设置文件权限,根据系统区分
+     */
+
+    /**
+     * 创建时间
+     * @param file
+     * @param pattern
+     * @return
+     */
     default String creationTime(File file,String pattern){
-        BasicFileAttributes attr = getCreationTime(file,pattern);
+        BasicFileAttributes attr = getCreationTime(file);
         Instant instant_0 = attr.creationTime().toInstant();
         String format_0 = DateTimeFormatter.ofPattern(pattern).withZone(ZoneId.systemDefault()).format(instant_0);
         return format_0;
     };
 
+    /**
+     * 最后一次修改时间
+     * @param file
+     * @return
+     */
     default String lastModifiedTime(File file){
         return lastModifiedTime(file, DateFormatConstant.yyyy_MM_dd_HH_mm_ss);
     };
 
+    /**
+     * 最后一次修改时间，自定义格式
+     * @param file
+     * @param pattern
+     * @return
+     */
     default String lastModifiedTime(File file,String pattern){
-        BasicFileAttributes attr = getCreationTime(file,pattern);
+        BasicFileAttributes attr = getCreationTime(file);
         Instant instant_0 = attr.lastModifiedTime().toInstant();
         String format_0 = DateTimeFormatter.ofPattern(pattern).withZone(ZoneId.systemDefault()).format(instant_0);
         return format_0;
     };
 
+    /**
+     * 最近访问的时间
+     * @param file
+     * @param pattern
+     * @return
+     */
     default String lastAccessTime(File file,String pattern){
-        BasicFileAttributes attr = getCreationTime(file,pattern);
+        BasicFileAttributes attr = getCreationTime(file);
         Instant instant_0 = attr.lastAccessTime().toInstant();
         String format_0 = DateTimeFormatter.ofPattern(pattern).withZone(ZoneId.systemDefault()).format(instant_0);
         return format_0;
     };
 
-    static BasicFileAttributes getCreationTime(File file,String pattern) {
+    /**
+     * 文件时间对象
+     * @param file
+     * @return
+     */
+    static BasicFileAttributes getCreationTime(File file) {
         if (file == null) {
             return null;
         }

@@ -1,4 +1,4 @@
-package cn.cc.dawn.utils.i;
+package cn.cc.dawn.utils.inter;
 
 /**
  * lambda

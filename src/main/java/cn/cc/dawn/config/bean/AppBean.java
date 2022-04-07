@@ -179,8 +179,7 @@ public class AppBean {
         } else if (e instanceof AccessDeniedException) {
             return new ResultE<Void>(Code.A00011).setException("403：无操作权限");
         }
-
-        ResultE resultE = new ResultE<String>(AppCode.A00101);
+        ResultE resultE = new ResultE<Void>(AppCode.A00104).setException(e.getCause().getMessage());
         return resultE;
     }
 

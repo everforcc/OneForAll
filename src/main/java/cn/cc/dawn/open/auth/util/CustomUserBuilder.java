@@ -68,6 +68,8 @@ public class CustomUserBuilder {
 
         String token = cache.get(customUser.getUsername(),String.class);
 
+        AppCode.A00102.assertNonNull(token);
+
         log.info("解密前token: " + token);
         token = AESUtil.aes_decrypt(token);
         log.info("解密后token: " + token);

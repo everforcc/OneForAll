@@ -14,6 +14,7 @@ import java.sql.SQLException;
 
 /**
  * 目前全局枚举都使用 int作为值来存入数据库
+ * 参考 https://blog.csdn.net/H900302/article/details/109286827
  * @param <E>
  */
 public class EnumIntegerHandler<E extends BaseEnum> extends BaseTypeHandler<E> {

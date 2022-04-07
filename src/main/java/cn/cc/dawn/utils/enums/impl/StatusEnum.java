@@ -8,11 +8,11 @@ import cn.cc.dawn.utils.enums.BaseEnum;
 public enum StatusEnum implements BaseEnum<Integer> {
 
     /**
-     * 无效, 文件
+     * 无效, 需要vip不能用
      */
     UNEFFECT(0),
     /**
-     * 有效, html
+     * 有效, 不需要vip可用
      */
     EFFECT(1);
 

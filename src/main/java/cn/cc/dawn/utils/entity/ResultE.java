@@ -2,17 +2,18 @@ package cn.cc.dawn.utils.entity;
 
 import cn.cc.dawn.utils.constant.HttpHeadersConstant;
 import cn.cc.dawn.utils.constant.NumberConstant;
-import cn.cc.dawn.utils.exception.AppCode;
 import cn.cc.dawn.utils.exception.Code;
 import cn.cc.dawn.utils.exception.ICode;
 import cn.cc.dawn.utils.exception.UserException;
-import cn.cc.dawn.utils.i.ICall;
+import cn.cc.dawn.utils.inter.ICall;
 import com.alibaba.fastjson.JSON;
 import lombok.Getter;
 import lombok.Setter;
 import lombok.extern.slf4j.Slf4j;
 import org.slf4j.MDC;
 
+import javax.validation.ConstraintViolation;
+import javax.validation.ConstraintViolationException;
 import java.util.Collections;
 import java.util.List;
 import java.util.Objects;
@@ -192,10 +193,19 @@ public class ResultE<E> implements IJson{
 
         exception = e.getMessage();
         log.error(e.getMessage(), e);
-        if(e instanceof UserException){
+        if (e instanceof ConstraintViolationException) {
+            ConstraintViolationException exception = (ConstraintViolationException) e;
+            String message = exception.getConstraintViolations().stream()
+                    .map(ConstraintViolation::getMessage)
+                    .findFirst()
+                    .orElse(null);
+            this.code = Code.A00004.name();
+            this.exception = message;
+        }else if(e instanceof UserException){
             UserException userException = (UserException)e;
             this.code = userException.getCode().name();
-            this.exception = userException.getCode().getComment();
+            //this.exception = userException.getCode().getComment();
+            this.exception = e.getMessage();
         }else {
             this.code = Code.A00001.name();
             this.exception = e.getMessage();

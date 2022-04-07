@@ -5,8 +5,7 @@ import org.apache.commons.lang3.RandomUtils;
 public class MathUtils {
 
     public static int getRandomInt(Integer start,Integer end){
-
-        start = start - end;
+        //start = start - end;
         return RandomUtils.nextInt(start, end);
     }
 

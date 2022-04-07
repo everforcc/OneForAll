@@ -5,6 +5,7 @@ import lombok.AllArgsConstructor;
 import lombok.Data;
 import lombok.NoArgsConstructor;
 
+import java.math.BigInteger;
 import java.util.Objects;
 
 /**
@@ -18,7 +19,7 @@ public class YsCardVO extends CommonFiledDto {
     /**
      * 原字段id冲突，替换为cardid
      */
-    private String cardid;
+    private BigInteger cardid;
     private String uid;
     private String gachaType;
     private String itemId;

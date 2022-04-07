@@ -1,9 +1,12 @@
 package cn.cc.dawn.utils.http.impl;
 
 import cn.cc.dawn.open.web.data.dto.HttpParamDto;
+import cn.cc.dawn.utils.MathUtils;
+import cn.cc.dawn.utils.constant.CommonCharConstant;
 import cn.cc.dawn.utils.enums.CharsetsEnum;
 import cn.cc.dawn.utils.exception.AppCode;
 import cn.cc.dawn.utils.http.HttpMethod;
+import lombok.extern.slf4j.Slf4j;
 import org.apache.http.HttpResponse;
 import org.apache.http.client.HttpClient;
 import org.apache.http.client.methods.HttpGet;
@@ -16,6 +19,7 @@ import java.io.InputStream;
 import java.nio.charset.Charset;
 import java.util.Objects;
 
+@Slf4j
 @Component("httpApacheImpl")
 public class HttpApacheImpl implements HttpMethod {
 
@@ -28,10 +32,15 @@ public class HttpApacheImpl implements HttpMethod {
 
     @Override
     public String getMsg(HttpParamDto httpParamDto){
+
         HttpClient httpClient = HttpClients.createDefault();
         HttpGet httpGet = new HttpGet(httpParamDto.getUrl());
         HttpResponse httpResponse = null;
         try {
+            int sleep  = (1 + MathUtils.getRandomInt(1,5)) * 1000;;
+            log.info("随机休眠:" + sleep);
+            Thread.sleep(sleep);
+
             httpResponse = httpClient.execute(httpGet);
 
             if(Objects.nonNull(httpParamDto.getCharset())){
@@ -39,9 +48,10 @@ public class HttpApacheImpl implements HttpMethod {
             }
 
             return EntityUtils.toString(httpResponse.getEntity(),charset);
-        } catch (IOException e) {
-            e.printStackTrace();
-            throw AppCode.A00100.toUserException(e.toString());
+        } catch (Exception e) {
+            //e.printStackTrace();
+            log.error("测试jar定义异常: " + e);
+            throw AppCode.A00100.toUserException(e.getMessage());
         }
 
     }

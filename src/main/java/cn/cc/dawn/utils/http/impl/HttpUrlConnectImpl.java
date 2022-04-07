@@ -1,6 +1,8 @@
 package cn.cc.dawn.utils.http.impl;
 
 import cn.cc.dawn.open.web.data.dto.HttpParamDto;
+import cn.cc.dawn.utils.MathUtils;
+import cn.cc.dawn.utils.constant.CommonCharConstant;
 import cn.cc.dawn.utils.enums.BooleanEnum;
 import cn.cc.dawn.utils.exception.AppCode;
 import cn.cc.dawn.utils.http.HttpMethod;
@@ -37,6 +39,10 @@ public class HttpUrlConnectImpl implements HttpMethod {
     private static InputStream getStreamFlow(HttpParamDto httpParamDto){
 
         try {
+            int sleep  = (1 + MathUtils.getRandomInt(1,5)) * 1000;;
+            log.info("随机休眠:" + sleep);
+            Thread.sleep(sleep);
+
             // 1. 声明
             HttpURLConnection conn;
             if (Objects.nonNull(httpParamDto.getProxy())) {
@@ -104,8 +110,8 @@ public class HttpUrlConnectImpl implements HttpMethod {
             // 得到服务器写回的响应数据
             return conn.getInputStream();
         }catch (Exception e){
-            e.printStackTrace();
-            throw AppCode.A00100.toUserException(e.toString());
+            log.error("测试jar定义异常: " + e);
+            throw AppCode.A00100.toUserException(e.getMessage());
         }
     }
 
@@ -114,6 +120,9 @@ public class HttpUrlConnectImpl implements HttpMethod {
 //        if(gzip){
 //            return ZipUtils.gzipRestore(inputStream);
 //        }
+
+
+
             BufferedReader br = null;
             // 默认字符编码GBK
             if (StringUtils.isNotBlank(charSet)) {

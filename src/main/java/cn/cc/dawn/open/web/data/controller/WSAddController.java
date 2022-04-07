@@ -1,11 +1,13 @@
 package cn.cc.dawn.open.web.data.controller;
 
 import cn.cc.dawn.open.web.data.dto.HttpParamDto;
+import cn.cc.dawn.open.web.data.dto.WebSiteDto;
 import cn.cc.dawn.open.web.data.flow.WebSiteCommonService;
 import cn.cc.dawn.open.web.data.service.WebSiteService;
 import cn.cc.dawn.open.web.data.service.WebSiteTagService;
 import cn.cc.dawn.utils.entity.ResultE;
 import cn.cc.dawn.utils.enums.CharsetsEnum;
+import lombok.extern.slf4j.Slf4j;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.RequestBody;
@@ -17,6 +19,7 @@ import org.springframework.web.bind.annotation.RestController;
  */
 @RequestMapping("/open/craw/add")
 @RestController
+@Slf4j
 //@RequiredArgsConstructor
 public class WSAddController {
 
@@ -40,17 +43,18 @@ public class WSAddController {
 
     /**
      * 网站主表
-     * @param json
+     * @param webSiteDto
      * @return
      */
     @GetMapping("/addroot")
-    public ResultE<Object> addroot(@RequestBody String json){
+    public ResultE<Object> addroot(WebSiteDto webSiteDto){
         /*return new ResultE<Integer>().execute(e ->{
             e.setSuccess(webSiteService.insert(json));
         });*/
 
+        log.info(webSiteDto.toString());
         return new ResultE<>().call(() ->
-                webSiteService.insert(json)
+                webSiteService.insert(webSiteDto)
         );
     }
 

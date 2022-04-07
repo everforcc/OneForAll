@@ -2,7 +2,9 @@ package cn.cc.dawn.open.web.data.service;
 
 import cn.cc.dawn.open.web.data.dao.WebSiteMapper;
 import cn.cc.dawn.open.web.data.dto.WebSiteDto;
+import cn.cc.dawn.utils.check.ObjectUtils;
 import cn.cc.dawn.utils.exception.AppCode;
+import cn.cc.dawn.utils.inter.valited.ISave;
 import com.alibaba.fastjson.JSONObject;
 import lombok.extern.slf4j.Slf4j;
 import org.springframework.stereotype.Service;
@@ -10,8 +12,10 @@ import org.springframework.transaction.annotation.Transactional;
 import org.springframework.validation.annotation.Validated;
 
 import javax.annotation.Resource;
+import javax.validation.Valid;
 import javax.validation.constraints.NotEmpty;
 import javax.validation.constraints.NotNull;
+import javax.validation.groups.Default;
 import java.util.List;
 
 @Slf4j
@@ -75,7 +79,7 @@ public class WebSiteService {
             throw AppCode.A01003.toUserException();
         }
         if(webSiteJSON.containsKey("vip")){
-            webSiteDto.setVip(webSiteJSON.getIntValue("vip"));
+            webSiteDto.setVip(webSiteJSON.getString("vip"));
         }else {
             throw AppCode.A01004.toUserException();
         }
@@ -110,17 +114,23 @@ public class WebSiteService {
 
     }
 
-    public WebSiteDto insert(@NotNull(message = "[obj] 不能为null") WebSiteDto webSiteDto){
+    @Validated({ISave.class})
+    @Transactional(rollbackFor = Exception.class)
+    public WebSiteDto insert(@Valid WebSiteDto webSiteDto){
         if("1".equals(webSiteMapper.existByUrl(webSiteDto.getWebroot()))){
+
             webSiteDto = webSiteMapper.selectByUrl(webSiteDto.getWebroot());
             log.info("web主表已存在: " + webSiteDto.getWebroot());
         }else {
-            AppCode.A00201.assertHasUpdate(webSiteMapper.insert(webSiteDto));
+            //AppCode.A00201.assertHasUpdate(webSiteMapper.insert(webSiteDto));
             log.info("web主表已插入 ");
         }
         return webSiteDto;
     }
 
-
+    private boolean check(WebSiteDto webSiteDto){
+        AppCode.A01000.assertHasTrue(ObjectUtils.nonNull(webSiteDto.getWebroot()));
+        return true;
+    }
 
 }
