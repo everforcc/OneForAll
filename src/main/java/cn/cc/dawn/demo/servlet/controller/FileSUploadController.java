@@ -1,6 +1,6 @@
 package cn.cc.dawn.demo.servlet.controller;
 
-import cn.cc.dawn.common.file.dto.FileObj;
+import cn.cc.dawn.common.file.dto.FileObjDto;
 import com.alibaba.fastjson.JSONObject;
 import org.springframework.web.bind.annotation.*;
 import org.springframework.web.multipart.MultipartFile;
@@ -13,10 +13,10 @@ import java.util.Map;
 
 @RestController
 @RequestMapping(value = "/d/file/upload")
-public class FileUploadController {
+public class FileSUploadController {
 
     // 存文件信息
-    public static Map<String, FileObj> mapCache = new HashMap<>();
+    public static Map<String, FileObjDto> mapCache = new HashMap<>();
     public static Map<String,InputStream> streamMapCache = new HashMap<>();
 
     //public static Map<String,FileObj> mapCache = new HashMap<>();
@@ -41,15 +41,15 @@ public class FileUploadController {
         // 校验文件存在return
         long range = 0L;
         // 校验
-        FileObj fileObj = new FileObj();
-        fileObj.setRname(file.getOriginalFilename());
-        String fileName = fileObj.getName();
+        FileObjDto fileObjDto = new FileObjDto();
+        fileObjDto.setRname(file.getOriginalFilename());
+        String fileName = fileObjDto.getUname();
         System.out.println("file.getSize(): " + file.getSize());
         InputStream in = null;
 
         try {
             in = file.getInputStream();
-            streamMapCache.put(fileObj.getMd5(),in);
+            streamMapCache.put(fileObjDto.getMd5(),in);
             FileOutputStream fo = new FileOutputStream("C:/test/" + fileName,true);
             byte[] buf = new byte[1024];
             int length = 0;
@@ -59,9 +59,9 @@ public class FileUploadController {
             }
         } catch (IOException e) {
             e.printStackTrace();
-            fileObj.setRange(range);
-            fileObj.setSize(file.getSize());
-            mapCache.put(fileObj.getMd5(),fileObj);
+            fileObjDto.setRange(range);
+            fileObjDto.setSize(file.getSize() + "");
+            mapCache.put(fileObjDto.getMd5(), fileObjDto);
 
         }finally {
             System.out.println("fileName:" + fileName + "[end]");

@@ -9,12 +9,7 @@ import org.springframework.util.unit.DataSize;
 import java.time.Duration;
 import java.util.List;
 
-//@Configuration(proxyBeanMethods = false)
-//@ConfigurationPropertiesScan
 @EnableConfigurationProperties
-/*
-Not registered via @EnableConfigurationProperties, marked as Spring component, or scanned via @ConfigurationPropertiesScan
- */
 @Data
 @AllArgsConstructor
 @NoArgsConstructor

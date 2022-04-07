@@ -66,7 +66,7 @@ eg: 当Content-Type 的值设置为text/html和text/plain时,前者会让浏览�
 MimeUtility.encodeWord("中文.txt");//现在版本的IE还不行
 new String("中文".getBytes("GB2312"),"ISO8859- 1");//实际上这个是错误的
 ### 正确方式
-new String( fileName.getBytes("gb2312"), "ISO8859-1" )
+new String( fileMsg.getBytes("gb2312"), "ISO8859-1" )
 ~~~
 - 在确保附件文件名都是简体中文字的情况下，那么这个办法确实是最有效的，不用让客户逐个的升级IE。如果台湾同胞用，把gb2312改成big5就 行。但现在的系统通常都加入了 国际化的支持，普遍使用UTF-8。如果文件名中又有简体中文字，又有繁体中文，还有日文。那么乱码便产生了。另外，在上Firefox (v1.0-en)下载也是乱码。
 - 

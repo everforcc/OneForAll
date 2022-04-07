@@ -1,19 +1,12 @@
 package cn.cc.dawn.utils.file;
 
-import cn.cc.dawn.utils.algo.MD5Utils;
 import cn.cc.dawn.utils.algo.UUIDUtils;
 import cn.cc.dawn.utils.enums.ContentTypeEnum;
-import lombok.Cleanup;
 import lombok.Getter;
-import lombok.SneakyThrows;
 import lombok.extern.slf4j.Slf4j;
-import org.apache.commons.codec.digest.DigestUtils;
 import org.apache.commons.lang3.StringUtils;
+import org.springframework.web.multipart.MultipartFile;
 
-import java.io.BufferedInputStream;
-import java.io.File;
-import java.io.FileInputStream;
-import java.io.InputStream;
 import java.util.Objects;
 
 /**
@@ -25,7 +18,7 @@ public class FileBuilder {
     /**
      * 文件名处理
      */
-    public static class FileName {
+    public static class FileMsg {
         /**
          * 文件目录，可选参数
          */
@@ -35,28 +28,37 @@ public class FileBuilder {
          * 原始文件名，带后缀
          */
         @Getter
-        private final String name;
+        private final String rname;
         /**
          * 目录+唯一文件名，带后缀
          */
         @Getter
         private String uname;
 
-        private FileName(String dir, String name) {
+        /**
+         * 文件大小
+         */
+        @Getter
+        private String size;
+
+        private FileMsg(String size,String dir, String rname) {
+            this.size = size;
             this.dir = dir;
-            this.name = name;
+            this.rname = rname;
             if (StringUtils.isBlank(dir)) {
-                this.uname = name;
+                this.uname = rname;
             } else {
-                this.uname = String.format("%s/%s", dir, name);
+                this.uname = String.format("%s/%s", dir, rname);
             }
         }
 
-        public static FileName of(final String filename, final String... dirs) {
+        public static FileMsg of(MultipartFile uploadFile, final String... dirs) {
+            String filename = uploadFile.getOriginalFilename();
+            String size = String.valueOf(uploadFile.getSize());
             Objects.requireNonNull(filename, "参数【filename】是必须的");
-            return new FileName(
+            return new FileMsg(size,
                     String.join("/", dirs)
-                            .replaceAll("[/]{2,}", "/") // 去除目录中间多余的 "/"
+                            .replaceAll("[/]{2,}", "/") //  如果给的目录结构带的有 "/",去除目录中间多余的 "/"
                             .replaceFirst("/$", ""), // 去除目录结尾的 "/"
                     filename
             );
@@ -79,7 +81,7 @@ public class FileBuilder {
          * @return String
          */
         public String getSuffix(boolean offset) {
-            return name.replaceFirst("^.+\\.", (offset ? "." : ""));
+            return rname.replaceFirst("^.+\\.", (offset ? "." : ""));
         }
 
         /**
@@ -88,7 +90,7 @@ public class FileBuilder {
          * @return String
          */
         public String getPrefix() {
-            return name.substring(0, name.lastIndexOf("."));
+            return rname.substring(0, rname.lastIndexOf("."));
         }
 
         /**
@@ -110,7 +112,7 @@ public class FileBuilder {
          *
          * @return FileName
          */
-        public FileName buildUuidUname() {
+        public FileMsg buildUuidUname() {
             if (StringUtils.isBlank(dir)) {
                 this.uname = UUIDUtils.uuid32() + getSuffix();
             } else {
@@ -120,66 +122,8 @@ public class FileBuilder {
         }
 
         /**
-         * 构造 MD5 文件名带后缀，拼接目录前缀
-         *
-         * @return FileName
+         * MD5 工具类已删，需要再加
          */
-        @SneakyThrows
-        public FileName buildMd5Uname(final String text) {
-            if (StringUtils.isBlank(dir)) {
-                this.uname = MD5Utils.md5Hex(text) + getSuffix();
-            } else {
-                this.uname = String.format("%s/%s%s", dir, MD5Utils.md5Hex(text), getSuffix());
-            }
-            return this;
-        }
-
-        /**
-         * 构造 MD5 文件名带后缀，拼接目录前缀
-         *
-         * @return FileName
-         */
-        @SneakyThrows
-        public FileName buildMd5Uname(final byte[] bytes) {
-            if (StringUtils.isBlank(dir)) {
-                this.uname = MD5Utils.md5Hex(bytes) + getSuffix();
-            } else {
-                this.uname = String.format("%s/%s%s", dir, MD5Utils.md5Hex(bytes), getSuffix());
-            }
-            return this;
-        }
-
-        /**
-         * 构造 MD5 文件名带后缀，拼接目录前缀
-         *
-         * @return FileName
-         */
-        @SneakyThrows
-        public FileName buildMd5Uname(final File file) {
-            @Cleanup final FileInputStream fileInputStream = new FileInputStream(file);
-            @Cleanup final BufferedInputStream bufferedInputStream = new BufferedInputStream(fileInputStream);
-            if (StringUtils.isBlank(dir)) {
-                this.uname = DigestUtils.md5Hex(bufferedInputStream) + getSuffix();
-            } else {
-                this.uname = String.format("%s/%s%s", dir, DigestUtils.md5Hex(bufferedInputStream), getSuffix());
-            }
-            return this;
-        }
-
-        /**
-         * 构造 MD5 文件名带后缀，拼接目录前缀
-         *
-         * @return FileName
-         */
-        @SneakyThrows
-        public FileName buildMd5Uname(final InputStream inputStream) {
-            if (StringUtils.isBlank(dir)) {
-                this.uname = DigestUtils.md5Hex(inputStream) + getSuffix();
-            } else {
-                this.uname = String.format("%s/%s%s", dir, DigestUtils.md5Hex(inputStream), getSuffix());
-            }
-            return this;
-        }
 
     }
 

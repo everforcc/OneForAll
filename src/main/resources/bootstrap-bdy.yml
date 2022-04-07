@@ -29,7 +29,9 @@ app:
   defaultaeskey: defaultaeskey
   conditional:
     express: true
-  filepath: /home/filesystem
+  files:
+    path: /home/filesystem
+    type: LOCAL
   test:
     str: bdy
     stringList:

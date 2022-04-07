@@ -5,12 +5,7 @@ import org.springframework.boot.context.properties.ConfigurationProperties;
 import org.springframework.boot.context.properties.EnableConfigurationProperties;
 import org.springframework.stereotype.Component;
 
-//@Configuration(proxyBeanMethods = false)
-//@ConfigurationPropertiesScan
 @EnableConfigurationProperties
-/*
-Not registered via @EnableConfigurationProperties, marked as Spring component, or scanned via @ConfigurationPropertiesScan
- */
 @Data
 @AllArgsConstructor
 @NoArgsConstructor

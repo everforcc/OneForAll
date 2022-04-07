@@ -10,9 +10,6 @@ import org.springframework.boot.context.properties.EnableConfigurationProperties
 import org.springframework.stereotype.Component;
 
 @EnableConfigurationProperties
-/*
-Not registered via @EnableConfigurationProperties, marked as Spring component, or scanned via @ConfigurationPropertiesScan
- */
 @Data
 @AllArgsConstructor
 @NoArgsConstructor

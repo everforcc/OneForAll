@@ -92,7 +92,9 @@ app:
   defaultaeskey: defaultaeskey
   conditional:
     express: true
-  filepath: E:/filesystem
+  files:
+    path: E:/filesystem
+    type: WINDOWS
   test:
     str: string
     stringList:
