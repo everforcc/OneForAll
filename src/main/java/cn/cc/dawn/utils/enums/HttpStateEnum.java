@@ -1,5 +1,7 @@
 package cn.cc.dawn.utils.enums;
 
+import org.apache.http.HttpStatus;
+
 /**
  * Http 状态码
  * 1xx（临时响应）
@@ -15,6 +17,10 @@ package cn.cc.dawn.utils.enums;
  *
  */
 public enum HttpStateEnum {
+
+    /**
+     * 参考类 {@link HttpStatus }
+     */
     // HTTP 状态描述
     _100(100, "（继续|CONTINUE）请求者应当继续提出请求。 服务器返回此代码表示已收到请求的第一部分，正在等待其余部分。"),
     _101(101, "（切换协议|WITCHING_PROTOCOLS）请求者已要求服务器切换协议，服务器已确认并准备切换。"),

@@ -6,6 +6,7 @@ import cn.cc.dawn.utils.check.ObjectUtils;
 import cn.cc.dawn.utils.constant.NumberConstant;
 import cn.cc.dawn.utils.enums.BooleanEnum;
 import cn.cc.dawn.utils.enums.CharsetsEnum;
+import cn.cc.dawn.utils.enums.HttpDataTypeEnum;
 import cn.cc.dawn.utils.enums.HttpTypeEnum;
 import com.alibaba.fastjson.JSONObject;
 import lombok.*;
@@ -73,10 +74,20 @@ public class HttpParamDto extends CommonFiledDto {
     private BooleanEnum isFile = BooleanEnum.FALSE;
 
     /**
+     * 请求 数据 类型
+     */
+    private HttpDataTypeEnum httpDataTypeEnum;
+
+    /**
      * POST 请求数据
+     *
+     * 加个文件枚举类型 str,form,file
      */
     private String content;
-
+    /**
+     * TODO 文件
+     */
+    private String file;
     /**
      * GET 请求参数
      */
@@ -94,6 +105,11 @@ public class HttpParamDto extends CommonFiledDto {
     private int threadPool;
 
     /**
+     * TODO SSL
+     */
+    private String ssl;
+
+    /**
      * 设置代理方法
      * @param ip
      * @param port
@@ -107,10 +123,10 @@ public class HttpParamDto extends CommonFiledDto {
      * 如果没设置，最少延迟一秒，最多延迟三秒
      */
     public void sleep(){
+        sleep(RandomUtils.randomInt(NumberConstant.N_1,NumberConstant.N_3) * NumberConstant.N_1000);
+    }
+    public void sleep(int sleep){
         try {
-            if(sleep==0){
-                sleep = RandomUtils.randomInt(NumberConstant.N_1,NumberConstant.N_3) * NumberConstant.N_1000;
-            }
             Thread.sleep(sleep);
         } catch (InterruptedException e) {
             throw new RuntimeException(e);
