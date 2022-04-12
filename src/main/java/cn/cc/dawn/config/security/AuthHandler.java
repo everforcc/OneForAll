@@ -1,6 +1,6 @@
 package cn.cc.dawn.config.security;
 
-import cn.cc.dawn.utils.constant.HttpConstant;
+import cn.cc.dawn.utils.constant.HttpHeadersConstant;
 import cn.cc.dawn.utils.entity.ResultE;
 import cn.cc.dawn.utils.exception.AppCode;
 import cn.cc.dawn.utils.exception.Code;
@@ -41,7 +41,7 @@ public class AuthHandler implements
     public void handle(HttpServletRequest request, HttpServletResponse response, AccessDeniedException accessDeniedException)
             throws IOException, ServletException {
 
-        response.setContentType(HttpConstant.txt_plain_UTF_8);
+        response.setContentType(HttpHeadersConstant.txt_plain_UTF_8);
         PrintWriter writer = response.getWriter();
         writer.write("{\"key\",\"AccessDeniedHandler-403-无权限\"}");
         writer.flush();
@@ -61,7 +61,7 @@ public class AuthHandler implements
 
         //response.setContentType("text/plain;utf-8");
         //                         text/plain;charset=utf-8
-        response.setContentType(HttpConstant.txt_plain_UTF_8);
+        response.setContentType(HttpHeadersConstant.txt_plain_UTF_8);
         PrintWriter writer = response.getWriter();
         //writer.write("{\"key\",\"AuthenticationEntryPoint 用来解决匿名用户访问无权限资源时的异常\"}");
         writer.write(new ResultE<String>(AppCode.A00103).toString());
@@ -87,7 +87,7 @@ public class AuthHandler implements
     public void onAuthenticationSuccess(HttpServletRequest request, HttpServletResponse response, Authentication authentication) throws IOException, ServletException {
 
         log.info("onAuthenticationSuccess( " + SecurityContextHolder.getContext().getAuthentication().getPrincipal().toString());
-        response.setContentType(HttpConstant.txt_plain_UTF_8);
+        response.setContentType(HttpHeadersConstant.txt_plain_UTF_8);
         PrintWriter writer = response.getWriter();
         writer.write("{\"key\",\"AuthenticationSuccessHandler，登录成功后执行\"}");
         writer.flush();
@@ -107,7 +107,7 @@ public class AuthHandler implements
 
         log.info("具体使用时，需要手动捕获异常信息");
 
-        response.setContentType(HttpConstant.txt_plain_UTF_8);
+        response.setContentType(HttpHeadersConstant.txt_plain_UTF_8);
         PrintWriter writer = response.getWriter();
         writer.write("{\"key\",\"AuthenticationFailureHandler登录失败后执行\"}");
         writer.flush();
@@ -124,7 +124,7 @@ public class AuthHandler implements
      */
     @Override
     public void onLogoutSuccess(HttpServletRequest request, HttpServletResponse response, Authentication authentication) throws IOException, ServletException {
-        response.setContentType(HttpConstant.txt_plain_UTF_8);
+        response.setContentType(HttpHeadersConstant.txt_plain_UTF_8);
         PrintWriter writer = response.getWriter();
         //writer.write("{\"key\",\"LogoutSuccessHandler  退出成功后执行逻辑\"}");
         writer.write(new ResultE<String>(Code.A00000).toString());

@@ -4,7 +4,7 @@ import cn.cc.dawn.demo.servlet.service.ResponseBytesService;
 import cn.cc.dawn.demo.servlet.vo.ServletVO;
 import cn.cc.dawn.utils.check.ObjectUtils;
 import cn.cc.dawn.utils.check.StringUtils;
-import cn.cc.dawn.utils.constant.HttpConstant;
+import cn.cc.dawn.utils.constant.HttpHeadersConstant;
 import cn.cc.dawn.utils.constant.LogConstant;
 import lombok.Cleanup;
 import lombok.extern.slf4j.Slf4j;
@@ -72,11 +72,11 @@ public class ResponseBytesController {
         log.info("returnTXT: " + LogConstant.SPLIT);
         byte[] bytes = responseBytesService.getTXTBytes();
 
-        response.setDateHeader(HttpConstant.EXPIRES, System.currentTimeMillis() + 1 * 1000);
+        response.setDateHeader(HttpHeadersConstant.EXPIRES, System.currentTimeMillis() + 1 * 1000);
         // 返回类型 txt
-        response.setContentType(HttpConstant.txt_plain_UTF_8);
+        response.setContentType(HttpHeadersConstant.txt_plain_UTF_8);
         //
-        response.setHeader(HttpConstant.CACHE_CONTROL, "max-age=" + bytes.length);
+        response.setHeader(HttpHeadersConstant.CACHE_CONTROL, "max-age=" + bytes.length);
         @Cleanup ServletOutputStream outputStream = response.getOutputStream();
         outputStream.write(bytes);
         outputStream.flush();

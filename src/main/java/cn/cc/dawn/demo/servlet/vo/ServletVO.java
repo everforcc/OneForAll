@@ -1,9 +1,8 @@
 package cn.cc.dawn.demo.servlet.vo;
 
-import cn.cc.dawn.utils.constant.HttpConstant;
+import cn.cc.dawn.utils.constant.HttpHeadersConstant;
 import cn.cc.dawn.utils.enums.CharsetsEnum;
 import com.alibaba.fastjson.JSONObject;
-import lombok.*;
 
 import java.io.UnsupportedEncodingException;
 import java.net.URLEncoder;
@@ -70,8 +69,8 @@ public class ServletVO {
         this.cache_control = cache_control;
         this.last_modified = last_modified;
         // HttpConstant.CACHE_CONTROL, "max-age=" + bytes.length
-        headerMap.put(HttpConstant.CACHE_CONTROL, "max-age=" + cache_control);
-        headerMap.put(HttpConstant.LAST_MODIFIED,last_modified);
+        headerMap.put(HttpHeadersConstant.CACHE_CONTROL, "max-age=" + cache_control);
+        headerMap.put(HttpHeadersConstant.LAST_MODIFIED,last_modified);
     }
 
 
@@ -79,7 +78,7 @@ public class ServletVO {
     public void setExpire(Long expire) {
         this.expire = expire;
         // (HttpConstant.EXPIRES, System.currentTimeMillis() + 1 * 1000);
-        dateHeaderMap.put(HttpConstant.EXPIRES, System.currentTimeMillis() + expire);
+        dateHeaderMap.put(HttpHeadersConstant.EXPIRES, System.currentTimeMillis() + expire);
     }
 
     public ServletVO() {

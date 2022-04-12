@@ -1,16 +1,14 @@
 package cn.cc.dawn.utils;
 
-import org.apache.commons.lang3.RandomUtils;
+public class RandomUtils {
 
-public class MathUtils {
-
-    public static int getRandomInt(Integer start,Integer end){
+    public static int randomInt(Integer start, Integer end){
         //start = start - end;
-        return RandomUtils.nextInt(start, end);
+        return org.apache.commons.lang3.RandomUtils.nextInt(start, end);
     }
 
     public static double getRandomDouble(double start,double end){
-        return RandomUtils.nextDouble(start,end);
+        return org.apache.commons.lang3.RandomUtils.nextDouble(start,end);
     }
 
     public static void main(String[] args) {

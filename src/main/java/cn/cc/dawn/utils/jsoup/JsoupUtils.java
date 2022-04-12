@@ -1,6 +1,6 @@
 package cn.cc.dawn.utils.jsoup;
 
-import cn.cc.dawn.utils.constant.CharsetsConstant;
+import cn.cc.dawn.utils.enums.CharsetsEnum;
 import org.jsoup.Connection;
 import org.jsoup.Jsoup;
 import org.jsoup.nodes.Document;
@@ -24,7 +24,7 @@ public class JsoupUtils {
     public static void main(String[] args) {
         String url = "https://www.orzgirl.com/%E8%B5%9B%E9%AB%98%E9%85%B1-%E7%A7%81%E5%AE%9A1%E4%B8%87%EF%BC%9A%E8%8D%89%E8%8E%93%E5%B0%8F%E6%96%B9%E5%BD%A2%E5%86%85%E8%A1%A3.html";
         //sentToUrlRequestHttpURLConnection("https://www.orzgirl.com/%E8%B5%9B%E9%AB%98%E9%85%B1-%E7%A7%81%E5%AE%9A1%E4%B8%87%EF%BC%9A%E8%8D%89%E8%8E%93%E5%B0%8F%E6%96%B9%E5%BD%A2%E5%86%85%E8%A1%A3.html","",null);
-        connect(url, CharsetsConstant.UTF_8.toString(),null);
+        connect(url, CharsetsEnum.UTF_8.charset.toString(),null);
     }
 
     /**

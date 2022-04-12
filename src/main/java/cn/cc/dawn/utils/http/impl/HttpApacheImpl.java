@@ -1,8 +1,7 @@
 package cn.cc.dawn.utils.http.impl;
 
 import cn.cc.dawn.open.web.data.dto.HttpParamDto;
-import cn.cc.dawn.utils.MathUtils;
-import cn.cc.dawn.utils.constant.CommonCharConstant;
+import cn.cc.dawn.utils.RandomUtils;
 import cn.cc.dawn.utils.enums.CharsetsEnum;
 import cn.cc.dawn.utils.exception.AppCode;
 import cn.cc.dawn.utils.http.HttpMethod;
@@ -14,7 +13,6 @@ import org.apache.http.impl.client.HttpClients;
 import org.apache.http.util.EntityUtils;
 import org.springframework.stereotype.Component;
 
-import java.io.IOException;
 import java.io.InputStream;
 import java.nio.charset.Charset;
 import java.util.Objects;
@@ -37,7 +35,7 @@ public class HttpApacheImpl implements HttpMethod {
         HttpGet httpGet = new HttpGet(httpParamDto.getUrl());
         HttpResponse httpResponse = null;
         try {
-            int sleep  = (1 + MathUtils.getRandomInt(1,5)) * 1000;;
+            int sleep  = (1 + RandomUtils.randomInt(1,5)) * 1000;;
             log.info("随机休眠:" + sleep);
             Thread.sleep(sleep);
 

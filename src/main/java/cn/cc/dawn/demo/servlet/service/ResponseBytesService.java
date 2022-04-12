@@ -1,9 +1,7 @@
 package cn.cc.dawn.demo.servlet.service;
 
 import cn.cc.dawn.demo.servlet.vo.ServletVO;
-import cn.cc.dawn.utils.constant.DateFormatConstant;
-import cn.cc.dawn.utils.constant.HttpConstant;
-import cn.cc.dawn.utils.date.DateUtils;
+import cn.cc.dawn.utils.constant.HttpHeadersConstant;
 import cn.cc.dawn.utils.enums.CharsetsEnum;
 import cn.cc.dawn.utils.file.IFile;
 import cn.cc.dawn.utils.file.impl.FileApacheUtils;
@@ -13,13 +11,6 @@ import org.springframework.stereotype.Service;
 
 import java.io.File;
 import java.io.IOException;
-import java.nio.file.Files;
-import java.nio.file.Path;
-import java.nio.file.attribute.BasicFileAttributes;
-import java.time.Instant;
-import java.time.ZoneId;
-import java.time.format.DateTimeFormatter;
-import java.util.Date;
 
 @Service()
 public class ResponseBytesService {
@@ -33,7 +24,7 @@ public class ResponseBytesService {
         ServletVO servletVO = new ServletVO();
         try {
             servletVO.setBytes(ByteStreams.toByteArray(FileUtils.openInputStream(file)));
-            servletVO.setContentType(HttpConstant.txt_plain_UTF_8);
+            servletVO.setContentType(HttpHeadersConstant.txt_plain_UTF_8);
             servletVO.setDownFileName(fileName);
             servletVO.setCache_control("0", iFile.lastModifiedTime(file));
         } catch (IOException e) {

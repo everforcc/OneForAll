@@ -1,8 +1,7 @@
 package cn.cc.dawn.utils.http.impl;
 
 import cn.cc.dawn.open.web.data.dto.HttpParamDto;
-import cn.cc.dawn.utils.MathUtils;
-import cn.cc.dawn.utils.constant.CommonCharConstant;
+import cn.cc.dawn.utils.RandomUtils;
 import cn.cc.dawn.utils.enums.BooleanEnum;
 import cn.cc.dawn.utils.exception.AppCode;
 import cn.cc.dawn.utils.http.HttpMethod;
@@ -39,14 +38,14 @@ public class HttpUrlConnectImpl implements HttpMethod {
     private static InputStream getStreamFlow(HttpParamDto httpParamDto){
 
         try {
-            int sleep  = (1 + MathUtils.getRandomInt(1,5)) * 1000;;
+            int sleep  = (1 + RandomUtils.randomInt(1,5)) * 1000;;
             log.info("随机休眠:" + sleep);
             Thread.sleep(sleep);
 
             // 1. 声明
             HttpURLConnection conn;
             if (Objects.nonNull(httpParamDto.getProxy())) {
-                conn = (HttpURLConnection) new URL(httpParamDto.getUrl()).openConnection(httpParamDto.getProxy());
+                conn = (HttpURLConnection) new URL(httpParamDto.getUrl()).openConnection(httpParamDto.getProxy().toProxy());
             } else {
                 conn = (HttpURLConnection) new URL(httpParamDto.getUrl()).openConnection();
             }

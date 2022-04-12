@@ -1,7 +1,5 @@
 package cn.cc.dawn.utils.constant;
 
-import cn.cc.dawn.utils.MathUtils;
-
 public class CommonCharConstant {
 
     public static String AND = "&";

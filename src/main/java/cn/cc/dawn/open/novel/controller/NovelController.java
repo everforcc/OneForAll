@@ -4,7 +4,7 @@ import cn.cc.dawn.open.novel.dto.NovelCapterDto;
 import cn.cc.dawn.open.novel.dto.NovelDto;
 import cn.cc.dawn.open.novel.service.NovelService;
 import cn.cc.dawn.open.web.data.dto.HttpParamDto;
-import cn.cc.dawn.utils.constant.HttpConstant;
+import cn.cc.dawn.utils.constant.HttpHeadersConstant;
 import cn.cc.dawn.utils.entity.ResultE;
 import cn.cc.dawn.utils.http.HttpMethod;
 import cn.cc.dawn.utils.http.impl.HttpApacheImpl;
@@ -63,9 +63,9 @@ public class NovelController {
         String content = novelService.show();
         log.info(content);
         byte[] bytes = content.getBytes(StandardCharsets.UTF_8);
-        response.setDateHeader(HttpConstant.EXPIRES, System.currentTimeMillis() + 1 * 1000);
+        response.setDateHeader(HttpHeadersConstant.EXPIRES, System.currentTimeMillis() + 1 * 1000);
         // 返回类型 txt
-        response.setContentType(HttpConstant.txt_html_UTF_8);
+        response.setContentType(HttpHeadersConstant.txt_html_UTF_8);
         //
         //response.setHeader(HttpConstant.CACHE_CONTROL, "max-age=" + bytes.length);
         @Cleanup ServletOutputStream outputStream = response.getOutputStream();

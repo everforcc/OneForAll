@@ -107,7 +107,8 @@ public class RedissonService {
         } catch (Exception e) {
             e.printStackTrace();
         }finally {
-            if(false&&lock.isLocked()){
+            //if(false&&lock.isLocked()){
+            if(flag){
                 lock.unlock();
             }
         }

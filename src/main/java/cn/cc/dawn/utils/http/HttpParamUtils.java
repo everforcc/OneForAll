@@ -1,11 +1,12 @@
 package cn.cc.dawn.utils.http;
 
 import cn.cc.dawn.utils.check.StringUtils;
-import cn.cc.dawn.utils.constant.CharsetsConstant;
 import cn.cc.dawn.utils.constant.CommonCharConstant;
 import cn.cc.dawn.utils.constant.NumberConstant;
+import cn.cc.dawn.utils.enums.CharsetsEnum;
 import cn.cc.dawn.utils.exception.AppCode;
 import com.google.common.base.Joiner;
+
 import java.io.UnsupportedEncodingException;
 import java.net.MalformedURLException;
 import java.net.URL;
@@ -45,7 +46,7 @@ public class HttpParamUtils {
             }
             try {
                 // URL 编码
-                value = URLEncoder.encode(value, CharsetsConstant.UTF_8.toString());
+                value = URLEncoder.encode(value, CharsetsEnum.UTF_8.charset.toString());
             } catch (UnsupportedEncodingException e) {
                 // do nothing
             }

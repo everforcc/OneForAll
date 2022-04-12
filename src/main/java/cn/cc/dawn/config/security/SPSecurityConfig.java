@@ -4,7 +4,6 @@ import cn.cc.dawn.open.auth.dto.CustomUser;
 import cn.cc.dawn.open.auth.util.CustomUserBuilder;
 import cn.cc.dawn.utils.algo.UUIDUtils;
 import cn.cc.dawn.utils.check.ObjectUtils;
-import cn.cc.dawn.utils.constant.HttpConstant;
 import cn.cc.dawn.utils.constant.HttpHeadersConstant;
 import cn.cc.dawn.utils.constant.SystemUrlConstant;
 import cn.cc.dawn.utils.entity.ResultE;
@@ -149,7 +148,7 @@ public class SPSecurityConfig{
                     .addLogoutHandler(new SecurityContextLogoutHandler()) // 添加一个LogoutHandler, // 清除 session
                     // 向客户端发送 清除 “cookie、storage、缓存” 消息
                     .addLogoutHandler((request, response, authentication) -> {// 添加一个LogoutHandler, 退出操作需要删除 redis token 缓存
-                        final String token = request.getHeader(HttpConstant.AUTH_TOKEN);
+                        final String token = request.getHeader(HttpHeadersConstant.AUTH_TOKEN);
                         if (!"".equals(token)&&null!=token) {
                             try {
                                 log.info("移除用户有token");
@@ -180,12 +179,12 @@ public class SPSecurityConfig{
 
             @Override
             protected void doFilterInternal(HttpServletRequest request, HttpServletResponse response, FilterChain filterChain) throws ServletException, IOException {
-                if (StringUtils.isBlank(request.getHeader(HttpConstant.AUTH_TOKEN))) {
+                if (StringUtils.isBlank(request.getHeader(HttpHeadersConstant.AUTH_TOKEN))) {
                     filterChain.doFilter(request, response);
                     return;
                 }
                 try {
-                    final String token = request.getHeader(HttpConstant.AUTH_TOKEN);
+                    final String token = request.getHeader(HttpHeadersConstant.AUTH_TOKEN);
 
                     CustomUser customUser = CustomUserBuilder.tokenToUser(token);
                     //customUser = customUser.tokenToUser(token);

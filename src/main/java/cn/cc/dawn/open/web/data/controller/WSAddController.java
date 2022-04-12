@@ -9,10 +9,7 @@ import cn.cc.dawn.utils.entity.ResultE;
 import cn.cc.dawn.utils.enums.CharsetsEnum;
 import lombok.extern.slf4j.Slf4j;
 import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.web.bind.annotation.GetMapping;
-import org.springframework.web.bind.annotation.RequestBody;
-import org.springframework.web.bind.annotation.RequestMapping;
-import org.springframework.web.bind.annotation.RestController;
+import org.springframework.web.bind.annotation.*;
 
 /**
  * TODO 此类只允许管理员操作
@@ -46,8 +43,8 @@ public class WSAddController {
      * @param webSiteDto
      * @return
      */
-    @GetMapping("/addroot")
-    public ResultE<Object> addroot(WebSiteDto webSiteDto){
+    @PostMapping("/addroot")
+    public ResultE<Object> addroot(@RequestBody WebSiteDto webSiteDto){
         /*return new ResultE<Integer>().execute(e ->{
             e.setSuccess(webSiteService.insert(json));
         });*/
@@ -63,7 +60,7 @@ public class WSAddController {
      * @param json
      * @return
      */
-    @GetMapping("/addtag")
+    @PostMapping("/addtag")
     public ResultE<Integer> addtag(@RequestBody String json){
         return new ResultE<Integer>().execute(e ->{
             e.setSuccess(webSiteTagService.insert(json));
