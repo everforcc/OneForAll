@@ -2,11 +2,14 @@ package cn.cc.dawn.utils.file;
 
 import cn.cc.dawn.utils.algo.UUIDUtils;
 import cn.cc.dawn.utils.enums.ContentTypeEnum;
+import cn.cc.dawn.utils.exception.AppCode;
 import lombok.Getter;
 import lombok.extern.slf4j.Slf4j;
 import org.apache.commons.lang3.StringUtils;
 import org.springframework.web.multipart.MultipartFile;
 
+import java.io.UnsupportedEncodingException;
+import java.net.URLDecoder;
 import java.util.Objects;
 
 /**
@@ -44,7 +47,12 @@ public class FileBuilder {
         private FileMsg(String size,String dir, String rname) {
             this.size = size;
             this.dir = dir;
-            this.rname = rname;
+
+            try {
+                this.rname = URLDecoder.decode(rname,"UTF-8");
+            } catch (UnsupportedEncodingException e) {
+                throw AppCode.A00100.toUserException("文件名解码异常");
+            }
             if (StringUtils.isBlank(dir)) {
                 this.uname = rname;
             } else {

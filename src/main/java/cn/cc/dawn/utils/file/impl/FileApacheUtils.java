@@ -31,7 +31,6 @@ public class FileApacheUtils implements IFile {
 
     @Override
     public String read(String path) throws IOException {
-
         return FileUtils.readFileToString(new File(path), CharsetsEnum.UTF_8.charset);
     }
 }

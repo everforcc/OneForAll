@@ -2,6 +2,7 @@ package cn.cc.dawn.demo.servlet.service;
 
 import cn.cc.dawn.demo.servlet.vo.ServletVO;
 import cn.cc.dawn.utils.constant.HttpHeadersConstant;
+import cn.cc.dawn.utils.file.IFilePath;
 import cn.cc.dawn.utils.enums.CharsetsEnum;
 import cn.cc.dawn.utils.file.IFile;
 import cn.cc.dawn.utils.file.impl.FileApacheUtils;
@@ -19,7 +20,7 @@ public class ResponseBytesService {
 
     public ServletVO getFileBytes(){
         String fileName = "test中文-1.txt";
-        String path = "E:\\filesystem\\test\\临时\\test中文.txt";
+        String path = IFilePath.pathRoot() +  "/filesystem/test/临时/test中文.txt";
         File file = new File(path);
         ServletVO servletVO = new ServletVO();
         try {

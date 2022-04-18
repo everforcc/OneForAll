@@ -1,6 +1,6 @@
 package cn.cc.dawn.utils.http.impl;
 
-import cn.cc.dawn.open.web.data.dto.HttpParamDto;
+import cn.cc.dawn.local.craw.web.data.dto.HttpParamDto;
 import cn.cc.dawn.utils.RandomUtils;
 import cn.cc.dawn.utils.enums.CharsetsEnum;
 import cn.cc.dawn.utils.exception.AppCode;

@@ -2,7 +2,7 @@
 <!DOCTYPE mapper
         PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
         "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
-<mapper namespace="cn.cc.dawn.business.ys.dao.YsCardDaoMapper">
+<mapper namespace="cn.cc.dawn.local.craw.ys.dao.YsCardDaoMapper">
 
     <!-- 如果没有的话默认为当前参数 -->
     <sql id="effect_sql">
@@ -10,14 +10,14 @@
     </sql>
 
     <!-- 列表查询 -->
-    <select id="selectByCardID" resultType="cn.cc.dawn.business.ys.dto.YsCardVO">
+    <select id="selectByCardID" resultType="cn.cc.dawn.local.craw.ys.dto.YsCardVO">
         select * from cc_game_ys_card
         <include refid="effect_sql" />
         AND cardid = #{cardid};
     </select>
 
     <!-- 列表查询 -->
-    <select id="selectByUid" resultType="cn.cc.dawn.business.ys.dto.YsCardVO">
+    <select id="selectByUid" resultType="cn.cc.dawn.local.craw.ys.dto.YsCardVO">
         SELECT * FROM cc_game_ys_card e
         <!--<include refid="effect_sql" />-->
         WHERE e.`uid` = #{uid }

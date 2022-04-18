@@ -5,7 +5,7 @@ import cn.cc.dawn.open.auth.util.CustomUserBuilder;
 import cn.cc.dawn.utils.algo.UUIDUtils;
 import cn.cc.dawn.utils.check.ObjectUtils;
 import cn.cc.dawn.utils.constant.HttpHeadersConstant;
-import cn.cc.dawn.utils.constant.SystemUrlConstant;
+import cn.cc.dawn.utils.constant.system.SystemUrlConstant;
 import cn.cc.dawn.utils.entity.ResultE;
 import cn.cc.dawn.utils.enums.ContentTypeEnum;
 import cn.cc.dawn.utils.exception.AppCode;
@@ -101,6 +101,7 @@ public class SPSecurityConfig{
                      * TODO 这块随后使用处理到配置文件
                      */
                     .antMatchers("/open/**", SystemUrlConstant.package_open).permitAll()
+                    .antMatchers("/local/**").permitAll()
                     .antMatchers("/user/**").permitAll()
                     .antMatchers("/error/**").permitAll()
                     //.antMatchers("/").permitAll()

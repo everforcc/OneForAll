@@ -1,6 +1,7 @@
 package cn.cc.dawn.demo.craw.website.dujuzi.webmagic;
 
 import cn.cc.dawn.demo.craw.util.datahelp.HtmlHelper;
+import cn.cc.dawn.utils.file.IFilePath;
 import cn.cc.dawn.utils.data.io.InputStream_IO_Write;
 import org.jsoup.nodes.Document;
 import org.jsoup.nodes.Element;
@@ -35,7 +36,7 @@ public class PageProcessor_dujuzi {
      */
     private static String path = System.getProperty("user.dir") + File.separator + "temp" + File.separator ;
     private static String dirMenu = "未知" ;
-    private static final String FILE_PATH = "D:\\aly\\out\\";
+    private static final String FILE_PATH = IFilePath.pathRoot() + "/aly/out/";
     private static final String WWW = "https://www.dujuzi.cn/";
     private static final String Index = "Home/Index.html";
     private static final String JujiInfo = "Home/JujiInfo/";

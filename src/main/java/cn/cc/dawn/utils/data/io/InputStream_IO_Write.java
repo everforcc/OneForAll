@@ -1,7 +1,6 @@
 package cn.cc.dawn.utils.data.io;
 
 import org.apache.commons.lang3.StringUtils;
-import org.junit.Test;
 
 import java.io.File;
 import java.io.FileWriter;
@@ -64,7 +63,7 @@ public class InputStream_IO_Write {
         FileWriter fw = null;
         try {
             //如果文件存在，则追加内容；如果文件不存在，则创建文件
-            //File f=new File("D:a.txt");
+            //File f=new File(IFilePath.pathRoot() + "/a.txt");
             // java.io.FileNotFoundException: C:\NEW\ideaProject\aly\OneForAll\temp\古文名句\《楞严经》.txt (另一个程序正在使用此文件，进程无法访问。)
             fw = new FileWriter(f, true);
             // 总是开启关闭浪费资源，直接组装好给放进来

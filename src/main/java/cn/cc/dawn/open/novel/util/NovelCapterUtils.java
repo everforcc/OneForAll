@@ -1,6 +1,7 @@
 package cn.cc.dawn.open.novel.util;
 
 import cn.cc.dawn.utils.constant.LogConstant;
+import cn.cc.dawn.utils.file.IFilePath;
 import cn.cc.dawn.utils.file.IFile;
 import cn.cc.dawn.utils.file.impl.FileApacheUtils;
 import lombok.extern.slf4j.Slf4j;
@@ -112,7 +113,7 @@ public class NovelCapterUtils {
 
         String str = "";
         try {
-            str = fileToStr("F:\\娱乐\\03.文\\txt\\05.网文\\魔王三部曲\\魔王奶爸.txt");
+            str = fileToStr(IFilePath.pathRoot() + "/娱乐/03.文/txt/05.网文/魔王三部曲/魔王奶爸.txt");
             log.info(LogConstant.SPLIT + str.length());
             //log.info(LogConstant.SPLIT + str);
         } catch (Exception e) {

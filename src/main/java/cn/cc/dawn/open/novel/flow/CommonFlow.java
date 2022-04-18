@@ -1,7 +1,7 @@
 package cn.cc.dawn.open.novel.flow;
 
 import cn.cc.dawn.open.novel.dto.NovelReqRegDto;
-import cn.cc.dawn.open.web.data.dto.HttpParamDto;
+import cn.cc.dawn.local.craw.web.data.dto.HttpParamDto;
 import cn.cc.dawn.utils.check.ObjectUtils;
 import cn.cc.dawn.utils.check.StringUtils;
 import cn.cc.dawn.utils.constant.LogConstant;
