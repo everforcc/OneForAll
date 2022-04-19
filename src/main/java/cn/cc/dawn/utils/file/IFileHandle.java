@@ -11,14 +11,13 @@ import java.time.Instant;
 import java.time.ZoneId;
 import java.time.format.DateTimeFormatter;
 
-public interface IFile {
-
-    /**
-     * 常见的文件操作
-     * 1. 复制
-     * 2. 移动
-     * 3. 改名
-     */
+/**
+ * 常见的文件操作
+ * 1. 复制
+ * 2. 移动
+ * 3. 改名
+ */
+public interface IFileHandle {
 
     void copy();
 

@@ -2,6 +2,7 @@ package cn.cc.dawn.open.novel;
 
 import cn.cc.dawn.open.novel.util.NovelCapterUtils;
 import cn.cc.dawn.utils.constant.LogConstant;
+import cn.cc.dawn.utils.file.path.FilePath;
 import lombok.extern.slf4j.Slf4j;
 import org.junit.jupiter.api.Test;
 
@@ -15,8 +16,8 @@ public class NovelCapterUtilsT {
     @Test
     void contextLoads() {
 
-        String filep_1 = "F:\\娱乐\\03.文\\txt\\05.网文\\魔王三部曲\\勇者之师.txt";
-        String filep_2 = "F:\\娱乐\\03.文\\txt\\05.网文\\魔王三部曲\\魔王奶爸.txt";
+        String filep_1 = FilePath.build().ofPath("/娱乐/03.文/txt/05.网文/魔王三部曲").ofFileName("勇者之师.txt").path();
+        String filep_2 = FilePath.build().ofPath("/娱乐/03.文/txt/05.网文/魔王三部曲").ofFileName("魔王奶爸.txt").path();
 
         String str = NovelCapterUtils.fileToStr(filep_2);
 

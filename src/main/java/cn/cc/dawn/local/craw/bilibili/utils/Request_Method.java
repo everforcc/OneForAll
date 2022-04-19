@@ -58,7 +58,7 @@ public class Request_Method {
      */
     public static void html_common(String urlPath)throws Exception{
         Connection connection1 = Jsoup.connect(urlPath);// 获取连接
-        connection1.header("User-Agent", Constant.userAgent);// 配置模拟浏览器
+        connection1.header("User-Agent", BilConstant.userAgent);// 配置模拟浏览器
         Connection.Response response = connection1.execute();// 获取响应
         System.out.println(response.body());
     }

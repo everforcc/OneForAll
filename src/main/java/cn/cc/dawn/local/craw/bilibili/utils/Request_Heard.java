@@ -34,7 +34,7 @@ public class Request_Heard {
         conn.setRequestProperty("Referer", "https://www.bilibili.com/video/"+avNuM);
         conn.setRequestProperty("User-Agent", "Mozilla/5.0 (Windows NT 10.0; WOW64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/69.0.3497.100 Safari/537.36");
         conn.setRequestProperty("X-Requested-With", " ShockwaveFlash/29.0.0.171");
-        conn.setRequestProperty("Cookie", Constant.cookie);
+        conn.setRequestProperty("Cookie", BilConstant.cookie);
         //3, 设置提交类型
         conn.setRequestMethod(requestMethod);
         // 这个位置可以设置分批下载
@@ -67,7 +67,7 @@ public class Request_Heard {
         conn.setRequestProperty("Referer", "https://www.bilibili.com/video/"+avNuM);
         conn.setRequestProperty("User-Agent", "Mozilla/5.0 (Windows NT 10.0; WOW64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/69.0.3497.100 Safari/537.36");
         conn.setRequestProperty("X-Requested-With", " ShockwaveFlash/29.0.0.171");
-        conn.setRequestProperty("Cookie", Constant.cookie);
+        conn.setRequestProperty("Cookie", BilConstant.cookie);
         //3, 设置提交类型
         conn.setRequestMethod(requestMethod);
         // 这个位置可以设置分批下载
@@ -96,7 +96,7 @@ public class Request_Heard {
         conn.setRequestProperty("Host","api.bilibili.com");
         conn.setRequestProperty("Upgrade-Insecure-Requests","1");
         conn.setRequestProperty("User-Agent","Mozilla/5.0 (Windows NT 10.0; WOW64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/69.0.3497.100 Safari/537.36");
-        conn.setRequestProperty("Cookie",Constant.cookie);
+        conn.setRequestProperty("Cookie", BilConstant.cookie);
         conn.setRequestMethod(requistType);
         conn.setDoOutput(true);
         conn.setDoInput(true);//当前的连接可以从服务器读取内容, 默认是true
@@ -108,7 +108,7 @@ public class Request_Heard {
         //2, 打开连接
         HttpURLConnection conn = (HttpURLConnection) url.openConnection();
         // 模拟浏览器请求
-        conn.setRequestProperty("User-agent", Constant.userAgent);
+        conn.setRequestProperty("User-agent", BilConstant.userAgent);
         //3, 设置提交类型
         conn.setRequestMethod(requistType);
         //4, 设置允许写出数据,默认是不允许 false

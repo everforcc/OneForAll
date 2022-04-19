@@ -2,9 +2,9 @@ package cn.cc.dawn.demo.servlet.service;
 
 import cn.cc.dawn.demo.servlet.vo.ServletVO;
 import cn.cc.dawn.utils.constant.HttpHeadersConstant;
-import cn.cc.dawn.utils.file.IFilePath;
+import cn.cc.dawn.utils.file.path.FilePath;
 import cn.cc.dawn.utils.enums.CharsetsEnum;
-import cn.cc.dawn.utils.file.IFile;
+import cn.cc.dawn.utils.file.IFileHandle;
 import cn.cc.dawn.utils.file.impl.FileApacheUtils;
 import com.google.common.io.ByteStreams;
 import org.apache.commons.io.FileUtils;
@@ -16,18 +16,17 @@ import java.io.IOException;
 @Service()
 public class ResponseBytesService {
 
-    IFile iFile = new FileApacheUtils();
+    IFileHandle iFileHandle = new FileApacheUtils();
 
     public ServletVO getFileBytes(){
         String fileName = "test中文-1.txt";
-        String path = IFilePath.pathRoot() +  "/filesystem/test/临时/test中文.txt";
-        File file = new File(path);
+        File file = FilePath.build().ofPath("filesystem/test/临时").ofFileName("/test中文.txt").file();
         ServletVO servletVO = new ServletVO();
         try {
             servletVO.setBytes(ByteStreams.toByteArray(FileUtils.openInputStream(file)));
             servletVO.setContentType(HttpHeadersConstant.txt_plain_UTF_8);
             servletVO.setDownFileName(fileName);
-            servletVO.setCache_control("0", iFile.lastModifiedTime(file));
+            servletVO.setCache_control("0", iFileHandle.lastModifiedTime(file));
         } catch (IOException e) {
             e.printStackTrace();
         }

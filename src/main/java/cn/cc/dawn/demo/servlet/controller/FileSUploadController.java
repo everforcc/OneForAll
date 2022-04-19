@@ -1,7 +1,7 @@
 package cn.cc.dawn.demo.servlet.controller;
 
 import cn.cc.dawn.common.file.dto.FileObjDto;
-import cn.cc.dawn.utils.file.IFilePath;
+import cn.cc.dawn.utils.file.path.FilePath;
 import com.alibaba.fastjson.JSONObject;
 import org.springframework.web.bind.annotation.*;
 import org.springframework.web.multipart.MultipartFile;
@@ -51,7 +51,7 @@ public class FileSUploadController {
         try {
             in = file.getInputStream();
             streamMapCache.put(fileObjDto.getMd5(),in);
-            FileOutputStream fo = new FileOutputStream(IFilePath.pathRoot() + "/test/" + fileName,true);
+            FileOutputStream fo = new FileOutputStream(FilePath.build().ofPath("test").ofFileName(fileName).path(),true);
             byte[] buf = new byte[1024];
             int length = 0;
             while ((length = in.read(buf, 0, buf.length)) != -1) {

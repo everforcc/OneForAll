@@ -9,8 +9,11 @@ import java.io.InputStream;
  */
 public class FileVO {
 
+    /**
+     * 忘了这个是干啥的
+     */
 
-    private String defalut = IFilePath.pathRoot() + "/project/OneForAll/";
+    private String defalut = "/project/OneForAll/";
     /**
      * 哪个项目
      */

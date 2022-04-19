@@ -8,16 +8,20 @@ Accept: application/json
 }
 
 ###
-GET http://localhost:81/open/craw/add/addroot
+POST http://localhost:81/open/craw/add/addroot
 Accept: application/json
+Content-Type: application/json
 
 {
-"webSiteDto.webroot": "https://www.jokerlu6.pw/",
-"webSiteDto.webname": "jokerlu",
-"webSiteDto.softtype": "web",
-"webSiteDto.webtype": "AV",
-"webSiteDto.vip": "UNEFFECT"
+"webroot": "https://www.internetdownloadmanager.com/",
+"webname": "IDM",
+"softtype": "web",
+"webtype": "软件",
+"vip": "EFFECT"
 }
+
+
+
 
 ### 02. insert sub
 GET http://localhost:81/open/craw/add/addtag

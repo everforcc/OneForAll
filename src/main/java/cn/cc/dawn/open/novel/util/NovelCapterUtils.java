@@ -1,8 +1,8 @@
 package cn.cc.dawn.open.novel.util;
 
 import cn.cc.dawn.utils.constant.LogConstant;
-import cn.cc.dawn.utils.file.IFilePath;
-import cn.cc.dawn.utils.file.IFile;
+import cn.cc.dawn.utils.file.path.FilePath;
+import cn.cc.dawn.utils.file.IFileHandle;
 import cn.cc.dawn.utils.file.impl.FileApacheUtils;
 import lombok.extern.slf4j.Slf4j;
 
@@ -34,7 +34,7 @@ public class NovelCapterUtils {
     private static Map<String,Integer> menuMap = new HashMap<>();
 
     // 文件工具类
-    private static IFile apacheiFile = new FileApacheUtils();
+    private static IFileHandle apacheiFileHandle = new FileApacheUtils();
 
     /**
      * TODO 此处返回str可能会超长
@@ -44,7 +44,7 @@ public class NovelCapterUtils {
     public static String fileToStr(String path){
         String str = "";
         try {
-            str = apacheiFile.read(path);
+            str = apacheiFileHandle.read(path);
         } catch (Exception e) {
             e.printStackTrace();
         }
@@ -113,7 +113,8 @@ public class NovelCapterUtils {
 
         String str = "";
         try {
-            str = fileToStr(IFilePath.pathRoot() + "/娱乐/03.文/txt/05.网文/魔王三部曲/魔王奶爸.txt");
+
+            str = fileToStr(FilePath.build().ofPath("/娱乐/03.文/txt/05.网文/魔王三部曲").ofFileName("/魔王奶爸.txt").path());
             log.info(LogConstant.SPLIT + str.length());
             //log.info(LogConstant.SPLIT + str);
         } catch (Exception e) {

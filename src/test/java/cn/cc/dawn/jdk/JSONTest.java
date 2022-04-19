@@ -1,6 +1,6 @@
 package cn.cc.dawn.jdk;
 
-import cn.cc.dawn.business.ys.dto.YsCardVO;
+import cn.cc.dawn.local.craw.ys.dto.YsCardVO;
 import com.alibaba.fastjson.JSON;
 import com.alibaba.fastjson.JSONArray;
 import com.alibaba.fastjson.JSONObject;

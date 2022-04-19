@@ -1,7 +1,7 @@
 package cn.cc.dawn.local.craw.bilibili.controller;
 
 import cn.cc.dawn.local.craw.bilibili.bilibili.Bilibili_Cover;
-import cn.cc.dawn.utils.file.IFilePath;
+import cn.cc.dawn.utils.file.path.FilePath;
 import org.springframework.web.bind.annotation.*;
 import org.springframework.web.multipart.MultipartFile;
 
@@ -36,7 +36,7 @@ public class BilCoverController {
     public String upload(@RequestParam("file") MultipartFile file){
         try {
             byte[] bytes = file.getBytes();
-            Path path = Paths.get(IFilePath.pathRoot() + "/audio/"+file.getOriginalFilename());
+            Path path = Paths.get(FilePath.build().ofPath("audio").ofFileName(file.getOriginalFilename()).path());
             Files.write(path,bytes);
             return "文件上传成功";
         } catch (IOException e) {

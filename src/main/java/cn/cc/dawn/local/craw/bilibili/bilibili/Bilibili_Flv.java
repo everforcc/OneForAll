@@ -29,7 +29,7 @@ public class Bilibili_Flv {
             //获取视频个数
             //重新构造请求地址
             // 前两个使用GET请求
-            String flv_vlist = (String) flvCount(Request_Method.js_commom(allFlvUrl(poster_uid,1,1),null,"GET"), Constant.count);// 1.获取用户视频总数
+            String flv_vlist = (String) flvCount(Request_Method.js_commom(allFlvUrl(poster_uid,1,1),null,"GET"), BilConstant.count);// 1.获取用户视频总数
             println.println("flv_vlist:"+flv_vlist);
             // b站视频最多一次请求100个
             int count = Integer.valueOf(flv_vlist);
@@ -38,7 +38,7 @@ public class Bilibili_Flv {
             List<String> aid_list = new ArrayList<String>();
             for(int i=1;i<=pn+1;i++) { // 处理前几页
                 println.println("正在获取第"+i+"页");
-                List<String> aid_list_i = (List<String>) flvCount(Request_Method.js_commom(allFlvUrl(poster_uid, 100,i), null, "GET"), Constant.aid); // 2.获取用户所有的av号
+                List<String> aid_list_i = (List<String>) flvCount(Request_Method.js_commom(allFlvUrl(poster_uid, 100,i), null, "GET"), BilConstant.aid); // 2.获取用户所有的av号
                 for(String str_aid:aid_list_i){
                     aid_list.add(str_aid);
                 }

@@ -2,13 +2,13 @@ package cn.cc.dawn.utils.file.impl;
 
 import cn.cc.dawn.utils.enums.BooleanEnum;
 import cn.cc.dawn.utils.enums.CharsetsEnum;
-import cn.cc.dawn.utils.file.IFile;
+import cn.cc.dawn.utils.file.IFileHandle;
 import org.apache.commons.io.FileUtils;
 
 import java.io.File;
 import java.io.IOException;
 
-public class FileApacheUtils implements IFile {
+public class FileApacheUtils implements IFileHandle {
     @Override
     public void copy() {
         //FileUtils.copyFile();

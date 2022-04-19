@@ -1,5 +1,7 @@
 package cn.cc.dawn.local.craw.bilibili.utils;
 
+import cn.cc.dawn.utils.file.path.FilePath;
+
 import java.io.*;
 import java.net.HttpURLConnection;
 import java.net.URL;
@@ -22,7 +24,7 @@ public class Method_down {
     public static void downByUrl(String url,String dir,String fileName) throws Exception{
         URL uri = new URL(url);
         InputStream in = uri.openStream();
-        file(uri.openStream(),Constant.rootFilePath+dir+"\\",fileName);
+        file(uri.openStream(), FilePath.build(BilConstant.bilibiliFilePath).ofPath(dir).path(),fileName);
     }
 
     /**
@@ -44,7 +46,7 @@ public class Method_down {
             println.println("再次生成文件名" + imageName);
         }
         URL uri = new URL(urlPath);
-        file(uri.openStream(),Constant.rootFilePath+dir+"\\",imageName);
+        file(uri.openStream(),FilePath.build(BilConstant.bilibiliFilePath).ofPath(dir).path(),imageName);
     }
 
     /**
@@ -72,9 +74,10 @@ public class Method_down {
     }
 
     public static void rename(String oldName,String newName){
-        File file = new File(Constant.rootFilePath+oldName);
-        file.renameTo(new File(Constant.rootFilePath+newName));
-        println.println(Constant.rootFilePath+oldName + "改名为:" + Constant.rootFilePath+newName);
+        File oldFile = FilePath.build(BilConstant.bilibiliFilePath).ofFileName(oldName).file();
+        File newFile = FilePath.build(BilConstant.bilibiliFilePath).ofFileName(newName).file();
+        oldFile.renameTo(newFile);
+        println.println(oldFile.getPath() + "改名为:" + newFile.getPath());
     }
 
     /**
@@ -95,7 +98,8 @@ public class Method_down {
         if (!saveFile.exists()) {
             saveFile.mkdirs();
         }
-        File file = new File(filePath+fileName);
+        //File file = new File(filePath+fileName);
+        File file = FilePath.build(filePath).ofFileName(fileName).file();
         if(file.exists()){
             println.println( "文件已经存在:" + filePath + fileName );
            return;

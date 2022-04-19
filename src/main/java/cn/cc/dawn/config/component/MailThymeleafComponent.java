@@ -2,7 +2,7 @@ package cn.cc.dawn.config.component;
 
 import cn.cc.dawn.common.sys.dto.MailDto;
 import cn.cc.dawn.utils.check.StringUtils;
-import cn.cc.dawn.utils.file.IFilePath;
+import cn.cc.dawn.utils.file.path.FilePath;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.core.io.FileUrlResource;
 import org.springframework.mail.javamail.JavaMailSender;
@@ -11,7 +11,6 @@ import org.springframework.stereotype.Component;
 import org.thymeleaf.TemplateEngine;
 import org.thymeleaf.context.Context;
 import javax.mail.internet.MimeMessage;
-import java.io.File;
 import java.net.URL;
 import java.util.Date;
 import java.util.Map;
@@ -104,7 +103,7 @@ public class MailThymeleafComponent {
         /**
          * 四种实现示例两种，其他的需要再说
          */
-        helper.addAttachment("磁盘.txt",new File(IFilePath.pathRoot() + "/磁盘.txt"));
+        helper.addAttachment("磁盘.txt", FilePath.build().ofFileName("磁盘.txt").file());
         /**
          * 实现接口 InputStreamSource
          */

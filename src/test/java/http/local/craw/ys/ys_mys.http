@@ -1,0 +1,4 @@
+GET http://localhost:81/local/mys/ys/article/20516789
+Accept: application/json
+
+###

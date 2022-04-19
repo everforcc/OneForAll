@@ -18,6 +18,10 @@ public class StringUtils {
        return org.apache.commons.lang3.StringUtils.isEmpty(val);
     }
 
+    public static boolean isNotEmpty(String val){
+        return org.apache.commons.lang3.StringUtils.isNotEmpty(val);
+    }
+
     /**
      * 空字符串也能过
      * @param val

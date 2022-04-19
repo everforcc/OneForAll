@@ -39,14 +39,14 @@ public class Bilibili_Cover {
         BilHelper bilHelper = new BilHelper();
         //avnum="69345392";
         Connection connection = Jsoup.connect("https://www.bilibili.com/video/av"+ bilHelper.inputToAV(avnum));// 获取连接
-        connection.header("User-Agent",Constant.userAgent);// 配置模拟浏览器
+        connection.header("User-Agent", BilConstant.userAgent);// 配置模拟浏览器
         Connection.Response login = connection.execute();// 获取响应
         Document d1 = Jsoup.parse(login.body());// 转换为Dom树
         List<Element> et = d1.select("meta[itemprop]");// 获取form表单，可以通过查看页面源码代码得知
 
         for (Element element : et) {
             //正则匹配url
-            Pattern pattern = Pattern.compile(Constant.regex);
+            Pattern pattern = Pattern.compile(BilConstant.regex);
             Matcher matcher = pattern.matcher(element.attr("content"));
             //是否匹配到了
             if (matcher.matches()) {
