@@ -35,7 +35,7 @@ public class Print_Record {
 
         @Override
         public String busiPath() {
-            return "log";
+            return "/log";
         }
     }
 

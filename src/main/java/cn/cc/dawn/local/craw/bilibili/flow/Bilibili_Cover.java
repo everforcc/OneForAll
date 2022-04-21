@@ -1,14 +1,15 @@
 package cn.cc.dawn.local.craw.bilibili.flow;
 
-import cn.cc.dawn.local.craw.bilibili.utils.*;
+import cn.cc.dawn.local.craw.bilibili.utils.BilConstant;
+import cn.cc.dawn.local.craw.bilibili.utils.BilHelper;
+import cn.cc.dawn.local.craw.bilibili.utils.Method_down;
 import cn.cc.dawn.local.craw.constant.CrawConstant;
+import lombok.extern.slf4j.Slf4j;
 import org.jsoup.Connection;
 import org.jsoup.Jsoup;
 import org.jsoup.nodes.Document;
 import org.jsoup.nodes.Element;
 import org.jsoup.select.Elements;
-import org.slf4j.Logger;
-import org.slf4j.LoggerFactory;
 
 import java.io.IOException;
 import java.util.List;
@@ -19,6 +20,7 @@ import java.util.regex.Pattern;
  * Yukino
  * 2020/3/3
  */
+@Slf4j
 public class Bilibili_Cover {
 
     /**
@@ -60,7 +62,7 @@ public class Bilibili_Cover {
     }
 
     BilHelper bilHelper = new BilHelper();
-    Logger logger = LoggerFactory.getLogger("Bilibili_Cover");
+    //log log = logFactory.getlog("Bilibili_Cover");
 
     public String  getBilCover(String avnum){
         /**
@@ -78,18 +80,34 @@ public class Bilibili_Cover {
         try {
             login = connection.execute();
         } catch (IOException e) {
-            logger.error("getBilCover---catch");
+            log.error("getBilCover---catch");
             e.printStackTrace();
         }
+
+        log.info("----------");
+        log.info(login.body());
         Document d1 = Jsoup.parse(login.body());// 转换为Dom树
 
         Elements elements_meta = d1.getElementsByTag("meta");
-        //System.out.println(elements_meta);
-        Element element_url = elements_meta.get(10);
-        if("image".equals(element_url.attr("itemprop"))){
-            url = element_url.attr("content");
-            System.out.println(url);
+
+        log.info("----------");
+        log.info(elements_meta.toString());
+
+        int size = elements_meta.size();
+        for(int i = 10; i<size; i++){
+            Element element_url = elements_meta.get(i);
+            if("image".equals(element_url.attr("itemprop"))){
+                url = element_url.attr("content");
+                break;
+            }
         }
+//        Element element_url = elements_meta.get(10);
+//        log.info("----------");
+//        log.info(element_url.toString());
+//        if("image".equals(element_url.attr("itemprop"))){
+//            url = element_url.attr("content");
+//        }
+
         return url;
     }
 

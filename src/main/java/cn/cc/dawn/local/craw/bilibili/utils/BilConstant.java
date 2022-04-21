@@ -8,6 +8,23 @@ import cn.cc.dawn.utils.file.path.IFilePath;
  */
 public class BilConstant {
 
+    /* 相册 start */
+
+    /**
+     *  TODO 需要存这个信息,如果doc_id 失效了还能从这个开始找
+     *  获取相册总数的url
+     *  x/dynamic/feed/draw/doc_list
+     *  https://api.bilibili.com/x/dynamic/feed/draw/doc_list?uid=28380168&page_num=0&page_size=30&biz=all&jsonp=jsonp
+     *  doc_id 换详情
+     *  https://api.vc.bilibili.com/link_draw/v1/doc/detail?doc_id=192542805
+     */
+    public static String album_allcount = "https://api.vc.bilibili.com/link_draw/v1/doc/upload_count?uid=%s";
+
+    public static String album_alldetail = "https://api.vc.bilibili.com/link_draw/v1/doc/doc_list?uid=%s&page_num=0&biz=all&page_size=%s";
+
+    /* 相册 end */
+
+
     /**
      * 设置为自己的文件夹
      */
@@ -45,6 +62,11 @@ public class BilConstant {
         public String busiPath() {
             return "/bilibili";
         }
+    }
+
+    public static void main(String[] args) {
+        String result = String.format(BilConstant.album_allcount,"avbv");
+        System.out.println(result);
     }
 
 }

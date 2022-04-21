@@ -11,7 +11,7 @@ public class SystemFileConstant {
      * <br>
      * <font font-family="SimSun" color="red">每次开发的时候，必须定义好，该业务的文件分类，不入库，仅本地使用</face>
      */
-    private static String winRoot = "E:\\filesystem";
+    private static String winRoot = "E:\\filesystem\\project\\OneForAll";
     private static String linuxRoot = "\\tmp";
 
     /**

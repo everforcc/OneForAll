@@ -34,7 +34,7 @@ public class Method_down {
      * @param dir
      * @throws Exception
      */
-    public static void down(String urlPath,String dir)throws Exception{
+    public static void down(String urlPath,String... dir)throws Exception{
         /**
          * 截取网络图片的名字和参数
          */

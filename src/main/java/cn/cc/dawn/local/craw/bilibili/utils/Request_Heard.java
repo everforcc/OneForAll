@@ -109,6 +109,7 @@ public class Request_Heard {
         HttpURLConnection conn = (HttpURLConnection) url.openConnection();
         // 模拟浏览器请求
         conn.setRequestProperty("User-agent", BilConstant.userAgent);
+        conn.setRequestProperty("cookie", BilConstant.cookie);
         //3, 设置提交类型
         conn.setRequestMethod(requistType);
         //4, 设置允许写出数据,默认是不允许 false

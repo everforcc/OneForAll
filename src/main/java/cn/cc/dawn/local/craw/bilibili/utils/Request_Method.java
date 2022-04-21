@@ -34,6 +34,10 @@ public class Request_Method {
         return  str;
     }
 
+    public static String js_commom(String urlPath,String requistType)throws Exception{
+        return  js_commom(urlPath,null,requistType);
+    }
+
     /**
      * 为了获取json数据
      * @param urlPath
