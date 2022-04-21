@@ -91,6 +91,14 @@ public class FilePath {
         for(String dir:dirs){
             stringBuffer.append( File.separator + dir );
         }
+        File file = new File(stringBuffer.toString());
+        if(!file.exists()){
+            file.mkdirs();
+        }
+
+        if(StringUtils.isNotEmpty(fileName)){
+            stringBuffer.append(File.separator + fileName);
+        }
         busiRoot = stringBuffer.toString();
         return busiRoot;
     }

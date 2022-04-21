@@ -24,6 +24,11 @@ public interface IFileService {
             @NotNull(message = "参数【fileObjDto】不能为null") final T fileObjDto
     );
 
+    @NotNull(message = "返回值不能为null") <T extends FileObjDto> T write(
+            @NotNull(message = "参数【uploadFile】不能为null") final byte[] bytes,
+            @NotNull(message = "参数【fileObjDto】不能为null") final T fileObjDto
+    );
+
     default  Boolean saveDB(
             @NotNull(message = "参数【fileObjDto】不能为null") final FileObjDto fileObjDto,
             @NotNull(message = "参数【fileSaveDto】不能为null") final FileMediumDto fileMediumDto

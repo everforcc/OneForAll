@@ -9,6 +9,8 @@ import lombok.*;
 
 import javax.validation.constraints.NotNull;
 import java.sql.Timestamp;
+import java.util.Date;
+import java.util.UUID;
 
 //@Data 会重写toString
 @Getter
@@ -25,6 +27,8 @@ public class CommonFiledDto {
     private Timestamp createTime;
     @JSONField(format = "yyyy-MM-dd HH:mm:ss")
     private Timestamp updateTime;
+    private int createUserid;
+    private int updateUserid;
 
     /**
      * 默认为有效，如果忘记写就是有效
@@ -36,4 +40,23 @@ public class CommonFiledDto {
     public String toString() {
         return JSONObject.toJSONString(this);
     }
+
+    public CommonFiledDto(Integer userid) {
+        this.createUserid = userid;
+        this.updateUserid = userid;
+        this.uuid = UUID.randomUUID().toString().replace("-", "");;
+        this.createTime = nowTime();
+        this.updateTime = nowTime();
+        this.effect = StatusEnum.EFFECT;
+        this.status = StatusEnum.EFFECT;
+    }
+
+    public static CommonFiledDto save(Object userid){
+        return new CommonFiledDto( Integer.parseInt(userid.toString()));
+    }
+
+    public static Timestamp nowTime(){
+        return new Timestamp(new Date().getTime());
+    }
+
 }

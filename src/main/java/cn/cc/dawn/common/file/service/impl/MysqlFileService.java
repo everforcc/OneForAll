@@ -63,7 +63,13 @@ public class MysqlFileService implements IFileService {
     @SneakyThrows
     @Override
     public <T extends FileObjDto> T write(MultipartFile uploadFile, T fileObjDto) {
+        return write(uploadFile.getBytes(),fileObjDto);
+    }
 
+    @Transactional(rollbackFor = Exception.class)
+    @SneakyThrows
+    @Override
+    public <T extends FileObjDto> T write(byte[] bytes, T fileObjDto) {
         String uname = fileObjDto.getUname();
         /**
          * 1. 主表数据
@@ -86,7 +92,7 @@ public class MysqlFileService implements IFileService {
          * 3. mysql 文件表
          */
         FileDataDto fileDataDto = new FileDataDto();
-        fileDataDto.setFile(uploadFile.getBytes());
+        fileDataDto.setFile(bytes);
         fileDataDto.setUname(uname);
 
         /**

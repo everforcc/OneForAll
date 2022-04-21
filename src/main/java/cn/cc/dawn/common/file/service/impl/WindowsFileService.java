@@ -11,6 +11,8 @@ import org.springframework.context.annotation.Primary;
 import org.springframework.stereotype.Service;
 import org.springframework.web.multipart.MultipartFile;
 
+import javax.validation.constraints.NotNull;
+
 @Primary // 首先使用这个类
 @Slf4j
 @Service
@@ -29,5 +31,11 @@ public class WindowsFileService implements IFileService {
         log.info("write file :" + appconfiguration.getFiles().getPath());
         log.warn("write file :" + appconfiguration.getFiles().getPath());
         return fileObjDto;
+    }
+
+    @Override
+    public <T extends FileObjDto> T write(@NotNull(message = "参数【uploadFile】不能为null") byte[] bytes, T fileObjDto) {
+        log.info("还未启用windows");
+        return null;
     }
 }

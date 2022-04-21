@@ -1,0 +1,39 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper
+        PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+        "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="cn.cc.dawn.common.menu.dao.MenuDaoMapper">
+
+    <sql id="effect_sql">
+        WHERE effect = 1 AND status = 1
+    </sql>
+
+    <!-- and TYPE = #{type } -->
+    <select id="selectMenu" resultType="cn.cc.dawn.common.menu.vo.MenuVo">
+        SELECT uuid,parentuuid,NAME,auth,type FROM cc_menu
+        <include refid="effect_sql" />
+
+        <if test="parentuuid != null and parentuuid != ''">
+            and parentuuid=#{parentuuid }
+        </if>
+    </select>
+
+    <select id="selectPicMenu" resultType="cn.cc.dawn.common.menu.vo.MenuVo">
+        SELECT uuid,parentuuid,NAME,auth,type FROM cc_menu_pic
+        <include refid="effect_sql" />
+
+        <if test="parentuuid != null and parentuuid != ''">
+            and parentuuid=#{parentuuid }
+        </if>
+    </select>
+
+    <select id="selectPicDataMenu" resultType="cn.cc.dawn.common.menu.vo.MenuPicVo">
+        SELECT parentuuid,picuuid FROM cc_menu_pic_data
+        <include refid="effect_sql" />
+
+        <if test="parentuuid != null and parentuuid != ''">
+            and parentuuid=#{parentuuid }
+        </if>
+    </select>
+
+</mapper>

@@ -1,6 +1,6 @@
 package cn.cc.dawn.local.craw.bilibili.controller;
 
-import cn.cc.dawn.local.craw.bilibili.bilibili.Bilibili_Cover;
+import cn.cc.dawn.local.craw.bilibili.flow.Bilibili_Cover;
 import cn.cc.dawn.utils.file.path.FilePath;
 import org.springframework.web.bind.annotation.*;
 import org.springframework.web.multipart.MultipartFile;

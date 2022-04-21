@@ -1,0 +1,37 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper
+        PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+        "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="cn.cc.dawn.common.menu.dao.BackMenuDaoMapper">
+
+    <sql id="effect_sql">
+        WHERE effect = 1 AND status = 1
+    </sql>
+
+    <insert id="insert">
+        INSERT INTO `oneforall`.`cc_menu` (
+            `uuid`,
+            `parentid`,
+            `parentuuid`,
+            `type`,
+            `name`,
+            `auth`,
+            `version`,
+            `createuserid`,
+            `updateuserid`
+        )
+        VALUES
+            (
+                #{uuid },
+                #{parentid },
+                #{parentuuid },
+                #{type },
+                #{name },
+                #{auth },
+                #{version },
+                #{createUserid},
+                #{updateUserid}
+            );
+    </insert>
+
+</mapper>

@@ -1,0 +1,10 @@
+POST http://localhost:81/local/craw/bilcover/upload
+Content-Type: multipart/form-data; boundary=WebAppBoundary
+
+--WebAppBoundary
+Content-Disposition: form-data; name="file"; filename="002.jpg"
+
+< F:\Cache\BaiduNetdiskWorkspace\娱乐\bilibili\002.jpg
+--WebAppBoundary--
+
+###

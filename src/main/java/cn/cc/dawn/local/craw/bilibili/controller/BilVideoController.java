@@ -1,6 +1,6 @@
 package cn.cc.dawn.local.craw.bilibili.controller;
 
-import cn.cc.dawn.local.craw.bilibili.bilibili.Bilibili_Flv;
+import cn.cc.dawn.local.craw.bilibili.flow.Bilibili_Flv;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
 
