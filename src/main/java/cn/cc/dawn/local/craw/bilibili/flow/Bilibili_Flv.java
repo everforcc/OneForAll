@@ -1,7 +1,9 @@
 package cn.cc.dawn.local.craw.bilibili.flow;
 
 
+import cn.cc.dawn.local.craw.bilibili.constant.BilConstant;
 import cn.cc.dawn.local.craw.bilibili.utils.*;
+import lombok.extern.slf4j.Slf4j;
 import net.sf.json.JSONArray;
 import net.sf.json.JSONObject;
 
@@ -15,6 +17,7 @@ import java.util.Map;
  * Yukino
  * 2020/3/3
  */
+@Slf4j
 public class Bilibili_Flv {
 
     //bilibili的视频地址的请求目前都是GET
@@ -30,14 +33,14 @@ public class Bilibili_Flv {
             //重新构造请求地址
             // 前两个使用GET请求
             String flv_vlist = (String) flvCount(Request_Method.js_commom(allFlvUrl(poster_uid,1,1),null,"GET"), BilConstant.count);// 1.获取用户视频总数
-            println.println("flv_vlist:"+flv_vlist);
+            log.info("flv_vlist:"+flv_vlist);
             // b站视频最多一次请求100个
             int count = Integer.valueOf(flv_vlist);
             int pn =  count/100;
             int remainder = count % 100;
             List<String> aid_list = new ArrayList<String>();
             for(int i=1;i<=pn+1;i++) { // 处理前几页
-                println.println("正在获取第"+i+"页");
+                log.info("正在获取第"+i+"页");
                 List<String> aid_list_i = (List<String>) flvCount(Request_Method.js_commom(allFlvUrl(poster_uid, 100,i), null, "GET"), BilConstant.aid); // 2.获取用户所有的av号
                 for(String str_aid:aid_list_i){
                     aid_list.add(str_aid);
@@ -45,20 +48,20 @@ public class Bilibili_Flv {
             }
             /*if(remainder!=0){ // 处理最后一页
                 int last = pn+1;
-                println.println("正在获取第"+ last +"页");
+                log.info("正在获取第"+ last +"页");
                 List<String> aid_list_i = (List<String>) flvCount(Request_Method.js_commom(allFlvUrl(poster_uid, remainder,last), null, "GET"), Constant.aid); // 2.获取用户所有的av号
                 for(String str_aid:aid_list_i){
                     aid_list.add(str_aid);
                 }
             }*/
 
-            println.println("一共有"+aid_list.size()+"个视频待下载");
+            log.info("一共有"+aid_list.size()+"个视频待下载");
 
             //av 号码的集合
             for (String aid : aid_list) { // av号集合
                 //根据av号下载
                 downAV(aid,true);
-                println.println("一共下载了:"+totalcount+++"个视频");
+                log.info("一共下载了:"+totalcount+++"个视频");
             }
         } catch (Exception e) {
             e.printStackTrace();
@@ -70,14 +73,11 @@ public class Bilibili_Flv {
      */
     private  String poster_uid;
 
-    Print_Record println;
-
     /**
      * 根据up id下载全集
      * @param poster_uid
      */
     public Bilibili_Flv(String poster_uid) {
-        println = Print_Record.getInstanse(poster_uid);
         this.poster_uid = poster_uid;
     }
 
@@ -174,7 +174,7 @@ public class Bilibili_Flv {
         String name = json_date_owner.getString("name");
         JSONArray json_date_pages = json_date.getJSONArray("pages");
         if(json_date_pages.size()!=1){
-            println.println(json_date.getString("aid"));
+            log.info(json_date.getString("aid"));
         }
         for(int i=0;i<json_date_pages.size();i++){
             cid_map = new HashMap<String, String>();
@@ -185,7 +185,7 @@ public class Bilibili_Flv {
             cid_map.put("title",title);
             cid_list.add(cid_map);
         }
-        println.println("需要的参数:"+cid_list);
+        log.info("需要的参数:"+cid_list);
         return cid_list;
     }
     /**
@@ -204,7 +204,7 @@ public class Bilibili_Flv {
             JSONObject json_date_durl_page = (JSONObject)json_date_durl.get(i);
             url_list.add(json_date_durl_page.getString("url"));
         }
-        println.println("需要的参数 "+ url_list.size() + "个:" +url_list);
+        log.info("需要的参数 "+ url_list.size() + "个:" +url_list);
         return url_list;
     }
     BilHelper bilHelper = new BilHelper();
@@ -214,10 +214,9 @@ public class Bilibili_Flv {
      * @throws Exception
      */
     public HttpURLConnection downAV(String aid, Boolean down)throws Exception{
-        println = Print_Record.getInstanse(aid);
-        println.println("");
+        log.info("");
         aid = bilHelper.inputToAV(aid);
-        println.println("下载视频的AV号:" + aid);
+        log.info("下载视频的AV号:" + aid);
         //获取对应的cid
         // js();
         // 3.获取cid相关信息  AV号码相关的cid集合
@@ -232,7 +231,7 @@ public class Bilibili_Flv {
             List<String> url_list = flvUrlList(Request_Method.js_headers(getFlvUrl(aid,cid),"GET")); // 4.根据av号和cid获取真实视频的地址
             //for (int j=0;j<url_list.size();j++) { // 视频地址集合，有主要的有备用的，目前只取了主要的
                 String flvUrl = url_list.get(url_list.size()-1).replaceAll("\\u0026", "&"); //视频地址的 \u0026 这个表示&符转换一下
-                println.println("具体视频url:" + flvUrl);
+                log.info("具体视频url:" + flvUrl);
                 if(down) {
                     //5.下载  后缀名待完善 , 再加个aid 为好
                     String dir="视频\\" + map.get("owner");

@@ -1,6 +1,6 @@
 package cn.cc.dawn.local.craw.web.data.dto;
 
-import cn.cc.dawn.common.sys.dto.CommonFiledDto;
+import cn.cc.dawn.utils.dto.CommonFiledDto;
 import lombok.AllArgsConstructor;
 import lombok.Data;
 import lombok.NoArgsConstructor;

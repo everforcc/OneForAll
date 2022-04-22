@@ -1,6 +1,6 @@
 package cn.cc.dawn.local.craw.web.data.dto;
 
-import cn.cc.dawn.common.sys.dto.CommonFiledDto;
+import cn.cc.dawn.utils.dto.CommonFiledDto;
 import cn.cc.dawn.utils.enums.impl.StatusEnum;
 import cn.cc.dawn.utils.inter.valited.ISave;
 import lombok.*;

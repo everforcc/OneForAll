@@ -1,6 +1,6 @@
 package cn.cc.dawn.local.craw.bilibili.flow;
 
-import cn.cc.dawn.local.craw.bilibili.utils.BilConstant;
+import cn.cc.dawn.local.craw.bilibili.constant.BilConstant;
 import cn.cc.dawn.local.craw.bilibili.utils.BilHelper;
 import cn.cc.dawn.local.craw.bilibili.utils.Method_down;
 import cn.cc.dawn.local.craw.constant.CrawConstant;

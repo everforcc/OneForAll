@@ -36,17 +36,6 @@ public class BilCoverController {
         );
     }
 
-//    @PostMapping("/upload")
-//    public String upload(@RequestParam("file") MultipartFile file){
-//        try {
-//            byte[] bytes = file.getBytes();
-//            Path path = Paths.get(FilePath.build().ofPath("audio").ofFileName(file.getOriginalFilename()).path());
-//            Files.write(path,bytes);
-//            return "文件上传成功";
-//        } catch (IOException e) {
-//            e.printStackTrace();
-//            return "文件上传失败";
-//        }
-//    }
+
 
 }

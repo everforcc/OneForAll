@@ -1,6 +1,6 @@
 package cn.cc.dawn.local.craw.ys.dto;
 
-import cn.cc.dawn.common.sys.dto.CommonFiledDto;
+import cn.cc.dawn.utils.dto.CommonFiledDto;
 import cn.cc.dawn.utils.enums.impl.StatusEnum;
 
 public class YsMaterialVO extends CommonFiledDto {

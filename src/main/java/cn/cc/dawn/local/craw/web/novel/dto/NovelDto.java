@@ -1,6 +1,6 @@
 package cn.cc.dawn.local.craw.web.novel.dto;
 
-import cn.cc.dawn.common.sys.dto.CommonFiledDto;
+import cn.cc.dawn.utils.dto.CommonFiledDto;
 import com.alibaba.fastjson.annotation.JSONField;
 import lombok.AllArgsConstructor;
 import lombok.Data;

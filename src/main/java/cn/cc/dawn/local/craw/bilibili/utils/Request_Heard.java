@@ -1,5 +1,9 @@
 package cn.cc.dawn.local.craw.bilibili.utils;
 
+import cn.cc.dawn.local.craw.bilibili.constant.BilConstant;
+import cn.cc.dawn.utils.date.DateUtils;
+import lombok.extern.slf4j.Slf4j;
+
 import java.io.OutputStream;
 import java.net.HttpURLConnection;
 import java.net.URL;
@@ -10,11 +14,9 @@ import java.util.Set;
  * Yukino
  * 2020/3/3
  */
+@Slf4j
 public class Request_Heard {
-
-    private static Print_Record println = Print_Record.getInstanse("");
-    //static String cookie="";
-
+    
     /**
      * 下载视频的 请求头 链接等信息
      * @param flvUrl
@@ -22,7 +24,7 @@ public class Request_Heard {
      * @param requestMethod
      */
     public static HttpURLConnection requestHeard_downFlv(String flvUrl,String avNuM,String requestMethod)throws Exception{
-        println.println("------------------------------------------headers-------------------------------------------------------------------------------");
+        log.info("------------------------------------------headers-------------------------------------------------------------------------------");
         URL url = new URL(flvUrl);
         //2, 打开连接
         HttpURLConnection conn = (HttpURLConnection) url.openConnection();
@@ -47,15 +49,15 @@ public class Request_Heard {
         Set<String> keys = headers.keySet();
         for( String key : keys ){
             String val = conn.getHeaderField(key);
-            println.println(key+"    "+val);
+            log.info(key+"    "+val);
         }
-        println.println("上次修改时间:" + ToolTime.nowTime(conn.getLastModified()));
-        println.println("------------------------------------------headers-------------------------------------------------------------------------------");
+        log.info("上次修改时间:" + DateUtils.nowTime(conn.getLastModified()));
+        log.info("------------------------------------------headers-------------------------------------------------------------------------------");
         return conn;
     }
 
     public static HttpURLConnection requestHeard_downFlvBySplit(String flvUrl,String avNuM,String requestMethod,String range)throws Exception{
-        println.println("------------------------------------------headers-------------------------------------------------------------------------------");
+        log.info("------------------------------------------headers-------------------------------------------------------------------------------");
         URL url = new URL(flvUrl);
         //2, 打开连接
         HttpURLConnection conn = (HttpURLConnection) url.openConnection();

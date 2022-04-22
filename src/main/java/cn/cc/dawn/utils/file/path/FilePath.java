@@ -81,6 +81,14 @@ public class FilePath {
         return this;
     }
 
+    public String getSuffix() {
+        return getSuffix(false);
+    }
+
+    public String getSuffix(boolean offset) {
+        return fileName.replaceFirst("^.+\\.", (offset ? "." : ""));
+    }
+
     /**
      * 将参数处理为文件路径
      * TODO 在这里处理公共的文件名/路径,异常

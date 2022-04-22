@@ -1,5 +1,7 @@
 package cn.cc.dawn.local.craw.bilibili.utils;
 
+import cn.cc.dawn.local.craw.bilibili.constant.BilConstant;
+import lombok.extern.slf4j.Slf4j;
 import org.jsoup.Connection;
 import org.jsoup.Jsoup;
 
@@ -11,8 +13,9 @@ import java.net.HttpURLConnection;
  * Yukino
  * 2020/3/3
  */
+@Slf4j
 public class Request_Method {
-    private static Print_Record println = Print_Record.getInstanse("");
+    
     /**
      * 用来处理普通的没有特殊请求头的js请求
      * 用来获取数据
@@ -24,13 +27,13 @@ public class Request_Method {
      * @throws Exception
      */
     public static String js_commom(String urlPath,String sendMsg,String requistType)throws Exception{
-        println.println("js_commom请求地址:"+urlPath);
+        log.info("js_commom请求地址:"+urlPath);
         //2, 打开连接
         HttpURLConnection conn = Request_Heard.request_UserAgent(urlPath,sendMsg,requistType);
         //得到服务器写回的响应数据
         BufferedReader br=new BufferedReader(new InputStreamReader(conn.getInputStream(),"utf-8"));
         String str = br.readLine();
-        println.println("js_commom响应内容为:  " + str);
+        log.info("js_commom响应内容为:  " + str);
         return  str;
     }
 
@@ -46,11 +49,11 @@ public class Request_Method {
      * @throws Exception
      */
     public static String js_headers(String urlPath,String requistType)throws Exception{
-        println.println("js_headers请求地址为:"+urlPath);
+        log.info("js_headers请求地址为:"+urlPath);
         HttpURLConnection conn = Request_Heard.requestHeard_FlvUrl(urlPath,requistType);
         BufferedReader br=new BufferedReader(new InputStreamReader(conn.getInputStream()));
         String str = br.readLine();
-        println.println("js_headers响应内容为:" + str);
+        log.info("js_headers响应内容为:" + str);
         return  str;
     }
 

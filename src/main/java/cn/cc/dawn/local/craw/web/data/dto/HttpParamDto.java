@@ -1,6 +1,6 @@
 package cn.cc.dawn.local.craw.web.data.dto;
 
-import cn.cc.dawn.common.sys.dto.CommonFiledDto;
+import cn.cc.dawn.utils.dto.CommonFiledDto;
 import cn.cc.dawn.utils.RandomUtils;
 import cn.cc.dawn.utils.check.ObjectUtils;
 import cn.cc.dawn.utils.constant.NumberConstant;

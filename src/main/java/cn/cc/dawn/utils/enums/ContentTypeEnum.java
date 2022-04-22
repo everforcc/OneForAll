@@ -85,6 +85,8 @@ public enum ContentTypeEnum {
     xml(".xml", "text/xml"),
     xul(".xul", "application/vnd.mozilla.xul+xml"),
     zip(".zip", "application/zip"),
+
+    mkv(".mkv", "video/x-matroska"),
     ;
 
     public final String comment;
@@ -97,6 +99,10 @@ public enum ContentTypeEnum {
 
     public String utf8() {
         return type.concat(";charset=utf-8");
+    }
+
+    public static void main(String[] args) {
+        System.out.println(ContentTypeEnum.valueOf("png").type);
     }
 
 }

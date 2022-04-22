@@ -1,6 +1,8 @@
 package cn.cc.dawn.local.craw.bilibili.utils;
 
+import cn.cc.dawn.local.craw.bilibili.constant.BilConstant;
 import cn.cc.dawn.utils.file.path.FilePath;
+import lombok.extern.slf4j.Slf4j;
 
 import java.io.*;
 import java.net.HttpURLConnection;
@@ -11,9 +13,8 @@ import java.util.Date;
  * Yukino
  * 2020/3/3
  */
+@Slf4j
 public class Method_down {
-
-    private static Print_Record println = Print_Record.getInstanse("");
 
     /**
      * 下载自定义文件名称
@@ -39,11 +40,11 @@ public class Method_down {
          * 截取网络图片的名字和参数
          */
         String imageName = urlPath.substring(urlPath.lastIndexOf("/") + 1, urlPath.length());
-        println.println("生成文件名:" + imageName);
+        log.info("生成文件名:" + imageName);
         if (imageName.contains("?")) {
-            println.println("处理字符串");
+            log.info("处理字符串");
             imageName = imageName.substring(0, imageName.lastIndexOf("@"));
-            println.println("再次生成文件名" + imageName);
+            log.info("再次生成文件名" + imageName);
         }
         URL uri = new URL(urlPath);
         file(uri.openStream(),FilePath.build(BilConstant.bilibiliFilePath).ofPath(dir).path(),imageName);
@@ -77,7 +78,7 @@ public class Method_down {
         File oldFile = FilePath.build(BilConstant.bilibiliFilePath).ofFileName(oldName).file();
         File newFile = FilePath.build(BilConstant.bilibiliFilePath).ofFileName(newName).file();
         oldFile.renameTo(newFile);
-        println.println(oldFile.getPath() + "改名为:" + newFile.getPath());
+        log.info(oldFile.getPath() + "改名为:" + newFile.getPath());
     }
 
     /**
@@ -101,10 +102,10 @@ public class Method_down {
         //File file = new File(filePath+fileName);
         File file = FilePath.build(filePath).ofFileName(fileName).file();
         if(file.exists()){
-            println.println( "文件已经存在:" + filePath + fileName );
+            log.info( "文件已经存在:" + filePath + fileName );
            return;
         }
-        println.println("开始下载");
+        log.info("开始下载");
         FileOutputStream fo = new FileOutputStream(file);
 
         /**
@@ -117,13 +118,13 @@ public class Method_down {
         }
         in.close();
         fo.close();
-        println.println(filePath+fileName + "下载完成");
+        log.info(filePath+fileName + "下载完成");
         /**
          * 计算下载所用时间
          */
         Date enddate = new Date();
         double time = enddate.getTime() - begindate.getTime();
-        println.println("耗时：" + time / 1000 + "s");
+        log.info("耗时：" + time / 1000 + "s");
     }
 
     public static void record(String dir,String fileName, String content){

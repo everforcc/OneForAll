@@ -1,6 +1,6 @@
 package cn.cc.dawn.open.menu.dto;
 
-import cn.cc.dawn.common.sys.dto.CommonFiledDto;
+import cn.cc.dawn.utils.dto.CommonFiledDto;
 import lombok.Data;
 
 @Data

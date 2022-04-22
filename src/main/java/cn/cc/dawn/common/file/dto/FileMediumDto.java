@@ -1,6 +1,6 @@
 package cn.cc.dawn.common.file.dto;
 
-import cn.cc.dawn.common.sys.dto.CommonFiledDto;
+import cn.cc.dawn.utils.dto.CommonFiledDto;
 import cn.cc.dawn.utils.enums.impl.FileMediumEnum;
 import lombok.Getter;
 import lombok.Setter;

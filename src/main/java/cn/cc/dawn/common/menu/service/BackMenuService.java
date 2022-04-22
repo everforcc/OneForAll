@@ -3,7 +3,7 @@ package cn.cc.dawn.common.menu.service;
 import cn.cc.dawn.common.menu.dao.BackMenuDaoMapper;
 import cn.cc.dawn.common.menu.dto.MenuDto;
 import cn.cc.dawn.common.menu.vo.MenuVo;
-import cn.cc.dawn.userinterface.ServiceAspect;
+import cn.cc.dawn.utils.userinterface.ServiceAspect;
 import cn.cc.dawn.utils.inter.valited.ISave;
 import cn.cc.dawn.utils.inter.valited.IUpdate;
 import lombok.extern.slf4j.Slf4j;

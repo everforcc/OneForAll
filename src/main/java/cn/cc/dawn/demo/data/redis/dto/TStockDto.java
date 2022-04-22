@@ -1,6 +1,6 @@
 package cn.cc.dawn.demo.data.redis.dto;
 
-import cn.cc.dawn.common.sys.dto.CommonFiledDto;
+import cn.cc.dawn.utils.dto.CommonFiledDto;
 import lombok.*;
 
 @Getter

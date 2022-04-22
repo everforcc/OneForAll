@@ -11,7 +11,7 @@ import org.springframework.web.multipart.MultipartFile;
 
 @Slf4j
 @RestController
-@RequestMapping("/c/upload")
+@RequestMapping("/c/file/upload")
 public class FileUploadController {
 
     @Autowired
@@ -30,5 +30,18 @@ public class FileUploadController {
                 )
         );
     }
+
+    //    @PostMapping("/upload")
+//    public String upload(@RequestParam("file") MultipartFile file){
+//        try {
+//            byte[] bytes = file.getBytes();
+//            Path path = Paths.get(FilePath.build().ofPath("audio").ofFileName(file.getOriginalFilename()).path());
+//            Files.write(path,bytes);
+//            return "文件上传成功";
+//        } catch (IOException e) {
+//            e.printStackTrace();
+//            return "文件上传失败";
+//        }
+//    }
 
 }

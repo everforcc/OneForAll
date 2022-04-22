@@ -27,9 +27,14 @@ public class BilAlbumController {
     @GetMapping("/allalbum")
     public String allalbum(){
         // 添加到定时任务中去
-        Bilibili_Album bilibili_album = new Bilibili_Album("28380168");
+        /**
+         * 28380168 yane
+         * 7198052 鸦居
+         * 3403527 蒋七七ChiChan
+         */
+        Bilibili_Album bilibili_album = new Bilibili_Album("3403527");
         try {
-            bilibili_album.requestFlow("28380168");
+            bilibili_album.requestFlow("3403527");
         } catch (Exception e) {
             e.printStackTrace();
         }

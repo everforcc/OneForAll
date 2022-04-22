@@ -1,6 +1,6 @@
 package cn.cc.dawn.config.component;
 
-import cn.cc.dawn.common.sys.dto.MailDto;
+import cn.cc.dawn.demo.mail.dto.MailDto;
 import cn.cc.dawn.utils.check.StringUtils;
 import cn.cc.dawn.utils.file.path.FilePath;
 import org.springframework.beans.factory.annotation.Autowired;

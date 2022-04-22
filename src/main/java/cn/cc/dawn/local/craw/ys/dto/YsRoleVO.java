@@ -1,6 +1,6 @@
 package cn.cc.dawn.local.craw.ys.dto;
 
-import cn.cc.dawn.common.sys.dto.CommonFiledDto;
+import cn.cc.dawn.utils.dto.CommonFiledDto;
 
 public class YsRoleVO extends CommonFiledDto {
 

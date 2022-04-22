@@ -1,6 +1,6 @@
 package cn.cc.dawn.common.menu.dto;
 
-import cn.cc.dawn.common.sys.dto.CommonFiledDto;
+import cn.cc.dawn.utils.dto.CommonFiledDto;
 import cn.cc.dawn.utils.enums.impl.MenuEnum;
 import lombok.Getter;
 import lombok.NoArgsConstructor;
