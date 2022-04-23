@@ -3,6 +3,7 @@ package cn.cc.dawn.demo.data.redis.service;
 import cn.cc.dawn.demo.data.redis.dao.TOrderDaoMapper;
 import cn.cc.dawn.demo.data.redis.dao.TStockDaoMapper;
 import cn.cc.dawn.demo.data.redis.dto.TOrderDto;
+import cn.cc.dawn.utils.data.redis.RedisLockConstant;
 import cn.cc.dawn.utils.exception.AppCode;
 import lombok.extern.slf4j.Slf4j;
 import org.redisson.api.RBucket;
@@ -33,7 +34,7 @@ public class RedissonService {
     @Transactional(rollbackFor = Exception.class)
     public boolean redisLock(int productId){
         Date lockstartDate = new Date();
-        RLock lock = redissonClient.getLock("lock");
+        RLock lock = redissonClient.getLock(RedisLockConstant.TEST_SHOP);
         boolean flag = false;
         try {
             flag = lock.tryLock(1,1, TimeUnit.SECONDS);

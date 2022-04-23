@@ -64,6 +64,8 @@ public enum AppCode implements ICode {
     A01100("业务异常 start"),
     A01199("业务异常 end"),
 
+    A01200("返回json格式异常"),
+
     ;
     /**
      * 枚举属性说明

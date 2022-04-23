@@ -27,6 +27,8 @@ public interface IFileHandle {
 
     void write(String path,String content) throws IOException;
 
+    void write(String path,byte[] bytes) throws IOException;
+
     String read(String path) throws IOException;
 
     /**

@@ -2,6 +2,7 @@ package cn.cc.dawn.local.craw.bilibili.utils;
 
 import cn.cc.dawn.local.craw.bilibili.constant.BilConstant;
 import cn.cc.dawn.utils.file.path.FilePath;
+import cn.cc.dawn.utils.http.HttpParamUtils;
 import lombok.extern.slf4j.Slf4j;
 
 import java.io.*;
@@ -22,32 +23,19 @@ public class Method_down {
      * @param fileName
      * @throws Exception
      */
-    public static void downByUrl(String url,String dir,String fileName) throws Exception{
-        URL uri = new URL(url);
-        InputStream in = uri.openStream();
-        file(uri.openStream(), FilePath.build(BilConstant.bilibiliFilePath).ofPath(dir).path(),fileName);
-    }
+//    public static void downByUrl(String url,String dir,String fileName) throws Exception{
+//        file(new URL(url).openStream(), dir,fileName);
+//    }
 
     /**
-     *
-     * 根据网络路径命名
+     * 下载文件
      * @param urlPath
-     * @param dir
+     * @param fileName
+     * @param path
      * @throws Exception
      */
-    public static void down(String urlPath,String... dir)throws Exception{
-        /**
-         * 截取网络图片的名字和参数
-         */
-        String imageName = urlPath.substring(urlPath.lastIndexOf("/") + 1, urlPath.length());
-        log.info("生成文件名:" + imageName);
-        if (imageName.contains("?")) {
-            log.info("处理字符串");
-            imageName = imageName.substring(0, imageName.lastIndexOf("@"));
-            log.info("再次生成文件名" + imageName);
-        }
-        URL uri = new URL(urlPath);
-        file(uri.openStream(),FilePath.build(BilConstant.bilibiliFilePath).ofPath(dir).path(),imageName);
+    public static void down(String urlPath,String fileName,String path)throws Exception{
+        file(new URL(urlPath).openStream(),path,fileName);
     }
 
     /**

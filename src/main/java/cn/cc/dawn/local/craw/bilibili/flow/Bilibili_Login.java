@@ -7,5 +7,8 @@ package cn.cc.dawn.local.craw.bilibili.flow;
 public class Bilibili_Login {
 
     //还没找到解决办法
+    /**
+     * 模拟浏览器，扫码登录,取出返回的cookie
+     */
 
 }

@@ -1,9 +1,12 @@
 package cn.cc.dawn.local.craw.bilibili.controller;
 
 import cn.cc.dawn.local.craw.bilibili.flow.Bilibili_Album;
+import cn.cc.dawn.local.craw.bilibili.service.BilAlbumService;
+import cn.cc.dawn.utils.entity.ResultE;
 import lombok.extern.slf4j.Slf4j;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.GetMapping;
+import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
 
@@ -15,6 +18,13 @@ import java.util.concurrent.ThreadPoolExecutor;
 @RestController
 public class BilAlbumController {
 
+
+    @Autowired
+    ExecutorService multiThread;
+
+    @Autowired
+    BilAlbumService bilAlbumService;
+
     /**
      * 1. 单个id
      * 2. 某个用户的数据
@@ -24,25 +34,19 @@ public class BilAlbumController {
         return;
     }
 
-    @GetMapping("/allalbum")
-    public String allalbum(){
+    @GetMapping("/allalbum/{uid}")
+    public ResultE<String> allalbum(@PathVariable String uid){
         // 添加到定时任务中去
         /**
          * 28380168 yane
          * 7198052 鸦居
          * 3403527 蒋七七ChiChan
+         * 51588985 是一只九龄
          */
-        Bilibili_Album bilibili_album = new Bilibili_Album("3403527");
-        try {
-            bilibili_album.requestFlow("3403527");
-        } catch (Exception e) {
-            e.printStackTrace();
-        }
-        return "success";
+        return new ResultE<String>().execute(e ->
+                e.setSuccess(bilAlbumService.upAllalbum(uid))
+        );
     }
-
-    @Autowired
-    ExecutorService multiThread;
 
     @GetMapping("/existsTask")
     public String existsTask(){

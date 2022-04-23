@@ -2,6 +2,7 @@ package cn.cc.dawn.utils.file;
 
 import cn.cc.dawn.utils.algo.UUIDUtils;
 import cn.cc.dawn.utils.enums.ContentTypeEnum;
+import cn.cc.dawn.utils.enums.impl.FileMediumEnum;
 import cn.cc.dawn.utils.exception.AppCode;
 import lombok.Getter;
 import lombok.extern.slf4j.Slf4j;
@@ -33,10 +34,14 @@ public class FileBuilder {
         @Getter
         private final String rname;
         /**
-         * 目录+唯一文件名，带后缀
+         * 目录 存到另外一个字段
+         * 唯一文件名，带后缀
          */
         @Getter
         private String uname;
+
+        @Getter
+        FileMediumEnum fileMediumEnum;
 
         /**
          * 文件大小
@@ -53,16 +58,22 @@ public class FileBuilder {
             } catch (UnsupportedEncodingException e) {
                 throw AppCode.A00100.toUserException("文件名解码异常");
             }
-            if (StringUtils.isBlank(dir)) {
+//            if (StringUtils.isBlank(dir)) {
                 this.uname = rname;
-            } else {
-                this.uname = String.format("%s/%s", dir, rname);
-            }
+//            } else {
+//                this.uname = String.format("%s/%s", dir, rname);
+//            }
         }
 
         public static FileMsg of(MultipartFile uploadFile, final String... dirs) {
             String filename = uploadFile.getOriginalFilename();
             String size = String.valueOf(uploadFile.getSize());
+
+            return of(filename,size,dirs);
+        }
+
+        public static FileMsg of(String filename,String size, final String... dirs) {
+
             Objects.requireNonNull(filename, "参数【filename】是必须的");
             return new FileMsg(size,
                     String.join("/", dirs)
@@ -121,14 +132,18 @@ public class FileBuilder {
          * @return FileName
          */
         public FileMsg buildUuidUname() {
-            if (StringUtils.isBlank(dir)) {
+            //if (StringUtils.isBlank(dir)) {
                 this.uname = UUIDUtils.uuid32() + getSuffix();
-            } else {
-                this.uname = String.format("%s/%s%s", dir, UUIDUtils.uuid32(), getSuffix());
-            }
+//            } else {
+//                this.uname = String.format("%s/%s%s", dir, UUIDUtils.uuid32(), getSuffix());
+//            }
             return this;
         }
 
+        public FileMsg buildSaveType(FileMediumEnum fileMediumEnum){
+            this.fileMediumEnum = fileMediumEnum;
+            return this;
+        }
         /**
          * MD5 工具类已删，需要再加
          */

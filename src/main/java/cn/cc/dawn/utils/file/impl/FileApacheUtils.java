@@ -26,11 +26,16 @@ public class FileApacheUtils implements IFileHandle {
 
     @Override
     public void write(String path, String content) throws IOException {
-        FileUtils.writeStringToFile(new File(path),content, CharsetsEnum.UTF_8.charset, BooleanEnum.TRUE.flag);
+        FileUtils.writeStringToFile(new File(path),content, CharsetsEnum.UTF_8.charset,BooleanEnum.TRUE.flag);
+    }
+
+    @Override
+    public void write(String path, byte[] bytes) throws IOException {
+        FileUtils.writeByteArrayToFile(new File(path),bytes,BooleanEnum.TRUE.flag);
     }
 
     @Override
     public String read(String path) throws IOException {
-        return FileUtils.readFileToString(new File(path), CharsetsEnum.UTF_8.charset);
+        return FileUtils.readFileToString(new File(path),CharsetsEnum.UTF_8.charset);
     }
 }

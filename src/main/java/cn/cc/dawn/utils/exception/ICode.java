@@ -27,6 +27,10 @@ public interface ICode {
     default UserException toUserException(final String exception) {
         return new UserException(this, exception);
     }
+
+    default UserException toUserException(final Exception exception) {
+        return new UserException(this, exception.getMessage());
+    }
     /**
      * 自定义异常信息并格式化
      * @param pattern

@@ -10,6 +10,8 @@ import cn.cc.dawn.common.file.service.IFileService;
 import cn.cc.dawn.config.init.yml.APPConfiguration;
 import cn.cc.dawn.utils.enums.impl.FileMediumEnum;
 import cn.cc.dawn.utils.exception.AppCode;
+import cn.cc.dawn.utils.file.IFileHandle;
+import cn.cc.dawn.utils.file.impl.FileApacheUtils;
 import lombok.RequiredArgsConstructor;
 import lombok.SneakyThrows;
 import lombok.extern.slf4j.Slf4j;
@@ -21,6 +23,7 @@ import org.springframework.transaction.annotation.Transactional;
 import org.springframework.web.multipart.MultipartFile;
 
 import javax.annotation.Resource;
+import java.io.File;
 
 @Primary // 首先使用这个类
 @Slf4j
@@ -38,6 +41,8 @@ public class MysqlFileService implements IFileService {
 
     @Resource
     FileDataMapper fileDataMapper;
+
+    IFileHandle fileHandle = new FileApacheUtils();
 
 
     /**
@@ -71,6 +76,7 @@ public class MysqlFileService implements IFileService {
     @Override
     public <T extends FileObjDto> T write(byte[] bytes, T fileObjDto) {
         String uname = fileObjDto.getUname();
+        FileMediumEnum fileMediumEnum = fileObjDto.getSaveType();
         /**
          * 1. 主表数据
          */
@@ -83,22 +89,27 @@ public class MysqlFileService implements IFileService {
          * 2. savetype表
          */
         FileMediumDto fileMediumDto = new FileMediumDto();
-        fileMediumDto.setFileMediumEnum(FileMediumEnum.MYSQL);
+        fileMediumDto.setFileMediumEnum(fileMediumEnum);
         fileMediumDto.setUname(uname);
 
+        /**
+         * 文件实例保存的位置
+         */
+        if(FileMediumEnum.WINDOWS.equals(fileMediumEnum)){
+            fileMediumDto.setPath(fileObjDto.getPath());
+            //fileHandle.write(fileObjDto.getPath() + File.separator + fileObjDto.getUname() ,bytes);
+        }else if(FileMediumEnum.MYSQL.equals(fileMediumEnum)){
+            /**
+             * 3. mysql 文件表
+             * 入库 文件
+             */
+            FileDataDto fileDataDto = new FileDataDto();
+            fileDataDto.setFile(bytes);
+            fileDataDto.setUname(uname);
+            fileDataMapper.insert(fileDataDto);
+        }
+
         boolean flag = this.saveDB(fileObjMain, fileMediumDto);
-
-        /**
-         * 3. mysql 文件表
-         */
-        FileDataDto fileDataDto = new FileDataDto();
-        fileDataDto.setFile(bytes);
-        fileDataDto.setUname(uname);
-
-        /**
-         * 入库 文件
-         */
-        fileDataMapper.insert(fileDataDto);
 
         return fileObjDto;
     }

@@ -1,8 +1,12 @@
 
 ### 所有相册
-GET http://localhost:81/local/craw/bilalbum/allalbum
+GET http://localhost:81/local/craw/bilalbum/allalbum/123
 Accept: application/json
 
 ### 查看是否完成
 GET http://localhost:81/local/craw/bilalbum/existsTask
+Accept: application/json
+
+### 测试文件
+GET http://localhost:81/local/craw/bilalbum/tsave/123
 Accept: application/json

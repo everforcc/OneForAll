@@ -47,7 +47,7 @@ public class HttpSeleniumImpl implements HttpMethod {
             chromeOptions.setProxy(proxy);
             return new ChromeDriver();
         }else {
-            System.setProperty("phantomjs.binary.path","D:/java/code/github/SpringIOSpringBoot/sp70-craw/driver/phantomjs.exe");
+            System.setProperty("phantomjs.binary.path","D:/java/environment/driver/phantomjs.exe");
             return new PhantomJSDriver();
             //return null;
         }

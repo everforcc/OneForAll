@@ -10,7 +10,7 @@ import cn.cc.dawn.utils.file.path.IFilePath;
 public class BilConstant {
 
     /**/
-    private static String user_msg = "https://api.bilibili.com/x/space/acc/info?mid=%s&jsonp=jsonp";
+    public static String user_msg = "https://api.bilibili.com/x/space/acc/info?mid=%s&jsonp=jsonp";
     /**/
 
     /* 相册 start */

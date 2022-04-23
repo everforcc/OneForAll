@@ -4,6 +4,8 @@ import cn.cc.dawn.local.craw.bilibili.constant.BilConstant;
 import cn.cc.dawn.local.craw.bilibili.utils.BilHelper;
 import cn.cc.dawn.local.craw.bilibili.utils.Method_down;
 import cn.cc.dawn.local.craw.constant.CrawConstant;
+import cn.cc.dawn.utils.file.path.FilePath;
+import cn.cc.dawn.utils.http.HttpParamUtils;
 import lombok.extern.slf4j.Slf4j;
 import org.jsoup.Connection;
 import org.jsoup.Jsoup;
@@ -25,9 +27,8 @@ public class Bilibili_Cover {
 
     /**
      * 用最基础的正则表达式来匹配
-     * 这一块儿目前不是很完善，有兴趣的自行完善
+     * 这一块儿目前不是很完善，有空再完善
      */
-
 
     /**
      * 随后修改为直接 从链接  获取封面
@@ -38,6 +39,7 @@ public class Bilibili_Cover {
      * @param avnum
      * @throws Exception
      */
+    @Deprecated
     public static void getImgByAV(String avnum) throws Exception{
         BilHelper bilHelper = new BilHelper();
         //avnum="69345392";
@@ -50,13 +52,17 @@ public class Bilibili_Cover {
         for (Element element : et) {
             //正则匹配url
             Pattern pattern = Pattern.compile(BilConstant.regex);
-            Matcher matcher = pattern.matcher(element.attr("content"));
+            String url = element.attr("content");
+            Matcher matcher = pattern.matcher(url);
             //是否匹配到了
             if (matcher.matches()) {
-                System.out.println(element.attr("content"));
-                String url=element.attr("content");
+                log.info(url);
                 //如果匹配到了下载
-                Method_down.downByUrl(element.attr("content"),"封面\\",avnum+"."+url.substring(url.lastIndexOf(".")+1,url.length()));//传图片后坠
+                Method_down.down(
+                        url,
+                        FilePath.build(BilConstant.bilibiliFilePath).ofPath("封面").path(),
+                        avnum + HttpParamUtils.fileSuffixFromUrl(url,true)
+                );//传图片后坠
             }
         }
     }

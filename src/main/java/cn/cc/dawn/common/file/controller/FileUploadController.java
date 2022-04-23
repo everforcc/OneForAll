@@ -3,6 +3,7 @@ package cn.cc.dawn.common.file.controller;
 import cn.cc.dawn.common.file.dto.FileObjDto;
 import cn.cc.dawn.common.file.service.IFileService;
 import cn.cc.dawn.utils.entity.ResultE;
+import cn.cc.dawn.utils.enums.impl.FileMediumEnum;
 import cn.cc.dawn.utils.file.FileBuilder;
 import lombok.extern.slf4j.Slf4j;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -29,6 +30,19 @@ public class FileUploadController {
                         )
                 )
         );
+    }
+
+    @GetMapping("/tsave/{uid}")
+    public void tSaveImg(){
+        byte[] bytes = new byte[100];
+
+        FileObjDto fileObjDto = FileObjDto.build(
+                FileBuilder.FileMsg
+                        .of("1.txt","100","E:/filesystem/test/临时")
+                        .buildUuidUname()
+                        .buildSaveType(FileMediumEnum.WINDOWS)
+        );
+        iFileService.write(bytes,fileObjDto);
     }
 
     //    @PostMapping("/upload")
