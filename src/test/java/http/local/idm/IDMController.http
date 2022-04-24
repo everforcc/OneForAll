@@ -1,0 +1,13 @@
+###
+POST http://localhost:81/local/idm/test/down
+Accept: application/json
+
+{
+"url": "https://dldir1.qq.com/qqfile/qq/TIM3.3.9/TIM3.3.9.22051.exe",
+"threadSize": "12"
+}
+### https://i0.hdslb.com/bfs/album/32fffb9d5fcedc536bdc8e16e213444bbc0847dc.jpg
+### https://issuepcdn.baidupcs.com/issue/netdisk/MACguanjia/BaiduNetdisk_mac_4.8.0.dmg
+### https://issuepcdn.baidupcs.com/issue/netdisk/yunguanjia/BaiduNetdisk_7.15.0.15.exe
+### https://dldir1.qq.com/qqfile/qq/PCQQ9.5.9/QQ9.5.9.28650.exe
+### https://dldir1.qq.com/qqfile/qq/TIM3.3.9/TIM3.3.9.22051.exe

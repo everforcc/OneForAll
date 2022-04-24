@@ -50,7 +50,7 @@ public class Scheduler {
      *
      * TODO lock.lock(); 的等待时间
      */
-    @Scheduled(cron = "0/5 * * * * ?")
+    //@Scheduled(cron = "0/5 * * * * ?")
     public void bilibili_all_album() {
 
         multiThread.execute(new Runnable() {
