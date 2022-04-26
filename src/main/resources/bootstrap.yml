@@ -13,7 +13,7 @@ spring:
   datasource:
     username: cceverfor
     password: 5664c.c.
-    url: jdbc:mysql://180.76.156.43:3308/oneforall?characterEncoding=UTF-8&&serverTimezone=GMT # 编码和时区
+    url: jdbc:mysql://180.76.156.43:3308/oneforall?characterEncoding=UTF-8&&serverTimezone=GMT # 编码和时区 &userSSL=false
     driver-class-name: com.mysql.cj.jdbc.Driver
     type: com.alibaba.druid.pool.DruidDataSource # 切换数据源
     #   数据源其他配置
