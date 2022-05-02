@@ -7,6 +7,10 @@ import org.springframework.stereotype.Service;
 @Service("redisTemplateService")
 public class RedisTemplateService {
 
+    /**
+     * RedisTemplate opsForValue().setIfAbsent()分布式锁的使用
+     */
+
     @Autowired
     private RedisBoundValueOperationsUtils redisBoundValueOperationsUtils;
 

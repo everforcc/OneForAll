@@ -11,5 +11,5 @@ Content-Disposition: form-data; name="file"; filename="002.jpg"
 --WebAppBoundary--
 
 ### 获取封面链接
-GET http://localhost:81/local/craw/bilcover/bilibili_cover/BV1J44y1P7oE
+GET http://localhost:81/local/craw/bilcover/bilibili_cover/BV1xY4y1a7YB
 Accept: application/json

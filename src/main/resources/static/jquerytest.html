@@ -10,6 +10,10 @@
 
 <button onclick="req()">测试req</button>
 
+<button onclick="reqb()">测试reqb</button>
+
+<button onclick="reqh()">测试reqh</button>
+
 </body>
 <script src="https://code.jquery.com/jquery-3.1.1.min.js"></script>
 <script>
@@ -23,7 +27,47 @@ function req(){
         success: function (objReturn) {
             //$("#content").html(objReturn);
 
-            alert(objReturn.eList[0].name);
+            //alert(objReturn.eList[0].name);
+            alert("error_code: " + objReturn.error_code);
+        },
+        error: function (objReturn) {
+            // 跳转后台给我发邮件
+            alert("系统故障,请联系管理员");
+        }
+    })
+}
+
+// https://api.bilibili.com
+// https://api.bilibili.com/x/web-interface/cdn/report?from=report
+// https://api.bilibili.com/x/web-frontend/data/collector
+function reqb(){
+    $.ajax({
+        url: "/bil/x/web-frontend/data/collector",
+        type: "GET",
+        async: false,
+        dataType: "json",
+        success: function (objReturn) {
+            //$("#content").html(objReturn);
+
+            alert(objReturn.code + " : " + objReturn.message);
+        },
+        error: function (objReturn) {
+            // 跳转后台给我发邮件
+            alert("系统故障,请联系管理员");
+        }
+    })
+}
+
+function reqh(){
+    $.ajax({
+        url: "/hnnzwhyy/s.json?s=5531&v=OQmilygRw3HRNwHTWoFUU5VtveANmTRN0cCZxYv4FoW4VsXLIL9y7ncatN4S8iGtQhpBoUU6LJs6xbeLOM4Ji8izdo2ShYIqETjkSP2%2BauRaUQRi8%2FTZYOEtrOqhRklhRCQqFbqm2aP8kHvNjspGoiHvdHqGmMSPFwpw0ML0bwimAxBix%2BIrazrP9%2Buy6uW62t4aLgd9QX98pXVMom2uz76736eXexksQYegPFaNa246IPrRbTNl0EJoNggcQnTOxQVinV1%2BULgliC7h7eRO%2B%2Bb6d6p8l86%2Bx3wHnIzatAyDH%2FSwNQAjIpX%2BUSVBPfq7qi%2BKaV90f8keRKZdQKclag%3D%3D",
+        type: "GET",
+        async: false,
+        dataType: "json",
+        success: function (objReturn) {
+            //$("#content").html(objReturn);
+
+            alert(objReturn[0].adsid);
         },
         error: function (objReturn) {
             // 跳转后台给我发邮件
