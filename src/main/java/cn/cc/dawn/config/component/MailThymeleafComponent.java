@@ -2,7 +2,7 @@ package cn.cc.dawn.config.component;
 
 import cn.cc.dawn.demo.mail.dto.MailDto;
 import cn.cc.dawn.utils.check.StringUtils;
-import cn.cc.dawn.utils.file.path.FilePath;
+import cn.cc.dawn.utils.file.FilePath;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.core.io.FileUrlResource;
 import org.springframework.mail.javamail.JavaMailSender;

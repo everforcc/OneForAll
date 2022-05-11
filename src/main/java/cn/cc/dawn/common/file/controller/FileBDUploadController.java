@@ -1,7 +1,7 @@
 package cn.cc.dawn.common.file.controller;
 
 import cn.cc.dawn.common.file.dto.FileObjDto;
-import cn.cc.dawn.utils.file.path.FilePath;
+import cn.cc.dawn.utils.file.FilePath;
 import com.alibaba.fastjson.JSONObject;
 import org.springframework.web.bind.annotation.*;
 import org.springframework.web.multipart.MultipartFile;

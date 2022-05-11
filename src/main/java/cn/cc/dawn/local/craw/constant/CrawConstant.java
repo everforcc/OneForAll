@@ -1,7 +1,7 @@
 package cn.cc.dawn.local.craw.constant;
 
 import cn.cc.dawn.utils.date.DateUtils;
-import cn.cc.dawn.utils.file.path.IFilePath;
+import cn.cc.dawn.utils.file.IFilePathBusi;
 
 /**
  * Yukino
@@ -12,7 +12,7 @@ public class CrawConstant {
     /**
      * 设置为自己的文件夹
      */
-    public static final IFilePath rootFilePath = new SysFilePath();
+    public static final IFilePathBusi rootFilePath = new SysFilePathBusi();
     static String cookie="_uuid=B12C70F0-DCA2-46BC-D28D-8C8E1FB3A17324567infoc; buvid3=64E2389B-F33E-4BFB-997E-EC791DBE770353923infoc; sid=hxyu20pz; CURRENT_FNVAL=16; stardustvideo=1; LIVE_BUVID=AUTO4315775147642650; rpdid=|(J|)J|ukluk0J'ul~~luR~YY; CURRENT_QUALITY=80; im_notify_type_58572396=0; Hm_lvt_8a6e55dbd2870f0f5bc9194cddf32a02=1580288228,1581048406,1581840591,1581840703; DedeUserID=58572396; DedeUserID__ckMd5=20e54bd3090b9e60; SESSDATA=b01aedd7%2C1585875470%2C2909b331; bili_jct=31f7aadfbfed82ad88d94336e6851885; flash_player_gray=false; bp_t_offset_58572396=364260235120844938; INTVER=1";
 
 
@@ -41,7 +41,7 @@ public class CrawConstant {
         return "";
     }
 
-    public static class SysFilePath implements IFilePath{
+    public static class SysFilePathBusi implements IFilePathBusi {
 
         @Override
         public String busiPath() {

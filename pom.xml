@@ -13,19 +13,52 @@
 
     <!-- 版本升级会有很多冲突，暂时不会 -->
 
-    <parent>
+    <!-- 虽然想 -->
+    <!--<parent>
         <groupId>org.springframework.boot</groupId>
         <artifactId>spring-boot-starter-parent</artifactId>
         <version>2.2.6.RELEASE</version>
         <relativePath/>
-    </parent>
+    </parent>-->
 
     <!--  可选配置多模块 modules -->
     <properties>
+
+        <maven.compiler.source>8</maven.compiler.source>
+        <maven.compiler.target>8</maven.compiler.target>
         <java.version>1.8</java.version>
+
+        <spring-boot>2.2.6.RELEASE</spring-boot>
+        <spring-thymeleaf>2.3.0.RELEASE</spring-thymeleaf>
+        <jakarta-persistence.version>2.2.3</jakarta-persistence.version>
+        <mysql.version>8.0.19</mysql.version>
+        <com.alibaba.druid>1.1.8</com.alibaba.druid>
+        <mybatis.spring.boot>1.3.1</mybatis.spring.boot>
+        <org.redisson>3.16.7</org.redisson>
+        <org.aspectj.version>1.6.11</org.aspectj.version>
+        <org.webjars.jquery>3.3.1</org.webjars.jquery>
+        <net.sf.json>2.4</net.sf.json>
+        <com.alibaba.fastjson>1.2.58</com.alibaba.fastjson>
+        <commons-io>2.6</commons-io>
+        <commons-lang3>3.10</commons-lang3>
+        <com.google.guava>30.1.1-jre</com.google.guava>
+        <org.projectlombok>1.18.20</org.projectlombok>
+        <janino.version>3.1.2</janino.version>
+        <junit.version>4.12</junit.version>
+
+        <org.jsoup>1.11.3</org.jsoup>
+        <us.codecraft.xsoup>0.3.1</us.codecraft.xsoup>
+        <us.codecraft.webmagic-core>0.7.3</us.codecraft.webmagic-core>
+        <us.codecraft.webmagic-extension>0.7.3</us.codecraft.webmagic-extension>
+        <org.seleniumhq.selenium.java>3.141.59</org.seleniumhq.selenium.java>
+        <org.webjars.npm.phantomjs>2.1.7</org.webjars.npm.phantomjs>
+        <com.codeborne.phantomjsdriver>1.4.0</com.codeborne.phantomjsdriver>
+
+        <okhttp3.version>3.14.7</okhttp3.version>
+
+        <webjars-locator-core.version>0.41</webjars-locator-core.version>
     </properties>
 
-    <!-- 依赖包 -->
     <dependencies>
         <!-- springstarter start -->
 
@@ -33,26 +66,30 @@
         <dependency>
             <groupId>org.springframework.boot</groupId>
             <artifactId>spring-boot-starter-web</artifactId>
+            <version>${spring-boot}</version>
         </dependency>
         <!-- 数据校验 -->
         <dependency>
             <groupId>org.springframework.boot</groupId>
             <artifactId>spring-boot-starter-validation</artifactId>
+            <version>${spring-boot}</version>
         </dependency>
         <!-- 邮件 -->
         <dependency>
             <groupId>org.springframework.boot</groupId>
             <artifactId>spring-boot-starter-mail</artifactId>
+            <version>${spring-boot}</version>
         </dependency>
         <!-- thymeleaf 模板 start TODO -->
         <dependency>
             <groupId>org.springframework.boot</groupId>
             <artifactId>spring-boot-starter-thymeleaf</artifactId>
-            <version>2.3.0.RELEASE</version>
+            <version>${spring-thymeleaf}</version>
         </dependency>
         <dependency>
             <groupId>org.springframework.boot</groupId>
             <artifactId>spring-boot-starter-freemarker</artifactId>
+            <version>${spring-boot}</version>
         </dependency>
         <!-- thymeleaf 模板 end -->
 
@@ -66,33 +103,34 @@
         <dependency>
             <groupId>org.springframework.boot</groupId>
             <artifactId>spring-boot-starter-data-redis</artifactId>
+            <version>${spring-boot}</version>
         </dependency>
 
-        <!-- springboot test -->
-        <dependency>
-            <groupId>org.springframework.boot</groupId>
-            <artifactId>spring-boot-starter-test</artifactId>
-            <!--<scope>test</scope>
-            <exclusions>
-                <exclusion>
-                    <groupId>org.junit.vintage</groupId>
-                    <artifactId>junit-vintage-engine</artifactId>
-                </exclusion>
-            </exclusions>-->
-        </dependency>
+
 
         <!-- convert -->
         <dependency>
             <groupId>jakarta.persistence</groupId>
             <artifactId>jakarta.persistence-api</artifactId>
-            <version>2.2.3</version>
+            <version>${jakarta-persistence.version}</version>
         </dependency>
 
         <!-- config配置文件读到类 -->
+        <!-- NOTICE 配置要用去掉parent的时候报错，由于parent会自动导入这个  -->
+        <!--
+        异常信息
+        Error processing condition on org.springframework.boot.autoconfigure.dao.PersistenceExceptionTranslationAutoConfiguration.persistenceExceptionTranslationPostProcessor
+        -->
+        <dependency>
+            <groupId>org.springframework.boot</groupId>
+            <artifactId>spring-boot-autoconfigure</artifactId>
+            <version>${spring-boot}</version>
+        </dependency>
         <dependency>
             <groupId>org.springframework.boot</groupId>
             <artifactId>spring-boot-configuration-processor</artifactId>
             <!--<optional>true</optional>-->
+            <version>${spring-boot}</version>
         </dependency>
 
         <!-- feign start -->
@@ -117,14 +155,17 @@
         <dependency>
             <groupId>org.springframework.boot</groupId>
             <artifactId>spring-boot-starter-data-jdbc</artifactId>
+            <version>${spring-boot}</version>
         </dependency>
         <dependency>
             <groupId>org.springframework.boot</groupId>
             <artifactId>spring-boot-starter-jdbc</artifactId>
+            <version>${spring-boot}</version>
         </dependency>
         <dependency>
             <groupId>mysql</groupId>
             <artifactId>mysql-connector-java</artifactId>
+            <version>${mysql.version}</version>
             <!--<scope>runtime</scope>-->
         </dependency>
         <!-- 数据库相关starter end-->
@@ -137,6 +178,7 @@
         <dependency>
             <groupId>org.springframework.boot</groupId>
             <artifactId>spring-boot-starter-security</artifactId>
+            <version>${spring-boot}</version>
         </dependency>
 
         <!-- springspringstarter end -->
@@ -147,13 +189,13 @@
         <dependency>
             <groupId>com.alibaba</groupId>
             <artifactId>druid</artifactId>
-            <version>1.1.8</version>
+            <version>${com.alibaba.druid}</version>
         </dependency>
         <!-- 引入mybatis 外部定义的start -->
         <dependency>
             <groupId>org.mybatis.spring.boot</groupId>
             <artifactId>mybatis-spring-boot-starter</artifactId>
-            <version>1.3.1</version>
+            <version>${mybatis.spring.boot}</version>
         </dependency>
 
         <!--  -->
@@ -161,7 +203,7 @@
         <dependency>
             <groupId>org.redisson</groupId>
             <artifactId>redisson</artifactId>
-            <version>3.16.7</version>
+            <version>${org.redisson}</version>
         </dependency>
         <!-- 数据库相关 end -->
 
@@ -169,12 +211,12 @@
         <dependency>
             <groupId>org.aspectj</groupId>
             <artifactId>aspectjrt</artifactId>
-            <version>1.6.11</version>
+            <version>${org.aspectj.version}</version>
         </dependency>
         <dependency>
             <groupId>org.aspectj</groupId>
             <artifactId>aspectjweaver</artifactId>
-            <version>1.6.11</version>
+            <version>${org.aspectj.version}</version>
         </dependency>
         <!-- AOP end -->
 
@@ -182,7 +224,7 @@
         <dependency>
             <groupId>org.webjars</groupId>
             <artifactId>jquery</artifactId>
-            <version>3.3.1</version>
+            <version>${org.webjars.jquery}</version>
         </dependency>
 
         <!-- junit -->
@@ -192,37 +234,34 @@
         </dependency>-->
 
         <!-- 解析json start -->
-        <dependency>
+        <!--<dependency>
             <groupId>net.sf.json-lib</groupId>
             <artifactId>json-lib</artifactId>
-            <version>2.4</version>
-            <classifier>jdk15</classifier>
-        </dependency>
+            <version>${net.sf.json}</version>
+            &lt;!&ndash;<classifier>jdk15</classifier>&ndash;&gt;
+        </dependency>-->
         <!-- json解析，spring自带的也有，还是用阿里巴巴的好了-->
         <!-- https://mvnrepository.com/artifact/com.alibaba/fastjson -->
         <dependency>
             <groupId>com.alibaba</groupId>
             <artifactId>fastjson</artifactId>
-            <version>1.2.58</version>
+            <version>${com.alibaba.fastjson}</version>
         </dependency>
         <!-- 解析json end -->
 
         <!-- 封装常用的工具包 start -->
         <!-- utils包 start -->
-
-        <!-- https://mvnrepository.com/artifact/commons-io/commons-io -->
         <dependency>
             <groupId>commons-io</groupId>
             <artifactId>commons-io</artifactId>
-            <version>2.6</version>
+            <version>${commons-io}</version>
         </dependency>
 
         <!-- 封装的lang包，目前用来校验数据 -->
-        <!-- https://mvnrepository.com/artifact/org.apache.commons/commons-lang3 -->
         <dependency>
             <groupId>org.apache.commons</groupId>
             <artifactId>commons-lang3</artifactId>
-            <version>3.10</version>
+            <version>${commons-lang3}</version>
         </dependency>
 
         <!-- guava -->
@@ -230,15 +269,14 @@
         <dependency>
             <groupId>com.google.guava</groupId>
             <artifactId>guava</artifactId>
-            <version>30.1.1-jre</version>
+            <version>${com.google.guava}</version>
         </dependency>
 
         <!-- lombok -->
-        <!-- https://mvnrepository.com/artifact/org.projectlombok/lombok -->
         <dependency>
             <groupId>org.projectlombok</groupId>
             <artifactId>lombok</artifactId>
-            <version>1.18.20</version>
+            <version>${org.projectlombok}</version>
             <scope>provided</scope>
         </dependency>
 
@@ -252,17 +290,17 @@
         <dependency>
             <groupId>org.codehaus.janino</groupId>
             <artifactId>janino</artifactId>
-            <!--<version>2.6.1</version>-->
+            <version>${janino.version}</version>
         </dependency>
         <!-- logback end -->
 
         <!-- 自带的也有 -->
-<!--        <dependency>-->
-<!--            <groupId>org.awaitility</groupId>-->
-<!--            <artifactId>awaitility</artifactId>-->
-<!--            <version>3.1.2</version>-->
-<!--            &lt;!&ndash;<scope>test</scope>&ndash;&gt;-->
-<!--        </dependency>-->
+        <!--        <dependency>-->
+        <!--            <groupId>org.awaitility</groupId>-->
+        <!--            <artifactId>awaitility</artifactId>-->
+        <!--            <version>3.1.2</version>-->
+        <!--            &lt;!&ndash;<scope>test</scope>&ndash;&gt;-->
+        <!--        </dependency>-->
 
         <!-- 爬虫相关 start -->
 
@@ -270,21 +308,20 @@
         <dependency>
             <groupId>org.jsoup</groupId>
             <artifactId>jsoup</artifactId>
-            <version>1.11.3</version>
+            <version>${org.jsoup}</version>
         </dependency>
         <!-- xsoup -->
-        <!-- https://mvnrepository.com/artifact/us.codecraft/xsoup -->
         <dependency>
             <groupId>us.codecraft</groupId>
             <artifactId>xsoup</artifactId>
-            <version>0.3.1</version>
+            <version>${us.codecraft.xsoup}</version>
         </dependency>
 
         <!-- webmagic -->
         <dependency>
             <groupId>us.codecraft</groupId>
             <artifactId>webmagic-core</artifactId>
-            <version>0.7.3</version>
+            <version>${us.codecraft.webmagic-core}</version>
             <exclusions>
                 <exclusion>
                     <artifactId>slf4j-log4j12</artifactId>
@@ -295,7 +332,7 @@
         <dependency>
             <groupId>us.codecraft</groupId>
             <artifactId>webmagic-extension</artifactId>
-            <version>0.7.3</version>
+            <version>${us.codecraft.webmagic-extension}</version>
         </dependency>
 
 
@@ -303,36 +340,37 @@
         <dependency>
             <groupId>org.seleniumhq.selenium</groupId>
             <artifactId>selenium-java</artifactId>
-<!--            <version>3.4.0</version>-->
+            <version>${org.seleniumhq.selenium.java}</version>
         </dependency>
         <!-- https://mvnrepository.com/artifact/com.squareup.okhttp3/okhttp -->
         <dependency>
             <groupId>com.squareup.okhttp3</groupId>
             <artifactId>okhttp</artifactId>
-<!--            <version>3.14.7</version>-->
+            <version>${okhttp3.version}</version>
         </dependency>
 
         <!--Webjars版本定位工具（前端）-->
         <dependency>
             <groupId>org.webjars</groupId>
             <artifactId>webjars-locator-core</artifactId>
+            <version>${webjars-locator-core.version}</version>
         </dependency>
         <!-- https://mvnrepository.com/artifact/org.webjars.npm/phantomjs -->
-        <dependency>
+        <!--<dependency>
             <groupId>org.webjars.npm</groupId>
             <artifactId>phantomjs</artifactId>
-            <version>2.1.7</version>
+            <version>${org.webjars.npm.phantomjs}</version>
             <exclusions>
                 <exclusion>
                     <artifactId>slf4j-log4j12</artifactId>
                     <groupId>org.slf4j</groupId>
                 </exclusion>
             </exclusions>
-        </dependency>
+        </dependency>-->
         <dependency>
             <groupId>com.codeborne</groupId>
             <artifactId>phantomjsdriver</artifactId>
-            <version>1.4.0</version>
+            <version>${com.codeborne.phantomjsdriver}</version>
         </dependency>
 
         <!-- 爬虫相关 end -->
@@ -342,6 +380,27 @@
             <artifactId>javaee-api</artifactId>
             <version>7.0</version>
         </dependency>-->
+
+        <!-- springboot test -->
+        <dependency>
+            <groupId>org.springframework.boot</groupId>
+            <artifactId>spring-boot-starter-test</artifactId>
+            <version>${spring-boot}</version>
+            <scope>test</scope>
+            <exclusions>
+                <exclusion>
+                    <groupId>org.junit.vintage</groupId>
+                    <artifactId>junit-vintage-engine</artifactId>
+                </exclusion>
+            </exclusions>
+        </dependency>
+
+        <!--junit-->
+        <dependency>
+            <groupId>junit</groupId>
+            <artifactId>junit</artifactId>
+            <version>${junit.version}</version>
+        </dependency>
 
     </dependencies>
     <!-- 依赖包 -->
@@ -358,7 +417,6 @@
 
 
     <build>
-
         <resources>
             <resource>
                 <directory>${basedir}/src/main/resources</directory>

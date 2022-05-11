@@ -4,7 +4,7 @@ import cn.cc.dawn.common.file.dto.FileObjDto;
 import cn.cc.dawn.common.file.service.IFileService;
 import cn.cc.dawn.utils.entity.ResultE;
 import cn.cc.dawn.utils.enums.impl.FileMediumEnum;
-import cn.cc.dawn.utils.file.FileBuilder;
+import cn.cc.dawn.utils.file.FileBuilderDB;
 import lombok.extern.slf4j.Slf4j;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.*;
@@ -24,7 +24,7 @@ public class FileUploadController {
         return new ResultE<FileObjDto>().execute(e->
                 e.setSuccess(
                         iFileService.write(file,FileObjDto.build(
-                                FileBuilder.FileMsg
+                                FileBuilderDB.FileMsg
                                         .of(file)
                                         .buildUuidUname())
                         )
@@ -37,7 +37,7 @@ public class FileUploadController {
         byte[] bytes = new byte[100];
 
         FileObjDto fileObjDto = FileObjDto.build(
-                FileBuilder.FileMsg
+                FileBuilderDB.FileMsg
                         .of("1.txt","100","E:/filesystem/test/临时")
                         .buildUuidUname()
                         .buildSaveType(FileMediumEnum.WINDOWS)

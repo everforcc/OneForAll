@@ -1,8 +1,8 @@
 package cn.cc.dawn.open.novel.util;
 
 import cn.cc.dawn.utils.constant.LogConstant;
-import cn.cc.dawn.utils.file.path.FilePath;
-import cn.cc.dawn.utils.file.IFileHandle;
+import cn.cc.dawn.utils.file.FilePath;
+import cn.cc.dawn.utils.file.IFile;
 import cn.cc.dawn.utils.file.impl.FileApacheUtils;
 import lombok.extern.slf4j.Slf4j;
 
@@ -34,7 +34,7 @@ public class NovelCapterUtils {
     private static Map<String,Integer> menuMap = new HashMap<>();
 
     // 文件工具类
-    private static IFileHandle apacheiFileHandle = new FileApacheUtils();
+    private static IFile apacheiFile = new FileApacheUtils();
 
     /**
      * TODO 此处返回str可能会超长
@@ -44,7 +44,7 @@ public class NovelCapterUtils {
     public static String fileToStr(String path){
         String str = "";
         try {
-            str = apacheiFileHandle.read(path);
+            str = apacheiFile.read(path);
         } catch (Exception e) {
             e.printStackTrace();
         }

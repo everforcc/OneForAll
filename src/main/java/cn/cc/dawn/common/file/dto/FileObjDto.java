@@ -2,7 +2,7 @@ package cn.cc.dawn.common.file.dto;
 
 import cn.cc.dawn.utils.dto.CommonFiledDto;
 import cn.cc.dawn.utils.enums.impl.FileMediumEnum;
-import cn.cc.dawn.utils.file.FileBuilder;
+import cn.cc.dawn.utils.file.FileBuilderDB;
 import cn.cc.dawn.utils.inter.valited.ISave;
 import lombok.AllArgsConstructor;
 import lombok.Getter;
@@ -10,7 +10,6 @@ import lombok.NoArgsConstructor;
 import lombok.Setter;
 
 import javax.validation.constraints.NotNull;
-import java.io.File;
 
 @Setter
 @Getter
@@ -62,7 +61,7 @@ public class FileObjDto extends CommonFiledDto {
      */
     private long range;
 
-    public FileObjDto(FileBuilder.FileMsg fileMsg) {
+    public FileObjDto(FileBuilderDB.FileMsg fileMsg) {
         this.uname = fileMsg.getUname();
         this.rname = fileMsg.getRname();
         this.contentType = fileMsg.getContentType();
@@ -73,7 +72,7 @@ public class FileObjDto extends CommonFiledDto {
     }
 
 
-    public static FileObjDto build(FileBuilder.FileMsg fileMsg){
+    public static FileObjDto build(FileBuilderDB.FileMsg fileMsg){
         return new FileObjDto(fileMsg);
     }
 

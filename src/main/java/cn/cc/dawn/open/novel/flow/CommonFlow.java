@@ -5,8 +5,8 @@ import cn.cc.dawn.local.craw.web.data.dto.HttpParamDto;
 import cn.cc.dawn.utils.check.ObjectUtils;
 import cn.cc.dawn.utils.check.StringUtils;
 import cn.cc.dawn.utils.constant.LogConstant;
-import cn.cc.dawn.utils.http.HttpMethod;
-import cn.cc.dawn.utils.http.impl.HttpApacheImpl;
+import cn.cc.dawn.utils.http.IHttp;
+import cn.cc.dawn.utils.http.impl.IHttpApacheImpl;
 import cn.cc.dawn.utils.jsoup.XSoupUtils;
 import lombok.extern.slf4j.Slf4j;
 import org.jsoup.nodes.Document;
@@ -22,7 +22,7 @@ public class CommonFlow {
      * 公共的一些流程
      */
 
-    private static HttpMethod httpMethod = new HttpApacheImpl();
+    private static IHttp IHttp = new IHttpApacheImpl();
 
     /**
      * 小说名到章节清单
@@ -120,7 +120,7 @@ public class CommonFlow {
         );
         httpParamDto.setCharset(novelReqRegDto.getCharset());
         httpParamDto.setTimeout(novelReqRegDto.getDefaultTimeout());
-        String html = httpMethod.getMsg(httpParamDto);
+        String html = IHttp.getMsg(httpParamDto);
         return html;
     }
 

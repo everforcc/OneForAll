@@ -26,7 +26,7 @@ public class StatusEnumHandler extends BaseTypeHandler<StatusEnum> {
             throws SQLException {
         // baseTypeHandler已经帮我们做了parameter的null判断
         // 第二个参数 : 存入到数据库中的值
-        //ps.setString(i, parameter.comment);
+        // ps.setString(i, parameter.comment);
         ps.setInt(i, parameter.comment);
     }
 

@@ -2,7 +2,7 @@ package cn.cc.dawn.open.novel;
 
 import cn.cc.dawn.open.novel.util.NovelCapterUtils;
 import cn.cc.dawn.utils.constant.LogConstant;
-import cn.cc.dawn.utils.file.path.FilePath;
+import cn.cc.dawn.utils.file.FilePath;
 import lombok.extern.slf4j.Slf4j;
 import org.junit.jupiter.api.Test;
 

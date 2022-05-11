@@ -1,0 +1,6 @@
+GET http://localhost:81/local/novel/dybz/tpool
+Accept: application/json
+
+###
+GET http://localhost:81/local/novel/dybz/tpool2
+Accept: application/json

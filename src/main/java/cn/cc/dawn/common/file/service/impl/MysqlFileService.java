@@ -7,15 +7,13 @@ import cn.cc.dawn.common.file.dto.FileDataDto;
 import cn.cc.dawn.common.file.dto.FileObjDto;
 import cn.cc.dawn.common.file.dto.FileMediumDto;
 import cn.cc.dawn.common.file.service.IFileService;
-import cn.cc.dawn.config.init.yml.APPConfiguration;
 import cn.cc.dawn.utils.enums.impl.FileMediumEnum;
 import cn.cc.dawn.utils.exception.AppCode;
-import cn.cc.dawn.utils.file.IFileHandle;
+import cn.cc.dawn.utils.file.IFile;
 import cn.cc.dawn.utils.file.impl.FileApacheUtils;
 import lombok.RequiredArgsConstructor;
 import lombok.SneakyThrows;
 import lombok.extern.slf4j.Slf4j;
-import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.boot.autoconfigure.condition.ConditionalOnProperty;
 import org.springframework.context.annotation.Primary;
 import org.springframework.stereotype.Service;
@@ -23,7 +21,6 @@ import org.springframework.transaction.annotation.Transactional;
 import org.springframework.web.multipart.MultipartFile;
 
 import javax.annotation.Resource;
-import java.io.File;
 
 @Primary // 首先使用这个类
 @Slf4j
@@ -42,7 +39,7 @@ public class MysqlFileService implements IFileService {
     @Resource
     FileDataMapper fileDataMapper;
 
-    IFileHandle fileHandle = new FileApacheUtils();
+    IFile fileHandle = new FileApacheUtils();
 
 
     /**

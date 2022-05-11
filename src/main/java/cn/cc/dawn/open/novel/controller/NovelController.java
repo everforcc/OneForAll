@@ -6,8 +6,8 @@ import cn.cc.dawn.open.novel.service.NovelService;
 import cn.cc.dawn.local.craw.web.data.dto.HttpParamDto;
 import cn.cc.dawn.utils.constant.HttpHeadersConstant;
 import cn.cc.dawn.utils.entity.ResultE;
-import cn.cc.dawn.utils.http.HttpMethod;
-import cn.cc.dawn.utils.http.impl.HttpApacheImpl;
+import cn.cc.dawn.utils.http.IHttp;
+import cn.cc.dawn.utils.http.impl.IHttpApacheImpl;
 import cn.cc.dawn.utils.jsoup.XSoupUtils;
 import lombok.Cleanup;
 import lombok.extern.slf4j.Slf4j;
@@ -28,7 +28,7 @@ import java.nio.charset.StandardCharsets;
 @Slf4j
 public class NovelController {
 
-    private HttpMethod httpMethod = new HttpApacheImpl();
+    private IHttp IHttp = new IHttpApacheImpl();
 
     @Resource
     NovelService novelService;
@@ -42,7 +42,7 @@ public class NovelController {
 
         httpParamDto.setUrl("http://www.w2ks.org/detail/202/14786.html");
         try {
-            String html = httpMethod.getMsg(httpParamDto);
+            String html = IHttp.getMsg(httpParamDto);
             log.info(html);
             Document document = XSoupUtils.htmlToDocument(html);
             result = XSoupUtils.compileStr("//div[@id=contents]",document);

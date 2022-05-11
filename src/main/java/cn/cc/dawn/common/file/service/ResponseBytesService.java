@@ -1,12 +1,11 @@
 package cn.cc.dawn.common.file.service;
 
 import cn.cc.dawn.common.file.vo.ServletVO;
-import cn.cc.dawn.utils.constant.HttpHeadersConstant;
 import cn.cc.dawn.utils.enums.ContentTypeEnum;
 import cn.cc.dawn.utils.exception.AppCode;
-import cn.cc.dawn.utils.file.path.FilePath;
+import cn.cc.dawn.utils.file.FilePath;
 import cn.cc.dawn.utils.enums.CharsetsEnum;
-import cn.cc.dawn.utils.file.IFileHandle;
+import cn.cc.dawn.utils.file.IFile;
 import cn.cc.dawn.utils.file.impl.FileApacheUtils;
 import com.google.common.io.ByteStreams;
 import org.apache.commons.io.FileUtils;
@@ -18,7 +17,7 @@ import java.io.IOException;
 @Service()
 public class ResponseBytesService {
 
-    IFileHandle iFileHandle = new FileApacheUtils();
+    IFile iFile = new FileApacheUtils();
 
     public ServletVO getFileBytes(String uuname){
         //String fileName = "20210712-双手剑原胚.png";
@@ -34,7 +33,7 @@ public class ResponseBytesService {
             servletVO.setContentType(ContentTypeEnum.valueOf(filePath.getSuffix()).type);
             //servletVO.setDownFileName(fileName);
             servletVO.setReadFileName(uuname);
-            servletVO.setCache_control("0", iFileHandle.lastModifiedTime(file));
+            servletVO.setCache_control("0", iFile.lastModifiedTime(file));
         } catch (IOException e) {
             e.printStackTrace();
         }

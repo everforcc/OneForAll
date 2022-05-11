@@ -11,7 +11,7 @@ import cn.cc.dawn.utils.check.ObjectUtils;
 import cn.cc.dawn.utils.check.StringUtils;
 import cn.cc.dawn.utils.constant.XSoupCommonConstant;
 import cn.cc.dawn.utils.exception.AppCode;
-import cn.cc.dawn.utils.http.HttpMethod;
+import cn.cc.dawn.utils.http.IHttp;
 import cn.cc.dawn.utils.http.HttpParamUtils;
 import cn.cc.dawn.utils.jsoup.XSoupUtils;
 import lombok.extern.slf4j.Slf4j;
@@ -34,7 +34,7 @@ public class WebSiteCommonService {
     private WebSiteDataMapper webSiteDataMapper;
 
     @Resource
-    HttpMethod httpApacheImpl;
+    IHttp httpApacheImpl;
 
     /**
      * 1. 拿到链接

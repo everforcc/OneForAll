@@ -23,6 +23,9 @@ import org.springframework.security.core.context.SecurityContextHolder;
 import org.springframework.security.web.authentication.UsernamePasswordAuthenticationFilter;
 import org.springframework.security.web.authentication.logout.SecurityContextLogoutHandler;
 import org.springframework.security.web.authentication.www.BasicAuthenticationFilter;
+import org.springframework.web.cors.CorsConfiguration;
+import org.springframework.web.cors.CorsConfigurationSource;
+import org.springframework.web.cors.UrlBasedCorsConfigurationSource;
 import org.springframework.web.filter.OncePerRequestFilter;
 
 import javax.servlet.FilterChain;
@@ -68,6 +71,9 @@ public class SPSecurityConfig{
              */
             final AuthHandler authHandler = new AuthHandler();
 
+
+
+
             /**
              * http登录. start
              */
@@ -77,6 +83,7 @@ public class SPSecurityConfig{
                      */
                     .csrf(
                         httpSecurityCsrfConfigurer -> httpSecurityCsrfConfigurer.disable()
+                            //httpSecurityCsrfConfigurer -> httpSecurityCsrfConfigurer.ignoringAntMatchers();
                     )
                     /**
                      * http在系统中的链路追踪

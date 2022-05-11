@@ -7,9 +7,6 @@ import org.jsoup.Jsoup;
 import org.jsoup.nodes.Document;
 import org.jsoup.nodes.Element;
 import org.jsoup.select.Elements;
-import org.junit.Test;
-
-
 import java.util.Map;
 
 /**
@@ -85,7 +82,6 @@ public class PageProcessor {
      * 1.首页地址
      * 2.获取链接
      */
-    @Test
     public void crawFlow(){
         try {
             getHTMLByURL(LINGYU);

@@ -1,7 +1,7 @@
 package cn.cc.dawn.demo.servlet;
 
 
-import cn.cc.dawn.utils.file.path.FilePath;
+import cn.cc.dawn.utils.file.FilePath;
 import com.google.common.io.ByteStreams;
 import org.apache.commons.io.FileUtils;
 import org.junit.Test;
