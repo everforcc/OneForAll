@@ -1,5 +1,6 @@
 package cn.cc.dawn.utils.http.selenium;
 
+import cn.cc.dawn.utils.check.ObjectUtils;
 import lombok.SneakyThrows;
 import lombok.extern.slf4j.Slf4j;
 
@@ -23,14 +24,17 @@ public class SeleniumPool {
     /**
      * 现有数量
      */
-    private static int totalSize = 0;
+    private int totalSize = 0;
 
     private SeleniumPool() {
     }
 
-    private SeleniumPool(int Size) {
+    private SeleniumPool(int size) {
         // 在这里创建 给定次数的池子
-        while (defaultSize > totalSize){
+        if(ObjectUtils.isNull(size)){
+            size = defaultSize;
+        }
+        while (size > totalSize){
             leaveDriver.add(create());
         }
     }

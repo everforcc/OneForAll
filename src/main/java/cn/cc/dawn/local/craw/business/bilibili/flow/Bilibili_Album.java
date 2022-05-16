@@ -4,7 +4,7 @@ import cn.cc.dawn.local.craw.business.bilibili.constant.BilConstant;
 import cn.cc.dawn.local.craw.business.bilibili.entity.BilibiliAlbumDto;
 import cn.cc.dawn.local.craw.business.bilibili.entity.BilibiliAlbumPicDto;
 import cn.cc.dawn.local.craw.business.bilibili.utils.*;
-import cn.cc.dawn.local.craw.web.data.dto.HttpParamDto;
+import cn.cc.dawn.local.craw.business.data.dto.HttpParamDto;
 import cn.cc.dawn.utils.constant.DateFormatConstant;
 import cn.cc.dawn.utils.date.DateUtils;
 import cn.cc.dawn.utils.enums.HttpTypeEnum;
@@ -22,7 +22,6 @@ import lombok.extern.slf4j.Slf4j;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Component;
 
-import java.io.IOException;
 import java.util.ArrayList;
 import java.util.HashMap;
 import java.util.List;
@@ -181,7 +180,7 @@ public class Bilibili_Album {
 
         try {
             iFile.write(file,msg);
-        } catch (IOException e) {
+        } catch (Exception e) {
             e.printStackTrace();
             throw AppCode.A00150.toUserException(e);
         }

@@ -12,7 +12,7 @@ java -jar target/OneForAll-0.0.1-SNAPSHOT.jar --server.port=8082
 ~~~
 
 - mvn
-~~~
+~~~TTL
 mvn clean package
 
 ~~~
@@ -20,7 +20,8 @@ mvn clean package
 - redis
 ~~~
 redis-cli -h 180.76.156.43 -p 6379 -a c.c.5664
-select 10
+# local
+select 15
 ~~~
 
 - dockerfile

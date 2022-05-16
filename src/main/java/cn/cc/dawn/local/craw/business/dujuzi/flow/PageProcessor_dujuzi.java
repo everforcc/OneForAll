@@ -1,6 +1,6 @@
 package cn.cc.dawn.local.craw.business.dujuzi.flow;
 
-import cn.cc.dawn.local.craw.util.datahelp.HtmlHelper;
+import cn.cc.dawn.utils.http.JsoupUtils;
 import cn.cc.dawn.utils.data.io.InputStream_IO_Write;
 import org.jsoup.nodes.Document;
 import org.jsoup.nodes.Element;
@@ -137,7 +137,7 @@ public class PageProcessor_dujuzi {
      */
     public Map<String,String> homeMenu(){
         Map<String,String> map_menu = new HashMap<String,String>();
-        Document document= HtmlHelper.getDocumentByURL( WWW + Index );
+        Document document= JsoupUtils.getDocumentByURL( WWW + Index );
         // 菜单的id
         Element element_menu = document.getElementById("menu-list");
         //System.out.println(element_menu.toString());
@@ -169,7 +169,7 @@ public class PageProcessor_dujuzi {
      */
     public void menuInfo(String url){ // 菜单下的详情页
         //https://www.dujuzi.cn/Home/SentenceClass/8.html
-        Document document=HtmlHelper.getDocumentByURL(url );
+        Document document= JsoupUtils.getDocumentByURL(url );
         // 书列表的class
         Elements elements_book = document.getElementsByClass("col-md-8 main-content ");
 
@@ -209,7 +209,7 @@ public class PageProcessor_dujuzi {
      * 2.简介
      */
     public String getAbstract(String url_info ){
-        Document document=HtmlHelper.getDocumentByURL(url_info);
+        Document document= JsoupUtils.getDocumentByURL(url_info);
         Elements elements = document.getElementsByClass("juji-font");
         String content = elements.get(0).text();
         logger.debug(content);
@@ -238,7 +238,7 @@ public class PageProcessor_dujuzi {
     //分页
 
     public int pageCount(String url){
-        Document document = HtmlHelper.getDocumentByURL(url);
+        Document document = JsoupUtils.getDocumentByURL(url);
         Element element_page = document.getElementById("PageInfo");
         String pageindex = element_page.attr("pageindex");
         String pagecount = element_page.attr("pagecount");
@@ -250,7 +250,7 @@ public class PageProcessor_dujuzi {
      */
     public void extractSentenceList(String reloadUrl){
         // 这个位置要重新拼接地址来操作
-        Document document=HtmlHelper.getDocumentByURL(reloadUrl);
+        Document document= JsoupUtils.getDocumentByURL(reloadUrl);
         // panel-body >> feed-activity-list
         Elements elements = document.getElementsByClass("feed-activity-list");
         //elements.forEach(System.out::println);

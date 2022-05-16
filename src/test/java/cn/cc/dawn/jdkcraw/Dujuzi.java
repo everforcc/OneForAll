@@ -1,6 +1,6 @@
 package cn.cc.dawn.jdkcraw;
 
-import cn.cc.dawn.local.craw.util.datahelp.HtmlHelper;
+import cn.cc.dawn.utils.http.JsoupUtils;
 import cn.cc.dawn.utils.data.io.InputStream_IO_Write;
 import org.jsoup.nodes.Document;
 import org.jsoup.nodes.Element;
@@ -32,7 +32,7 @@ public class Dujuzi {
      */
     @Test
     void dujuzi_Info(){
-        System.out.println(HtmlHelper.getDocumentByURL(url_dujuzi_List).body());
+        System.out.println(JsoupUtils.getDocumentByURL(url_dujuzi_List).body());
         /*Document document=HtmlHelper.getDocumentByURL(url_dujuzi_Info);
         Elements elements = document.getElementsByClass("juji-font");
         System.out.println(elements.get(0).text());*/
@@ -40,7 +40,7 @@ public class Dujuzi {
 
     @Test
     void dujuzi_List(){
-        System.out.println(HtmlHelper.getDocumentByURL(url_dujuzi_List));
+        System.out.println(JsoupUtils.getDocumentByURL(url_dujuzi_List));
     }
 
 
@@ -48,7 +48,7 @@ public class Dujuzi {
     void pageNum(){
         //<input type="hidden" id="PageInfo" pageindex="1" pagecount="25" value="1947">
         //System.out.println(HtmlHelper.getDocumentByURL(url_dujuzi_List).body());
-        Document document = HtmlHelper.getDocumentByURL(url_dujuzi_List);
+        Document document = JsoupUtils.getDocumentByURL(url_dujuzi_List);
         Element element_page = document.getElementById("PageInfo");
         String pageindex = element_page.attr("pageindex");
         String pagecount = element_page.attr("pagecount");

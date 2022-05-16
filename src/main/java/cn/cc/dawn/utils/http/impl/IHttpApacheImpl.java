@@ -1,10 +1,11 @@
 package cn.cc.dawn.utils.http.impl;
 
-import cn.cc.dawn.local.craw.web.data.dto.HttpParamDto;
+import cn.cc.dawn.local.craw.business.data.dto.HttpParamDto;
 import cn.cc.dawn.utils.RandomUtils;
 import cn.cc.dawn.utils.enums.CharsetsEnum;
 import cn.cc.dawn.utils.exception.AppCode;
 import cn.cc.dawn.utils.http.IHttp;
+import lombok.SneakyThrows;
 import lombok.extern.slf4j.Slf4j;
 import org.apache.http.HttpResponse;
 import org.apache.http.client.HttpClient;
@@ -28,9 +29,38 @@ public class IHttpApacheImpl implements IHttp {
         return null;
     }
 
+    @SneakyThrows
     @Override
     public String getMsg(HttpParamDto httpParamDto){
 
+        HttpResponse httpResponse = commonFlow(httpParamDto);
+
+//        HttpClient httpClient = HttpClients.createDefault();
+//        HttpGet httpGet = new HttpGet(httpParamDto.getUrl());
+//        HttpResponse httpResponse = commonFlow(httpParamDto);
+//
+//        int sleep  = (1 + RandomUtils.randomInt(1,5)) * 1000;;
+//        log.info("随机休眠:" + sleep);
+//        Thread.sleep(sleep);
+//
+//        httpResponse = httpClient.execute(httpGet);
+
+        if(Objects.nonNull(httpParamDto.getCharset())){
+            charset = httpParamDto.getCharset().charset;
+        }
+        return EntityUtils.toString(httpResponse.getEntity(),charset);
+
+    }
+
+    @SneakyThrows
+    @Override
+    public byte[] getBytes(HttpParamDto httpParamDto) {
+
+        HttpResponse httpResponse = commonFlow(httpParamDto);
+        return EntityUtils.toByteArray(httpResponse.getEntity());
+    }
+
+    private HttpResponse commonFlow(HttpParamDto httpParamDto){
         HttpClient httpClient = HttpClients.createDefault();
         HttpGet httpGet = new HttpGet(httpParamDto.getUrl());
         HttpResponse httpResponse = null;
@@ -41,17 +71,12 @@ public class IHttpApacheImpl implements IHttp {
 
             httpResponse = httpClient.execute(httpGet);
 
-            if(Objects.nonNull(httpParamDto.getCharset())){
-                charset = httpParamDto.getCharset().charset;
-            }
-
-            return EntityUtils.toString(httpResponse.getEntity(),charset);
+            return httpResponse;
         } catch (Exception e) {
             //e.printStackTrace();
             log.error("测试jar定义异常: " + e);
             throw AppCode.A00100.toUserException(e.getMessage());
         }
-
     }
 
     @Override

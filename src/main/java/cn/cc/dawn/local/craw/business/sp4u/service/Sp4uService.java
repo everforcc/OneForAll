@@ -1,8 +1,8 @@
 package cn.cc.dawn.local.craw.business.sp4u.service;
 
 import cn.cc.dawn.local.craw.business.sp4u.constant.Sp4uUrl;
-import cn.cc.dawn.local.craw.web.data.dao.WebSiteDataMapper;
-import cn.cc.dawn.local.craw.web.data.dto.HttpParamDto;
+import cn.cc.dawn.local.craw.business.data.dao.WebSiteDataMapper;
+import cn.cc.dawn.local.craw.business.data.dto.HttpParamDto;
 import cn.cc.dawn.utils.enums.CharsetsEnum;
 import cn.cc.dawn.utils.enums.HttpTypeEnum;
 import cn.cc.dawn.config.init.properties.PropertiesHeader;

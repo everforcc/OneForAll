@@ -1,5 +1,6 @@
 package cn.cc.dawn.utils.http.selenium;
 
+import cn.cc.dawn.local.craw.business.data.vo.WebSiteDataVO;
 import lombok.extern.slf4j.Slf4j;
 import org.openqa.selenium.WebDriver;
 
@@ -20,13 +21,16 @@ public class WebDriverPDto {
     protected WebDriverPDto() {
     }
 
-    public String getHtml(String url){
+    public WebSiteDataVO getHtml(String url){
+        WebSiteDataVO webSiteDataVO = new WebSiteDataVO();
         webDriver.get(url);
         String html = webDriver.getPageSource();
         String title = webDriver.getTitle();
-        log.info("title {}",title);
-        log.info("驱动 {},请求的url: {}",index,url);
-        return html;
+        webSiteDataVO.setPageSource(html);
+        webSiteDataVO.setTitle(title);
+//        log.info("title {}",title);
+//        log.info("驱动 {},请求的url: {}",index,url);
+        return webSiteDataVO;
     }
 
     protected WebDriverPDto(int index, WebDriver webDriver) {

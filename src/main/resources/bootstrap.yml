@@ -88,7 +88,9 @@ server:
 # 自定义配置文件全部在app节点读取
 app:
   cache:
-    customuser: { cachekey: USER_TOKEN,expired: 1h }
+    customerUserToken: { cachekey: CUSTOMERUSER_TOKEN,expired: 1h }
+    redisCacheTest: { cachekey: REDISCACHETEST,expired: 1h }
+    WebDataCacheMain: { cachekey: WEBDATACACHE_MAIN,expired: 24h }
   defaultaeskey: defaultaeskey
   conditional:
     express: true

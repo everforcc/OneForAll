@@ -1,6 +1,6 @@
 package cn.cc.dawn.open.novel;
 
-import cn.cc.dawn.open.novel.dto.NovelReqRegDto;
+import cn.cc.dawn.open.novel.constant.NovelReqRegDto;
 import cn.cc.dawn.open.novel.flow.CommonFlow;
 import cn.cc.dawn.utils.enums.CharsetsEnum;
 import org.junit.Test;

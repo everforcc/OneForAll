@@ -1,6 +1,6 @@
 package cn.cc.dawn.utils.http;
 
-import cn.cc.dawn.local.craw.web.data.dto.HttpParamDto;
+import cn.cc.dawn.local.craw.business.data.dto.HttpParamDto;
 
 import java.io.InputStream;
 
@@ -28,6 +28,8 @@ public interface IHttp {
      * @return
      */
     String getMsg(HttpParamDto httpParamDto);
+
+    byte[] getBytes(HttpParamDto httpParamDto);
 
     boolean getFile(HttpParamDto httpParamDto);
 }

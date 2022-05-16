@@ -5,8 +5,6 @@ import lombok.extern.slf4j.Slf4j;
 import org.junit.jupiter.api.Test;
 import org.springframework.boot.test.context.SpringBootTest;
 
-import java.io.IOException;
-
 @SpringBootTest
 @Slf4j
 public class IFileIOT {
@@ -17,7 +15,7 @@ public class IFileIOT {
     public void write(){
         try {
             apacheiFile.write(FilePath.build().ofPath("/test/novel").ofFileName("test.txt").path(),"123\r\n");
-        } catch (IOException e) {
+        } catch (Exception e) {
             e.printStackTrace();
         }
     }
@@ -25,8 +23,8 @@ public class IFileIOT {
     @Test
     public void read(){
         try {
-            log.info(apacheiFile.read(FilePath.build().ofPath("/test/novel").ofFileName("test.txt").path()));
-        } catch (IOException e) {
+            log.info(apacheiFile.readTXT(FilePath.build().ofPath("/test/novel").ofFileName("test.txt").path()));
+        } catch (Exception e) {
             e.printStackTrace();
         }
     }

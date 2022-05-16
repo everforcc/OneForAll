@@ -1,7 +1,7 @@
 package cn.cc.dawn.open.auth.util;
 
 import cn.cc.dawn.config.init.application.ApplicationContextInit;
-import cn.cc.dawn.open.auth.cache.ICustomerUser;
+import cn.cc.dawn.open.auth.cache.CustomerUserCache;
 import cn.cc.dawn.open.auth.dto.CustomUser;
 import cn.cc.dawn.utils.algo.AESUtil;
 import cn.cc.dawn.utils.algo.UUIDUtils;
@@ -64,7 +64,7 @@ public class CustomUserBuilder {
          */
         CacheManager cacheManager = ApplicationContextInit.getBean(CacheManager.class);
 
-        Cache cache = cacheManager.getCache(ICustomerUser.USER_TOKEN);
+        Cache cache = cacheManager.getCache(CustomerUserCache.CUSTOMERUSER_TOKEN);
 
         String token = cache.get(customUser.getUsername(),String.class);
 
@@ -94,7 +94,7 @@ public class CustomUserBuilder {
          */
         CacheManager cacheManager = ApplicationContextInit.getBean(CacheManager.class);
 
-        Cache cache = cacheManager.getCache(ICustomerUser.USER_TOKEN);
+        Cache cache = cacheManager.getCache(CustomerUserCache.CUSTOMERUSER_TOKEN);
         cache.clear();
     }
 

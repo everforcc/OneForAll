@@ -1,6 +1,6 @@
 package cn.cc.dawn.open.auth.service;
 
-import cn.cc.dawn.open.auth.cache.ICustomerUser;
+import cn.cc.dawn.open.auth.cache.CustomerUserCache;
 import cn.cc.dawn.open.auth.dao.CustomUserDaoMapper;
 import cn.cc.dawn.open.auth.dto.CustomUser;
 import cn.cc.dawn.open.auth.vo.CustomUserLoginVO;
@@ -19,7 +19,7 @@ public class AuthService {
     @Resource
     CustomUserDaoMapper customUserDao;
 
-    @Cacheable(cacheNames = ICustomerUser.USER_TOKEN,key = "#username")
+    @Cacheable(cacheNames = CustomerUserCache.CUSTOMERUSER_TOKEN,key = "#username")
     public String authToken(String username, CustomUserLoginVO customUserLoginVO){
         log.info("用户: " + customUserLoginVO);
         CustomUser customUser = customUserDao.selectUser(username,customUserLoginVO.getPassword());

@@ -2,7 +2,7 @@ package cn.cc.dawn.open.auth.dto;
 
 import cn.cc.dawn.config.convert.StringAryTranConvert;
 import cn.cc.dawn.utils.dto.CommonFiledDto;
-import cn.cc.dawn.open.auth.cache.ICustomerUser;
+import cn.cc.dawn.open.auth.cache.CustomerUserCache;
 import cn.cc.dawn.utils.algo.AESUtil;
 import cn.cc.dawn.utils.algo.UUIDUtils;
 import cn.cc.dawn.utils.check.ObjectUtils;
@@ -73,7 +73,7 @@ public class CustomUser extends CommonFiledDto implements UserDetails {
         // 拿到user取数据库查询
         // 在redis 检查是否存在，如果不存在
         AppCode.A00102.assertHasTrue(ObjectUtils.nonNull(customUser));
-        AppCode.A00102.assertHasTrue(redis.hasKeyCacheAble(ICustomerUser.USER_TOKEN,customUser.getUsername()));
+        AppCode.A00102.assertHasTrue(redis.hasKeyCacheAble(CustomerUserCache.CUSTOMERUSER_TOKEN,customUser.getUsername()));
 
         return customUser;
     }

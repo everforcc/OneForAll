@@ -6,7 +6,7 @@ public class LogConstant {
 
     public static String START = Strings.repeat("┬", 200);
     public static String END = Strings.repeat("┴", 200);
-    public static String SPLIT = Strings.repeat("-", 10);
+    public static String SPLIT = Strings.repeat("-", 100);
 
     public static String formatStr = "[%s]";
 

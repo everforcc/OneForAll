@@ -2,14 +2,14 @@
 <!DOCTYPE mapper
         PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
         "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
-<mapper namespace="cn.cc.dawn.local.craw.web.data.dao.WebSiteDataMapper">
+<mapper namespace="cn.cc.dawn.local.craw.business.data.dao.WebSiteDataMapper">
 
     <sql id="effect_sql">
         WHERE effect = #{effect } AND status = #{status}
     </sql>
 
     <!--  -->
-    <select id="selectBYParentid" resultType="cn.cc.dawn.local.craw.web.data.dto.WebSiteDataDto">
+    <select id="selectBYParentid" resultType="cn.cc.dawn.local.craw.business.data.dto.WebSiteDataDto">
         select * from cc_websitedata
         <!--<include refid="effect_sql" />
         and-->
@@ -21,16 +21,20 @@
     <insert id="insert" useGeneratedKeys="true" keyProperty="id"  keyColumn="id">
         INSERT INTO `oneforall`.`cc_websitedata` (
             `parentid`,
-            `type`,
+            `medium`,
             `html`,
+            `path`,
+            `filename`,
             `effect`,
             `status`
         )
         VALUES
             (
                 #{parentid},
-                #{type},
+                #{medium},
                 #{html},
+                #{path},
+                #{filename},
                 #{effect},
                 #{status}
             );

@@ -17,7 +17,7 @@ public class SeleniumDriver {
 
     public static WebDriver chromeDriver(){
         ChromeOptions chromeOptions = new ChromeOptions();
-        chromeOptions.setHeadless(true);
+        //chromeOptions.setHeadless(true);
         WebDriver driver = new ChromeDriver(chromeOptions);
         return driver;
     }

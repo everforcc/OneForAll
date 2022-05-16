@@ -1,5 +1,6 @@
 package cn.cc.dawn.demo.init.yml.controller;
 
+import cn.cc.dawn.config.init.yml.APPConfiguration;
 import cn.cc.dawn.config.init.yml.APPConfigurationTest;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.GetMapping;
@@ -15,6 +16,8 @@ public class ConfigController {
      */
     @Autowired
     private APPConfigurationTest configurationData;
+    @Autowired
+    private APPConfiguration appConfiguration;
 
     @GetMapping("/str")
     public String str(){
@@ -24,6 +27,11 @@ public class ConfigController {
     @GetMapping("/strList")
     public String strList(){
         return configurationData.getStringList().toString();
+    }
+
+    @GetMapping("/filePath")
+    public String filePath(){
+        return appConfiguration.getFilepath();
     }
 
 }

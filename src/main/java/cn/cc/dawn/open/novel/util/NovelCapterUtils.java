@@ -44,7 +44,7 @@ public class NovelCapterUtils {
     public static String fileToStr(String path){
         String str = "";
         try {
-            str = apacheiFile.read(path);
+            str = apacheiFile.readTXT(path);
         } catch (Exception e) {
             e.printStackTrace();
         }

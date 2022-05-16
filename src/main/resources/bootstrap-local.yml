@@ -27,6 +27,7 @@ app:
   cache:
     customuser: { cachekey: USER_TOKEN,expired: 24h }
   defaultaeskey: defaultaeskey
+  filepath: E:\filesystem\project\OneForAll
   conditional:
     express: true
   files:

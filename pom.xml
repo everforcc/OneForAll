@@ -402,6 +402,22 @@
             <version>${junit.version}</version>
         </dependency>
 
+        <!-- google 二维码 -->
+        <!-- https://mvnrepository.com/artifact/com.google.zxing/core -->
+        <dependency>
+            <groupId>com.google.zxing</groupId>
+            <artifactId>core</artifactId>
+            <version>3.5.0</version>
+        </dependency>
+        <dependency>
+            <groupId>com.google.zxing</groupId>
+            <artifactId>javase</artifactId>
+            <version>3.5.0</version>
+        </dependency>
+
+
+
+
     </dependencies>
     <!-- 依赖包 -->
 

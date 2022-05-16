@@ -3,7 +3,7 @@ package cn.cc.dawn.local.craw.business.ys.service.impl;
 import cn.cc.dawn.local.craw.business.ys.dao.YsCardDaoMapper;
 import cn.cc.dawn.local.craw.business.ys.dto.YsCardVO;
 import cn.cc.dawn.local.craw.business.ys.service.YsCardService;
-import cn.cc.dawn.local.craw.web.data.dto.HttpParamDto;
+import cn.cc.dawn.local.craw.business.data.dto.HttpParamDto;
 import cn.cc.dawn.utils.check.ObjectUtils;
 import cn.cc.dawn.utils.check.StringUtils;
 import cn.cc.dawn.utils.enums.CharsetsEnum;

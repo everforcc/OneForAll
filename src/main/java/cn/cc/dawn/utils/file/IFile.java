@@ -27,11 +27,18 @@ public interface IFile {
 
     void rename();
 
-    void write(String path,String content) throws IOException;
+    void write(String path,String content);
+    void write(String path,String fileName,String content);
 
-    void write(String path,byte[] bytes) throws IOException;
+    void write(String path,byte[] bytes);
 
-    String read(String path) throws IOException;
+    void write(String path,String fileName,byte[] bytes);
+
+    String readTXT(String path);
+
+    byte[] readBytes(String path);
+
+    boolean exist(String path);
 
     /**
      * 设置文件权限,根据系统区分

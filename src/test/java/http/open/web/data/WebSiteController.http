@@ -1,22 +1,13 @@
-
 ### 01. 主表
-GET http://localhost:81/open/craw/add/addroot
-Accept: application/json
-
-{
-"webroot": "https://www.jokerlu6.pw/"
-}
-
-###
 POST http://localhost:81/open/craw/add/addroot
 Accept: application/json
 Content-Type: application/json
 
 {
-"webroot": "https://www.internetdownloadmanager.com/",
-"webname": "IDM",
+"webroot": "https://i0.hdslb.com",
+"webname": "bilibili图床",
 "softtype": "web",
-"webtype": "软件",
+"webtype": "图床",
 "vip": "EFFECT"
 }
 

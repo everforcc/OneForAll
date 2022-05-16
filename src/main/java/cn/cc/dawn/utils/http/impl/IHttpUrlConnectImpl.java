@@ -1,6 +1,6 @@
 package cn.cc.dawn.utils.http.impl;
 
-import cn.cc.dawn.local.craw.web.data.dto.HttpParamDto;
+import cn.cc.dawn.local.craw.business.data.dto.HttpParamDto;
 import cn.cc.dawn.utils.RandomUtils;
 import cn.cc.dawn.utils.enums.BooleanEnum;
 import cn.cc.dawn.utils.exception.AppCode;
@@ -28,6 +28,11 @@ public class IHttpUrlConnectImpl implements IHttp {
     public String getMsg(HttpParamDto httpParamDto){
         InputStream inputStream = getStream(httpParamDto);
         return bufferReaderToStr(inputStream, httpParamDto.getCharset().charset.toString(), BooleanEnum.FALSE.flag);
+    }
+
+    @Override
+    public byte[] getBytes(HttpParamDto httpParamDto) {
+        return new byte[0];
     }
 
     @Override
