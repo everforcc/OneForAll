@@ -18,15 +18,23 @@ public class ReturnEController {
     @Autowired
     private ReturnEexceptionService returnEexceptionService;
 
-    @GetMapping("/exception")
-    public ResultE<String> feignClient(){
+    /**
+     * 返回数据
+     * @return
+     */
+    @GetMapping("/testExceptionReturn")
+    public ResultE<String> testExceptionReturn(){
         return new ResultE<String>().execute(e ->{
             e.setSuccess(returnEexceptionService.userException());
         });
     }
 
-    @GetMapping("/retVoid")
-    public ResultE<Void> retVoid(){
+    /**
+     * 返回空
+     * @return
+     */
+    @GetMapping("/testReturnVoid")
+    public ResultE<Void> testReturnVoid(){
         return new ResultE<Void>().call(() ->{
             log.info("返回值为空");
             returnEexceptionService.userException();

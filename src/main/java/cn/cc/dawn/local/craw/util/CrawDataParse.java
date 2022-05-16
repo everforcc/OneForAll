@@ -25,12 +25,11 @@ public class CrawDataParse {
      * @return
      */
     public static String urlToPath(String url){
-
         return HttpParamUtils.urlToPathWithOutLast(url);
     }
 
     /**
-     * 如果没写就默认后缀
+     * 默认后缀
      * 从url获取文件名
      * @param url
      * @return

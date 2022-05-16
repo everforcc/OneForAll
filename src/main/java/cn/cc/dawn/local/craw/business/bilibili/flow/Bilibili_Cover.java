@@ -1,5 +1,6 @@
 package cn.cc.dawn.local.craw.business.bilibili.flow;
 
+import cn.cc.dawn.local.craw.business.bilibili.constant.BilAlbumRegex;
 import cn.cc.dawn.local.craw.business.bilibili.constant.BilConstant;
 import cn.cc.dawn.local.craw.business.bilibili.utils.BilHelper;
 import cn.cc.dawn.local.craw.business.bilibili.utils.Method_down;
@@ -51,7 +52,7 @@ public class Bilibili_Cover {
 
         for (Element element : et) {
             //正则匹配url
-            Pattern pattern = Pattern.compile(BilConstant.regex);
+            Pattern pattern = Pattern.compile(BilAlbumRegex.regex);
             String url = element.attr("content");
             Matcher matcher = pattern.matcher(url);
             //是否匹配到了

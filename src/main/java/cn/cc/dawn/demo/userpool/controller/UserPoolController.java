@@ -15,14 +15,14 @@ public class UserPoolController {
     @Autowired
     UserPoolService userPoolService;
 
-    @GetMapping("/tpool")
-    public void tPool(){
-        userPoolService.tPool();
+    @GetMapping("/testPool")
+    public void testPool(){
+        userPoolService.testPool();
     }
 
-    @GetMapping("/tpool2")
-    public void tPool2(){
-        userPoolService.tPool2();
+    @GetMapping("/testPool2")
+    public void testPool2(){
+        userPoolService.testPool2();
     }
 
 }

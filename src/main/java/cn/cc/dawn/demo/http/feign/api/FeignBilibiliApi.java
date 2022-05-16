@@ -1,4 +1,4 @@
-package cn.cc.dawn.demo.mail.feign;
+package cn.cc.dawn.demo.http.feign.api;
 
 import com.alibaba.fastjson.JSONObject;
 import org.springframework.cloud.openfeign.FeignClient;
@@ -11,6 +11,6 @@ import static org.springframework.http.MediaType.APPLICATION_JSON_VALUE;
 public interface FeignBilibiliApi {
 
     @PostMapping(value = "/link_draw/v1/doc/upload_count?uid=%s", produces = APPLICATION_JSON_VALUE, consumes = APPLICATION_JSON_VALUE)
-    JSONObject getAlbumCount(@RequestParam("uid")String uid);
+    JSONObject apiAlbumCount(@RequestParam("uid")String uid);
 
 }

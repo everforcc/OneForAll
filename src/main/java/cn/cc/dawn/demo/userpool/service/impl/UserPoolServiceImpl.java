@@ -17,7 +17,7 @@ public class UserPoolServiceImpl implements UserPoolService {
     ISelenium iSelenium;
 
     @Override
-    public void tPool() {
+    public void testPool() {
         final String url = "http://www.3diyibanzhu.xyz/20/20412/701424_";
         SeleniumPool seleniumPool  = SeleniumPool.getInstantce();
         //iSelenium.getHTML(url + 1 + ".html",seleniumPool);
@@ -31,7 +31,7 @@ public class UserPoolServiceImpl implements UserPoolService {
     }
 
     @Override
-    public void tPool2() {
+    public void testPool2() {
         final String url = "https://www.baidu.com/s?wd=";
         SeleniumPool seleniumPool  = SeleniumPool.getInstantce();
         //iSelenium.getHTML(url + 1 + ".html",seleniumPool);

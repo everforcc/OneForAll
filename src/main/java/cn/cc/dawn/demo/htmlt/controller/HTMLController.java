@@ -5,6 +5,9 @@ import com.alibaba.fastjson.JSONObject;
 import lombok.extern.slf4j.Slf4j;
 import org.springframework.web.bind.annotation.*;
 
+/**
+ * 前端页面测试代码
+ */
 @RequestMapping(value = "/demo/htmlController")
 @RestController
 @Slf4j

@@ -29,4 +29,13 @@ public class Kaoshi {
         //System.out.println(i);
     }
 
+    @Test
+    void t_11(){
+
+        int i = 10;
+        i = ++i;
+        System.out.println(i);
+        //System.out.println(i);
+    }
+
 }

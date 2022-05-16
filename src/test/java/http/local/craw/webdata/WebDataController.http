@@ -16,8 +16,8 @@ POST http://localhost:81/open/craw/wenku/content
 Accept: application/json
 
 {
-"weburl": "https://i0.hdslb.com/bfs/album/308b467c7c8df0c35b4ab804483276b6bfcd3c82.png",
+"weburl": "https://www.wenku8.net/novel/1/1973/75974.htm",
 "sofytype": "web",
-"webtype": "图片",
+"webtype": "轻小说",
 filetype: 1
 }
