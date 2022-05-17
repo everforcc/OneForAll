@@ -1,5 +1,5 @@
 ###
-GET http://localhost:81/open/craw/bdwp/method_a?expires_in=123
+GET http://localhost:81/open/craw/bdwp/method_a?code=d4af13855402505321d2677302d61492
 Accept: application/json
 
 ###
@@ -26,3 +26,5 @@ Accept: application/json
 ###
 GET http://180.76.156.43:8080/open/craw/bdwp/method_b?expires_in=86400&access_token=1.79b233866fb427d6bb7f0651947b5591.86400.1311151425.3238112329-131640&session_secret=1c07e054952628711b61228f44f46332&session_key=9XMZMoWRoE6Or%2BHLlFGhB1%2FBH2l3Jzi2CLOxIVVbcAMnUT8tyKeNiyF6oPQESDa9UTcD0uYuYtULwe3LbqKNvc90wOkY&scope=basic
 Accept: application/json
+
+### d4af13855402505321d2677302d61492

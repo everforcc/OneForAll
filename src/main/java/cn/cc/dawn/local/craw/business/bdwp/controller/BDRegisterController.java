@@ -30,7 +30,7 @@ public class BDRegisterController {
     IBDRegisterService ibdRegisterService;
 
     @GetMapping("/method_a")
-    public void method_a(@RequestParam(value = "expires_in",required = false)String expires_in,
+    public String method_a(@RequestParam(value = "expires_in",required = false)String expires_in,
                              @RequestParam(value = "access_token",required = false)String access_token,
                              @RequestParam(value = "session_secret",required = false)String session_secret,
                              @RequestParam(value = "session_key",required = false)String session_key,
@@ -47,11 +47,13 @@ public class BDRegisterController {
         bdRegisterDto.setSession_secret(session_secret);
         bdRegisterDto.setSession_key(session_key);
         bdRegisterDto.setScope(scope);
-        ibdRegisterService.saveRedis_1(bdRegisterDto);
+        bdRegisterDto.setCode(code);
+
+        return JSONObject.toJSONString(ibdRegisterService.saveRedis_1(bdRegisterDto));
     }
 
     @GetMapping("/method_a/")
-    public void method_a2(@RequestParam(value = "expires_in",required = false)String expires_in,
+    public String method_a2(@RequestParam(value = "expires_in",required = false)String expires_in,
                          @RequestParam(value = "access_token",required = false)String access_token,
                          @RequestParam(value = "session_secret",required = false)String session_secret,
                          @RequestParam(value = "session_key",required = false)String session_key,
@@ -68,11 +70,12 @@ public class BDRegisterController {
         bdRegisterDto.setSession_secret(session_secret);
         bdRegisterDto.setSession_key(session_key);
         bdRegisterDto.setScope(scope);
-        ibdRegisterService.saveRedis_1(bdRegisterDto);
+        bdRegisterDto.setCode(code);
+        return JSONObject.toJSONString(ibdRegisterService.saveRedis_1(bdRegisterDto));
     }
 
     @GetMapping("/method_b")
-    public void method_b1(@RequestParam(value = "expires_in",required = false)String expires_in,
+    public String method_b1(@RequestParam(value = "expires_in",required = false)String expires_in,
                           @RequestParam(value = "access_token",required = false)String access_token,
                           @RequestParam(value = "session_secret",required = false)String session_secret,
                           @RequestParam(value = "session_key",required = false)String session_key,
@@ -90,11 +93,11 @@ public class BDRegisterController {
         bdRegisterDto.setSession_key(session_key);
         bdRegisterDto.setScope(scope);
         bdRegisterDto.setCode(code);
-        ibdRegisterService.saveRedis_2(bdRegisterDto);
+        return JSONObject.toJSONString(ibdRegisterService.saveRedis_2(bdRegisterDto));
     }
 
     @GetMapping("/method_b/")
-    public void method_b2(@RequestParam(value = "expires_in",required = false)String expires_in,
+    public String method_b2(@RequestParam(value = "expires_in",required = false)String expires_in,
                          @RequestParam(value = "access_token",required = false)String access_token,
                          @RequestParam(value = "session_secret",required = false)String session_secret,
                          @RequestParam(value = "session_key",required = false)String session_key,
@@ -112,7 +115,7 @@ public class BDRegisterController {
         bdRegisterDto.setSession_key(session_key);
         bdRegisterDto.setScope(scope);
         bdRegisterDto.setCode(code);
-        ibdRegisterService.saveRedis_2(bdRegisterDto);
+        return JSONObject.toJSONString(ibdRegisterService.saveRedis_2(bdRegisterDto));
     }
 
 }
