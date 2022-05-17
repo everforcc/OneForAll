@@ -50,18 +50,61 @@ public class BDRegisterController {
         ibdRegisterService.saveRedis_1(bdRegisterDto);
     }
 
-    @GetMapping("/method_b/")
-    public void method_b(@RequestParam(value = "expires_in",required = false)String expires_in,
+    @GetMapping("/method_a/")
+    public void method_a2(@RequestParam(value = "expires_in",required = false)String expires_in,
                          @RequestParam(value = "access_token",required = false)String access_token,
                          @RequestParam(value = "session_secret",required = false)String session_secret,
                          @RequestParam(value = "session_key",required = false)String session_key,
                          @RequestParam(value = "scope",required = false)String scope,
                          @RequestParam(value = "code",required = false)String code){
-        log.info("b: expires_in: " + expires_in);
-        log.info("b: access_token: " + access_token);
-        log.info("b: session_secret: " + session_secret);
-        log.info("b: session_key: " + session_key);
-        log.info("b: scope: " + scope);
+        log.info("method_a2: expires_in: " + expires_in);
+        log.info("method_a2: access_token: " + access_token);
+        log.info("method_a2: session_secret: " + session_secret);
+        log.info("method_a2: session_key: " + session_key);
+        log.info("method_a2: scope: " + scope);
+        BDRegisterDto bdRegisterDto = new BDRegisterDto();
+        bdRegisterDto.setExpires_in(expires_in);
+        bdRegisterDto.setAccess_token(access_token);
+        bdRegisterDto.setSession_secret(session_secret);
+        bdRegisterDto.setSession_key(session_key);
+        bdRegisterDto.setScope(scope);
+        ibdRegisterService.saveRedis_1(bdRegisterDto);
+    }
+
+    @GetMapping("/method_b")
+    public void method_b1(@RequestParam(value = "expires_in",required = false)String expires_in,
+                          @RequestParam(value = "access_token",required = false)String access_token,
+                          @RequestParam(value = "session_secret",required = false)String session_secret,
+                          @RequestParam(value = "session_key",required = false)String session_key,
+                          @RequestParam(value = "scope",required = false)String scope,
+                          @RequestParam(value = "code",required = false)String code){
+        log.info("method_b1: expires_in: " + expires_in);
+        log.info("method_b1: access_token: " + access_token);
+        log.info("method_b1: session_secret: " + session_secret);
+        log.info("method_b1: session_key: " + session_key);
+        log.info("method_b1: scope: " + scope);
+        BDRegisterDto bdRegisterDto = new BDRegisterDto();
+        bdRegisterDto.setExpires_in(expires_in);
+        bdRegisterDto.setAccess_token(access_token);
+        bdRegisterDto.setSession_secret(session_secret);
+        bdRegisterDto.setSession_key(session_key);
+        bdRegisterDto.setScope(scope);
+        bdRegisterDto.setCode(code);
+        ibdRegisterService.saveRedis_2(bdRegisterDto);
+    }
+
+    @GetMapping("/method_b/")
+    public void method_b2(@RequestParam(value = "expires_in",required = false)String expires_in,
+                         @RequestParam(value = "access_token",required = false)String access_token,
+                         @RequestParam(value = "session_secret",required = false)String session_secret,
+                         @RequestParam(value = "session_key",required = false)String session_key,
+                         @RequestParam(value = "scope",required = false)String scope,
+                         @RequestParam(value = "code",required = false)String code){
+        log.info("method_b2: expires_in: " + expires_in);
+        log.info("method_b2: access_token: " + access_token);
+        log.info("method_b2: session_secret: " + session_secret);
+        log.info("method_b2: session_key: " + session_key);
+        log.info("method_b2: scope: " + scope);
         BDRegisterDto bdRegisterDto = new BDRegisterDto();
         bdRegisterDto.setExpires_in(expires_in);
         bdRegisterDto.setAccess_token(access_token);
