@@ -14,12 +14,12 @@
     <!-- 版本升级会有很多冲突，暂时不会 -->
 
     <!-- 虽然想 -->
-    <!--<parent>
+    <parent>
         <groupId>org.springframework.boot</groupId>
         <artifactId>spring-boot-starter-parent</artifactId>
         <version>2.2.6.RELEASE</version>
         <relativePath/>
-    </parent>-->
+    </parent>
 
     <!--  可选配置多模块 modules -->
     <properties>
@@ -446,6 +446,7 @@
             <plugin>
                 <groupId>org.springframework.boot</groupId>
                 <artifactId>spring-boot-maven-plugin</artifactId>
+                <version>${spring-boot}</version>
             </plugin>
 
             <!-- Please refer to dump files (if any exist) [date].dump, [date]-jvmRun[N].dump and [date].dumpstream. -->
