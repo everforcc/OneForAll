@@ -1,6 +1,7 @@
 package cn.cc.dawn.config.init.yml;
 
 import cn.cc.dawn.config.cache.AppCache;
+import cn.cc.dawn.local.craw.business.bdwp.dto.BDRegisterDto;
 import cn.cc.dawn.local.craw.business.data.dto.WebSiteDto;
 import com.alibaba.fastjson.support.spring.FastJsonRedisSerializer;
 import lombok.AllArgsConstructor;
@@ -43,6 +44,7 @@ public class APPConfigurationCache {
 
     AppCache WebDataCacheMain;
 
+    AppCache BDRegister;
 
     @Bean
     public CacheManager cacheManager(final RedisConnectionFactory redisConnectionFactory) {
@@ -71,6 +73,11 @@ public class APPConfigurationCache {
                         .entryTtl(WebDataCacheMain.getExpired()) // 设置过期时间
                         .disableCachingNullValues() // 禁止缓存 null 值
                         .serializeValuesWith(RedisSerializationContext.SerializationPair.fromSerializer(new FastJsonRedisSerializer<>(WebSiteDto.class)))
+                )
+                .withCacheConfiguration(BDRegister.getCachekey(), RedisCacheConfiguration.defaultCacheConfig()
+                        .entryTtl(BDRegister.getExpired()) // 设置过期时间
+                        .disableCachingNullValues() // 禁止缓存 null 值
+                        .serializeValuesWith(RedisSerializationContext.SerializationPair.fromSerializer(new FastJsonRedisSerializer<>(BDRegisterDto.class)))
                 )
                 .build();
     }

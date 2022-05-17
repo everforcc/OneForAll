@@ -91,6 +91,7 @@ app:
     customerUserToken: { cachekey: CUSTOMERUSER_TOKEN,expired: 1h }
     redisCacheTest: { cachekey: REDISCACHETEST,expired: 1h }
     WebDataCacheMain: { cachekey: WEBDATACACHE_MAIN,expired: 24h }
+    BDRegister: { cachekey: BDREGISTER,expired: 24h }
   defaultaeskey: defaultaeskey
   conditional:
     express: true

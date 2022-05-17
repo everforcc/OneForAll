@@ -31,7 +31,7 @@ app:
     express: true
   files:
     path: /home/filesystem
-    type: LOCAL
+    type: MYSQL
   test:
     str: bdy
     stringList:
