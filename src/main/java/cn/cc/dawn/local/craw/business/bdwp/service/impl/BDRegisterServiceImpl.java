@@ -22,14 +22,14 @@ import org.springframework.stereotype.Service;
 @Service
 public class BDRegisterServiceImpl implements IBDRegisterService {
 
-    @Cacheable(cacheNames = BDRegisterCache.BDRegister,key = "#bdRegisterDto.access_token")
+    @Cacheable(cacheNames = BDRegisterCache.BDRegister,key = "#bdRegisterDto.num")
     @Override
     public BDRegisterDto saveRedis_1(BDRegisterDto bdRegisterDto) {
         log.info("saveRedis_1");
         return bdRegisterDto;
     }
 
-    @Cacheable(cacheNames = BDRegisterCache.BDRegister,key = "#bdRegisterDto.access_token")
+    @Cacheable(cacheNames = BDRegisterCache.BDRegister,key = "#bdRegisterDto.num")
     @Override
     public BDRegisterDto saveRedis_2(BDRegisterDto bdRegisterDto) {
         log.info("saveRedis_2");

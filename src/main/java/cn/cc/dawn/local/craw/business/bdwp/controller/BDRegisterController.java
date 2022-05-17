@@ -34,7 +34,8 @@ public class BDRegisterController {
                              @RequestParam(value = "access_token",required = false)String access_token,
                              @RequestParam(value = "session_secret",required = false)String session_secret,
                              @RequestParam(value = "session_key",required = false)String session_key,
-                             @RequestParam(value = "scope",required = false)String scope){
+                             @RequestParam(value = "scope",required = false)String scope,
+                             @RequestParam(value = "code",required = false)String code){
         log.info("a: expires_in: " + expires_in);
         log.info("a: access_token: " + access_token);
         log.info("a: session_secret: " + session_secret);
@@ -49,12 +50,13 @@ public class BDRegisterController {
         ibdRegisterService.saveRedis_1(bdRegisterDto);
     }
 
-    @GetMapping("/method_b")
+    @GetMapping("/method_b/")
     public void method_b(@RequestParam(value = "expires_in",required = false)String expires_in,
                          @RequestParam(value = "access_token",required = false)String access_token,
                          @RequestParam(value = "session_secret",required = false)String session_secret,
                          @RequestParam(value = "session_key",required = false)String session_key,
-                         @RequestParam(value = "scope",required = false)String scope){
+                         @RequestParam(value = "scope",required = false)String scope,
+                         @RequestParam(value = "code",required = false)String code){
         log.info("b: expires_in: " + expires_in);
         log.info("b: access_token: " + access_token);
         log.info("b: session_secret: " + session_secret);
@@ -66,6 +68,7 @@ public class BDRegisterController {
         bdRegisterDto.setSession_secret(session_secret);
         bdRegisterDto.setSession_key(session_key);
         bdRegisterDto.setScope(scope);
+        bdRegisterDto.setCode(code);
         ibdRegisterService.saveRedis_2(bdRegisterDto);
     }
 

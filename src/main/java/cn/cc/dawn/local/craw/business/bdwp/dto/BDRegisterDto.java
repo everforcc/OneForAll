@@ -23,10 +23,14 @@ import lombok.Setter;
 @AllArgsConstructor
 public class BDRegisterDto {
 
+    private static int i = 1;
+
     private String expires_in;
     private String access_token;
     private String session_secret;
     private String session_key;
     private String scope;
+    private String code;
+    private int num = i++;
 
 }
