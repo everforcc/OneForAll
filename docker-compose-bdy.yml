@@ -13,6 +13,8 @@ services:
       - 8080:8080 # 前linux端口，后docke启动镜像的端口
     environment:
       LOG_HOME: byd_log_home
+      JAVA_OPTS: # 配置 jvm 参数 -Ddruid.mysql.usePingMethod=false
+        -Dlog.home=/app
     volumes:
       - './docker/logs:/app/logs'
       - './docker/files:/app/files'
