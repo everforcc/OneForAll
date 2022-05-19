@@ -1,6 +1,8 @@
 package cn.cc.dawn.open.auth.dto;
 
 import cn.cc.dawn.config.convert.StringAryTranConvert;
+import cn.cc.dawn.config.convert.StringListTranConvert;
+import cn.cc.dawn.utils.check.StringUtils;
 import cn.cc.dawn.utils.dto.CommonFiledDto;
 import cn.cc.dawn.open.auth.cache.CustomerUserCache;
 import cn.cc.dawn.utils.algo.AESUtil;
@@ -18,9 +20,7 @@ import org.springframework.security.core.userdetails.UserDetails;
 import org.springframework.stereotype.Component;
 
 import javax.persistence.Convert;
-import java.util.ArrayList;
-import java.util.Collection;
-import java.util.List;
+import java.util.*;
 import java.util.stream.Collectors;
 
 @Slf4j
@@ -42,8 +42,8 @@ public class CustomUser extends CommonFiledDto implements UserDetails {
      * 然后使用的时候再查出来
      *
      */
-    @Convert(converter = StringAryTranConvert.class)
-    private List<String> roles;
+    //@Convert(converter = StringListTranConvert.class)
+    private String roles;
 
     public String token(){
         // 生成token
@@ -91,13 +91,18 @@ public class CustomUser extends CommonFiledDto implements UserDetails {
     public Collection<? extends GrantedAuthority> getAuthorities() {
 
 
-        roles = new ArrayList<>();
+        /*roles = new ArrayList<>();
         roles.add(UserRole.ROLE_ROOT);
         roles.add(UserRole.ROLE_ADMIN);
         roles.add(UserRole.ROLE_TEST);
-        roles.add(UserRole.ROLE_GUEST);
+        roles.add(UserRole.ROLE_GUEST);*/
 
-        return roles
+        if(StringUtils.isBlank(roles)){
+            return Collections.emptyList();
+        }
+
+        List<String> roleList = Arrays.asList(roles.split(","));
+        return roleList
                 .stream()
                 .map(SimpleGrantedAuthority::new)
                 .collect(Collectors.toList());
@@ -133,5 +138,20 @@ public class CustomUser extends CommonFiledDto implements UserDetails {
 //        }
 //        return super.equals(obj);
 //    }
+
+    public static void main(String[] args) {
+//        CustomUser customUser = new CustomUser();
+//        List<String> stringList = new ArrayList<>();
+//        stringList.add(UserRole.ROLE_ROOT);
+//        stringList.add(UserRole.ROLE_USER);
+//        customUser.setRoles(stringList);
+//        StringListTranConvert stringListTranConvert = new StringListTranConvert();
+//        String result = stringListTranConvert.convertToDatabaseColumn(stringList);
+//        System.out.println(result);
+//        List<String> stringListResult = stringListTranConvert.convertToEntityAttribute(result);
+//
+//        stringListResult.forEach(System.out::println);
+    }
+
 }
 

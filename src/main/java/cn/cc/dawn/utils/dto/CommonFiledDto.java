@@ -40,9 +40,18 @@ public class CommonFiledDto {
         return JSONObject.toJSONString(this);
     }
 
-    public CommonFiledDto(Integer userid) {
-        this.createUserid = userid;
-        this.updateUserid = userid;
+    public CommonFiledDto(Integer createUserid,Integer updateUserid) {
+        this.createUserid = createUserid;
+        this.updateUserid = updateUserid;
+        this.uuid = UUID.randomUUID().toString().replace("-", "");;
+        this.createTime = nowTime();
+        this.updateTime = nowTime();
+        this.effect = StatusEnum.EFFECT;
+        this.status = StatusEnum.EFFECT;
+    }
+
+    public CommonFiledDto(Integer updateUserid) {
+        this.updateUserid = updateUserid;
         this.uuid = UUID.randomUUID().toString().replace("-", "");;
         this.createTime = nowTime();
         this.updateTime = nowTime();
@@ -51,7 +60,13 @@ public class CommonFiledDto {
     }
 
     public static CommonFiledDto save(Object userid){
-        return new CommonFiledDto( Integer.parseInt(userid.toString()));
+        int createUserid = Integer.parseInt(userid.toString());
+        return new CommonFiledDto(createUserid,createUserid);
+    }
+
+    public static CommonFiledDto update(Object userid){
+        int updateUserid = Integer.parseInt(userid.toString());
+        return new CommonFiledDto(updateUserid);
     }
 
     public static Timestamp nowTime(){

@@ -4,13 +4,19 @@
         "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
 <mapper namespace="cn.cc.dawn.open.auth.dao.CustomUserDaoMapper">
 
+    <sql id="effect_sql">
+        WHERE effect = 1 AND status = 1
+    </sql>
+
     <!-- 插入 -->
     <!--<insert id="insertOrder">
 
     </insert>-->
 
     <select id="selectUser" resultType="cn.cc.dawn.open.auth.dto.CustomUser">
-        SELECT * FROM cc_custom_user where username = #{username} and password = #{password};
+        SELECT id,roles,username,password FROM cc_custom_user
+        <include refid="effect_sql" />
+        and username = #{username} and password = #{password};
     </select>
 
 </mapper>

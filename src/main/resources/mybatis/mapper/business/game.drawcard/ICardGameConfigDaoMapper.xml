@@ -1,0 +1,45 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper
+        PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+        "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="cn.cc.dawn.business.game.drawcard.dao.ICardGameConfigDaoMapper">
+
+    <sql id="effect_sql">
+        WHERE effect=1 AND STATUS=1
+    </sql>
+
+    <!-- 列表查询 -->
+    <select id="listGameConfig" resultType="cn.cc.dawn.business.game.drawcard.dto.CardGameConfigDto">
+        SELECT * FROM cc_game_user_drawcardconfig
+        <include refid="effect_sql" />
+    </select>
+
+    <select id="selectGameConfig" resultType="cn.cc.dawn.business.game.drawcard.dto.CardGameConfigDto">
+        SELECT * FROM cc_game_user_drawcardconfig
+        <include refid="effect_sql" />
+        and uuid = #{uuid} ;
+    </select>
+
+    <insert id="insert">
+        INSERT INTO `oneforall`.`cc_game_user_drawcardconfig` (
+            `uuid`,
+            `description`,
+            `notice`,
+            `gameName`,
+            `baseProbability`,
+            `createUserid`,
+            `updateUserid`
+        )
+        VALUES
+            (
+                #{uuid},
+                #{description},
+                #{notice},
+                #{gameName},
+                #{baseProbability},
+                #{createUserid},
+                #{updateUserid}
+            );
+    </insert>
+
+</mapper>

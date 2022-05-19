@@ -1,0 +1,43 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper
+        PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+        "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="cn.cc.dawn.business.game.drawcard.dao.ICardGameLogDaoMapper">
+
+    <sql id="effect_sql">
+        WHERE effect=1 AND STATUS=1
+    </sql>
+
+    <insert id="insert">
+        INSERT INTO `oneforall`.`cc_game_user_drawcardlog` (
+            `uuid`,
+            `userid`,
+            `gameid`,
+            `gameProbability`,
+            `userProbability`,
+            `result`,
+            `createUserid`,
+            `updateUserid`
+        )
+        VALUES
+            (
+                #{uuid},
+                #{userid},
+                #{gameid},
+                #{gameProbability},
+                #{userProbability},
+                #{result},
+                #{createUserid},
+                #{updateUserid}
+            );
+
+    </insert>
+
+    <select id="listUserLog" resultType="cn.cc.dawn.business.game.drawcard.dto.CardGameLog">
+        SELECT * FROM cc_game_user_drawcardlog
+        <include refid="effect_sql" />
+        AND userid = #{userid}
+        AND gameid = #{gameid};
+    </select>
+
+</mapper>
