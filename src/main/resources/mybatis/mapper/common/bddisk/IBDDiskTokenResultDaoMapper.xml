@@ -1,0 +1,71 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper
+        PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+        "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="cn.cc.dawn.common.bddisk.dao.IBDDiskTokenResultDaoMapper">
+
+    <sql id="effect_sql">
+        WHERE effect=1 AND STATUS=1
+    </sql>
+
+    <resultMap id="BDDiskTokenResultDtoMap" type="cn.cc.dawn.common.bddisk.dto.BDDiskTokenResultDto">
+        <id column="id" property="id"/><!--主键映射-->
+        <result column="uuid" property="uuid"/><!--数据库表字段到实体类属性的映射-->
+        <result column="access_token" property="access_token"/>
+        <result column="expires_in" property="expires_in"/>
+        <result column="refresh_token" property="refresh_token"/>
+        <result column="scope" property="scope"/>
+    </resultMap>
+
+    <select id="select" resultMap="BDDiskTokenResultDtoMap">
+        SELECT * FROM cc_bd_disk_token
+        <include refid="effect_sql" />
+        and createUserid = #{createUserid}
+        ORDER BY id DESC LIMIT 0,1 ;
+    </select>
+
+    <insert id="insert">
+
+        INSERT INTO `oneforall`.`cc_bd_disk_token` (
+            `uuid`,
+            `code`,
+            `access_token`,
+            `expires_in`,
+            `refresh_token`,
+            `scope`,
+            `createUserid`,
+            `updateUserid`
+        )
+        VALUES
+            (
+                #{uuid},
+                #{code},
+                #{access_token},
+                #{expires_in},
+                #{refresh_token},
+                #{scope},
+                #{createUserid},
+                #{updateUserid}
+            );
+
+    </insert>
+
+    <update id="update">
+        UPDATE
+            `oneforall`.`cc_bd_disk_token`
+        SET
+            `access_token` = #{access_token},
+            `expires_in` = #{expires_in},
+            `refresh_token` = #{refresh_token}
+        WHERE `uuid` = #{uuid};
+    </update>
+
+    <update id="markDelete">
+        UPDATE
+            `oneforall`.`cc_bd_disk_token`
+        SET
+            `effect` = 0
+        WHERE createUserid = #{createUserid} ;
+    </update>
+
+</mapper>

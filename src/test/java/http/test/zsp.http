@@ -1,0 +1,8 @@
+GET http://1.13.249.220:8089/test/getAl?id=123
+Accept: application/json
+
+###
+GET http://1.13.249.220:8089/test/getAl
+
+###
+POST http://1.13.249.220:8089/test/getAl

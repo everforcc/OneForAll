@@ -9,12 +9,14 @@ import com.google.common.base.Joiner;
 
 import java.io.File;
 import java.io.UnsupportedEncodingException;
+import java.lang.reflect.Field;
 import java.net.MalformedURLException;
 import java.net.URL;
 import java.net.URLEncoder;
 import java.util.HashMap;
 import java.util.Iterator;
 import java.util.Map;
+import java.util.Objects;
 
 public class HttpParamUtils {
 
@@ -55,6 +57,36 @@ public class HttpParamUtils {
         }
         // 去掉第一个&
         return paramStr.substring(NumberConstant.N_1);
+    }
+
+    /**
+     * 通过反射拼接参数
+     * 对象中的所有字段必须是参数的一个
+     * @param obj
+     * @return
+     */
+    public static String asUrlParams(Object obj){
+        Class<?> clazz = obj.getClass();
+        StringBuffer stringBuffer = new StringBuffer();
+        // 多个字段
+        Field[] fields = clazz.getDeclaredFields();
+        for(Field field:fields){
+            try {
+                field.setAccessible(true);
+
+                Object value = field.get(obj);
+                if(Objects.nonNull(value)){
+                    String name = field.getName();
+                    //System.out.println(name);
+                    stringBuffer.append(name + CommonCharConstant.EQ + value + CommonCharConstant.AND);
+                }
+
+            } catch (Exception e) {
+                e.printStackTrace();
+            }
+        }
+        // 去掉最后一个 & 字符
+        return stringBuffer.substring(0,stringBuffer.length()-1);
     }
 
     public static String getRootUrl(String weburl){

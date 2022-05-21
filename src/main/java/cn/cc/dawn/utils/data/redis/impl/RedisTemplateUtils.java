@@ -6,6 +6,7 @@ import org.springframework.stereotype.Component;
 import org.springframework.util.CollectionUtils;
 
 import javax.annotation.Resource;
+import java.time.Duration;
 import java.util.List;
 import java.util.Map;
 import java.util.Set;
@@ -14,8 +15,8 @@ import java.util.concurrent.TimeUnit;
 /**
  *
  */
-@Component
-public final class RedisTemplateUtils implements IRedisTemplate {
+// @Component  implements IRedisTemplate
+public final class RedisTemplateUtils{
 
     @Resource
     private RedisTemplate<String, Object> redisTemplate;

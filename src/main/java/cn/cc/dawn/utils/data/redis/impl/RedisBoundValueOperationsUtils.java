@@ -1,6 +1,8 @@
 package cn.cc.dawn.utils.data.redis.impl;
 
+import cn.cc.dawn.utils.check.ObjectUtils;
 import cn.cc.dawn.utils.data.redis.IRedisTemplate;
+import cn.cc.dawn.utils.enums.BooleanEnum;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.data.redis.core.BoundValueOperations;
 import org.springframework.data.redis.core.RedisTemplate;
@@ -35,13 +37,14 @@ public class RedisBoundValueOperationsUtils implements IRedisTemplate {
     public boolean addKV(String k, String v) {
         BoundValueOperations<String, String> strRedis = redisTemplate.boundValueOps(k);
         //判断key是否有对应的value,如果有,则返回false,如果没有,添加,返回true
-        return strRedis.setIfAbsent(v, Duration.ofSeconds(60));
+        return ObjectUtils.equals(strRedis.setIfAbsent(v, Duration.ofSeconds(60)), BooleanEnum.TRUE.flag);
     }
 
+    @Override
     public boolean addKV(String k, String v,Duration timeout) {
         BoundValueOperations<String, String> strRedis = redisTemplate.boundValueOps(k);
         //判断key是否有对应的value,如果有,则返回false,如果没有,添加,返回true
-        return strRedis.setIfAbsent(v, timeout);
+        return ObjectUtils.equals(strRedis.setIfAbsent(v, timeout), BooleanEnum.TRUE.flag);
     }
 
     public void removeK(String k) {
@@ -49,6 +52,7 @@ public class RedisBoundValueOperationsUtils implements IRedisTemplate {
         strRedis.persist();
     }
 
+    @Override
     public String getValue(String k) {
         BoundValueOperations<String, String> strRedis = redisTemplate.boundValueOps(k);
 

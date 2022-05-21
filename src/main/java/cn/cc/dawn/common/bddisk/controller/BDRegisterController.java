@@ -9,14 +9,12 @@
  * Copyright
  */
 
-package cn.cc.dawn.local.craw.business.bdwp.controller;
+package cn.cc.dawn.common.bddisk.controller;
 
-import cn.cc.dawn.local.craw.business.bdwp.dto.BDRegisterDto;
-import cn.cc.dawn.local.craw.business.bdwp.service.IBDRegisterService;
-import cn.cc.dawn.local.craw.business.data.vo.WebSiteReqVO;
+import cn.cc.dawn.common.bddisk.dto.BDRegisterDto;
+import cn.cc.dawn.common.bddisk.service.IBDRegisterService;
 import com.alibaba.fastjson.JSONObject;
 import lombok.extern.slf4j.Slf4j;
-import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.*;
 
 import javax.annotation.Resource;

@@ -1,4 +1,4 @@
-package cn.cc.dawn.local.craw.business.bdwp.cache;
+package cn.cc.dawn.common.bddisk.cache;
 
 import cn.cc.dawn.config.cache.ICache;
 

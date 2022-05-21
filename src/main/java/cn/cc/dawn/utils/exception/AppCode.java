@@ -47,7 +47,7 @@ public enum AppCode implements ICode {
      */
 
     /**
-     * webdata需求异常
+     * webdata需求异常 start
      */
     A01000("网站根地址  不允许为空"),
     A01001("网站名     不允许为空"),
@@ -65,24 +65,44 @@ public enum AppCode implements ICode {
     A01053("星级为空"),
     A01054("链接异常"),
     A01099("业务异常 end"),
+    /**
+     * webdata需求异常 end
+     */
+
 
     /**
-     * xx需求异常
+     * xx需求异常 start
      */
     A01100("业务异常 start"),
     A01199("业务异常 end"),
+    /**
+     * xx需求异常 end
+     */
 
     /**
-     * IDM
+     * IDM start
      */
     A01200("返回文件大小"),
+    /**
+     * IDM end
+     */
 
     /**
-     * 抽卡小游戏
+     * 抽卡小游戏 start
      */
     A01300("游戏不存在"),
     A01301("必须设置基础概率"),
+    /**
+     * 抽卡小游戏 end
+     */
 
+    /**
+     * bd网盘 start
+     */
+    A01400("bddisk 接口请求结果有误"),
+    /**
+     * bd网盘 end
+     */
     ;
     /**
      * 枚举属性说明

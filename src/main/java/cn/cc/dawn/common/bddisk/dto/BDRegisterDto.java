@@ -9,7 +9,7 @@
  * Copyright
  */
 
-package cn.cc.dawn.local.craw.business.bdwp.dto;
+package cn.cc.dawn.common.bddisk.dto;
 
 import lombok.AllArgsConstructor;
 import lombok.Getter;

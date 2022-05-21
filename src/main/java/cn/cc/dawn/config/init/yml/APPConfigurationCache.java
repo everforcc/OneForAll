@@ -1,7 +1,7 @@
 package cn.cc.dawn.config.init.yml;
 
 import cn.cc.dawn.config.cache.AppCache;
-import cn.cc.dawn.local.craw.business.bdwp.dto.BDRegisterDto;
+import cn.cc.dawn.common.bddisk.dto.BDRegisterDto;
 import cn.cc.dawn.local.craw.business.data.dto.WebSiteDto;
 import com.alibaba.fastjson.support.spring.FastJsonRedisSerializer;
 import lombok.AllArgsConstructor;

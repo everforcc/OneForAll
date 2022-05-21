@@ -1,5 +1,6 @@
 package cn.cc.dawn.utils.dto;
 
+import cn.cc.dawn.utils.algo.UUIDUtils;
 import cn.cc.dawn.utils.enums.impl.StatusEnum;
 import cn.cc.dawn.utils.inter.valited.IUpdate;
 import com.alibaba.fastjson.JSONObject;
@@ -43,7 +44,7 @@ public class CommonFiledDto {
     public CommonFiledDto(Integer createUserid,Integer updateUserid) {
         this.createUserid = createUserid;
         this.updateUserid = updateUserid;
-        this.uuid = UUID.randomUUID().toString().replace("-", "");;
+        this.uuid = UUIDUtils.uuid32();
         this.createTime = nowTime();
         this.updateTime = nowTime();
         this.effect = StatusEnum.EFFECT;
@@ -52,7 +53,7 @@ public class CommonFiledDto {
 
     public CommonFiledDto(Integer updateUserid) {
         this.updateUserid = updateUserid;
-        this.uuid = UUID.randomUUID().toString().replace("-", "");;
+        this.uuid = UUIDUtils.uuid32();
         this.createTime = nowTime();
         this.updateTime = nowTime();
         this.effect = StatusEnum.EFFECT;

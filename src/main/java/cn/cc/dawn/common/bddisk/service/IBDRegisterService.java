@@ -9,9 +9,9 @@
  * Copyright
  */
 
-package cn.cc.dawn.local.craw.business.bdwp.service;
+package cn.cc.dawn.common.bddisk.service;
 
-import cn.cc.dawn.local.craw.business.bdwp.dto.BDRegisterDto;
+import cn.cc.dawn.common.bddisk.dto.BDRegisterDto;
 
 /**
  *
