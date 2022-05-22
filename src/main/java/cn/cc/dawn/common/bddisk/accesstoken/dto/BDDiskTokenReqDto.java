@@ -9,7 +9,7 @@
  * Copyright
  */
 
-package cn.cc.dawn.common.bddisk.dto;
+package cn.cc.dawn.common.bddisk.accesstoken.dto;
 
 import cn.cc.dawn.common.bddisk.constant.BDDiskConstant;
 import cn.cc.dawn.utils.constant.CommonCharConstant;
@@ -18,7 +18,7 @@ import cn.cc.dawn.utils.http.HttpParamUtils;
 /**
  * 用code换用户access_token
  */
-public class BDDiskTokenDto {
+public class BDDiskTokenReqDto {
 
     /**
      * 固定值，必须为authorization_code
@@ -35,10 +35,10 @@ public class BDDiskTokenDto {
         this.code = code;
     }
 
-    private BDDiskTokenDto() {
+    private BDDiskTokenReqDto() {
     }
 
-    public BDDiskTokenDto(String client_id, String client_secret, String redirect_uri) {
+    public BDDiskTokenReqDto(String client_id, String client_secret, String redirect_uri) {
         this.client_id = client_id;
         this.client_secret = client_secret;
         this.redirect_uri = redirect_uri;

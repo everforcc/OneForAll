@@ -9,11 +9,11 @@
  * Copyright
  */
 
-package cn.cc.dawn.common.bddisk.controller;
+package cn.cc.dawn.common.bddisk.accesstoken.controller;
 
-import cn.cc.dawn.common.bddisk.dto.BDDiskTokenResultDto;
-import cn.cc.dawn.common.bddisk.service.IBDDiskAuthService;
-import cn.cc.dawn.common.bddisk.service.IBDDiskOfferAuthService;
+import cn.cc.dawn.common.bddisk.accesstoken.dto.BDDiskTokenResultDto;
+import cn.cc.dawn.common.bddisk.accesstoken.service.IBDDiskAuthService;
+import cn.cc.dawn.common.bddisk.accesstoken.service.IBDDiskOfferAuthService;
 import cn.cc.dawn.open.auth.dto.CustomUser;
 import cn.cc.dawn.utils.entity.ResultE;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -73,7 +73,7 @@ public class BDDiskAuthController {
     @GetMapping("/getUserAuthUrl/{coverOldToken}/{code}")
     public ResultE<String> getAccessTokenByCode(@AuthenticationPrincipal CustomUser customUser, @PathVariable("coverOldToken") boolean coverOldToken, @PathVariable("code") String code){
         return new ResultE<String>().execute(e ->{
-            e.setSuccess(ibdDiskAuthService.getAccessToken(customUser.getUuid(), customUser.getId(), code, coverOldToken));
+            e.setSuccess(ibdDiskAuthService.getAccessToken(customUser.getId(), code, coverOldToken));
         });
     }
     /**
@@ -98,7 +98,7 @@ public class BDDiskAuthController {
     //@GetMapping("/refreshAccessToken/{refresh_token}")
     public ResultE<BDDiskTokenResultDto> refreshAccessToken(@AuthenticationPrincipal CustomUser customUser, @PathVariable("refresh_token") String refresh_token){
         return new ResultE<BDDiskTokenResultDto>().execute(e ->{
-            e.setSuccess(ibdDiskAuthService.refreshAccessToken(customUser.getUuid(), refresh_token));
+            e.setSuccess(ibdDiskAuthService.refreshAccessToken(customUser.getId(), refresh_token));
         });
     }
 
@@ -112,7 +112,7 @@ public class BDDiskAuthController {
     @GetMapping("/getBDDiskToken")
     public ResultE<String> getBDDiskToken(@AuthenticationPrincipal CustomUser customUser){
         return new ResultE<String>().execute(e ->{
-            e.setSuccess(ibdDiskOfferAuthService.offerAccessToken(customUser.getUuid(), customUser.getId()));
+            e.setSuccess(ibdDiskOfferAuthService.offerAccessToken(customUser.getId()));
         });
     }
 

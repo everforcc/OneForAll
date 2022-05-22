@@ -9,7 +9,7 @@
  * Copyright
  */
 
-package cn.cc.dawn.common.bddisk.dto;
+package cn.cc.dawn.common.bddisk.accesstoken.dto;
 
 import cn.cc.dawn.utils.dto.CommonFiledDto;
 import lombok.AllArgsConstructor;

@@ -1,0 +1,58 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper
+        PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+        "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="cn.cc.dawn.common.bddisk.uinfo.dao.BDDiskUInfoResMapper">
+
+    <sql id="effect_sql">
+        WHERE effect=1 AND STATUS=1
+    </sql>
+
+    <resultMap id="BDDiskUInfoResMap" type="cn.cc.dawn.common.bddisk.uinfo.dto.BDDiskUInfoResDto">
+        <id column="id" property="id"/><!--主键映射-->
+        <result column="uuid" property="uuid"/><!--数据库表字段到实体类属性的映射-->
+        <result column="baidu_name" property="baidu_name"/>
+        <result column="netdisk_name" property="netdisk_name"/>
+        <result column="avatar_url" property="avatar_url"/>
+        <result column="vip_type" property="vip_type"/>
+    </resultMap>
+
+    <select id="select" resultMap="BDDiskUInfoResMap">
+        SELECT * FROM cc_bd_disk_userinfo
+        <include refid="effect_sql" />
+        and createUserid = #{createUserid}
+        ORDER BY id DESC LIMIT 0,1 ;
+    </select>
+
+    <insert id="insert">
+
+        INSERT INTO `oneforall`.`cc_bd_disk_userinfo` (
+            `uuid`,
+            `baidu_name`,
+            `netdisk_name`,
+            `avatar_url`,
+            `vip_type`,
+            `uk`,
+            `errno`,
+            `errmsg`,
+            `createUserid`,
+            `updateUserid`
+        )
+        VALUES
+            (
+                #{uuid},
+                #{baidu_name},
+                #{netdisk_name},
+                #{avatar_url},
+                #{vip_type},
+                #{uk},
+                #{errno},
+                #{errmsg},
+                #{createUserid},
+                #{updateUserid}
+            );
+
+    </insert>
+
+
+</mapper>

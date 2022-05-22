@@ -27,4 +27,5 @@ public class BDDiskConstant {
      */
     public static int holdTime = 3600 * 24;
 
+    public static String Header_Host = "pan.baidu.com";
 }

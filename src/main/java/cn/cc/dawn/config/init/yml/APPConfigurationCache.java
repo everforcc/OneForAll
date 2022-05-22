@@ -1,7 +1,7 @@
 package cn.cc.dawn.config.init.yml;
 
 import cn.cc.dawn.config.cache.AppCache;
-import cn.cc.dawn.common.bddisk.dto.BDRegisterDto;
+import cn.cc.dawn.common.bddisk.accesstoken.dto.BDRegisterCallBackDto;
 import cn.cc.dawn.local.craw.business.data.dto.WebSiteDto;
 import com.alibaba.fastjson.support.spring.FastJsonRedisSerializer;
 import lombok.AllArgsConstructor;
@@ -77,7 +77,7 @@ public class APPConfigurationCache {
                 .withCacheConfiguration(BDRegister.getCachekey(), RedisCacheConfiguration.defaultCacheConfig()
                         .entryTtl(BDRegister.getExpired()) // 设置过期时间
                         .disableCachingNullValues() // 禁止缓存 null 值
-                        .serializeValuesWith(RedisSerializationContext.SerializationPair.fromSerializer(new FastJsonRedisSerializer<>(BDRegisterDto.class)))
+                        .serializeValuesWith(RedisSerializationContext.SerializationPair.fromSerializer(new FastJsonRedisSerializer<>(BDRegisterCallBackDto.class)))
                 )
                 .build();
     }

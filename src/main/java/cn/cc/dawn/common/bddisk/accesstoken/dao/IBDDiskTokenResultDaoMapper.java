@@ -1,6 +1,6 @@
-package cn.cc.dawn.common.bddisk.dao;
+package cn.cc.dawn.common.bddisk.accesstoken.dao;
 
-import cn.cc.dawn.common.bddisk.dto.BDDiskTokenResultDto;
+import cn.cc.dawn.common.bddisk.accesstoken.dto.BDDiskTokenResultDto;
 import org.apache.ibatis.annotations.Param;
 
 public interface IBDDiskTokenResultDaoMapper {

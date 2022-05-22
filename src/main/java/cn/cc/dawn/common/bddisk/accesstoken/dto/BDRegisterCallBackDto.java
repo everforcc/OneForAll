@@ -9,7 +9,7 @@
  * Copyright
  */
 
-package cn.cc.dawn.common.bddisk.dto;
+package cn.cc.dawn.common.bddisk.accesstoken.dto;
 
 import lombok.AllArgsConstructor;
 import lombok.Getter;
@@ -21,7 +21,7 @@ import lombok.Setter;
 @Setter
 @NoArgsConstructor
 @AllArgsConstructor
-public class BDRegisterDto {
+public class BDRegisterCallBackDto {
 
     private static int i = 1;
 

@@ -18,6 +18,7 @@ public enum CacheUserDefine {
 
     BD_DISK_ORDERUSESR_AUTH("百度网盘引导用户授权"),
     BD_DISK_ACCESS_TOKEN("百度网盘Access_Token"),
+    BD_DISK_USER_MSG("百度网盘用户基本信息"),
     ;
 
     public String cacheKey;
@@ -35,5 +36,9 @@ public enum CacheUserDefine {
     public String formatKey(String... keys){
         return String.format(cacheKeyFormat,this.name(),String.join(":", keys));
     }
+
+/*    public String formatKey(int... keys){
+        return String.format(cacheKeyFormat,this.name(),String.join(":", keys.toString()));
+    }*/
 
 }

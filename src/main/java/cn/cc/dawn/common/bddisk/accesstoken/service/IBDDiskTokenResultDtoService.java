@@ -1,6 +1,6 @@
-package cn.cc.dawn.common.bddisk.service;
+package cn.cc.dawn.common.bddisk.accesstoken.service;
 
-import cn.cc.dawn.common.bddisk.dto.BDDiskTokenResultDto;
+import cn.cc.dawn.common.bddisk.accesstoken.dto.BDDiskTokenResultDto;
 
 public interface IBDDiskTokenResultDtoService {
 

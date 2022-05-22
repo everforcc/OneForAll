@@ -9,23 +9,20 @@
  * Copyright
  */
 
-package cn.cc.dawn.common.bddisk.service.impl;
+package cn.cc.dawn.common.bddisk.accesstoken.service.impl;
 
-import cn.cc.dawn.common.bddisk.cache.BDRegisterCache;
 import cn.cc.dawn.common.bddisk.constant.BDDiskConstant;
-import cn.cc.dawn.common.bddisk.dto.BDDiskAuthDto;
-import cn.cc.dawn.common.bddisk.dto.BDDiskRefreshTokenDto;
-import cn.cc.dawn.common.bddisk.dto.BDDiskTokenDto;
-import cn.cc.dawn.common.bddisk.dto.BDDiskTokenResultDto;
-import cn.cc.dawn.common.bddisk.service.IBDDiskAuthService;
-import cn.cc.dawn.common.bddisk.service.IBDDiskTokenResultDtoService;
+import cn.cc.dawn.common.bddisk.accesstoken.dto.BDDiskAuthDto;
+import cn.cc.dawn.common.bddisk.accesstoken.dto.BDDiskRefreshTokenDto;
+import cn.cc.dawn.common.bddisk.accesstoken.dto.BDDiskTokenReqDto;
+import cn.cc.dawn.common.bddisk.accesstoken.dto.BDDiskTokenResultDto;
+import cn.cc.dawn.common.bddisk.accesstoken.service.IBDDiskAuthService;
+import cn.cc.dawn.common.bddisk.accesstoken.service.IBDDiskTokenResultDtoService;
 import cn.cc.dawn.config.cache.CacheConstant;
 import cn.cc.dawn.config.cache.CacheUserDefine;
 import cn.cc.dawn.config.init.yml.APPConfigurationBDDisk;
 import cn.cc.dawn.local.craw.business.data.dto.HttpParamDto;
-import cn.cc.dawn.utils.check.ObjectUtils;
 import cn.cc.dawn.utils.check.StringUtils;
-import cn.cc.dawn.utils.data.redis.IRedisTemplate;
 import cn.cc.dawn.utils.exception.AppCode;
 import cn.cc.dawn.utils.http.IHttp;
 import com.alibaba.fastjson.JSONObject;
@@ -35,7 +32,6 @@ import org.redisson.api.RedissonClient;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
-import java.time.Duration;
 import java.util.concurrent.TimeUnit;
 
 @Slf4j
@@ -84,13 +80,13 @@ public class BDDiskAuthImpl implements IBDDiskAuthService {
      * @return
      */
     @Override
-    public String getAccessToken(String userUid, int userid, String code, boolean coverOldToken) {
+    public String getAccessToken(int userid, String code, boolean coverOldToken) {
         String client_id = appConfigurationBDDisk.getAPI_Key();
         String secret_Key = appConfigurationBDDisk.getSecret_Key();
         String redirect_uriWebUrl = appConfigurationBDDisk.getRedirect_uriWebUrl();
         String access_tokenWebUrl = appConfigurationBDDisk.getAccess_tokenWebUrl();
 
-        final RBucket<String> bdDiskTokenResultDtoRBucket = redissonClient.getBucket(CacheUserDefine.BD_DISK_ACCESS_TOKEN.formatKey(userUid));
+        final RBucket<String> bdDiskTokenResultDtoRBucket = redissonClient.getBucket(CacheUserDefine.BD_DISK_ACCESS_TOKEN.formatKey(String.valueOf(userid)));
         String bdAccessToken = null;
         /**
          * 从redis取出来
@@ -102,11 +98,11 @@ public class BDDiskAuthImpl implements IBDDiskAuthService {
 
         if(StringUtils.isBlank(bdAccessToken)) {
 
-            BDDiskTokenDto bdDiskTokenDto = new BDDiskTokenDto(client_id, secret_Key, redirect_uriWebUrl);
+            BDDiskTokenReqDto bdDiskTokenReqDto = new BDDiskTokenReqDto(client_id, secret_Key, redirect_uriWebUrl);
             // 请求数据的code
-            bdDiskTokenDto.setCode(code);
+            bdDiskTokenReqDto.setCode(code);
             // 组装参数获取请求url
-            String redirect_uriWebUrlWithParams = bdDiskTokenDto.toStringWithBaseUrl(access_tokenWebUrl);
+            String redirect_uriWebUrlWithParams = bdDiskTokenReqDto.toStringWithBaseUrl(access_tokenWebUrl);
 
             // 请求数据获得json
             HttpParamDto httpParamDto = new HttpParamDto();
@@ -145,7 +141,7 @@ public class BDDiskAuthImpl implements IBDDiskAuthService {
      * @return
      */
     @Override
-    public BDDiskTokenResultDto refreshAccessToken(String userUid, String refresh_token) {
+    public BDDiskTokenResultDto refreshAccessToken(int userid, String refresh_token) {
         String client_id = appConfigurationBDDisk.getAPI_Key();
         String secret_Key = appConfigurationBDDisk.getSecret_Key();
         String refresh_tokenWebUrl = appConfigurationBDDisk.getRefresh_tokenWebUrl();
@@ -159,7 +155,7 @@ public class BDDiskAuthImpl implements IBDDiskAuthService {
         String resultJson = httpApacheImpl.getMsg(httpParamDto);
 
         log.info("刷新返回json: {}", resultJson);
-        final RBucket<String> bdDiskTokenResultDtoRBucket = redissonClient.getBucket(CacheUserDefine.BD_DISK_ACCESS_TOKEN.formatKey(userUid));
+        final RBucket<String> bdDiskTokenResultDtoRBucket = redissonClient.getBucket(CacheUserDefine.BD_DISK_ACCESS_TOKEN.formatKey(String.valueOf(userid)));
 
         BDDiskTokenResultDto bdDiskTokenResultDto = JSONObject.parseObject(resultJson, BDDiskTokenResultDto.class);
         String access_token = bdDiskTokenResultDto.getAccess_token();

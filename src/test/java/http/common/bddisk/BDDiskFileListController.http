@@ -1,0 +1,6 @@
+
+### 1. 获取文件列表
+GET https://pan.baidu.com/rest/2.0/xpan/file?method=list&access_token=121.85a568e448d5ad462d6cb7767213f4f1.Y3h2wbrPks0TNvY9c31pP5Ow1N-VffmzkfkXHrO.uwt9TA
+Accept: application/json
+
+###

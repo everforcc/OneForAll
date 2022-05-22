@@ -5,10 +5,12 @@ import cn.cc.dawn.utils.constant.CommonCharConstant;
 import cn.cc.dawn.utils.constant.NumberConstant;
 import cn.cc.dawn.utils.enums.CharsetsEnum;
 import cn.cc.dawn.utils.exception.AppCode;
+import cn.cc.dawn.utils.userinterface.ReflectFileFiled;
 import com.google.common.base.Joiner;
 
 import java.io.File;
 import java.io.UnsupportedEncodingException;
+import java.lang.annotation.Annotation;
 import java.lang.reflect.Field;
 import java.net.MalformedURLException;
 import java.net.URL;
@@ -70,8 +72,17 @@ public class HttpParamUtils {
         StringBuffer stringBuffer = new StringBuffer();
         // 多个字段
         Field[] fields = clazz.getDeclaredFields();
+
+        if(Objects.isNull(fields)){
+            return stringBuffer.toString();
+        }
+
         for(Field field:fields){
             try {
+                ReflectFileFiled reflectFileFiled = field.getAnnotation(ReflectFileFiled.class);
+
+                if(Objects.nonNull(reflectFileFiled)){ continue; }
+
                 field.setAccessible(true);
 
                 Object value = field.get(obj);
@@ -85,6 +96,14 @@ public class HttpParamUtils {
                 e.printStackTrace();
             }
         }
+
+        /**
+         * 如果没有一个字段需要处理
+         */
+        if(stringBuffer.length() == 0){
+            return stringBuffer.toString();
+        }
+
         // 去掉最后一个 & 字符
         return stringBuffer.substring(0,stringBuffer.length()-1);
     }

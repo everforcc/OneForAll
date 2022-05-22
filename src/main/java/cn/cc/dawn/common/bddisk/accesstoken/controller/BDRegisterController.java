@@ -9,10 +9,10 @@
  * Copyright
  */
 
-package cn.cc.dawn.common.bddisk.controller;
+package cn.cc.dawn.common.bddisk.accesstoken.controller;
 
-import cn.cc.dawn.common.bddisk.dto.BDRegisterDto;
-import cn.cc.dawn.common.bddisk.service.IBDRegisterService;
+import cn.cc.dawn.common.bddisk.accesstoken.dto.BDRegisterCallBackDto;
+import cn.cc.dawn.common.bddisk.accesstoken.service.IBDRegisterService;
 import com.alibaba.fastjson.JSONObject;
 import lombok.extern.slf4j.Slf4j;
 import org.springframework.web.bind.annotation.*;
@@ -39,15 +39,15 @@ public class BDRegisterController {
         log.info("a: session_secret: " + session_secret);
         log.info("a: session_key: " + session_key);
         log.info("a: scope: " + scope);
-        BDRegisterDto bdRegisterDto = new BDRegisterDto();
-        bdRegisterDto.setExpires_in(expires_in);
-        bdRegisterDto.setAccess_token(access_token);
-        bdRegisterDto.setSession_secret(session_secret);
-        bdRegisterDto.setSession_key(session_key);
-        bdRegisterDto.setScope(scope);
-        bdRegisterDto.setCode(code);
+        BDRegisterCallBackDto bdRegisterCallBackDto = new BDRegisterCallBackDto();
+        bdRegisterCallBackDto.setExpires_in(expires_in);
+        bdRegisterCallBackDto.setAccess_token(access_token);
+        bdRegisterCallBackDto.setSession_secret(session_secret);
+        bdRegisterCallBackDto.setSession_key(session_key);
+        bdRegisterCallBackDto.setScope(scope);
+        bdRegisterCallBackDto.setCode(code);
 
-        return JSONObject.toJSONString(ibdRegisterService.saveRedis_1(bdRegisterDto));
+        return JSONObject.toJSONString(ibdRegisterService.saveRedis_1(bdRegisterCallBackDto));
     }
 
     @GetMapping("/method_a/")
@@ -62,14 +62,14 @@ public class BDRegisterController {
         log.info("method_a2: session_secret: " + session_secret);
         log.info("method_a2: session_key: " + session_key);
         log.info("method_a2: scope: " + scope);
-        BDRegisterDto bdRegisterDto = new BDRegisterDto();
-        bdRegisterDto.setExpires_in(expires_in);
-        bdRegisterDto.setAccess_token(access_token);
-        bdRegisterDto.setSession_secret(session_secret);
-        bdRegisterDto.setSession_key(session_key);
-        bdRegisterDto.setScope(scope);
-        bdRegisterDto.setCode(code);
-        return JSONObject.toJSONString(ibdRegisterService.saveRedis_1(bdRegisterDto));
+        BDRegisterCallBackDto bdRegisterCallBackDto = new BDRegisterCallBackDto();
+        bdRegisterCallBackDto.setExpires_in(expires_in);
+        bdRegisterCallBackDto.setAccess_token(access_token);
+        bdRegisterCallBackDto.setSession_secret(session_secret);
+        bdRegisterCallBackDto.setSession_key(session_key);
+        bdRegisterCallBackDto.setScope(scope);
+        bdRegisterCallBackDto.setCode(code);
+        return JSONObject.toJSONString(ibdRegisterService.saveRedis_1(bdRegisterCallBackDto));
     }
 
     @GetMapping("/method_b")
@@ -84,14 +84,14 @@ public class BDRegisterController {
         log.info("method_b1: session_secret: " + session_secret);
         log.info("method_b1: session_key: " + session_key);
         log.info("method_b1: scope: " + scope);
-        BDRegisterDto bdRegisterDto = new BDRegisterDto();
-        bdRegisterDto.setExpires_in(expires_in);
-        bdRegisterDto.setAccess_token(access_token);
-        bdRegisterDto.setSession_secret(session_secret);
-        bdRegisterDto.setSession_key(session_key);
-        bdRegisterDto.setScope(scope);
-        bdRegisterDto.setCode(code);
-        return JSONObject.toJSONString(ibdRegisterService.saveRedis_2(bdRegisterDto));
+        BDRegisterCallBackDto bdRegisterCallBackDto = new BDRegisterCallBackDto();
+        bdRegisterCallBackDto.setExpires_in(expires_in);
+        bdRegisterCallBackDto.setAccess_token(access_token);
+        bdRegisterCallBackDto.setSession_secret(session_secret);
+        bdRegisterCallBackDto.setSession_key(session_key);
+        bdRegisterCallBackDto.setScope(scope);
+        bdRegisterCallBackDto.setCode(code);
+        return JSONObject.toJSONString(ibdRegisterService.saveRedis_2(bdRegisterCallBackDto));
     }
 
     @GetMapping("/method_b/")
@@ -106,14 +106,14 @@ public class BDRegisterController {
         log.info("method_b2: session_secret: " + session_secret);
         log.info("method_b2: session_key: " + session_key);
         log.info("method_b2: scope: " + scope);
-        BDRegisterDto bdRegisterDto = new BDRegisterDto();
-        bdRegisterDto.setExpires_in(expires_in);
-        bdRegisterDto.setAccess_token(access_token);
-        bdRegisterDto.setSession_secret(session_secret);
-        bdRegisterDto.setSession_key(session_key);
-        bdRegisterDto.setScope(scope);
-        bdRegisterDto.setCode(code);
-        return JSONObject.toJSONString(ibdRegisterService.saveRedis_2(bdRegisterDto));
+        BDRegisterCallBackDto bdRegisterCallBackDto = new BDRegisterCallBackDto();
+        bdRegisterCallBackDto.setExpires_in(expires_in);
+        bdRegisterCallBackDto.setAccess_token(access_token);
+        bdRegisterCallBackDto.setSession_secret(session_secret);
+        bdRegisterCallBackDto.setSession_key(session_key);
+        bdRegisterCallBackDto.setScope(scope);
+        bdRegisterCallBackDto.setCode(code);
+        return JSONObject.toJSONString(ibdRegisterService.saveRedis_2(bdRegisterCallBackDto));
     }
 
 }

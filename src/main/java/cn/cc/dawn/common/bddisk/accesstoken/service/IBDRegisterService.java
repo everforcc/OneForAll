@@ -9,17 +9,17 @@
  * Copyright
  */
 
-package cn.cc.dawn.common.bddisk.service;
+package cn.cc.dawn.common.bddisk.accesstoken.service;
 
-import cn.cc.dawn.common.bddisk.dto.BDRegisterDto;
+import cn.cc.dawn.common.bddisk.accesstoken.dto.BDRegisterCallBackDto;
 
 /**
  *
  */
 public interface IBDRegisterService {
 
-    BDRegisterDto saveRedis_1(BDRegisterDto bdRegisterDto);
+    BDRegisterCallBackDto saveRedis_1(BDRegisterCallBackDto bdRegisterCallBackDto);
 
-    BDRegisterDto saveRedis_2(BDRegisterDto bdRegisterDto);
+    BDRegisterCallBackDto saveRedis_2(BDRegisterCallBackDto bdRegisterCallBackDto);
 
 }

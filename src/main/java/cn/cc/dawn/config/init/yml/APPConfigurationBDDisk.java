@@ -61,4 +61,9 @@ public class APPConfigurationBDDisk {
      * 移动端
      */
 
+    /**
+     * 5. xpan_nas
+     */
+    private String xpan_nas;
+
 }

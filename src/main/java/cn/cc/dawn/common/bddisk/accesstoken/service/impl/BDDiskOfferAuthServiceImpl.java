@@ -9,14 +9,13 @@
  * Copyright
  */
 
-package cn.cc.dawn.common.bddisk.service.impl;
+package cn.cc.dawn.common.bddisk.accesstoken.service.impl;
 
-import cn.cc.dawn.common.bddisk.dto.BDDiskTokenResultDto;
-import cn.cc.dawn.common.bddisk.service.IBDDiskAuthService;
-import cn.cc.dawn.common.bddisk.service.IBDDiskOfferAuthService;
-import cn.cc.dawn.common.bddisk.service.IBDDiskTokenResultDtoService;
+import cn.cc.dawn.common.bddisk.accesstoken.dto.BDDiskTokenResultDto;
+import cn.cc.dawn.common.bddisk.accesstoken.service.IBDDiskAuthService;
+import cn.cc.dawn.common.bddisk.accesstoken.service.IBDDiskOfferAuthService;
+import cn.cc.dawn.common.bddisk.accesstoken.service.IBDDiskTokenResultDtoService;
 import cn.cc.dawn.config.cache.CacheUserDefine;
-import cn.cc.dawn.utils.check.ObjectUtils;
 import cn.cc.dawn.utils.check.StringUtils;
 import lombok.extern.slf4j.Slf4j;
 import org.redisson.api.RBucket;
@@ -40,12 +39,12 @@ public class BDDiskOfferAuthServiceImpl implements IBDDiskOfferAuthService {
      * 2. 取不出来查数据库，拿到refere
      * 3. 刷新accessToken放入缓存
      * 4. 异常返回给前端处理，重新获取
-     * @param userUid
+     * @param userid
      * @return
      */
     @Override
-    public String offerAccessToken(String userUid, int userid) {
-        final RBucket<String> bdDiskTokenResultDtoRBucket = redissonClient.getBucket(CacheUserDefine.BD_DISK_ACCESS_TOKEN.formatKey(userUid));
+    public String offerAccessToken(int userid) {
+        final RBucket<String> bdDiskTokenResultDtoRBucket = redissonClient.getBucket(CacheUserDefine.BD_DISK_ACCESS_TOKEN.formatKey(String.valueOf(userid)));
         String bdAccessToken = bdDiskTokenResultDtoRBucket.get();
 
         /**
@@ -57,7 +56,7 @@ public class BDDiskOfferAuthServiceImpl implements IBDDiskOfferAuthService {
             BDDiskTokenResultDto bdDiskTokenResultDto = ibdDiskTokenResultDtoService.select(userid);
             log.info("旧数据: {}",bdDiskTokenResultDto);
             String refresh_token = bdDiskTokenResultDto.getRefresh_token();
-            BDDiskTokenResultDto refereResult = ibdDiskAuthService.refreshAccessToken(userUid,refresh_token);
+            BDDiskTokenResultDto refereResult = ibdDiskAuthService.refreshAccessToken(userid,refresh_token);
             bdDiskTokenResultDto.setAccess_token(refereResult.getAccess_token());
             bdDiskTokenResultDto.setRefresh_token(refereResult.getRefresh_token());
             /**

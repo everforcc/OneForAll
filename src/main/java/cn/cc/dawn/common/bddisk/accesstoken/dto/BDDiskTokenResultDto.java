@@ -9,9 +9,8 @@
  * Copyright
  */
 
-package cn.cc.dawn.common.bddisk.dto;
+package cn.cc.dawn.common.bddisk.accesstoken.dto;
 
-import cn.cc.dawn.utils.dto.CommonFiledDto;
 import lombok.AllArgsConstructor;
 import lombok.Getter;
 import lombok.NoArgsConstructor;
@@ -24,7 +23,7 @@ import lombok.Setter;
 @Setter
 @AllArgsConstructor
 @NoArgsConstructor
-public class BDDiskTokenResultDto extends BDDiskResulCommonFiledtDto {
+public class BDDiskTokenResultDto extends BDDiskResulCommonFiledtDto{
 
     /**
      * 请求token时的code
