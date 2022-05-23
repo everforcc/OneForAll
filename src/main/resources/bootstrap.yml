@@ -101,7 +101,9 @@ app:
     redirect_uriWebUrl: http://180.76.156.43:8080/open/craw/bdwp/method_a,
     access_tokenWebUrl: https://openapi.baidu.com/oauth/2.0/token,
     refresh_tokenWebUrl: https://openapi.baidu.com/oauth/2.0/token,
-    xpan_nas: https://pan.baidu.com/rest/2.0/xpan/nas
+    xpan_nas: https://pan.baidu.com/rest/2.0/xpan/nas,
+    xpan_file: http://pan.baidu.com/rest/2.0/xpan/file,
+    slice_file: https://d.pcs.baidu.com/rest/2.0/pcs/superfile2
   }
   defaultaeskey: defaultaeskey
   conditional:

@@ -63,7 +63,17 @@ public class APPConfigurationBDDisk {
 
     /**
      * 5. xpan_nas
+     * 用户信息相关
      */
     private String xpan_nas;
+    /**
+     * 7. xpan_file
+     * 文件上传相关
+     */
+    private String xpan_file;
+    /**
+     * 8. 分片上传
+     */
+    private String slice_file;
 
 }

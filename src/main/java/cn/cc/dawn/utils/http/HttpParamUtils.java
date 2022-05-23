@@ -10,7 +10,6 @@ import com.google.common.base.Joiner;
 
 import java.io.File;
 import java.io.UnsupportedEncodingException;
-import java.lang.annotation.Annotation;
 import java.lang.reflect.Field;
 import java.net.MalformedURLException;
 import java.net.URL;
@@ -78,18 +77,29 @@ public class HttpParamUtils {
         }
 
         for(Field field:fields){
+            String alias = null;
             try {
                 ReflectFileFiled reflectFileFiled = field.getAnnotation(ReflectFileFiled.class);
 
-                if(Objects.nonNull(reflectFileFiled)){ continue; }
+                if(Objects.nonNull(reflectFileFiled)){
+                    if(!reflectFileFiled.use()) {
+                        continue;
+                    }else {
+                        alias = reflectFileFiled.alias();
+                    }
+                }
 
                 field.setAccessible(true);
-
                 Object value = field.get(obj);
                 if(Objects.nonNull(value)){
-                    String name = field.getName();
-                    //System.out.println(name);
-                    stringBuffer.append(name + CommonCharConstant.EQ + value + CommonCharConstant.AND);
+                    String name = null;
+                    if(StringUtils.isBlank(alias)){
+                        name = field.getName();
+                    }else {
+                        name = alias;
+                    }
+                    stringBuffer.append(name + CommonCharConstant.EQ + URLEncoder.encode(value.toString(), CharsetsEnum.UTF_8.charset.toString()) + CommonCharConstant.AND);
+                    //stringBuffer.append(name + CommonCharConstant.EQ + value + CommonCharConstant.AND);
                 }
 
             } catch (Exception e) {

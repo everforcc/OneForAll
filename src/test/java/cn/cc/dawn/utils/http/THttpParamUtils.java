@@ -3,8 +3,13 @@ package cn.cc.dawn.utils.http;
 import org.junit.jupiter.api.Test;
 import org.springframework.boot.test.context.SpringBootTest;
 
+import java.io.UnsupportedEncodingException;
 import java.net.MalformedURLException;
 import java.net.URL;
+import java.net.URLDecoder;
+import java.net.URLEncoder;
+import java.util.ArrayList;
+import java.util.List;
 
 @SpringBootTest
 public class THttpParamUtils {
@@ -21,6 +26,40 @@ public class THttpParamUtils {
             e.printStackTrace();
         }
 
+    }
+
+    @org.junit.Test
+    public void t1(){
+//        String s = "http://pan.baidu.com/rest/2.0/xpan/file?method=precreate&access_token=121.85a568e448d5ad462d6cb7767213f4f1.Y3h2wbrPks0TNvY9c31pP5Ow1N-VffmzkfkXHrO.uwt9TA&path=%2Fapps%2Feverforcc%2F%E8%AF%BA%E8%89%BE%E5%B0%94.jpg&size=210691&isdir=0&block_list=[\"5aefaca30650511f2437e857383b95ba\"]&autoinit=1&rtype=1&content-md5=5aefaca30650511f2437e857383b95ba&slice-md5=5aefaca30650511f2437e857383b95ba";
+//        System.out.println(s.substring(0,245));
+
+        try {
+            System.out.println(URLEncoder.encode("a", "UTF-8"));
+            System.out.println(URLEncoder.encode(" ", "UTF-8"));
+            System.out.println(URLEncoder.encode("[", "UTF-8"));
+            System.out.println(URLEncoder.encode("\"", "UTF-8"));
+            List<String> stringList = new ArrayList<>();
+            stringList.add("a");
+            stringList.add("b");
+            System.out.println(stringList.toString());
+        } catch (UnsupportedEncodingException e) {
+            e.printStackTrace();
+        }
+    }
+
+    @org.junit.Test
+    public void httpPost(){
+        String url = "http://pan.baidu.com/rest/2.0/xpan/file?method=precreate&access_token=121.85a568e448d5ad462d6cb7767213f4f1.Y3h2wbrPks0TNvY9c31pP5Ow1N-VffmzkfkXHrO.uwt9TA&path=/apps/everforcc/诺艾尔.jpg&size=210691&isdir=0&block_list=[\"5aefaca30650511f2437e857383b95ba\"]&autoinit=1&rtype=1&content-md5=5aefaca30650511f2437e857383b95ba&slice-md5=5aefaca30650511f2437e857383b95ba";
+        System.out.println(url);
+        try {
+            System.out.println(URLEncoder.encode(url, "UTF-8"));
+
+            String decodeUrl = "%5B%2247d1c6bc3e9eb866a7f4826291711431%22%2C+%22245df93f6e0cb48bded5bdd26e168ff3%22%5D";
+            System.out.println(URLDecoder.decode(decodeUrl,"UTF-8"));
+
+        } catch (UnsupportedEncodingException e) {
+            e.printStackTrace();
+        }
     }
 
 }

@@ -13,6 +13,7 @@ import lombok.*;
 import org.apache.http.HttpHost;
 
 import javax.validation.constraints.NotNull;
+import java.io.File;
 import java.net.InetSocketAddress;
 import java.net.Proxy;
 import java.util.Map;
@@ -63,6 +64,8 @@ public class HttpParamDto extends CommonFiledDto {
      */
     private Map<String,String> headers;
 
+    private Map<String,String> formDates;
+
     /**
      * 是否可以输入输出
      */
@@ -87,7 +90,7 @@ public class HttpParamDto extends CommonFiledDto {
     /**
      * TODO 文件
      */
-    private String file;
+    private File file;
     /**
      * GET 请求参数
      */

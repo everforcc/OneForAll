@@ -11,6 +11,7 @@ public class StringUtils {
 
     /**
      * 空 不能有任何字符
+     * 同意都用这个就算有制表符也算不为空
      * @param val
      * @return
      */

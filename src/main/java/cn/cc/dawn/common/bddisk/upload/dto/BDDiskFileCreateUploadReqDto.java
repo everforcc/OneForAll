@@ -5,40 +5,52 @@
  * @Author Author Date Description
  * ------ ------ ------
  *    TODO 开发人员邮箱前缀 调整时间 年-月-日 主要改动点>5字符
- * @Date 2022-05-22 10:20
+ * @Date 2022-05-23 18:55
  * Copyright
  */
 
-package cn.cc.dawn.common.bddisk.uinfo.dto;
+package cn.cc.dawn.common.bddisk.upload.dto;
 
 import cn.cc.dawn.utils.constant.CommonCharConstant;
 import cn.cc.dawn.utils.http.HttpParamUtils;
 import cn.cc.dawn.utils.userinterface.ReflectFileFiled;
+import lombok.Getter;
+import lombok.Setter;
 
-public class BDDiskUInfoReqDto {
+import java.util.List;
 
-    private String method = "uinfo";
+@Getter
+@Setter
+public class BDDiskFileCreateUploadReqDto {
+
+    private String method = "create";
 
     private String access_token;
 
-    //@ReflectFileFiled(alias = "userDefineName")
     @ReflectFileFiled(use = false)
-    private String Host = "pan.baidu.com";
+    private String path;
 
-    private BDDiskUInfoReqDto() {
+    @ReflectFileFiled(use = false)
+    private int size;
+
+    @ReflectFileFiled(use = false)
+    private int isdir;
+
+    @ReflectFileFiled(use = false)
+    private List<String> block_list;
+
+    @ReflectFileFiled(use = false)
+    private String uploadid;
+
+    private BDDiskFileCreateUploadReqDto() {
     }
 
-    public BDDiskUInfoReqDto(String access_token) {
+    public BDDiskFileCreateUploadReqDto(String access_token) {
         this.access_token = access_token;
     }
 
     public String toStringWithBaseUrl(String guideUserAuthBaseUrl) {
         return guideUserAuthBaseUrl + CommonCharConstant.QUERY_SPLIT + HttpParamUtils.asUrlParams(this);
-    }
-
-    public static void main(String[] args) {
-        BDDiskUInfoReqDto bdDiskUInfoReqDto = new BDDiskUInfoReqDto("access_token");
-        System.out.println(bdDiskUInfoReqDto.toStringWithBaseUrl("guideUserAuthBaseUrl"));
     }
 
 }

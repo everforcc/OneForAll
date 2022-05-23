@@ -1,5 +1,6 @@
 package cn.cc.dawn.utils.file;
 
+import cn.cc.dawn.common.bddisk.upload.vo.BDFileVo;
 import cn.cc.dawn.utils.constant.DateFormatConstant;
 
 import java.io.File;
@@ -10,6 +11,7 @@ import java.nio.file.attribute.BasicFileAttributes;
 import java.time.Instant;
 import java.time.ZoneId;
 import java.time.format.DateTimeFormatter;
+import java.util.List;
 
 /**
  * 常见的文件操作
@@ -26,6 +28,20 @@ public interface IFile {
     void move();
 
     void rename();
+
+    long fileSizeByte(String path);
+
+    File[] fileSplit(String srcFilePath, Long fileSizeMB);
+
+    File[] fileSplit(String srcFilePath, String targetFilePath, Long fileSizeMB);
+
+    boolean isDir(String path);
+
+    BDFileVo block_list(String path, boolean deleteSlice);
+
+    String md5(String path);
+
+    String slice_md5(String path, long lengthKB);
 
     void write(String path,String content);
     void write(String path,String fileName,String content);
