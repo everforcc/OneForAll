@@ -27,6 +27,8 @@ public enum AppCode implements ICode {
     A00113("没有库存了"),
 
     A00150("IO异常"),
+    A00151("请求文件数据异常异常"),
+
     // servlet文件异常
     A00160("未查询到指定文件"),
     A00161("文件无数据"),

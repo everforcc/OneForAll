@@ -19,7 +19,6 @@ import cn.cc.dawn.config.init.yml.APPConfigurationBDDisk;
 import cn.cc.dawn.local.craw.business.data.dto.HttpParamDto;
 import cn.cc.dawn.utils.enums.HttpTypeEnum;
 import cn.cc.dawn.utils.http.IHttp;
-import com.alibaba.fastjson.JSONObject;
 import lombok.extern.slf4j.Slf4j;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
@@ -51,6 +50,8 @@ public class BDDiskFileCreateServiceImpl implements IBDDiskFileCreateService {
         httpParamDto.setUrl(url);
 
         Map<String,String> map = new HashMap<>();
+        //map.put("path", URLEncoder.encode(bdFileVo.getTargetPath(), CharsetsEnum.UTF_8.charset.toString()));
+        //map.put("path", "/apps/everforcc/" + URLEncoder.encode(bdFileVo.getTargetPath(), CharsetsEnum.UTF_8.charset.toString()));
         map.put("path",bdFileVo.getTargetPath());
         map.put("size",Long.toString(bdFileVo.getSize()));
         map.put("isdir","0");

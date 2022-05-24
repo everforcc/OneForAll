@@ -52,7 +52,13 @@ public class THttpParamUtils {
         String url = "http://pan.baidu.com/rest/2.0/xpan/file?method=precreate&access_token=121.85a568e448d5ad462d6cb7767213f4f1.Y3h2wbrPks0TNvY9c31pP5Ow1N-VffmzkfkXHrO.uwt9TA&path=/apps/everforcc/诺艾尔.jpg&size=210691&isdir=0&block_list=[\"5aefaca30650511f2437e857383b95ba\"]&autoinit=1&rtype=1&content-md5=5aefaca30650511f2437e857383b95ba&slice-md5=5aefaca30650511f2437e857383b95ba";
         System.out.println(url);
         try {
-            System.out.println(URLEncoder.encode(url, "UTF-8"));
+            System.out.println(URLEncoder.encode("/我的资源", "UTF-8"));
+
+            List<String> stringList = new ArrayList<>();
+            //stringList.add("\"931715956914422\"");
+            stringList.add("931715956914422");
+            System.out.println(stringList.toString());
+            System.out.println(URLEncoder.encode(stringList.toString(), "UTF-8"));
 
             String decodeUrl = "%5B%2247d1c6bc3e9eb866a7f4826291711431%22%2C+%22245df93f6e0cb48bded5bdd26e168ff3%22%5D";
             System.out.println(URLDecoder.decode(decodeUrl,"UTF-8"));

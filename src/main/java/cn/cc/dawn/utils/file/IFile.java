@@ -5,6 +5,7 @@ import cn.cc.dawn.utils.constant.DateFormatConstant;
 
 import java.io.File;
 import java.io.IOException;
+import java.io.InputStream;
 import java.nio.file.Files;
 import java.nio.file.Path;
 import java.nio.file.attribute.BasicFileAttributes;
@@ -42,6 +43,8 @@ public interface IFile {
     String md5(String path);
 
     String slice_md5(String path, long lengthKB);
+
+    void write(String path, InputStream inputStream);
 
     void write(String path,String content);
     void write(String path,String fileName,String content);

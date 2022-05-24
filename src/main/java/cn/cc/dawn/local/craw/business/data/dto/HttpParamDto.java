@@ -112,6 +112,9 @@ public class HttpParamDto extends CommonFiledDto {
      */
     private String ssl;
 
+    private String targetFilePath;
+    private String targetFileName;
+
     /**
      * 设置代理方法
      * @param ip

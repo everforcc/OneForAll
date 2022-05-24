@@ -174,6 +174,12 @@ public class FileApacheUtils implements IFile {
     }
 
     @SneakyThrows
+    @Override
+    public void write(String path, InputStream inputStream) {
+        FileUtils.copyInputStreamToFile(inputStream,new File(path));
+    }
+
+    @SneakyThrows
     public static List<String> md5block_list(String path, int size){
         byte[] bytes = FileUtils.readFileToByteArray(new File(path));
         /*System.arraycopy();
