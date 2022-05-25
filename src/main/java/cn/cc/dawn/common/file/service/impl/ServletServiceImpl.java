@@ -3,12 +3,11 @@ package cn.cc.dawn.common.file.service.impl;
 import cn.cc.dawn.common.file.service.IServletService;
 import cn.cc.dawn.common.file.service.ResponseBytesService;
 import cn.cc.dawn.common.file.vo.ServletVO;
-import cn.cc.dawn.utils.check.ObjectUtils;
-import cn.cc.dawn.utils.check.StringUtils;
+import cn.cc.dawn.utils.commons.lang.RObjectsUtils;
+import cn.cc.dawn.utils.commons.lang.RStringUtils;
 import cn.cc.dawn.utils.constant.HttpHeadersConstant;
 import cn.cc.dawn.utils.constant.LogConstant;
 import cn.cc.dawn.utils.exception.AppCode;
-import lombok.Cleanup;
 import lombok.extern.slf4j.Slf4j;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
@@ -35,16 +34,16 @@ public class ServletServiceImpl implements IServletService {
 
             //servletVO.getHeaderMap().forEach((k, v) -> log.info("servletVO: k: " + k + " ,v: " + v));
 
-            AppCode.A00150.assertHasTrue(ObjectUtils.nonNull(servletVO));
-            AppCode.A00161.assertHasTrue(ObjectUtils.nonNull(servletVO.getBytes()));
+            AppCode.A00150.assertHasTrue(RObjectsUtils.nonNull(servletVO));
+            AppCode.A00161.assertHasTrue(RObjectsUtils.nonNull(servletVO.getBytes()));
 
 
             //1. 返回文件类型
-            if (!StringUtils.isEmpty(servletVO.getContentType())) {
+            if (!RStringUtils.isEmpty(servletVO.getContentType())) {
                 response.setContentType(servletVO.getContentType());
             }
 
-            if (ObjectUtils.nonNull(servletVO.getHeaderMap())) {
+            if (RObjectsUtils.nonNull(servletVO.getHeaderMap())) {
                 Map<String, String> headerMap = servletVO.getHeaderMap();
                 headerMap.forEach((k, v) -> response.setHeader(k, v));
 
@@ -56,7 +55,7 @@ public class ServletServiceImpl implements IServletService {
 
             }
 
-            if (ObjectUtils.nonNull(servletVO.getDateHeaderMap())) {
+            if (RObjectsUtils.nonNull(servletVO.getDateHeaderMap())) {
                 Map<String, Long> dateHeaderMap = servletVO.getDateHeaderMap();
                 dateHeaderMap.forEach((k, v) -> response.setDateHeader(k, v));
                 //4. 有效期
@@ -69,7 +68,7 @@ public class ServletServiceImpl implements IServletService {
         }catch (Exception e){
             throw AppCode.A00150.toUserException(e.toString());
         }finally {
-            if(ObjectUtils.nonNull(outputStream)){
+            if(RObjectsUtils.nonNull(outputStream)){
                 try {
                     outputStream.close();
                 } catch (IOException e) {
@@ -99,7 +98,7 @@ public class ServletServiceImpl implements IServletService {
             e.printStackTrace();
             throw AppCode.A00150.toUserException(e.toString());
         }finally {
-            if(ObjectUtils.nonNull(outputStream)){
+            if(RObjectsUtils.nonNull(outputStream)){
                 try {
                     outputStream.close();
                 } catch (IOException e) {

@@ -1,6 +1,6 @@
 package cn.cc.dawn.utils.file;
 
-import cn.cc.dawn.utils.check.StringUtils;
+import cn.cc.dawn.utils.commons.lang.RStringUtils;
 import cn.cc.dawn.utils.enums.BooleanEnum;
 import cn.cc.dawn.utils.exception.AppCode;
 import cn.cc.dawn.utils.file.constant.FileRegexConstant;
@@ -116,7 +116,7 @@ public class FilePath {
             file.mkdirs();
         }
 
-        if(StringUtils.isNotEmpty(fileName)){
+        if(RStringUtils.isNotEmpty(fileName)){
             stringBuffer.append(File.separator + fileName);
         }
         busiRoot = stringBuffer.toString();
@@ -125,7 +125,7 @@ public class FilePath {
 
 
     public File file(){
-        AppCode.A00305.assertHasTrue(StringUtils.isNotEmpty(fileName));
+        AppCode.A00305.assertHasTrue(RStringUtils.isNotEmpty(fileName));
         return new File(busiRoot + File.separator +  fileName);
     }
 

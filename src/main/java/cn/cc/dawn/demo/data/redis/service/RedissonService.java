@@ -3,7 +3,7 @@ package cn.cc.dawn.demo.data.redis.service;
 import cn.cc.dawn.demo.data.redis.dao.TOrderDaoMapper;
 import cn.cc.dawn.demo.data.redis.dao.TStockDaoMapper;
 import cn.cc.dawn.demo.data.redis.dto.TOrderDto;
-import cn.cc.dawn.utils.algo.UUIDUtils;
+import cn.cc.dawn.utils.commons.codec.JUUIDUtils;
 import cn.cc.dawn.utils.data.redis.RedisLockConstant;
 import cn.cc.dawn.utils.exception.AppCode;
 import lombok.extern.slf4j.Slf4j;
@@ -15,7 +15,6 @@ import org.springframework.transaction.annotation.Transactional;
 
 import javax.annotation.Resource;
 import java.util.Date;
-import java.util.UUID;
 import java.util.concurrent.TimeUnit;
 
 @Service("redissonService")
@@ -85,7 +84,7 @@ public class RedissonService {
                 AppCode.A00113.assertHasTrue(stockNum>0);
                 // AppCode.A01001.assertHasUpdate(tStockDao.updateCount(productId,--stockNum));
 
-                String orderNo = UUIDUtils.uuid32().toUpperCase();
+                String orderNo = JUUIDUtils.uuid32().toUpperCase();
                 TOrderDto tOrderDto = new TOrderDto();
                 tOrderDto.setOrderno(orderNo);
                 tOrderDto.setProductid(productId);

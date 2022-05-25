@@ -20,7 +20,7 @@ import cn.cc.dawn.common.bddisk.uinfo.service.IBDDiskUInfoResService;
 import cn.cc.dawn.config.cache.CacheUserDefine;
 import cn.cc.dawn.config.init.yml.APPConfigurationBDDisk;
 import cn.cc.dawn.local.craw.business.data.dto.HttpParamDto;
-import cn.cc.dawn.utils.check.ObjectUtils;
+import cn.cc.dawn.utils.commons.lang.RObjectsUtils;
 import cn.cc.dawn.utils.exception.AppCode;
 import cn.cc.dawn.utils.http.IHttp;
 import com.alibaba.fastjson.JSONObject;
@@ -57,10 +57,10 @@ public class BDDiskUInfoReqServiceImpl implements IBDDiskUInfoReqService {
 
         if(!coverMsg) {
             bdDiskUInfoResDto = bdDiskUInfoResDtoRBucket.get();
-            if(ObjectUtils.isNull(bdDiskUInfoResDto)){
+            if(RObjectsUtils.isNull(bdDiskUInfoResDto)){
                 bdDiskUInfoResDto = ibdDiskUInfoResServicel.select(userid);
                 log.info("缓存没有用户信息，从数据库查询");
-                if(ObjectUtils.nonNull(bdDiskUInfoResDto)){
+                if(RObjectsUtils.nonNull(bdDiskUInfoResDto)){
                     log.info("数据库存在数据，缓存redis");
                     bdDiskUInfoResDtoRBucket.set(bdDiskUInfoResDto);
                 }
@@ -69,7 +69,7 @@ public class BDDiskUInfoReqServiceImpl implements IBDDiskUInfoReqService {
             }
         }
 
-        if(ObjectUtils.isNull(bdDiskUInfoResDto)) {
+        if(RObjectsUtils.isNull(bdDiskUInfoResDto)) {
             log.info("从接口请求用户信息");
             String access_token = ibdDiskOfferAuthService.offerAccessToken(userid);
             BDDiskUInfoReqDto bdDiskUInfoReqDto = new BDDiskUInfoReqDto(access_token);

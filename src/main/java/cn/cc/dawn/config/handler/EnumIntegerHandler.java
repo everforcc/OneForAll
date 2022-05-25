@@ -1,6 +1,6 @@
 package cn.cc.dawn.config.handler;
 
-import cn.cc.dawn.utils.check.ObjectUtils;
+import cn.cc.dawn.utils.commons.lang.RObjectsUtils;
 import cn.cc.dawn.utils.enums.BaseEnum;
 import cn.cc.dawn.utils.exception.AppCode;
 import org.apache.ibatis.type.BaseTypeHandler;
@@ -24,7 +24,7 @@ public class EnumIntegerHandler<E extends BaseEnum> extends BaseTypeHandler<E> {
 
 
     public EnumIntegerHandler(Class<E> type) {
-        AppCode.A00304.assertHasTrue(ObjectUtils.nonNull(type));
+        AppCode.A00304.assertHasTrue(RObjectsUtils.nonNull(type));
         this.type = type;
 
         /**
@@ -32,7 +32,7 @@ public class EnumIntegerHandler<E extends BaseEnum> extends BaseTypeHandler<E> {
          */
         this.enums = type.getEnumConstants();
 
-        if (ObjectUtils.isNull(this.enums)) {
+        if (RObjectsUtils.isNull(this.enums)) {
             throw AppCode.A00304.toUserException(type.getSimpleName() + " 没有枚举值");
         }
     }

@@ -11,10 +11,10 @@
 
 package cn.cc.dawn.utils.http;
 
-import cn.cc.dawn.utils.check.StringUtils;
+import cn.cc.dawn.utils.commons.lang.RStringUtils;
 import cn.cc.dawn.utils.enums.CharsetsEnum;
 import cn.cc.dawn.utils.exception.AppCode;
-import cn.cc.dawn.utils.regex.RegexUtils;
+import cn.cc.dawn.utils.commons.regex.RegexUtils;
 import lombok.SneakyThrows;
 
 import java.net.URLDecoder;
@@ -31,7 +31,7 @@ public class HttpHeaderUtils {
      */
     @SneakyThrows
     public static String contentDispositionToFileName(String content_dispositon){
-        AppCode.A00111.assertHasTrue(StringUtils.isNotEmpty(content_dispositon));
+        AppCode.A00111.assertHasTrue(RStringUtils.isNotEmpty(content_dispositon));
         //String fileName = content_dispositon.replace("attachment;filename=\"", "").replace("\"", "");
         String fileName = RegexUtils.matcheStr(dispositonFileRegex,content_dispositon,dispositonFileGroup);
         return URLDecoder.decode(fileName, CharsetsEnum.UTF_8.charset.toString());

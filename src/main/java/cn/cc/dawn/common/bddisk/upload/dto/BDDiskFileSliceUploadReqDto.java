@@ -12,7 +12,7 @@
 package cn.cc.dawn.common.bddisk.upload.dto;
 
 import cn.cc.dawn.utils.constant.CommonCharConstant;
-import cn.cc.dawn.utils.http.HttpParamUtils;
+import cn.cc.dawn.utils.commons.web.HttpParamUtils;
 import cn.cc.dawn.utils.userinterface.ReflectFileFiled;
 
 /**

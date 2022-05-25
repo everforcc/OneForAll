@@ -4,7 +4,7 @@ import cn.cc.dawn.open.auth.cache.CustomerUserCache;
 import cn.cc.dawn.open.auth.dao.CustomUserDaoMapper;
 import cn.cc.dawn.open.auth.dto.CustomUser;
 import cn.cc.dawn.open.auth.vo.CustomUserLoginVO;
-import cn.cc.dawn.utils.check.ObjectUtils;
+import cn.cc.dawn.utils.commons.lang.RObjectsUtils;
 import cn.cc.dawn.utils.exception.AppCode;
 import lombok.extern.slf4j.Slf4j;
 import org.springframework.cache.annotation.Cacheable;
@@ -25,7 +25,7 @@ public class AuthService {
         CustomUser customUser = customUserDao.selectUser(username,customUserLoginVO.getPassword());
         log.info("查询返回数据: " + customUser);
 
-        AppCode.A00101.assertHasTrue(ObjectUtils.nonNull(customUser));
+        AppCode.A00101.assertHasTrue(RObjectsUtils.nonNull(customUser));
 
         return customUser.token();
     }

@@ -1,7 +1,7 @@
 package cn.cc.dawn.filter;
 
 
-import cn.cc.dawn.utils.algo.UUIDUtils;
+import cn.cc.dawn.utils.commons.codec.JUUIDUtils;
 import cn.cc.dawn.utils.constant.HttpHeadersConstant;
 import lombok.extern.slf4j.Slf4j;
 import org.slf4j.MDC;
@@ -33,7 +33,7 @@ public class APPFilter implements Filter {
 
     @Override
     public void doFilter(ServletRequest servletRequest, ServletResponse servletResponse, FilterChain filterChain) throws IOException, ServletException {
-        MDC.put(HttpHeadersConstant.MDC_header, UUIDUtils.uuid32());
+        MDC.put(HttpHeadersConstant.MDC_header, JUUIDUtils.uuid32());
         log.info("进入filter");
         HttpServletRequest httpServletRequest = (HttpServletRequest) servletRequest;
 

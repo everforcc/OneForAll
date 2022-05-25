@@ -8,7 +8,7 @@ import cn.cc.dawn.local.craw.business.data.vo.WebSiteDataVO;
 import cn.cc.dawn.local.craw.util.CrawDataParse;
 import cn.cc.dawn.utils.exception.AppCode;
 import cn.cc.dawn.utils.http.ISelenium;
-import cn.cc.dawn.utils.inter.valited.ISave;
+import cn.cc.dawn.utils.i.valited.ISave;
 import com.alibaba.fastjson.JSONObject;
 import lombok.extern.slf4j.Slf4j;
 import org.springframework.cache.annotation.Cacheable;
@@ -17,10 +17,8 @@ import org.springframework.transaction.annotation.Transactional;
 import org.springframework.validation.annotation.Validated;
 
 import javax.annotation.Resource;
-import javax.validation.Valid;
 import javax.validation.constraints.NotEmpty;
 import java.util.List;
-import java.util.Map;
 
 @Slf4j
 @Service

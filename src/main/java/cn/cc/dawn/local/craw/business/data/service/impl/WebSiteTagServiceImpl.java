@@ -8,20 +8,17 @@ import cn.cc.dawn.local.craw.business.data.service.IWebSiteService;
 import cn.cc.dawn.local.craw.business.data.service.IWebSiteTagService;
 import cn.cc.dawn.local.craw.business.data.vo.WebSiteDataVO;
 import cn.cc.dawn.local.craw.business.data.vo.WebSiteReqVO;
-import cn.cc.dawn.utils.check.StringUtils;
+import cn.cc.dawn.utils.commons.lang.RStringUtils;
 import cn.cc.dawn.utils.exception.AppCode;
-import cn.cc.dawn.utils.http.HttpParamUtils;
+import cn.cc.dawn.utils.commons.web.HttpParamUtils;
 import cn.cc.dawn.utils.http.ISelenium;
 import com.alibaba.fastjson.JSONObject;
 import lombok.extern.slf4j.Slf4j;
 import org.springframework.stereotype.Service;
 import org.springframework.transaction.annotation.Transactional;
-import org.springframework.validation.annotation.Validated;
 
 import javax.annotation.Resource;
 import javax.validation.constraints.NotEmpty;
-import javax.validation.constraints.NotNull;
-import java.util.Map;
 import java.util.Objects;
 
 @Slf4j
@@ -96,8 +93,8 @@ public class WebSiteTagServiceImpl implements IWebSiteTagService {
              */
             WebSiteDto webSiteDto = new WebSiteDto(weburl);
 
-            AppCode.A00163.assertHasTrue(StringUtils.isNotEmpty(webSiteReqVO.getSofytype()));
-            AppCode.A00163.assertHasTrue(StringUtils.isNotEmpty(webSiteReqVO.getWebtype()));
+            AppCode.A00163.assertHasTrue(RStringUtils.isNotEmpty(webSiteReqVO.getSofytype()));
+            AppCode.A00163.assertHasTrue(RStringUtils.isNotEmpty(webSiteReqVO.getWebtype()));
             webSiteDto.setSofttype(webSiteReqVO.getSofytype());
             webSiteDto.setWebtype(webSiteReqVO.getWebtype());
             // 插入

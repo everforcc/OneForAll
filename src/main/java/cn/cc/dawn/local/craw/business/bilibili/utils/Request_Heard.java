@@ -1,7 +1,7 @@
 package cn.cc.dawn.local.craw.business.bilibili.utils;
 
 import cn.cc.dawn.local.craw.business.bilibili.constant.BilConstant;
-import cn.cc.dawn.utils.date.DateUtils;
+import cn.cc.dawn.utils.commons.lang.RSimpleDateFormat;
 import lombok.extern.slf4j.Slf4j;
 
 import java.io.OutputStream;
@@ -51,7 +51,7 @@ public class Request_Heard {
             String val = conn.getHeaderField(key);
             log.info(key+"    "+val);
         }
-        log.info("上次修改时间:" + DateUtils.nowTime(conn.getLastModified()));
+        log.info("上次修改时间:" + RSimpleDateFormat.nowTime(conn.getLastModified()));
         log.info("------------------------------------------headers-------------------------------------------------------------------------------");
         return conn;
     }

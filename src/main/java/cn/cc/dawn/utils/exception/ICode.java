@@ -1,9 +1,6 @@
 package cn.cc.dawn.utils.exception;
 
-import cn.cc.dawn.utils.check.ObjectUtils;
-
-import java.util.Collection;
-import java.util.Objects;
+import cn.cc.dawn.utils.commons.lang.RObjectsUtils;
 
 public interface ICode {
 
@@ -76,7 +73,7 @@ public interface ICode {
 
 
     default void assertNonNull(final Object value) {
-        if(ObjectUtils.isNull(value)){
+        if(RObjectsUtils.isNull(value)){
             throw toUserException();
         }
     }

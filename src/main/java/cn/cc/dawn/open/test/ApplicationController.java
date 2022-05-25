@@ -1,12 +1,11 @@
 package cn.cc.dawn.open.test;
 
-import cn.cc.dawn.config.init.application.ApplicationContextInit;
-import cn.cc.dawn.utils.check.ObjectUtils;
+import cn.cc.dawn.utils.commons.codec.JAESUtil;
+import cn.cc.dawn.utils.commons.lang.RObjectsUtils;
 import cn.cc.dawn.utils.entity.ResultE;
 import lombok.extern.slf4j.Slf4j;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.cache.CacheManager;
-import org.springframework.context.ApplicationContext;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
@@ -29,7 +28,11 @@ public class ApplicationController {
         return "executorService";
     }
 
-
+    @GetMapping("/aeskey")
+    public String defaultAesKey(){
+        log.info(JAESUtil.DEFAULT_KEY);
+        return JAESUtil.DEFAULT_KEY;
+    }
 
     @GetMapping("/singleThread")
     public ResultE<String> singleThread(){
@@ -38,7 +41,7 @@ public class ApplicationController {
          * 在初始化之前使用，需要以下方法来   实例
          */
         //ExecutorService executorService = ApplicationContextInit.getMultiThread();
-        log.info("是否为null: " + ObjectUtils.isNull(singleThread));
+        log.info("是否为null: " + RObjectsUtils.isNull(singleThread));
 
         singleThread.execute(new Runnable() {
             public void run() {

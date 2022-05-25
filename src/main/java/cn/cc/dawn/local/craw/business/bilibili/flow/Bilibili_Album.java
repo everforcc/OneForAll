@@ -6,14 +6,14 @@ import cn.cc.dawn.local.craw.business.bilibili.entity.BilibiliAlbumPicDto;
 import cn.cc.dawn.local.craw.business.bilibili.utils.*;
 import cn.cc.dawn.local.craw.business.data.dto.HttpParamDto;
 import cn.cc.dawn.utils.constant.DateFormatConstant;
-import cn.cc.dawn.utils.date.DateUtils;
+import cn.cc.dawn.utils.commons.lang.RSimpleDateFormat;
 import cn.cc.dawn.utils.enums.HttpTypeEnum;
 import cn.cc.dawn.utils.exception.AppCode;
 import cn.cc.dawn.utils.file.IFile;
 import cn.cc.dawn.utils.file.impl.FileApacheUtils;
 import cn.cc.dawn.utils.file.FilePath;
 import cn.cc.dawn.utils.http.IHttp;
-import cn.cc.dawn.utils.http.HttpParamUtils;
+import cn.cc.dawn.utils.commons.web.HttpParamUtils;
 import cn.cc.dawn.utils.http.impl.IHttpApacheImpl;
 import com.alibaba.fastjson.JSON;
 import com.alibaba.fastjson.JSONArray;
@@ -187,7 +187,7 @@ public class Bilibili_Album {
     }
 
     public void saveJson(String poster_uid, String allAlbumDetailJson, String path){
-        String fileName = poster_uid + "-" + DateUtils.nowTime(DateFormatConstant.yyyy_MM_dd_HH_mm_ss) + ".txt";
+        String fileName = poster_uid + "-" + RSimpleDateFormat.nowTime(DateFormatConstant.yyyy_MM_dd_HH_mm_ss) + ".txt";
         JSONObject jsonObject = JSON.parseObject(allAlbumDetailJson);
         allAlbumDetailJson = JSON.toJSONString(jsonObject, PrettyFormat);
         saveMsg(poster_uid,allAlbumDetailJson,path,fileName);

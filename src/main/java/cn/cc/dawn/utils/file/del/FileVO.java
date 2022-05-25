@@ -1,6 +1,6 @@
 package cn.cc.dawn.utils.file.del;
 
-import cn.cc.dawn.utils.check.ObjectUtils;
+import cn.cc.dawn.utils.commons.lang.RObjectsUtils;
 
 import java.io.InputStream;
 
@@ -36,7 +36,7 @@ public class FileVO {
     private String fileName;
 
     public void setDirs(String... dir){
-        if(ObjectUtils.isNull(dir)){
+        if(RObjectsUtils.isNull(dir)){
             return;
         }else {
             dirs = dir;

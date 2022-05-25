@@ -1,7 +1,7 @@
 package cn.cc.dawn.config.component;
 
 import cn.cc.dawn.demo.mail.dto.MailDto;
-import cn.cc.dawn.utils.check.StringUtils;
+import cn.cc.dawn.utils.commons.lang.RStringUtils;
 import cn.cc.dawn.utils.exception.AppCode;
 import cn.cc.dawn.utils.file.FilePath;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -12,7 +12,6 @@ import org.springframework.stereotype.Component;
 import org.thymeleaf.TemplateEngine;
 import org.thymeleaf.context.Context;
 
-import javax.mail.MessagingException;
 import javax.mail.internet.MimeMessage;
 import java.net.URL;
 import java.util.Date;
@@ -56,7 +55,7 @@ public class MailThymeleafComponent {
                 int size = mailDto.getAttachmentURL().size();
                 for(int i=0;i<size;i++){
                     String url = mailDto.getAttachmentURL().get(i);
-                    helper.addAttachment(StringUtils.urlSubFileName(url),new FileUrlResource(new URL(url)));
+                    helper.addAttachment(RStringUtils.urlSubFileName(url),new FileUrlResource(new URL(url)));
                 }
             }
 

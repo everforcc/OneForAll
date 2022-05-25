@@ -1,10 +1,10 @@
 package cn.cc.dawn.local.idm.service;
 
-import cn.cc.dawn.utils.check.ObjectUtils;
+import cn.cc.dawn.utils.commons.lang.RObjectsUtils;
 import cn.cc.dawn.utils.exception.AppCode;
-import cn.cc.dawn.utils.http.HttpParamUtils;
-import cn.cc.dawn.utils.regex.RegexConstant;
-import cn.cc.dawn.utils.regex.RegexUtils;
+import cn.cc.dawn.utils.commons.web.HttpParamUtils;
+import cn.cc.dawn.utils.commons.regex.RegexConstant;
+import cn.cc.dawn.utils.commons.regex.RegexUtils;
 import lombok.extern.slf4j.Slf4j;
 import org.apache.commons.io.FileUtils;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -96,7 +96,7 @@ public class IDMService {
                     String string = entry.getValue().toString();
                     log.info("string: " + string);
                     String range = RegexUtils.matcheStr(RegexConstant.mathNumber,string,1);
-                    AppCode.A01200.assertHasTrue(ObjectUtils.nonNull(range));
+                    AppCode.A01200.assertHasTrue(RObjectsUtils.nonNull(range));
                     long size = Long.valueOf(range);
                     return size;
                 }

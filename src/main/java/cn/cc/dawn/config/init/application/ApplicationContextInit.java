@@ -1,15 +1,21 @@
 package cn.cc.dawn.config.init.application;
 
+import cn.cc.dawn.config.init.yml.APPConfigurationEncrypt;
+import cn.cc.dawn.utils.commons.codec.JAESUtil;
 import lombok.extern.slf4j.Slf4j;
 import org.redisson.api.RedissonClient;
+import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.boot.CommandLineRunner;
+import org.springframework.boot.autoconfigure.condition.ConditionalOnExpression;
 import org.springframework.cache.CacheManager;
 import org.springframework.context.ApplicationContext;
 import org.springframework.context.annotation.Bean;
+import org.springframework.core.Ordered;
 import org.springframework.core.annotation.Order;
 import org.springframework.stereotype.Component;
 
 import java.util.Map;
+import java.util.Objects;
 import java.util.concurrent.ConcurrentHashMap;
 import java.util.concurrent.ExecutorService;
 
@@ -24,6 +30,11 @@ public class ApplicationContextInit {
 
     private static ApplicationContext applicationContext;
 
+    /**
+     * 初始化加密key的工具类
+     */
+    @Autowired
+    private APPConfigurationEncrypt appConfigurationEncrypt;
     /**
      * 线程服务
      * 单线程bean singleThread
@@ -53,8 +64,18 @@ public class ApplicationContextInit {
     public CommandLineRunner beanInitPrintCommandLineRunner(ApplicationContext context) {
         applicationContext = context;
         return args -> {
-            // TODO
             log.info("初始化完成，可以列出系统信息，端口，环境之类的");
+        };
+    }
+
+    @Order(Ordered.HIGHEST_PRECEDENCE)
+    @ConditionalOnExpression("'true'.equals('${app.encrypt.aesEnable}')")
+    @Bean
+    public CommandLineRunner initAes(ApplicationContext context) {
+        return args -> {
+            log.info("初始化Aes加密类");
+            JAESUtil.setKey(appConfigurationEncrypt.getDefaultAeskey());
+            log.info("初始化Aes加密类完成......");
         };
     }
 

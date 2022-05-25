@@ -18,7 +18,7 @@ import cn.cc.dawn.business.game.drawcard.service.ICardGameConfigService;
 import cn.cc.dawn.business.game.drawcard.service.ICardGameLogService;
 import cn.cc.dawn.business.game.drawcard.service.ICardGameMenuService;
 import cn.cc.dawn.business.game.drawcard.util.ProbabilityUtil;
-import cn.cc.dawn.utils.check.ObjectUtils;
+import cn.cc.dawn.utils.commons.lang.RObjectsUtils;
 import cn.cc.dawn.utils.exception.AppCode;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
@@ -58,7 +58,7 @@ public class CardGameMenuServiceImpl implements ICardGameMenuService {
     public String drawCard(int userid,String gameid) {
         String result;
         CardGameConfigDto configDto = iCardGameConfigService.selectGameConfigDto(gameid);
-        AppCode.A01300.assertHasTrue(ObjectUtils.nonNull(configDto));
+        AppCode.A01300.assertHasTrue(RObjectsUtils.nonNull(configDto));
 
         Double baseProbability = configDto.getBaseProbability();
         Double randomDouble = ProbabilityUtil.randomDouble();

@@ -13,10 +13,9 @@ package cn.cc.dawn.common.bddisk.upload.dto;
 
 import cn.cc.dawn.common.bddisk.upload.vo.BDFileVo;
 import cn.cc.dawn.utils.constant.CommonCharConstant;
-import cn.cc.dawn.utils.enums.CharsetsEnum;
 import cn.cc.dawn.utils.file.IFile;
 import cn.cc.dawn.utils.file.impl.FileApacheUtils;
-import cn.cc.dawn.utils.http.HttpParamUtils;
+import cn.cc.dawn.utils.commons.web.HttpParamUtils;
 import cn.cc.dawn.utils.userinterface.ReflectFileFiled;
 import com.alibaba.fastjson.annotation.JSONField;
 import lombok.Getter;
@@ -24,9 +23,7 @@ import lombok.Setter;
 import lombok.SneakyThrows;
 
 import javax.validation.constraints.NotEmpty;
-import java.net.URLEncoder;
 import java.util.ArrayList;
-import java.util.Arrays;
 import java.util.List;
 
 /**

@@ -1,7 +1,7 @@
 package cn.cc.dawn.local.craw.business.dujuzi.flow;
 
 import cn.cc.dawn.utils.http.JsoupUtils;
-import cn.cc.dawn.utils.data.io.InputStream_IO_Write;
+import cn.cc.dawn.utils.commons.io.JInputStreamUtils;
 import org.jsoup.nodes.Document;
 import org.jsoup.nodes.Element;
 import org.jsoup.select.Elements;
@@ -44,7 +44,7 @@ public class PageProcessor_dujuzi {
 
     int iterator = 0 ;
 
-    InputStream_IO_Write inputStream_io_write ; // = new InputStream_IO_Write(FILE_PATH + "Code Geass 反叛的鲁路修.txt" );
+    JInputStreamUtils JInputStream_utils; // = new InputStream_IO_Write(FILE_PATH + "Code Geass 反叛的鲁路修.txt" );
     /*static Document document_info;
     static Document document_list;
     static {
@@ -117,7 +117,7 @@ public class PageProcessor_dujuzi {
         }
 
         // inputStream_io_write 在这里实例化书名
-        inputStream_io_write = new InputStream_IO_Write(path + dirMenu + File.separator , bookName + ".txt" );
+        JInputStream_utils = new JInputStreamUtils(path + dirMenu + File.separator , bookName + ".txt" );
         // 1.简介
         logger.debug(url_info);
         System.out.println("简介:"+getAbstract(url_info));
@@ -183,7 +183,7 @@ public class PageProcessor_dujuzi {
             // System.out.println("menu_info:"+ element.attr("href") );
             // 获取了每个作品的后缀 /Home/JujiList/2110.html
             String bookNum = element.attr("href").split("/")[3].split("\\.")[0];
-            String bookName = InputStream_IO_Write.checkFileName(element.text());
+            String bookName = JInputStreamUtils.checkFileName(element.text());
             // System.out.println(bookNum);
             bookInfoFlow(bookNum,bookName);
         }
@@ -214,7 +214,7 @@ public class PageProcessor_dujuzi {
         String content = elements.get(0).text();
         logger.debug(content);
 
-        inputStream_io_write.IO_PrintWriter_Append(content);
+        JInputStream_utils.IO_PrintWriter_Append(content);
         return content;
     }
 
@@ -261,7 +261,7 @@ public class PageProcessor_dujuzi {
             Elements elements_a = element.getElementsByClass("juzi");
             //System.out.println("elements_a:"+elements_a.size() + "," + elements_a.text());
             System.out.println(elements_a.text());
-            inputStream_io_write.IO_PrintWriter_Append(elements_a.text());
+            JInputStream_utils.IO_PrintWriter_Append(elements_a.text());
             iterator++;
         }
     }

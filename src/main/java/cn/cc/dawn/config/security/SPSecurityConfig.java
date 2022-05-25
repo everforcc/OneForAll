@@ -2,10 +2,10 @@ package cn.cc.dawn.config.security;
 
 import cn.cc.dawn.open.auth.dto.CustomUser;
 import cn.cc.dawn.open.auth.util.CustomUserBuilder;
-import cn.cc.dawn.utils.algo.UUIDUtils;
-import cn.cc.dawn.utils.check.ObjectUtils;
+import cn.cc.dawn.utils.commons.codec.JUUIDUtils;
+import cn.cc.dawn.utils.commons.lang.RObjectsUtils;
 import cn.cc.dawn.utils.constant.HttpHeadersConstant;
-import cn.cc.dawn.utils.constant.system.SystemUrlConstant;
+import cn.cc.dawn.utils.constant.SystemUrlConstant;
 import cn.cc.dawn.utils.entity.ResultE;
 import cn.cc.dawn.utils.enums.ContentTypeEnum;
 import cn.cc.dawn.utils.exception.AppCode;
@@ -23,9 +23,6 @@ import org.springframework.security.core.context.SecurityContextHolder;
 import org.springframework.security.web.authentication.UsernamePasswordAuthenticationFilter;
 import org.springframework.security.web.authentication.logout.SecurityContextLogoutHandler;
 import org.springframework.security.web.authentication.www.BasicAuthenticationFilter;
-import org.springframework.web.cors.CorsConfiguration;
-import org.springframework.web.cors.CorsConfigurationSource;
-import org.springframework.web.cors.UrlBasedCorsConfigurationSource;
 import org.springframework.web.filter.OncePerRequestFilter;
 
 import javax.servlet.FilterChain;
@@ -65,7 +62,7 @@ public class SPSecurityConfig{
             /**
              * 链路追踪
              */
-            MDC.put(HttpHeadersConstant.MDC_header, UUIDUtils.uuid32());
+            MDC.put(HttpHeadersConstant.MDC_header, JUUIDUtils.uuid32());
             /**
              * 处理登录401，403，200，error等五种情况
              */
@@ -196,7 +193,7 @@ public class SPSecurityConfig{
 
                     CustomUser customUser = CustomUserBuilder.tokenToUser(token);
                     //customUser = customUser.tokenToUser(token);
-                    if(ObjectUtils.isNull(customUser)){
+                    if(RObjectsUtils.isNull(customUser)){
                         return;
                     }
 

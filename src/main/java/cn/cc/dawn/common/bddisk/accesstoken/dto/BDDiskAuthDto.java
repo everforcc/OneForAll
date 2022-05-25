@@ -12,7 +12,7 @@
 package cn.cc.dawn.common.bddisk.accesstoken.dto;
 
 import cn.cc.dawn.utils.constant.CommonCharConstant;
-import cn.cc.dawn.utils.http.HttpParamUtils;
+import cn.cc.dawn.utils.commons.web.HttpParamUtils;
 
 /**
  * 引导用户授权类

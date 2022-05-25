@@ -16,7 +16,7 @@ import cn.cc.dawn.common.bddisk.accesstoken.service.IBDDiskAuthService;
 import cn.cc.dawn.common.bddisk.accesstoken.service.IBDDiskOfferAuthService;
 import cn.cc.dawn.common.bddisk.accesstoken.service.IBDDiskTokenResultDtoService;
 import cn.cc.dawn.config.cache.CacheUserDefine;
-import cn.cc.dawn.utils.check.StringUtils;
+import cn.cc.dawn.utils.commons.lang.RStringUtils;
 import lombok.extern.slf4j.Slf4j;
 import org.redisson.api.RBucket;
 import org.redisson.api.RedissonClient;
@@ -51,7 +51,7 @@ public class BDDiskOfferAuthServiceImpl implements IBDDiskOfferAuthService {
          * 如果为空,查数据库
          * 刷新token
          */
-        if(StringUtils.isBlank(bdAccessToken)){
+        if(RStringUtils.isBlank(bdAccessToken)){
             log.info("token失效,主动刷新");
             BDDiskTokenResultDto bdDiskTokenResultDto = ibdDiskTokenResultDtoService.select(userid);
             log.info("旧数据: {}",bdDiskTokenResultDto);

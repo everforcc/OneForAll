@@ -1,8 +1,8 @@
 package cn.cc.dawn.utils.dto;
 
-import cn.cc.dawn.utils.algo.UUIDUtils;
+import cn.cc.dawn.utils.commons.codec.JUUIDUtils;
 import cn.cc.dawn.utils.enums.impl.StatusEnum;
-import cn.cc.dawn.utils.inter.valited.IUpdate;
+import cn.cc.dawn.utils.i.valited.IUpdate;
 import com.alibaba.fastjson.JSONObject;
 import com.alibaba.fastjson.annotation.JSONField;
 import lombok.*;
@@ -10,7 +10,6 @@ import lombok.*;
 import javax.validation.constraints.NotNull;
 import java.sql.Timestamp;
 import java.util.Date;
-import java.util.UUID;
 
 //@Data 会重写toString
 @Getter
@@ -44,7 +43,7 @@ public class CommonFiledDto {
     public CommonFiledDto(Integer createUserid,Integer updateUserid) {
         this.createUserid = createUserid;
         this.updateUserid = updateUserid;
-        this.uuid = UUIDUtils.uuid32();
+        this.uuid = JUUIDUtils.uuid32();
         this.createTime = nowTime();
         this.updateTime = nowTime();
         this.effect = StatusEnum.EFFECT;
@@ -53,7 +52,7 @@ public class CommonFiledDto {
 
     public CommonFiledDto(Integer updateUserid) {
         this.updateUserid = updateUserid;
-        this.uuid = UUIDUtils.uuid32();
+        this.uuid = JUUIDUtils.uuid32();
         this.createTime = nowTime();
         this.updateTime = nowTime();
         this.effect = StatusEnum.EFFECT;

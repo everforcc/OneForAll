@@ -6,6 +6,10 @@ GET http://localhost:81/open/application/app
 Accept: application/json
 
 ###
+GET http://localhost:81/open/application/aeskey
+Accept: application/json
+
+###
 GET http://localhost:81/open/application/singleThread
 Accept: application/json
 

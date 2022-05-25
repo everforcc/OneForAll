@@ -14,6 +14,7 @@ import java.nio.charset.StandardCharsets;
 public enum CharsetsEnum {
 
     /**
+     * 对象中使用
      * 如果有新的必须在下面追加否则会影响已有数据
      */
     UTF_8(StandardCharsets.UTF_8),

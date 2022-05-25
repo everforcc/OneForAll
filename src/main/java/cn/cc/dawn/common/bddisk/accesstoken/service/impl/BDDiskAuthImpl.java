@@ -22,7 +22,7 @@ import cn.cc.dawn.config.cache.CacheConstant;
 import cn.cc.dawn.config.cache.CacheUserDefine;
 import cn.cc.dawn.config.init.yml.APPConfigurationBDDisk;
 import cn.cc.dawn.local.craw.business.data.dto.HttpParamDto;
-import cn.cc.dawn.utils.check.StringUtils;
+import cn.cc.dawn.utils.commons.lang.RStringUtils;
 import cn.cc.dawn.utils.exception.AppCode;
 import cn.cc.dawn.utils.http.IHttp;
 import com.alibaba.fastjson.JSONObject;
@@ -60,7 +60,7 @@ public class BDDiskAuthImpl implements IBDDiskAuthService {
 
         final RBucket<String> bdDiskOrderUserAuthRBucket = redissonClient.getBucket(CacheUserDefine.BD_DISK_ORDERUSESR_AUTH.formatKey(client_id,redirect_uriWebUrl));
         String orderUserAuthUrl = bdDiskOrderUserAuthRBucket.get();
-        if(StringUtils.isBlank(orderUserAuthUrl)) {
+        if(RStringUtils.isBlank(orderUserAuthUrl)) {
             log.info("从缓存中获取地址: ");
             String authorizeWebUrl = appConfigurationBDDisk.getAuthorizeWebUrl();
             BDDiskAuthDto bdDiskAuthDto = new BDDiskAuthDto(client_id, redirect_uriWebUrl);
@@ -96,7 +96,7 @@ public class BDDiskAuthImpl implements IBDDiskAuthService {
             bdAccessToken = bdDiskTokenResultDtoRBucket.get();
         }
 
-        if(StringUtils.isBlank(bdAccessToken)) {
+        if(RStringUtils.isBlank(bdAccessToken)) {
 
             BDDiskTokenReqDto bdDiskTokenReqDto = new BDDiskTokenReqDto(client_id, secret_Key, redirect_uriWebUrl);
             // 请求数据的code
@@ -118,7 +118,7 @@ public class BDDiskAuthImpl implements IBDDiskAuthService {
             bdDiskTokenResultDto.setCode(code);
 
             // 对返回数据进行校验
-            AppCode.A01400.assertHasTrue(StringUtils.isBlank(bdDiskTokenResultDto.getError()),bdDiskTokenResultDto.getError_description());
+            AppCode.A01400.assertHasTrue(RStringUtils.isBlank(bdDiskTokenResultDto.getError()),bdDiskTokenResultDto.getError_description());
 
             // 入库
             ibdDiskTokenResultDtoService.insert(bdDiskTokenResultDto,userid);

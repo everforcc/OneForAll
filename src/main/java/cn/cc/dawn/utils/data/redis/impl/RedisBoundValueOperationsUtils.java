@@ -1,6 +1,6 @@
 package cn.cc.dawn.utils.data.redis.impl;
 
-import cn.cc.dawn.utils.check.ObjectUtils;
+import cn.cc.dawn.utils.commons.lang.RObjectsUtils;
 import cn.cc.dawn.utils.data.redis.IRedisTemplate;
 import cn.cc.dawn.utils.enums.BooleanEnum;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -37,14 +37,14 @@ public class RedisBoundValueOperationsUtils implements IRedisTemplate {
     public boolean addKV(String k, String v) {
         BoundValueOperations<String, String> strRedis = redisTemplate.boundValueOps(k);
         //判断key是否有对应的value,如果有,则返回false,如果没有,添加,返回true
-        return ObjectUtils.equals(strRedis.setIfAbsent(v, Duration.ofSeconds(60)), BooleanEnum.TRUE.flag);
+        return RObjectsUtils.equals(strRedis.setIfAbsent(v, Duration.ofSeconds(60)), BooleanEnum.TRUE.flag);
     }
 
     @Override
     public boolean addKV(String k, String v,Duration timeout) {
         BoundValueOperations<String, String> strRedis = redisTemplate.boundValueOps(k);
         //判断key是否有对应的value,如果有,则返回false,如果没有,添加,返回true
-        return ObjectUtils.equals(strRedis.setIfAbsent(v, timeout), BooleanEnum.TRUE.flag);
+        return RObjectsUtils.equals(strRedis.setIfAbsent(v, timeout), BooleanEnum.TRUE.flag);
     }
 
     public void removeK(String k) {

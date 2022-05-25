@@ -1,8 +1,8 @@
 package cn.cc.dawn.local.craw.business.data.dto;
 
 import cn.cc.dawn.utils.dto.CommonFiledDto;
-import cn.cc.dawn.utils.RandomUtils;
-import cn.cc.dawn.utils.check.ObjectUtils;
+import cn.cc.dawn.utils.commons.lang.RRandomUtils;
+import cn.cc.dawn.utils.commons.lang.RObjectsUtils;
 import cn.cc.dawn.utils.constant.NumberConstant;
 import cn.cc.dawn.utils.enums.BooleanEnum;
 import cn.cc.dawn.utils.enums.CharsetsEnum;
@@ -129,7 +129,7 @@ public class HttpParamDto extends CommonFiledDto {
      * 如果没设置，最少延迟一秒，最多延迟三秒
      */
     public void sleep(){
-        sleep(RandomUtils.randomInt(NumberConstant.N_1,NumberConstant.N_3) * NumberConstant.N_1000);
+        sleep(RRandomUtils.randomInt(NumberConstant.N_1,NumberConstant.N_3) * NumberConstant.N_1000);
     }
     public void sleep(int sleep){
         try {
@@ -162,7 +162,7 @@ public class HttpParamDto extends CommonFiledDto {
         }
 
         public Proxy toProxy(){
-            if(ObjectUtils.isNull(this.type)){
+            if(RObjectsUtils.isNull(this.type)){
                 return new Proxy(Proxy.Type.HTTP,new InetSocketAddress(ip,port));
             }
             return new Proxy(type,new InetSocketAddress(ip,port));

@@ -1,9 +1,9 @@
 package cn.cc.dawn.utils.http.impl;
 
 import cn.cc.dawn.local.craw.business.data.dto.HttpParamDto;
-import cn.cc.dawn.utils.RandomUtils;
-import cn.cc.dawn.utils.check.ObjectUtils;
-import cn.cc.dawn.utils.check.StringUtils;
+import cn.cc.dawn.utils.commons.lang.RRandomUtils;
+import cn.cc.dawn.utils.commons.lang.RObjectsUtils;
+import cn.cc.dawn.utils.commons.lang.RStringUtils;
 import cn.cc.dawn.utils.constant.HttpHeadersConstant;
 import cn.cc.dawn.utils.enums.CharsetsEnum;
 import cn.cc.dawn.utils.enums.HttpTypeEnum;
@@ -28,7 +28,6 @@ import org.springframework.stereotype.Component;
 import javax.annotation.Resource;
 import java.io.File;
 import java.io.InputStream;
-import java.net.URLDecoder;
 import java.nio.charset.Charset;
 import java.util.Map;
 import java.util.Objects;
@@ -110,7 +109,7 @@ public class IHttpApacheImpl implements IHttp {
         String content_dispositon = httpResponse.getFirstHeader(HttpHeadersConstant.CONTENT_DISPOSITION).getValue();
         String fileName = httpParamDto.getTargetFileName();
         // 处理文件名value
-        if(StringUtils.isEmpty(fileName)) {
+        if(RStringUtils.isEmpty(fileName)) {
             fileName = HttpHeaderUtils.contentDispositionToFileName(content_dispositon);
         }
 
@@ -133,7 +132,7 @@ public class IHttpApacheImpl implements IHttp {
 
         HttpResponse httpResponse = null;
         try {
-            int sleep  = (1 + RandomUtils.randomInt(0,10)) * 100;;
+            int sleep  = (1 + RRandomUtils.randomInt(0,10)) * 100;;
             log.info("随机休眠:" + sleep);
             Thread.sleep(sleep);
 
@@ -141,19 +140,19 @@ public class IHttpApacheImpl implements IHttp {
             if(HttpTypeEnum.POST.equals(httpTypeEnum)){
                 HttpPost httpPost = new HttpPost(url);
                 // 1. 文本内容
-                if(StringUtils.isNotEmpty(httpParamDto.getContent())) {
+                if(RStringUtils.isNotEmpty(httpParamDto.getContent())) {
                     HttpEntity httpEntity = new StringEntity(httpParamDto.getContent());
                     httpPost.setEntity(httpEntity);
                 }
                 // 2. headers
-                if(ObjectUtils.nonNull(httpParamDto.getHeaders())){
+                if(RObjectsUtils.nonNull(httpParamDto.getHeaders())){
                     Map<String,String> map = httpParamDto.getHeaders();
                     for(Map.Entry<String,String> entry:map.entrySet()){
                         httpPost.setHeader(entry.getKey(),entry.getValue());
                     }
                 }
                 // 3. form_data
-                if(ObjectUtils.nonNull(httpParamDto.getFormDates())){
+                if(RObjectsUtils.nonNull(httpParamDto.getFormDates())){
                     Map<String,String> map = httpParamDto.getFormDates();
                     MultipartEntityBuilder builder = MultipartEntityBuilder.create();
                     for(Map.Entry<String,String> entry:map.entrySet()){
@@ -165,7 +164,7 @@ public class IHttpApacheImpl implements IHttp {
                     httpPost.setEntity(httpEntity);
                 }
                 // 4. 文件
-                if(ObjectUtils.nonNull(httpParamDto.getFile())) {
+                if(RObjectsUtils.nonNull(httpParamDto.getFile())) {
                     File file = httpParamDto.getFile();
                     MultipartEntityBuilder builder = MultipartEntityBuilder.create();
                     HttpEntity httpEntity = builder.addBinaryBody("file",file).build();
@@ -179,7 +178,7 @@ public class IHttpApacheImpl implements IHttp {
                 // 1. ?参数直接拼接到url
                 HttpGet httpGet = new HttpGet(url);
                 // 2. 请求头
-                if(ObjectUtils.nonNull(httpParamDto.getHeaders())){
+                if(RObjectsUtils.nonNull(httpParamDto.getHeaders())){
                     Map<String,String> map = httpParamDto.getHeaders();
                     for(Map.Entry<String,String> entry:map.entrySet()){
                         httpGet.setHeader(entry.getKey(),entry.getValue());

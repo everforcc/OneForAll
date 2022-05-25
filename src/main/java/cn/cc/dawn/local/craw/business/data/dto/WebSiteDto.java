@@ -2,7 +2,7 @@ package cn.cc.dawn.local.craw.business.data.dto;
 
 import cn.cc.dawn.utils.dto.CommonFiledDto;
 import cn.cc.dawn.utils.enums.impl.StatusEnum;
-import cn.cc.dawn.utils.inter.valited.ISave;
+import cn.cc.dawn.utils.i.valited.ISave;
 import lombok.*;
 import javax.validation.constraints.NotNull;
 

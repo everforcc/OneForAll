@@ -6,7 +6,7 @@ import cn.cc.dawn.local.craw.business.bilibili.utils.BilHelper;
 import cn.cc.dawn.local.craw.business.bilibili.utils.Method_down;
 import cn.cc.dawn.local.craw.constant.CrawConstant;
 import cn.cc.dawn.utils.file.FilePath;
-import cn.cc.dawn.utils.http.HttpParamUtils;
+import cn.cc.dawn.utils.commons.web.HttpParamUtils;
 import lombok.extern.slf4j.Slf4j;
 import org.jsoup.Connection;
 import org.jsoup.Jsoup;

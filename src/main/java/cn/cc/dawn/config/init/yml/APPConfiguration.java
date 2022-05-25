@@ -19,7 +19,7 @@ Not registered via @EnableConfigurationProperties, marked as Spring component, o
 @ConfigurationProperties(prefix = "app")
 public class APPConfiguration {
 
-    private String defaultaeskey;
+    //private String defaultaeskey;
 
     private String filepath;
 

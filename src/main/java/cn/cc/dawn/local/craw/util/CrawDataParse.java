@@ -1,6 +1,6 @@
 package cn.cc.dawn.local.craw.util;
 
-import cn.cc.dawn.utils.http.HttpParamUtils;
+import cn.cc.dawn.utils.commons.web.HttpParamUtils;
 
 /**
  * 爬虫时常用的数据处理

@@ -4,7 +4,6 @@ import cn.cc.dawn.common.bddisk.upload.vo.BDFileVo;
 import cn.cc.dawn.utils.enums.BooleanEnum;
 import cn.cc.dawn.utils.enums.CharsetsEnum;
 import cn.cc.dawn.utils.exception.AppCode;
-import cn.cc.dawn.utils.file.FilePath;
 import cn.cc.dawn.utils.file.IFile;
 import lombok.Cleanup;
 import lombok.SneakyThrows;

@@ -1,6 +1,6 @@
 package cn.cc.dawn.local.craw.constant;
 
-import cn.cc.dawn.utils.date.DateUtils;
+import cn.cc.dawn.utils.commons.lang.RSimpleDateFormat;
 import cn.cc.dawn.utils.file.IFilePathBusi;
 
 /**
@@ -17,7 +17,7 @@ public class CrawConstant {
     /**
      * 通用的请求头
      */
-    public static String userAgent = "Mozilla/5.0 (Windows NT 6.1; WOW64; rv:29.0) Gecko/"+ DateUtils.nowTime("yyyyMMdd")+" Firefox/29.0";
+    public static String userAgent = "Mozilla/5.0 (Windows NT 6.1; WOW64; rv:29.0) Gecko/"+ RSimpleDateFormat.nowTime("yyyyMMdd")+" Firefox/29.0";
     public static final String Chrome = "Chrome";
     public static final String Android = "Android";
 

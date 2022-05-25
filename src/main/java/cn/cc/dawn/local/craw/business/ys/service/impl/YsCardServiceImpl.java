@@ -4,14 +4,14 @@ import cn.cc.dawn.local.craw.business.ys.dao.YsCardDaoMapper;
 import cn.cc.dawn.local.craw.business.ys.dto.YsCardVO;
 import cn.cc.dawn.local.craw.business.ys.service.YsCardService;
 import cn.cc.dawn.local.craw.business.data.dto.HttpParamDto;
-import cn.cc.dawn.utils.check.ObjectUtils;
-import cn.cc.dawn.utils.check.StringUtils;
+import cn.cc.dawn.utils.commons.lang.RObjectsUtils;
+import cn.cc.dawn.utils.commons.lang.RStringUtils;
 import cn.cc.dawn.utils.enums.CharsetsEnum;
 import cn.cc.dawn.utils.enums.HttpTypeEnum;
 import cn.cc.dawn.config.init.properties.PropertiesHeader;
 import cn.cc.dawn.utils.exception.AppCode;
 import cn.cc.dawn.utils.http.IHttp;
-import cn.cc.dawn.utils.http.HttpParamUtils;
+import cn.cc.dawn.utils.commons.web.HttpParamUtils;
 import com.alibaba.fastjson.JSON;
 import com.alibaba.fastjson.JSONArray;
 import com.alibaba.fastjson.JSONObject;
@@ -190,14 +190,14 @@ public class YsCardServiceImpl implements YsCardService {
                     /**
                      * 第一次进入取出uid
                      */
-                    if(StringUtils.isBlank(uid)){
+                    if(RStringUtils.isBlank(uid)){
                         uid = ysCardVO.getUid();
                     }
 
                     // 下次查询的参数
                     end_id = ysCardVO.getCardid() + "";
                     YsCardVO returnVO = ysCardDaoMapper.selectByCardID(ysCardVO.getCardid());
-                    if (ObjectUtils.isNull(returnVO)) {
+                    if (RObjectsUtils.isNull(returnVO)) {
                         count++;
                         ysCardDaoMapper.insert(ysCardVO);
                     }else {

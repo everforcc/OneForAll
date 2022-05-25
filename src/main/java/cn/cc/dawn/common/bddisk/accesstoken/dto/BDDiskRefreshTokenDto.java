@@ -13,7 +13,7 @@ package cn.cc.dawn.common.bddisk.accesstoken.dto;
 
 import cn.cc.dawn.common.bddisk.constant.BDDiskConstant;
 import cn.cc.dawn.utils.constant.CommonCharConstant;
-import cn.cc.dawn.utils.http.HttpParamUtils;
+import cn.cc.dawn.utils.commons.web.HttpParamUtils;
 
 /**
  * 用refresh_token刷新access_token

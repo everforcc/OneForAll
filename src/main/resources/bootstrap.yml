@@ -105,7 +105,10 @@ app:
     xpan_file: http://pan.baidu.com/rest/2.0/xpan/file,
     slice_file: https://d.pcs.baidu.com/rest/2.0/pcs/superfile2
   }
-  defaultaeskey: defaultaeskey
+  encrypt: {
+    aesEnable: true,
+    defaultAeskey: default_aes_key
+  }
   conditional:
     express: true
   files:

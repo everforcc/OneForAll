@@ -1,12 +1,11 @@
 package cn.cc.dawn.utils.file;
 
-import cn.cc.dawn.utils.algo.UUIDUtils;
+import cn.cc.dawn.utils.commons.codec.JUUIDUtils;
 import cn.cc.dawn.utils.enums.ContentTypeEnum;
 import cn.cc.dawn.utils.enums.impl.FileMediumEnum;
 import cn.cc.dawn.utils.exception.AppCode;
 import lombok.Getter;
 import lombok.extern.slf4j.Slf4j;
-import org.apache.commons.lang3.StringUtils;
 import org.springframework.web.multipart.MultipartFile;
 
 import java.io.UnsupportedEncodingException;
@@ -134,7 +133,7 @@ public class FileBuilderDB {
          */
         public FileMsg buildUuidUname() {
             //if (StringUtils.isBlank(dir)) {
-                this.uname = UUIDUtils.uuid32() + getSuffix();
+                this.uname = JUUIDUtils.uuid32() + getSuffix();
 //            } else {
 //                this.uname = String.format("%s/%s%s", dir, UUIDUtils.uuid32(), getSuffix());
 //            }

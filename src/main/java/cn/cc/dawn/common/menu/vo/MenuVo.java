@@ -1,8 +1,8 @@
 package cn.cc.dawn.common.menu.vo;
 
 import cn.cc.dawn.utils.enums.impl.MenuEnum;
-import cn.cc.dawn.utils.inter.valited.ISave;
-import cn.cc.dawn.utils.inter.valited.IUpdate;
+import cn.cc.dawn.utils.i.valited.ISave;
+import cn.cc.dawn.utils.i.valited.IUpdate;
 import com.alibaba.fastjson.JSONObject;
 import lombok.Getter;
 import lombok.NoArgsConstructor;

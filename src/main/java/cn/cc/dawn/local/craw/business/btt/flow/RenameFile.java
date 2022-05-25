@@ -1,7 +1,7 @@
 package cn.cc.dawn.local.craw.business.btt.flow;
 
-import cn.cc.dawn.utils.check.ObjectUtils;
-import cn.cc.dawn.utils.regex.RegexUtils;
+import cn.cc.dawn.utils.commons.lang.RObjectsUtils;
+import cn.cc.dawn.utils.commons.regex.RegexUtils;
 
 import java.io.File;
 import java.io.IOException;
@@ -38,7 +38,7 @@ public class RenameFile {
         File sourceFile = new File(sourcePath);
         File[] files = sourceFile.listFiles();
 
-        if(ObjectUtils.nonNull(files)){
+        if(RObjectsUtils.nonNull(files)){
             int length = files.length;
             for(int i = 0; i<length; i++){
                 consumer.accept(files[i]);

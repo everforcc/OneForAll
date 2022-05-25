@@ -1,13 +1,11 @@
 package cn.cc.dawn.open.auth.dto;
 
-import cn.cc.dawn.config.convert.StringAryTranConvert;
-import cn.cc.dawn.config.convert.StringListTranConvert;
-import cn.cc.dawn.utils.check.StringUtils;
+import cn.cc.dawn.utils.commons.lang.RStringUtils;
 import cn.cc.dawn.utils.dto.CommonFiledDto;
 import cn.cc.dawn.open.auth.cache.CustomerUserCache;
-import cn.cc.dawn.utils.algo.AESUtil;
-import cn.cc.dawn.utils.algo.UUIDUtils;
-import cn.cc.dawn.utils.check.ObjectUtils;
+import cn.cc.dawn.utils.commons.codec.JAESUtil;
+import cn.cc.dawn.utils.commons.codec.JUUIDUtils;
+import cn.cc.dawn.utils.commons.lang.RObjectsUtils;
 import cn.cc.dawn.utils.data.redis.impl.RedisBoundValueOperationsUtils;
 import cn.cc.dawn.utils.exception.AppCode;
 import com.alibaba.fastjson.JSONObject;
@@ -19,7 +17,6 @@ import org.springframework.security.core.authority.SimpleGrantedAuthority;
 import org.springframework.security.core.userdetails.UserDetails;
 import org.springframework.stereotype.Component;
 
-import javax.persistence.Convert;
 import java.util.*;
 import java.util.stream.Collectors;
 
@@ -50,9 +47,9 @@ public class CustomUser extends CommonFiledDto implements UserDetails {
         /**
          * 设置个随机数，保证每次生成不同
          */
-        setUuid(UUIDUtils.uuid32());
+        setUuid(JUUIDUtils.uuid32());
         String json = JSONObject.toJSONString(this);
-        return AESUtil.aes_encrypt(json);
+        return JAESUtil.aes_encrypt(json);
     }
 
     @Autowired
@@ -67,12 +64,12 @@ public class CustomUser extends CommonFiledDto implements UserDetails {
     public CustomUser tokenToUser(String json){
 
         log.info("解密前json: " + json);
-        json = AESUtil.aes_decrypt(json);
+        json = JAESUtil.aes_decrypt(json);
         log.info("解密后json: " + json);
         CustomUser customUser = JSONObject.parseObject(json,CustomUser.class);
         // 拿到user取数据库查询
         // 在redis 检查是否存在，如果不存在
-        AppCode.A00102.assertHasTrue(ObjectUtils.nonNull(customUser));
+        AppCode.A00102.assertHasTrue(RObjectsUtils.nonNull(customUser));
         AppCode.A00102.assertHasTrue(redis.hasKeyCacheAble(CustomerUserCache.CUSTOMERUSER_TOKEN,customUser.getUsername()));
 
         return customUser;
@@ -97,7 +94,7 @@ public class CustomUser extends CommonFiledDto implements UserDetails {
         roles.add(UserRole.ROLE_TEST);
         roles.add(UserRole.ROLE_GUEST);*/
 
-        if(StringUtils.isBlank(roles)){
+        if(RStringUtils.isBlank(roles)){
             return Collections.emptyList();
         }
 

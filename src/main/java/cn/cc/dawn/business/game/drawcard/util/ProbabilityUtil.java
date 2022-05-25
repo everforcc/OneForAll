@@ -11,7 +11,7 @@
 
 package cn.cc.dawn.business.game.drawcard.util;
 
-import cn.cc.dawn.utils.RandomUtils;
+import cn.cc.dawn.utils.commons.lang.RRandomUtils;
 
 public class ProbabilityUtil {
 
@@ -19,7 +19,7 @@ public class ProbabilityUtil {
     private static Double end = 1.00d;
 
     public static Double randomDouble(){
-        return RandomUtils.getRandomDouble(start,end);
+        return RRandomUtils.getRandomDouble(start,end);
     }
 
 }

@@ -10,8 +10,7 @@ import cn.cc.dawn.local.craw.business.data.service.IWebSiteTagService;
 import cn.cc.dawn.local.craw.business.data.vo.WebSiteDataVO;
 import cn.cc.dawn.local.craw.business.data.vo.WebSiteReqVO;
 import cn.cc.dawn.local.craw.util.CrawDataParse;
-import cn.cc.dawn.utils.check.ObjectUtils;
-import cn.cc.dawn.utils.check.StringUtils;
+import cn.cc.dawn.utils.commons.lang.RObjectsUtils;
 import cn.cc.dawn.utils.enums.impl.FileMediumEnum;
 import cn.cc.dawn.utils.enums.impl.FileTypeEnum;
 import cn.cc.dawn.utils.exception.AppCode;
@@ -21,7 +20,6 @@ import cn.cc.dawn.utils.http.ISelenium;
 import lombok.extern.slf4j.Slf4j;
 import org.springframework.stereotype.Service;
 import org.springframework.transaction.annotation.Transactional;
-import org.springframework.validation.annotation.Validated;
 
 import javax.annotation.Resource;
 import javax.validation.constraints.NotNull;
@@ -75,7 +73,7 @@ public class WebSiteDataServiceImpl implements IWebSiteDataService {
                 //AppCode.A01005.assertHasTrue(StringUtils.isNotEmpty(webSiteDataDto.getPath()));
                 //AppCode.A01005.assertHasTrue(StringUtils.isNotEmpty(webSiteDataDto.getFilename()));
                 //AppCode.A01006.assertHasTrue(StringUtils.isNotEmpty(webSiteDataDto.getHtml()));
-                AppCode.A01006.assertHasTrue(ObjectUtils.nonNull(webSiteReqVO.getFiletype()));
+                AppCode.A01006.assertHasTrue(RObjectsUtils.nonNull(webSiteReqVO.getFiletype()));
                 webSiteDataDto.setFileTypeEnum(webSiteReqVO.getFiletype());
                 webSiteDataDto.setFilename(CrawDataParse.urlToFileName(weburl));
                 webSiteDataDto.setPath(appConfiguration.getFilepath() + CrawDataParse.urlToPath(weburl));

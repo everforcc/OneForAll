@@ -2,8 +2,8 @@ package cn.cc.dawn.open.novel.flow;
 
 import cn.cc.dawn.open.novel.constant.NovelReqRegDto;
 import cn.cc.dawn.local.craw.business.data.dto.HttpParamDto;
-import cn.cc.dawn.utils.check.ObjectUtils;
-import cn.cc.dawn.utils.check.StringUtils;
+import cn.cc.dawn.utils.commons.lang.RObjectsUtils;
+import cn.cc.dawn.utils.commons.lang.RStringUtils;
 import cn.cc.dawn.utils.constant.LogConstant;
 import cn.cc.dawn.utils.http.IHttp;
 import cn.cc.dawn.utils.http.impl.IHttpApacheImpl;
@@ -31,7 +31,7 @@ public class CommonFlow {
      */
     public static String novelName(NovelReqRegDto novelReqRegDto, String novelUrl, String html){
 
-        if(ObjectUtils.isNull(novelReqRegDto)){
+        if(RObjectsUtils.isNull(novelReqRegDto)){
             return "";
         }
 
@@ -49,7 +49,7 @@ public class CommonFlow {
         // 2. 取出章节清单首页
         // 如果没有对应正则说明当前就是首页的模式如果有则取出
         String capterUrl = "";
-        if(StringUtils.isEmpty(novelReqRegDto.getRegCapterListUrl())){
+        if(RStringUtils.isEmpty(novelReqRegDto.getRegCapterListUrl())){
             capterUrl = novelUrl;
         }else {
             capterUrl = XSoupUtils.htmlToStr(html,novelReqRegDto.getRegCapterListUrl());
@@ -67,7 +67,7 @@ public class CommonFlow {
     public static Map<String,String> capterList(NovelReqRegDto novelReqRegDto,String html){
         Map<String,String> map = new LinkedHashMap<>();
 
-        if(ObjectUtils.isNull(novelReqRegDto)){
+        if(RObjectsUtils.isNull(novelReqRegDto)){
             return map;
         }
 
@@ -96,7 +96,7 @@ public class CommonFlow {
      * @param html
      */
     public static String content(NovelReqRegDto novelReqRegDto,String html){
-        if(ObjectUtils.isNull(novelReqRegDto)){
+        if(RObjectsUtils.isNull(novelReqRegDto)){
             return "";
         }
 
@@ -116,7 +116,7 @@ public class CommonFlow {
         httpParamDto.setHeaders(novelReqRegDto.getHeaders());
         httpParamDto.setUrl(url);
         httpParamDto.setHttpTypeEnum(
-                ObjectUtils.isNull(novelReqRegDto.getRegNovelUrlReqType())?novelReqRegDto.getDefaultRequestType():novelReqRegDto.getRegNovelUrlReqType()
+                RObjectsUtils.isNull(novelReqRegDto.getRegNovelUrlReqType())?novelReqRegDto.getDefaultRequestType():novelReqRegDto.getRegNovelUrlReqType()
         );
         httpParamDto.setCharset(novelReqRegDto.getCharset());
         httpParamDto.setTimeout(novelReqRegDto.getDefaultTimeout());

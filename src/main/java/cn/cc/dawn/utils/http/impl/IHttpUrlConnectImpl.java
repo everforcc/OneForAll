@@ -1,7 +1,7 @@
 package cn.cc.dawn.utils.http.impl;
 
 import cn.cc.dawn.local.craw.business.data.dto.HttpParamDto;
-import cn.cc.dawn.utils.RandomUtils;
+import cn.cc.dawn.utils.commons.lang.RRandomUtils;
 import cn.cc.dawn.utils.enums.BooleanEnum;
 import cn.cc.dawn.utils.exception.AppCode;
 import cn.cc.dawn.utils.http.IHttp;
@@ -43,7 +43,7 @@ public class IHttpUrlConnectImpl implements IHttp {
     private static InputStream getStreamFlow(HttpParamDto httpParamDto){
 
         try {
-            int sleep  = (1 + RandomUtils.randomInt(1,5)) * 1000;;
+            int sleep  = (1 + RRandomUtils.randomInt(1,5)) * 1000;;
             log.info("随机休眠:" + sleep);
             Thread.sleep(sleep);
 

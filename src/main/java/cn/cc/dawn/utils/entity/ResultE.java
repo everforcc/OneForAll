@@ -5,7 +5,7 @@ import cn.cc.dawn.utils.constant.NumberConstant;
 import cn.cc.dawn.utils.exception.Code;
 import cn.cc.dawn.utils.exception.ICode;
 import cn.cc.dawn.utils.exception.UserException;
-import cn.cc.dawn.utils.inter.ICall;
+import cn.cc.dawn.utils.i.ICall;
 import com.alibaba.fastjson.JSON;
 import lombok.Getter;
 import lombok.Setter;
@@ -81,10 +81,9 @@ public class ResultE<E> implements IJson{
 
     public ResultE<E> call(final ICall iCall) {
         try {
-            iCall.call();
             setICode(Code.A00000);
+            iCall.call();
         } catch (Exception e) {
-
             setException(e);
         }
         return this;
@@ -117,7 +116,6 @@ public class ResultE<E> implements IJson{
         log.info("resut公共返回设置成功数据------");
         setICode(Code.A00000);
         if (Objects.nonNull(pageE)) {
-
             this.pageCount = pageE.getPageCount();
             this.totalCount = pageE.getTotalCount();
             setData(pageE.getEList());

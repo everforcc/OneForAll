@@ -7,13 +7,13 @@ import cn.cc.dawn.local.craw.business.data.dto.HttpParamDto;
 import cn.cc.dawn.local.craw.business.data.dto.WebSiteDataDto;
 import cn.cc.dawn.local.craw.business.data.dto.WebSiteDto;
 import cn.cc.dawn.local.craw.business.data.dto.WebSiteTagDto;
-import cn.cc.dawn.utils.check.ObjectUtils;
-import cn.cc.dawn.utils.check.StringUtils;
-import cn.cc.dawn.utils.constant.XSoupCommonConstant;
+import cn.cc.dawn.utils.commons.lang.RObjectsUtils;
+import cn.cc.dawn.utils.commons.lang.RStringUtils;
+import cn.cc.dawn.local.craw.constant.XSoupCommonConstant;
 import cn.cc.dawn.utils.enums.impl.FileMediumEnum;
 import cn.cc.dawn.utils.exception.AppCode;
 import cn.cc.dawn.utils.http.IHttp;
-import cn.cc.dawn.utils.http.HttpParamUtils;
+import cn.cc.dawn.utils.commons.web.HttpParamUtils;
 import cn.cc.dawn.utils.jsoup.XSoupUtils;
 import lombok.extern.slf4j.Slf4j;
 import org.springframework.stereotype.Service;
@@ -54,15 +54,15 @@ public class WebSiteCommonService {
 
         log.info("web公共流程: " + httpParamDto);
         // 非空校验
-        AppCode.A00301.assertHasTrue(ObjectUtils.nonNull(httpParamDto));
+        AppCode.A00301.assertHasTrue(RObjectsUtils.nonNull(httpParamDto));
         String weburl = httpParamDto.getUrl();
-        AppCode.A00302.assertHasTrue(!StringUtils.isEmpty(weburl));
+        AppCode.A00302.assertHasTrue(!RStringUtils.isEmpty(weburl));
         // 校验链接是否有效
         AppCode.A00100.assertHasTrue(HttpParamUtils.checkUrlEffect(weburl));
         String rooturl = HttpParamUtils.getRootUrl(weburl);
         String flag = webSiteDtoMapper.existByUrl(rooturl);
         WebSiteDto webSiteDto;
-        if(StringUtils.isEmpty(flag)){
+        if(RStringUtils.isEmpty(flag)){
             // 2. 如果主表没有插入主表
             webSiteDto = new WebSiteDto();
             webSiteDto.setWebroot(rooturl);
@@ -81,7 +81,7 @@ public class WebSiteCommonService {
 
         flag = webSiteTagMapper.existByUrl(weburl);
 
-        if(StringUtils.isEmpty(flag)){
+        if(RStringUtils.isEmpty(flag)){
             webSiteTagDto.setWebrootid(webSiteDto.getId());
             webSiteTagDto.setWebname(title);
             webSiteTagMapper.insert(webSiteTagDto);
@@ -98,7 +98,7 @@ public class WebSiteCommonService {
         condation.setParentid(parentid);
 
         flag = webSiteDataMapper.existBYParentid(condation);
-        if(StringUtils.isEmpty(flag)){
+        if(RStringUtils.isEmpty(flag)){
             webSiteDataDto.setParentid(parentid);
             webSiteDataDto.setMedium(FileMediumEnum.WINDOWS);
             webSiteDataDto.setHtml(html);
