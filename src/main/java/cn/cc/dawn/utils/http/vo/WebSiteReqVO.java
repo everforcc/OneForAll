@@ -1,4 +1,4 @@
-package cn.cc.dawn.local.craw.business.data.vo;
+package cn.cc.dawn.utils.http.vo;
 
 import cn.cc.dawn.utils.enums.impl.FileMediumEnum;
 import cn.cc.dawn.utils.enums.impl.FileTypeEnum;

@@ -19,7 +19,7 @@ import cn.cc.dawn.common.bddisk.uinfo.service.IBDDiskUInfoReqService;
 import cn.cc.dawn.common.bddisk.uinfo.service.IBDDiskUInfoResService;
 import cn.cc.dawn.config.cache.CacheUserDefine;
 import cn.cc.dawn.config.init.yml.APPConfigurationBDDisk;
-import cn.cc.dawn.local.craw.business.data.dto.HttpParamDto;
+import cn.cc.dawn.utils.http.dto.HttpParamDto;
 import cn.cc.dawn.utils.commons.lang.RObjectsUtils;
 import cn.cc.dawn.utils.exception.AppCode;
 import cn.cc.dawn.utils.http.IHttp;

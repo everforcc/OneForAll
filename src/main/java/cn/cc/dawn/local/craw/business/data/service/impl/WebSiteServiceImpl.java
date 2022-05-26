@@ -4,7 +4,7 @@ import cn.cc.dawn.local.craw.business.data.cache.WebDataCache;
 import cn.cc.dawn.local.craw.business.data.dao.WebSiteMapper;
 import cn.cc.dawn.local.craw.business.data.dto.WebSiteDto;
 import cn.cc.dawn.local.craw.business.data.service.IWebSiteService;
-import cn.cc.dawn.local.craw.business.data.vo.WebSiteDataVO;
+import cn.cc.dawn.utils.http.vo.WebSiteDataVO;
 import cn.cc.dawn.local.craw.util.CrawDataParse;
 import cn.cc.dawn.utils.exception.AppCode;
 import cn.cc.dawn.utils.http.ISelenium;

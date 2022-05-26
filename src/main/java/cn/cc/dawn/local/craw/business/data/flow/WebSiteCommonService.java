@@ -3,7 +3,7 @@ package cn.cc.dawn.local.craw.business.data.flow;
 import cn.cc.dawn.local.craw.business.data.dao.WebSiteDataMapper;
 import cn.cc.dawn.local.craw.business.data.dao.WebSiteMapper;
 import cn.cc.dawn.local.craw.business.data.dao.WebSiteTagMapper;
-import cn.cc.dawn.local.craw.business.data.dto.HttpParamDto;
+import cn.cc.dawn.utils.http.dto.HttpParamDto;
 import cn.cc.dawn.local.craw.business.data.dto.WebSiteDataDto;
 import cn.cc.dawn.local.craw.business.data.dto.WebSiteDto;
 import cn.cc.dawn.local.craw.business.data.dto.WebSiteTagDto;

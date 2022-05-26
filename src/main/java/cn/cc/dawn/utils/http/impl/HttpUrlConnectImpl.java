@@ -1,6 +1,6 @@
 package cn.cc.dawn.utils.http.impl;
 
-import cn.cc.dawn.local.craw.business.data.dto.HttpParamDto;
+import cn.cc.dawn.utils.http.dto.HttpParamDto;
 import cn.cc.dawn.utils.commons.lang.RRandomUtils;
 import cn.cc.dawn.utils.enums.BooleanEnum;
 import cn.cc.dawn.utils.exception.AppCode;
@@ -15,7 +15,7 @@ import java.util.Map;
 import java.util.Objects;
 
 @Slf4j
-public class IHttpUrlConnectImpl implements IHttp {
+public class HttpUrlConnectImpl implements IHttp {
     @Override
     public InputStream getStream(HttpParamDto httpParamDto){
         log.info("getStream():" + httpParamDto.toString());

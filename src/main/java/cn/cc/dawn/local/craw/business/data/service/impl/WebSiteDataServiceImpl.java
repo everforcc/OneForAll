@@ -2,13 +2,13 @@ package cn.cc.dawn.local.craw.business.data.service.impl;
 
 import cn.cc.dawn.config.init.yml.APPConfiguration;
 import cn.cc.dawn.local.craw.business.data.dao.WebSiteDataMapper;
-import cn.cc.dawn.local.craw.business.data.dto.HttpParamDto;
+import cn.cc.dawn.utils.http.dto.HttpParamDto;
 import cn.cc.dawn.local.craw.business.data.dto.WebSiteDataDto;
 import cn.cc.dawn.local.craw.business.data.dto.WebSiteTagDto;
 import cn.cc.dawn.local.craw.business.data.service.IWebSiteDataService;
 import cn.cc.dawn.local.craw.business.data.service.IWebSiteTagService;
-import cn.cc.dawn.local.craw.business.data.vo.WebSiteDataVO;
-import cn.cc.dawn.local.craw.business.data.vo.WebSiteReqVO;
+import cn.cc.dawn.utils.http.vo.WebSiteDataVO;
+import cn.cc.dawn.utils.http.vo.WebSiteReqVO;
 import cn.cc.dawn.local.craw.util.CrawDataParse;
 import cn.cc.dawn.utils.commons.lang.RObjectsUtils;
 import cn.cc.dawn.utils.enums.impl.FileMediumEnum;

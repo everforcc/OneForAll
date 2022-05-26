@@ -1,7 +1,7 @@
 package cn.cc.dawn.local.craw.business.data.service;
 
 import cn.cc.dawn.local.craw.business.data.dto.WebSiteDataDto;
-import cn.cc.dawn.local.craw.business.data.vo.WebSiteReqVO;
+import cn.cc.dawn.utils.http.vo.WebSiteReqVO;
 
 import javax.validation.constraints.NotNull;
 

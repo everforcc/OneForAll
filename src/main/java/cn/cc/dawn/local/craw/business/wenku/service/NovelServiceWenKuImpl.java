@@ -5,7 +5,7 @@ import cn.cc.dawn.local.craw.business.data.dto.WebSiteDataDto;
 import cn.cc.dawn.local.craw.business.data.service.IWebSiteDataService;
 import cn.cc.dawn.local.craw.business.data.service.IWebSiteService;
 import cn.cc.dawn.local.craw.business.data.service.IWebSiteTagService;
-import cn.cc.dawn.local.craw.business.data.vo.WebSiteReqVO;
+import cn.cc.dawn.utils.http.vo.WebSiteReqVO;
 import cn.cc.dawn.local.craw.business.novel.service.INovelServiceBusi;
 import cn.cc.dawn.utils.http.ISelenium;
 import org.springframework.stereotype.Service;

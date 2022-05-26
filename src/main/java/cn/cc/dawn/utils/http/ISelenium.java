@@ -1,9 +1,7 @@
 package cn.cc.dawn.utils.http;
 
-import cn.cc.dawn.local.craw.business.data.vo.WebSiteDataVO;
+import cn.cc.dawn.utils.http.vo.WebSiteDataVO;
 import cn.cc.dawn.utils.http.selenium.SeleniumPool;
-
-import java.util.Map;
 
 public interface ISelenium {
 

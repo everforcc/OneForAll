@@ -1,12 +1,12 @@
 package cn.cc.dawn.open.novel.flow;
 
 import cn.cc.dawn.open.novel.constant.NovelReqRegDto;
-import cn.cc.dawn.local.craw.business.data.dto.HttpParamDto;
+import cn.cc.dawn.utils.http.dto.HttpParamDto;
 import cn.cc.dawn.utils.commons.lang.RObjectsUtils;
 import cn.cc.dawn.utils.commons.lang.RStringUtils;
 import cn.cc.dawn.utils.constant.LogConstant;
 import cn.cc.dawn.utils.http.IHttp;
-import cn.cc.dawn.utils.http.impl.IHttpApacheImpl;
+import cn.cc.dawn.utils.http.impl.HttpApacheImpl;
 import cn.cc.dawn.utils.jsoup.XSoupUtils;
 import lombok.extern.slf4j.Slf4j;
 import org.jsoup.nodes.Document;
@@ -22,7 +22,7 @@ public class CommonFlow {
      * 公共的一些流程
      */
 
-    private static IHttp IHttp = new IHttpApacheImpl();
+    private static IHttp IHttp = new HttpApacheImpl();
 
     /**
      * 小说名到章节清单

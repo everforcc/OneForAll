@@ -1,4 +1,4 @@
-package cn.cc.dawn.local.craw.business.data.dto;
+package cn.cc.dawn.utils.http.dto;
 
 import cn.cc.dawn.utils.dto.CommonFiledDto;
 import cn.cc.dawn.utils.commons.lang.RRandomUtils;

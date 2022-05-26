@@ -1,7 +1,7 @@
 package cn.cc.dawn.jdkcraw;
 
 import cn.cc.dawn.utils.http.JsoupUtils;
-import cn.cc.dawn.utils.commons.io.JInputStreamUtils;
+import cn.cc.dawn.utils.commons.io.JInputStreamCharUtils;
 import org.jsoup.nodes.Document;
 import org.jsoup.nodes.Element;
 import org.junit.jupiter.api.Test;
@@ -62,7 +62,7 @@ public class Dujuzi {
         if(!new File(path).exists()){
             new File(path).mkdirs();
         }
-        JInputStreamUtils JInputStream_utils = new JInputStreamUtils(path , "Code Geass 反叛的鲁路修.txt" );
+        JInputStreamCharUtils JInputStream_utils = new JInputStreamCharUtils(path , "Code Geass 反叛的鲁路修.txt" );
         JInputStream_utils.IO_PrintWriter_Append("321123123");
         JInputStream_utils.IO_PrintWriter_Append(new String[]{"123","321123123"});
 

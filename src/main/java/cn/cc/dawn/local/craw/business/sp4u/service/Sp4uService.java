@@ -2,14 +2,14 @@ package cn.cc.dawn.local.craw.business.sp4u.service;
 
 import cn.cc.dawn.local.craw.business.sp4u.constant.Sp4uUrl;
 import cn.cc.dawn.local.craw.business.data.dao.WebSiteDataMapper;
-import cn.cc.dawn.local.craw.business.data.dto.HttpParamDto;
+import cn.cc.dawn.utils.http.dto.HttpParamDto;
 import cn.cc.dawn.utils.enums.CharsetsEnum;
 import cn.cc.dawn.utils.enums.HttpTypeEnum;
 import cn.cc.dawn.config.init.properties.PropertiesHeader;
 import cn.cc.dawn.config.init.yml.APPConfigurationTest;
 import cn.cc.dawn.utils.jsoup.XSoupUtils;
 import cn.cc.dawn.utils.http.IHttp;
-import cn.cc.dawn.utils.http.impl.IHttpUrlConnectImpl;
+import cn.cc.dawn.utils.http.impl.HttpUrlConnectImpl;
 import lombok.extern.slf4j.Slf4j;
 import org.jsoup.nodes.Document;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -27,7 +27,7 @@ public class Sp4uService {
     /**
      * 完整流程
      */
-    IHttp IHttp = new IHttpUrlConnectImpl();
+    IHttp IHttp = new HttpUrlConnectImpl();
 
     @Autowired
     private APPConfigurationTest configurationData;

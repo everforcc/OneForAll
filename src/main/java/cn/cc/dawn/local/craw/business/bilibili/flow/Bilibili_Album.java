@@ -4,7 +4,7 @@ import cn.cc.dawn.local.craw.business.bilibili.constant.BilConstant;
 import cn.cc.dawn.local.craw.business.bilibili.entity.BilibiliAlbumDto;
 import cn.cc.dawn.local.craw.business.bilibili.entity.BilibiliAlbumPicDto;
 import cn.cc.dawn.local.craw.business.bilibili.utils.*;
-import cn.cc.dawn.local.craw.business.data.dto.HttpParamDto;
+import cn.cc.dawn.utils.http.dto.HttpParamDto;
 import cn.cc.dawn.utils.constant.DateFormatConstant;
 import cn.cc.dawn.utils.commons.lang.RSimpleDateFormat;
 import cn.cc.dawn.utils.enums.HttpTypeEnum;
@@ -14,7 +14,7 @@ import cn.cc.dawn.utils.file.impl.FileApacheUtils;
 import cn.cc.dawn.utils.file.FilePath;
 import cn.cc.dawn.utils.http.IHttp;
 import cn.cc.dawn.utils.commons.web.HttpParamUtils;
-import cn.cc.dawn.utils.http.impl.IHttpApacheImpl;
+import cn.cc.dawn.utils.http.impl.HttpApacheImpl;
 import com.alibaba.fastjson.JSON;
 import com.alibaba.fastjson.JSONArray;
 import com.alibaba.fastjson.JSONObject;
@@ -38,7 +38,7 @@ import static com.alibaba.fastjson.serializer.SerializerFeature.PrettyFormat;
 @Component
 public class Bilibili_Album {
 
-    IHttp IHttp = new IHttpApacheImpl();
+    IHttp IHttp = new HttpApacheImpl();
     IFile iFile = new FileApacheUtils();
 
     /**

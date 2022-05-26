@@ -1,6 +1,6 @@
 package cn.cc.dawn.local.craw.business.novel.service;
 
-import cn.cc.dawn.local.craw.business.data.vo.WebSiteReqVO;
+import cn.cc.dawn.utils.http.vo.WebSiteReqVO;
 
 public interface INovelServiceBusi {
 

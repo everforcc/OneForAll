@@ -1,6 +1,6 @@
 package cn.cc.dawn.utils.http.selenium;
 
-import cn.cc.dawn.local.craw.business.data.vo.WebSiteDataVO;
+import cn.cc.dawn.utils.http.vo.WebSiteDataVO;
 import lombok.extern.slf4j.Slf4j;
 import org.openqa.selenium.WebDriver;
 

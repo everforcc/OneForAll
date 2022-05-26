@@ -1,8 +1,8 @@
 package cn.cc.dawn.http;
 
-import cn.cc.dawn.local.craw.business.data.dto.HttpParamDto;
+import cn.cc.dawn.utils.http.dto.HttpParamDto;
 import cn.cc.dawn.utils.http.IHttp;
-import cn.cc.dawn.utils.http.impl.IHttpApacheImpl;
+import cn.cc.dawn.utils.http.impl.HttpApacheImpl;
 import cn.cc.dawn.utils.jsoup.XSoupUtils;
 import lombok.extern.slf4j.Slf4j;
 import org.jsoup.nodes.Document;
@@ -17,7 +17,7 @@ import java.net.URLEncoder;
 @Slf4j
 public class IHttpT {
 
-    IHttp IHttp = new IHttpApacheImpl();
+    IHttp IHttp = new HttpApacheImpl();
 
     @Test
     public void readSimpUrl(){

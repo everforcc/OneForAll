@@ -1,6 +1,6 @@
 package cn.cc.dawn.local.craw.business.wenku.controller;
 
-import cn.cc.dawn.local.craw.business.data.vo.WebSiteReqVO;
+import cn.cc.dawn.utils.http.vo.WebSiteReqVO;
 import cn.cc.dawn.local.craw.business.novel.service.INovelServiceBusi;
 import com.alibaba.fastjson.JSONObject;
 import lombok.extern.slf4j.Slf4j;

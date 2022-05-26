@@ -1,8 +1,7 @@
 package cn.cc.dawn.local.craw.business.ys.service.impl;
 
-import cn.cc.dawn.local.craw.business.data.dto.HttpParamDto;
+import cn.cc.dawn.utils.http.dto.HttpParamDto;
 import cn.cc.dawn.local.craw.business.ys.service.MYSYSService;
-import cn.cc.dawn.utils.http.IHttp;
 import cn.cc.dawn.utils.http.ISelenium;
 import lombok.extern.slf4j.Slf4j;
 import org.springframework.stereotype.Service;

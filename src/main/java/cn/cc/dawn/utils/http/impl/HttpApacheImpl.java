@@ -1,6 +1,6 @@
 package cn.cc.dawn.utils.http.impl;
 
-import cn.cc.dawn.local.craw.business.data.dto.HttpParamDto;
+import cn.cc.dawn.utils.http.dto.HttpParamDto;
 import cn.cc.dawn.utils.commons.lang.RRandomUtils;
 import cn.cc.dawn.utils.commons.lang.RObjectsUtils;
 import cn.cc.dawn.utils.commons.lang.RStringUtils;
@@ -34,7 +34,7 @@ import java.util.Objects;
 
 @Slf4j
 @Component("httpApacheImpl")
-public class IHttpApacheImpl implements IHttp {
+public class HttpApacheImpl implements IHttp {
 
     private Charset charset = CharsetsEnum.UTF_8.charset;
     @Resource

@@ -12,7 +12,7 @@
 package cn.cc.dawn.common.bddisk.down.service.impl;
 
 import cn.cc.dawn.common.bddisk.down.service.IBDDiskFileDownService;
-import cn.cc.dawn.local.craw.business.data.dto.HttpParamDto;
+import cn.cc.dawn.utils.http.dto.HttpParamDto;
 import cn.cc.dawn.utils.enums.HttpTypeEnum;
 import cn.cc.dawn.utils.http.IHttp;
 import lombok.extern.slf4j.Slf4j;

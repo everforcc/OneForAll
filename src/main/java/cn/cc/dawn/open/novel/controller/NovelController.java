@@ -3,7 +3,7 @@
 //import cn.cc.dawn.open.novel.dto.NovelCapterDto;
 //import cn.cc.dawn.open.novel.dto.NovelDto;
 //import cn.cc.dawn.open.novel.service.NovelService;
-//import cn.cc.dawn.local.craw.business.data.dto.HttpParamDto;
+//import cn.cc.dawn.utils.http.dto.HttpParamDto;
 //import cn.cc.dawn.utils.constant.HttpHeadersConstant;
 //import cn.cc.dawn.utils.entity.ResultE;
 //import cn.cc.dawn.utils.http.IHttp;

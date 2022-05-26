@@ -16,7 +16,7 @@ import cn.cc.dawn.common.bddisk.upload.dto.BDDiskFileCreateUploadReqDto;
 import cn.cc.dawn.common.bddisk.upload.service.IBDDiskFileCreateService;
 import cn.cc.dawn.common.bddisk.upload.vo.BDFileVo;
 import cn.cc.dawn.config.init.yml.APPConfigurationBDDisk;
-import cn.cc.dawn.local.craw.business.data.dto.HttpParamDto;
+import cn.cc.dawn.utils.http.dto.HttpParamDto;
 import cn.cc.dawn.utils.enums.HttpTypeEnum;
 import cn.cc.dawn.utils.http.IHttp;
 import lombok.extern.slf4j.Slf4j;

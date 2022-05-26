@@ -1,6 +1,6 @@
 package cn.cc.dawn.local.craw.business.data.controller;
 
-import cn.cc.dawn.local.craw.business.data.dto.HttpParamDto;
+import cn.cc.dawn.utils.http.dto.HttpParamDto;
 import cn.cc.dawn.local.craw.business.data.dto.WebSiteDto;
 import cn.cc.dawn.local.craw.business.data.flow.WebSiteCommonService;
 import cn.cc.dawn.local.craw.business.data.service.impl.WebSiteServiceImpl;
