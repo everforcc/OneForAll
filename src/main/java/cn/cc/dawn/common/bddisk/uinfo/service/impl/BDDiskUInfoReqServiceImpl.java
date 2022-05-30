@@ -79,6 +79,8 @@ public class BDDiskUInfoReqServiceImpl implements IBDDiskUInfoReqService {
             httpParamDto.setUrl(uInfoUrl);
 
             String resultJson = httpApacheImpl.getMsg(httpParamDto);
+            log.info("获取用户信息json {}", resultJson);
+
             bdDiskUInfoResDto = JSONObject.parseObject(resultJson, BDDiskUInfoResDto.class);
             AppCode.A01400.assertHasTrue(Objects.nonNull(bdDiskUInfoResDto));
             String errno = bdDiskUInfoResDto.getErrno();

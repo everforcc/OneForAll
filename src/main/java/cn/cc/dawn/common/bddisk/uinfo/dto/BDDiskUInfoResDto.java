@@ -46,7 +46,7 @@ public class BDDiskUInfoResDto extends CommonFiledDto {
     /**
      * 用户ID
      */
-    private int uk;
+    private Long uk;
     /**
      * 错误码
      * 如果为0则表示正确
