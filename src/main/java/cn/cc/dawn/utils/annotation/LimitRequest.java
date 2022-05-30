@@ -1,4 +1,4 @@
-package cn.cc.dawn.utils.userinterface;
+package cn.cc.dawn.utils.annotation;
 
 import java.lang.annotation.*;
 

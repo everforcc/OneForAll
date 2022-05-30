@@ -3,7 +3,7 @@ package cn.cc.dawn.common.menu.service;
 import cn.cc.dawn.common.menu.dao.BackMenuPicDataDaoMapper;
 import cn.cc.dawn.common.menu.dto.MenuPicDataDto;
 import cn.cc.dawn.common.menu.vo.MenuPicVo;
-import cn.cc.dawn.utils.userinterface.ServiceAspect;
+import cn.cc.dawn.utils.annotation.ServiceAspect;
 import cn.cc.dawn.utils.i.valited.ISave;
 import lombok.extern.slf4j.Slf4j;
 import org.springframework.stereotype.Service;

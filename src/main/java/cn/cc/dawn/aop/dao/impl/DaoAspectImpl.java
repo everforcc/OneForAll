@@ -1,7 +1,7 @@
 package cn.cc.dawn.aop.dao.impl;
 
 import cn.cc.dawn.utils.dto.CommonFiledDto;
-import cn.cc.dawn.utils.userinterface.ServiceAspect;
+import cn.cc.dawn.utils.annotation.ServiceAspect;
 import lombok.extern.slf4j.Slf4j;
 import org.aspectj.lang.JoinPoint;
 import org.slf4j.MDC;

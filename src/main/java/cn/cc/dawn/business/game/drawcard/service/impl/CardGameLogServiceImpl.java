@@ -15,7 +15,7 @@ import cn.cc.dawn.business.game.drawcard.dao.ICardGameLogDaoMapper;
 import cn.cc.dawn.business.game.drawcard.dto.CardGameLog;
 import cn.cc.dawn.business.game.drawcard.service.ICardGameLogService;
 import cn.cc.dawn.utils.exception.AppCode;
-import cn.cc.dawn.utils.userinterface.ServiceAspect;
+import cn.cc.dawn.utils.annotation.ServiceAspect;
 import org.springframework.stereotype.Service;
 
 import javax.annotation.Resource;

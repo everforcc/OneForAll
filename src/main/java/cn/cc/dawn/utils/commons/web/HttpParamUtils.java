@@ -4,9 +4,8 @@ import cn.cc.dawn.utils.commons.lang.RStringUtils;
 import cn.cc.dawn.utils.constant.CharsetsConstant;
 import cn.cc.dawn.utils.constant.CommonCharConstant;
 import cn.cc.dawn.utils.constant.NumberConstant;
-import cn.cc.dawn.utils.enums.CharsetsEnum;
 import cn.cc.dawn.utils.exception.AppCode;
-import cn.cc.dawn.utils.userinterface.ReflectFileFiled;
+import cn.cc.dawn.utils.annotation.ReflectFileFiled;
 import com.google.common.base.Joiner;
 
 import java.io.File;

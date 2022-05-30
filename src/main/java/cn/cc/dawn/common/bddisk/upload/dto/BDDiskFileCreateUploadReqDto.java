@@ -13,7 +13,7 @@ package cn.cc.dawn.common.bddisk.upload.dto;
 
 import cn.cc.dawn.utils.constant.CommonCharConstant;
 import cn.cc.dawn.utils.commons.web.HttpParamUtils;
-import cn.cc.dawn.utils.userinterface.ReflectFileFiled;
+import cn.cc.dawn.utils.annotation.ReflectFileFiled;
 import lombok.Getter;
 import lombok.Setter;
 

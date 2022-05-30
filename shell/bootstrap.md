@@ -1,12 +1,5 @@
 <font face="SimSun" size=3>
 
-
-
-- linux
-~~~shell
-
-~~~
-
 - dockerfile
 ~~~
 FROM openjdk:8

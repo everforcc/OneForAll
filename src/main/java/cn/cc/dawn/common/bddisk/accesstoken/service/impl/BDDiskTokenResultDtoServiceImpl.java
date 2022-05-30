@@ -15,7 +15,7 @@ import cn.cc.dawn.common.bddisk.accesstoken.dao.IBDDiskTokenResultDaoMapper;
 import cn.cc.dawn.common.bddisk.accesstoken.dto.BDDiskTokenResultDto;
 import cn.cc.dawn.common.bddisk.accesstoken.service.IBDDiskTokenResultDtoService;
 import cn.cc.dawn.utils.exception.AppCode;
-import cn.cc.dawn.utils.userinterface.ServiceAspect;
+import cn.cc.dawn.utils.annotation.ServiceAspect;
 import lombok.extern.slf4j.Slf4j;
 import org.springframework.stereotype.Service;
 

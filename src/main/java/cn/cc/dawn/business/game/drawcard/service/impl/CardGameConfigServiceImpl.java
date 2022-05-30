@@ -14,7 +14,7 @@ package cn.cc.dawn.business.game.drawcard.service.impl;
 import cn.cc.dawn.business.game.drawcard.dao.ICardGameConfigDaoMapper;
 import cn.cc.dawn.business.game.drawcard.dto.CardGameConfigDto;
 import cn.cc.dawn.business.game.drawcard.service.ICardGameConfigService;
-import cn.cc.dawn.utils.userinterface.ServiceAspect;
+import cn.cc.dawn.utils.annotation.ServiceAspect;
 import org.springframework.stereotype.Service;
 
 import javax.annotation.Resource;
