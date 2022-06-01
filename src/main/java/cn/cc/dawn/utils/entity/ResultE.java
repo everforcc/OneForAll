@@ -191,6 +191,7 @@ public class ResultE<E> implements IJson{
 
         exception = e.getMessage();
         log.error(e.getMessage(), e);
+        // 数据校验异常
         if (e instanceof ConstraintViolationException) {
             ConstraintViolationException exception = (ConstraintViolationException) e;
             String message = exception.getConstraintViolations().stream()

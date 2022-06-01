@@ -1,8 +1,0 @@
-POST http://localhost:80/function/filesystem/exception
-Accept: application/json
-
-{
-"name":"文件名/",
-"phone":"12345678900"
-}
-###

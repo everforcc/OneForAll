@@ -7,7 +7,7 @@ import com.alibaba.fastjson.JSONObject;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.*;
 
-@RequestMapping("/function/filesystem")
+@RequestMapping("/demo/filesystem")
 @RestController
 public class ValidatedController {
 

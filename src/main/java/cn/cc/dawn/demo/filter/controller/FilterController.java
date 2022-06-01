@@ -8,7 +8,7 @@ import org.springframework.web.bind.annotation.RestController;
 /**
  * 测试过滤器
  */
-@RequestMapping("/d/filter")
+@RequestMapping("/demo/filter")
 @RestController
 public class FilterController {
 

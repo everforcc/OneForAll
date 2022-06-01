@@ -7,7 +7,7 @@ import org.springframework.web.bind.annotation.RestController;
 
 import java.util.Map;
 
-@RequestMapping(value = "/d/init/map")
+@RequestMapping(value = "/demo/init/map")
 @RestController
 public class PropertiesController {
 

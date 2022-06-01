@@ -16,7 +16,7 @@ import java.util.Map;
 
 import static com.alibaba.fastjson.serializer.SerializerFeature.PrettyFormat;
 
-@RequestMapping(value = "/d/config/expression")
+@RequestMapping(value = "/demo/config/expression")
 @RestController
 @Slf4j
 public class ExpressController {

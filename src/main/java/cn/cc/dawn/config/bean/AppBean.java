@@ -1,5 +1,6 @@
 package cn.cc.dawn.config.bean;
 
+import cn.cc.dawn.utils.constant.CharsetsConstant;
 import cn.cc.dawn.utils.entity.ResultE;
 import cn.cc.dawn.utils.exception.AppCode;
 import cn.cc.dawn.utils.exception.Code;
@@ -128,8 +129,11 @@ public class AppBean {
     public FastJsonHttpMessageConverter fastJsonHttpMessageConverter() {
         JSON.DEFAULT_GENERATE_FEATURE |= SerializerFeature.DisableCircularReferenceDetect.getMask(); // 解决循环引用问题
         final FastJsonHttpMessageConverter converter = new FastJsonHttpMessageConverter();
-        converter.setDefaultCharset(Charset.forName("UTF-8"));
+        // 字符集
+        converter.setDefaultCharset(CharsetsConstant.UTF_8);
+        // 字段排序
         converter.getFastJsonConfig().setFeatures(Feature.OrderedField);
+        //
         converter.setSupportedMediaTypes(Collections.singletonList(
                 MediaType.APPLICATION_JSON
         ));

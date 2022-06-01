@@ -9,7 +9,7 @@ import org.springframework.web.bind.annotation.RestController;
  * @author everforcc 2021-09-28
  */
 @RestController
-@RequestMapping("/d/ng")
+@RequestMapping("/demo/ng")
 public class NginxBalanceController {
 
     /**

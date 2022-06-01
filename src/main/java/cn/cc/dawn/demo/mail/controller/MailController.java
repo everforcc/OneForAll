@@ -10,7 +10,7 @@ import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
 
-@RequestMapping(value = "/httpclient")
+@RequestMapping(value = "/demo/mail")
 @RestController
 public class MailController {
 
@@ -19,6 +19,11 @@ public class MailController {
     @Autowired
     IMailService mailServiceFreemarkerImpl;
 
+    /**
+     * 发送工资模板
+     * @param json
+     * @return
+     */
     @PostMapping("/testMailThymeleaf")
     public ResultE<Void> testMailThymeleaf(@RequestBody String json){
         return new ResultE<Void>().call(() ->{

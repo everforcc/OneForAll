@@ -4,13 +4,14 @@ import cn.cc.dawn.common.menu.dao.BackMenuPicDataDaoMapper;
 import cn.cc.dawn.common.menu.dto.MenuPicDataDto;
 import cn.cc.dawn.common.menu.vo.MenuPicVo;
 import cn.cc.dawn.utils.annotation.ServiceAspect;
-import cn.cc.dawn.utils.i.valited.ISave;
+import cn.cc.dawn.utils.i.validated.ISave;
 import lombok.extern.slf4j.Slf4j;
 import org.springframework.stereotype.Service;
 import org.springframework.transaction.annotation.Transactional;
 import org.springframework.validation.annotation.Validated;
 
 import javax.annotation.Resource;
+import javax.validation.Valid;
 
 @Slf4j
 @Service
@@ -26,7 +27,7 @@ public class BackMenuPicDataService {
      */
     @Transactional
     @Validated({ISave.class})
-    public MenuPicVo insert(MenuPicDataDto menuPicDataDto, int userid, MenuPicVo menuPicVo){
+    public MenuPicVo insert(@Valid MenuPicDataDto menuPicDataDto, int userid, MenuPicVo menuPicVo){
         menuPicDataDto.setPicuuid(menuPicVo.getPicuuid());
         menuPicDataDto.setParentuuid(menuPicVo.getParentuuid());
         backMenuPicDataDaoMapper.insert(menuPicDataDto);

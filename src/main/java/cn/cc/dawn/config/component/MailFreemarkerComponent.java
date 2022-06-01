@@ -44,7 +44,7 @@ public class MailFreemarkerComponent {
             // 配置模板位置
             configuration.setClassLoaderForTemplateLoading(this.getClass().getClassLoader(), "templates");
             //加载模板
-            Template template = configuration.getTemplate("mail.ftl");
+            Template template = configuration.getTemplate("salary.ftl");
 
 //            Map<String, String> map = new HashMap<>();
 //            map.put("username", "javaboy");

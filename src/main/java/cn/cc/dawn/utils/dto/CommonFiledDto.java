@@ -2,7 +2,7 @@ package cn.cc.dawn.utils.dto;
 
 import cn.cc.dawn.utils.commons.codec.JUUIDUtils;
 import cn.cc.dawn.utils.enums.impl.StatusEnum;
-import cn.cc.dawn.utils.i.valited.IUpdate;
+import cn.cc.dawn.utils.i.validated.IUpdate;
 import com.alibaba.fastjson.JSONObject;
 import com.alibaba.fastjson.annotation.JSONField;
 import lombok.*;

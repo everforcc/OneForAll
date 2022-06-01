@@ -7,7 +7,7 @@ import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
 
-@RequestMapping("/d/novel/pool")
+@RequestMapping("/demo/novel/pool")
 @RestController
 @Slf4j
 public class UserPoolController {

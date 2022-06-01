@@ -116,9 +116,4 @@ public class RedissonService {
         return flag;
     }
 
-    private int residue(int id){
-
-        return 0;
-    }
-
 }

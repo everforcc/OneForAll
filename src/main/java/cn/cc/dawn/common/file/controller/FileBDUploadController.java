@@ -13,7 +13,7 @@ import java.util.HashMap;
 import java.util.Map;
 
 @RestController
-@RequestMapping(value = "/d/file/upload")
+@RequestMapping(value = "/demo/file/upload")
 public class FileBDUploadController {
 
     // 存文件信息

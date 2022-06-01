@@ -36,6 +36,7 @@ public class MailThymeleafComponent {
             MimeMessageHelper helper = new MimeMessageHelper(mimeMessage, true);
             helper.setSubject(mailDto.getSubject());
             helper.setFrom(mailDto.getFrom());
+            // 都支持送多个，支持数组
             helper.setTo(mailDto.getToMail());
             if(Objects.nonNull(mailDto.getCcMail())){
                 helper.setCc(mailDto.getCcMail());
@@ -49,20 +50,30 @@ public class MailThymeleafComponent {
                 helper.setSentDate(new Date());
             }
             if(Objects.nonNull(mailDto.getInlinePic())){
-                helper.addInline("",new FileUrlResource(new URL(mailDto.getInlinePic())));
+                helper.addInline("p01",new FileUrlResource(new URL(mailDto.getInlinePic())));
             }
             if(Objects.nonNull(mailDto.getAttachmentURL())){
                 int size = mailDto.getAttachmentURL().size();
                 for(int i=0;i<size;i++){
                     String url = mailDto.getAttachmentURL().get(i);
+                    /**
+                     * 这里有不同构造，可以根据实际业务选一种
+                     */
                     helper.addAttachment(RStringUtils.urlSubFileName(url),new FileUrlResource(new URL(url)));
+                    /**
+                     * 四种实现示例两种，其他的需要再说
+                     */
+                    //helper.addAttachment("磁盘.txt", FilePath.build().ofFileName("磁盘.txt").file());
+                    /**
+                     * 实现接口 InputStreamSource
+                     */
+                    //helper.addAttachment("面包.jpg", new FileUrlResource(new URL("https://gitee.com/MyYukino/media/raw/master/picture/面包.jpg")));
                 }
             }
 
             Context context = new Context();
-            // 设置模板中的变量
+            // 设置模板中的变量,怎么设计成动态的
             Map<String,String> map = mailDto.getContext();
-
             if(map.containsKey("username")) {
                 context.setVariable("username", map.get("username"));
             }
@@ -73,7 +84,7 @@ public class MailThymeleafComponent {
                 context.setVariable("salary", map.get("salary"));
             }
             // 第一个参数为模板的名称
-            String process = templateEngine.process("mail.html", context);
+            String process = templateEngine.process("salary.html", context);
             // 第二个参数true表示这是一个html文本
             helper.setText(process,true);
             javaMailSender.send(mimeMessage);
@@ -83,42 +94,6 @@ public class MailThymeleafComponent {
             throw AppCode.A00105.toUserException(e);
         }
         return true;
-    }
-
-
-    public void sendThymeleafMail() throws Exception {
-        MimeMessage mimeMessage = javaMailSender.createMimeMessage();
-
-        // true表示是否有附件
-        MimeMessageHelper helper = new MimeMessageHelper(mimeMessage, true);
-        helper.setSubject("这是一封测试邮件-Thymeleaf");
-        helper.setFrom("718497737@qq.com");
-        helper.setTo(new String[]{"2446678230@qq.com","2212355809@qq.com"});
-//        helper.setCc("37xxxxx37@qq.com");
-//        helper.setBcc("14xxxxx098@qq.com");
-        helper.setSentDate(new Date());
-        // 这里引入的是Template的Context
-        Context context = new Context();
-        // 设置模板中的变量
-        context.setVariable("username", "javaboy");
-        context.setVariable("num","000001");
-        context.setVariable("salary", "99999");
-        // 第一个参数为模板的名称
-        String process = templateEngine.process("mail.html", context);
-        // 第二个参数true表示这是一个html文本
-        helper.setText(process,true);
-        helper.addInline("p01", new FileUrlResource(new URL("https://gitee.com/MyYukino/media/raw/master/picture/面包.jpg")));
-        /**
-         * 四种实现示例两种，其他的需要再说
-         */
-        helper.addAttachment("磁盘.txt", FilePath.build().ofFileName("磁盘.txt").file());
-        /**
-         * 实现接口 InputStreamSource
-         */
-        helper.addAttachment("面包.jpg", new FileUrlResource(new URL("https://gitee.com/MyYukino/media/raw/master/picture/面包.jpg")));
-
-
-        javaMailSender.send(mimeMessage);
     }
 
 }

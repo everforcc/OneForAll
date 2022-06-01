@@ -1,0 +1,23 @@
+GET http://localhost:81/demo/novel/pool/tpool
+Accept: application/json
+
+###
+GET http://localhost:81/demo/novel/pool/tpool2
+Accept: application/json
+
+### https://i0.hdslb.com/bfs/album/0726803cc83bc3d62540262dde5c193cfeb30c8c.png
+### https://i0.hdslb.com/bfs/album/edaa26c300ec28f959d16134f3362d217072fa6c.png
+### https://i0.hdslb.com/bfs/album/02a7ba4d6ea6de0e13fc040ea618e8399aab0885.png
+### https://i0.hdslb.com/bfs/album/dc1067a0c53b27ce6f4c50dba30f39b7e07a600a.png
+### https://i0.hdslb.com/bfs/album/2a8609a781fb107f0254de9089ca795eba9be531.png
+### https://i0.hdslb.com/bfs/album/308b467c7c8df0c35b4ab804483276b6bfcd3c82.png
+
+POST http://localhost:81/open/craw/wenku/content
+Accept: application/json
+
+{
+"weburl": "https://www.wenku8.net/novel/1/1973/75974.htm",
+"sofytype": "web",
+"webtype": "轻小说",
+filetype: 1
+}

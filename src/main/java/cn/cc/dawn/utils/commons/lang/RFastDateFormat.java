@@ -39,6 +39,7 @@ public class RFastDateFormat {
 
     public static String format(long time,String pattern){
         FastDateFormat fastDateFormat = FastDateFormat.getInstance(pattern);
+        
         return fastDateFormat.format(time);
     }
 

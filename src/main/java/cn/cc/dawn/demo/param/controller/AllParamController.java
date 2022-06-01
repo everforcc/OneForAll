@@ -17,7 +17,7 @@ import org.springframework.web.bind.annotation.*;
 import org.springframework.web.multipart.MultipartFile;
 
 @Slf4j
-@RequestMapping(value = "/d/param")
+@RequestMapping(value = "/demo/param")
 @RestController
 public class AllParamController {
 

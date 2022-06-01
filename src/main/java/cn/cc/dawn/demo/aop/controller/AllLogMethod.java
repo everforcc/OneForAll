@@ -10,7 +10,7 @@ import org.springframework.web.bind.annotation.RestController;
  * @author everforcc 2021-09-25
  * aop测试
  */
-@RequestMapping(value = "/d/alllog1")
+@RequestMapping(value = "/demo/alllog1")
 @RestController
 @Slf4j
 public class AllLogMethod {

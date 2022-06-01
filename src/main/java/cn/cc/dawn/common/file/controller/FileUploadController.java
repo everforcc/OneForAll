@@ -12,7 +12,7 @@ import org.springframework.web.multipart.MultipartFile;
 
 @Slf4j
 @RestController
-@RequestMapping("/c/file/upload")
+@RequestMapping("/common/file/upload")
 public class FileUploadController {
 
     @Autowired

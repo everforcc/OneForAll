@@ -3,7 +3,7 @@ package cn.cc.dawn.common.file.dto;
 import cn.cc.dawn.utils.dto.CommonFiledDto;
 import cn.cc.dawn.utils.enums.impl.FileMediumEnum;
 import cn.cc.dawn.utils.file.FileBuilderDB;
-import cn.cc.dawn.utils.i.valited.ISave;
+import cn.cc.dawn.utils.i.validated.ISave;
 import lombok.AllArgsConstructor;
 import lombok.Getter;
 import lombok.NoArgsConstructor;

@@ -12,7 +12,7 @@ import org.springframework.web.bind.annotation.*;
 
 @Slf4j
 @RestController
-@RequestMapping("/c/menu")
+@RequestMapping("/common/menu")
 public class MenuController {
 
     /**

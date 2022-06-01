@@ -1,5 +1,7 @@
 package cn.cc.dawn.utils.commons.codec;
 
+import org.apache.commons.lang3.StringUtils;
+
 import java.util.UUID;
 
 public class JUUIDUtils {
@@ -13,7 +15,7 @@ public class JUUIDUtils {
     }
 
     public static void main(String[] args) {
-        System.out.println(uuid32());
+        System.out.println(StringUtils.substring(uuid32(), 0, 10));
     }
 
 }

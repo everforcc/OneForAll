@@ -6,7 +6,7 @@ import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
 
 @RestController
-@RequestMapping(value ="/d/init")
+@RequestMapping(value ="/demo/init")
 public class InitController {
 
     @Autowired

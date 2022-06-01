@@ -5,7 +5,7 @@ import cn.cc.dawn.common.menu.dto.MenuPicDto;
 import cn.cc.dawn.common.menu.vo.MenuPicVo;
 import cn.cc.dawn.common.menu.vo.MenuVo;
 import cn.cc.dawn.utils.annotation.ServiceAspect;
-import cn.cc.dawn.utils.i.valited.ISave;
+import cn.cc.dawn.utils.i.validated.ISave;
 import lombok.extern.slf4j.Slf4j;
 import org.springframework.stereotype.Service;
 import org.springframework.transaction.annotation.Transactional;

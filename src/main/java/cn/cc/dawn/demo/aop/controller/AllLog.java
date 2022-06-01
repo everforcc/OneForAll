@@ -7,7 +7,7 @@ import org.springframework.web.bind.annotation.*;
  * @author everforcc 2021-09-25
  */
 @Slf4j
-@RequestMapping(value = "/d/alllog")
+@RequestMapping("/demo/alllog")
 @RestController
 public class AllLog {
 
