@@ -28,7 +28,6 @@ public class HttpParamUtils {
      * @return
      */
     public static String asUrlParamsGuava(Map<String, String> source){
-        // TODO 如果要编码的话自己加下编码逻辑
         return Joiner.on(CommonCharConstant.AND)
                 // 用指定符号代替空值,key 或者value 为null都会被替换
                 .useForNull(CommonCharConstant.EMP)

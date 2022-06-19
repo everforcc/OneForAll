@@ -19,7 +19,6 @@ public class WebSiteDto extends CommonFiledDto {
      */
 
     // TODO 网址最后斜线 / 问题
-
     @NotNull(groups = {ISave.class},message = "webroot不允许为null")
     private String webroot;
     @NotNull(groups = {ISave.class},message = "webname不允许为null")

@@ -109,7 +109,7 @@ public class Sp4uService {
             String chapterNameUrlHtml = chaptermsgList.get(2);
             log.info("chapterNameUrlHtml:\r\n" + chapterNameUrlHtml);
             Document chapterNameUrldocument = XSoupUtils.htmlToDocument(chapterNameUrlHtml);
-            // TODO Xsoup 格式化问题
+            // Xsoup 格式化问题
             log.info("td/body 格式化之后 td消失，只剩下body下的内容，随后看下源码分析");
             //log.info("chapterNameUrldocument:\r\n" + chapterNameUrldocument.body());
             List<String> chaptermsgUrl = XSoupUtils.compileList(Sp4uUrl.xp_chaptermsg_url,chapterNameUrldocument);

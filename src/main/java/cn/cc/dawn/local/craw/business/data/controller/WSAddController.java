@@ -12,7 +12,7 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.*;
 
 /**
- * TODO 此类只允许管理员操作
+ * 添加admin接口权限
  */
 @RequestMapping("/open/craw/add")
 @RestController

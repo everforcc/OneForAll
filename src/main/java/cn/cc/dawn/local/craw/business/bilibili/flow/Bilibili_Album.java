@@ -41,9 +41,6 @@ public class Bilibili_Album {
     IHttp IHttp = new HttpApacheImpl();
     IFile iFile = new FileApacheUtils();
 
-    /**
-     * TODO
-     */
     private static ExecutorService multiThread;
 
     @Autowired

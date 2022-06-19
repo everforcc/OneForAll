@@ -25,7 +25,7 @@ public class MenuService {
      * @return
      */
     public List<MenuVo> pageTop(CustomUser customUser){
-        // TODO 此处需要权限控制
+        // 此处需要权限控制
 
         List<MenuVo> menuVoList = menuDaoMapper.selectMenu(MenuEnum.ROOT.comment, "0");
         for (MenuVo menuVo : menuVoList) {
@@ -41,7 +41,7 @@ public class MenuService {
      * @return
      */
     public List<MenuVo> pageType(CustomUser customUser,String type,String parentuuid){
-        // TODO 此处需要权限控制
+        // 此处需要权限控制
         List<MenuVo> menuVoList = menuDaoMapper.selectMenu(MenuEnum.valueOf(type).comment,parentuuid);
         for (MenuVo menuVo : menuVoList) {
             log.info(menuVo.toString());
@@ -50,13 +50,13 @@ public class MenuService {
     }
 
     public List<MenuVo> pagePicMenu(CustomUser customUser,String type,String parentuuid){
-        // TODO 此处需要权限控制
+        // 此处需要权限控制
         List<MenuVo> menuVoList = menuDaoMapper.selectPicMenu(MenuEnum.valueOf(type).comment,parentuuid);
         return menuVoList;
     }
 
     public List<MenuPicVo> pagePicDataMenu(CustomUser customUser,String type,String parentuuid){
-        // TODO 此处需要权限控制
+        // 此处需要权限控制
         List<MenuPicVo> menuVoList = menuDaoMapper.selectPicDataMenu(MenuEnum.valueOf(type).comment,parentuuid);
         return menuVoList;
     }

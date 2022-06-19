@@ -102,7 +102,7 @@ public class SPSecurityConfig{
                      */
                     .and().authorizeRequests()
                     /**
-                     * TODO 这块随后使用处理到配置文件
+                     * 这块随后使用处理到配置文件
                      */
                     .antMatchers("/open/**", SystemUrlConstant.package_open).permitAll()
                     .antMatchers("/local/**").permitAll()

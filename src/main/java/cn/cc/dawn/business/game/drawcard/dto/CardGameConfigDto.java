@@ -1,14 +1,3 @@
-/**
- * Project:TODO ADD PROJECT NAME OneForAll
- *
- * @Description
- * @Author Author Date Description
- * ------ ------ ------
- *    TODO 开发人员邮箱前缀 调整时间 年-月-日 主要改动点>5字符
- * @Date 2022-05-17 20:23
- * Copyright
- */
-
 package cn.cc.dawn.business.game.drawcard.dto;
 
 import cn.cc.dawn.utils.dto.CommonFiledDto;
@@ -38,7 +27,6 @@ public class CardGameConfigDto extends CommonFiledDto {
     private String gameName;
     /**
      * 基础概率
-     * TODO 校验必须小于1
      */
     private Double baseProbability;
 

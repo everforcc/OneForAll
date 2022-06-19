@@ -44,7 +44,7 @@ public class Scheduler {
     /**
      * 线程内的日志打印有误
      *
-     * TODO lock.lock(); 的等待时间
+     * lock.lock(); 的等待时间
      */
     //@Scheduled(cron = "0/5 * * * * ?")
     public void bilibili_all_album() {

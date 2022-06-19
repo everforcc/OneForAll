@@ -35,7 +35,7 @@ public class HttpParamDto extends CommonFiledDto {
     private HttpTypeEnum httpTypeEnum;
     /**
      * 代理，
-     * TODO 缺少入库映射
+     * 缺少入库映射
      */
     private UProxy proxy;
     /**
@@ -52,7 +52,7 @@ public class HttpParamDto extends CommonFiledDto {
     private CharsetsEnum charset = CharsetsEnum.UTF_8;
 
     /**
-     * TODO 认证方案，待处理
+     * 认证方案，待处理
      */
     private String cookie;
     private String token;
@@ -60,7 +60,7 @@ public class HttpParamDto extends CommonFiledDto {
 
     /**
      * 请求头
-     * TODO [@link: ] 枚举类支持
+     * [@link: ] 枚举类支持
      */
     private Map<String,String> headers;
 
@@ -88,7 +88,7 @@ public class HttpParamDto extends CommonFiledDto {
      */
     private String content;
     /**
-     * TODO 文件
+     * 文件
      */
     private File file;
     /**
@@ -102,13 +102,13 @@ public class HttpParamDto extends CommonFiledDto {
     private int sleep;
 
     /**
-     * TODO 线程池
+     * 线程池
      */
     private int threadMax;
     private int threadPool;
 
     /**
-     * TODO SSL
+     * SSL
      */
     private String ssl;
 

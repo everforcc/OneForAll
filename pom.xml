@@ -80,7 +80,7 @@
             <artifactId>spring-boot-starter-mail</artifactId>
             <version>${spring-boot}</version>
         </dependency>
-        <!-- thymeleaf 模板 start TODO -->
+        <!-- thymeleaf 模板 start -->
         <dependency>
             <groupId>org.springframework.boot</groupId>
             <artifactId>spring-boot-starter-thymeleaf</artifactId>

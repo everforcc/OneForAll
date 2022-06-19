@@ -319,7 +319,7 @@ public class YsCardServiceImpl implements YsCardService {
             /**
              * 或者返回有问题就退出
              * flag = false;
-             * TODO 此处需要抛出异常
+             * 此处需要抛出异常
              * {"data":null,"message":"authkey timeout","retcode":-101}
              */
             throw new RuntimeException(jsonObject.getString("message"));

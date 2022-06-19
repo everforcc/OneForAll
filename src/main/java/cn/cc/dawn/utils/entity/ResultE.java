@@ -67,7 +67,6 @@ public class ResultE<E> implements IJson{
 
     /**
      * 执行 setSuccess方法 保证能捕获到代码中的异常
-     * TODO 这里处理的还有问题，不一定都是自定义的异常
      */
     public ResultE<E> execute(final Consumer<ResultE<E>> consumer) {
         try {

@@ -27,7 +27,6 @@ public interface INovelDeal {
 
     /**
      * 从html 获取小说url页码合集，
-     * TODO 不一定有
      * @param html
      * @return
      */

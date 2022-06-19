@@ -52,7 +52,6 @@ public class QRWrite {
 
         /**
          * 这里可以放一个位置，或者一个流
-         * TODO 流测试
          */
         Path path = FileSystems.getDefault().getPath(filePath);
         MatrixToImageWriter.writeToPath(bitMatrix,"PNG",path);

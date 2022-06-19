@@ -9,7 +9,7 @@ import java.util.concurrent.ThreadPoolExecutor;
 public class ThreadPool {
 
     /**
-     * TODO 线程数量
+     * 线程数量
      * 如何选择线程池数量
      * @return
      */

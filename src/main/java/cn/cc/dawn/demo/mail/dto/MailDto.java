@@ -52,13 +52,13 @@ public class MailDto {
 
     /**
      * 行内图片
-     * TODO 由于模板的问题，目前支持一个就够了，需要多个再说
+     * 由于模板的问题，目前支持一个就够了，需要多个再说
      */
     private String inlinePic;
 
     /**
      * 附件， 先给个文件url
-     * TODO 格式待定
+     * 格式待定
      */
     private List<String> attachmentURL;
 
