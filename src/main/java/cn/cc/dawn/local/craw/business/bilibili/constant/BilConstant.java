@@ -61,7 +61,7 @@ public class BilConstant {
     public static class BilFililePathBusi implements IFilePathBusi {
         @Override
         public String busiPath() {
-            return "/bilibili";
+            return "\\bilibili";
         }
     }
 
