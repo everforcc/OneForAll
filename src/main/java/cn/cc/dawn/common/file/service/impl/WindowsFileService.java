@@ -29,7 +29,6 @@ public class WindowsFileService implements IFileService {
         System.out.println("write file :" + appconfiguration.getFiles());
         log.debug("write file :" + appconfiguration.getFiles());
         log.info("write file :" + appconfiguration.getFiles().getPath());
-        log.warn("write file :" + appconfiguration.getFiles().getPath());
         return fileObjDto;
     }
 

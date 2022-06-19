@@ -28,9 +28,12 @@ public class ResponseBytesService {
         try {
             servletVO.setBytes(ByteStreams.toByteArray(FileUtils.openInputStream(file)));
             //servletVO.setContentType(HttpHeadersConstant.txt_plain_UTF_8);
-
-
-            servletVO.setContentType(ContentTypeEnum.valueOf(filePath.getSuffix()).type);
+            String suffix = filePath.getSuffix();
+            if("class".equals(suffix)){
+                suffix = "c" + suffix;
+            }
+            String type = ContentTypeEnum.valueOf(suffix).type;
+            servletVO.setContentType(type);
             //servletVO.setDownFileName(fileName);
             servletVO.setReadFileName(uuname);
             servletVO.setCache_control("0", iFile.lastModifiedTime(file));

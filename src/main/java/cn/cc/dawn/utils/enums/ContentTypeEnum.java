@@ -87,6 +87,7 @@ public enum ContentTypeEnum {
     zip(".zip", "application/zip"),
 
     mkv(".mkv", "video/x-matroska"),
+    cclass(".class", "text/plain"),
     ;
 
     public final String comment;

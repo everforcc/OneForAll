@@ -23,16 +23,42 @@ server:
     connection-timeout: 10ms
     uri-encoding: UTF-8
 
+# 自定义配置文件全部在app节点读取
 app:
-  cache:
-    customuser: { cachekey: USER_TOKEN,expired: 24h }
-  defaultaeskey: defaultaeskey
+  # 这部分数据是固定的，所以直接在根目录一个类存
   filepath: E:\filesystem\project\OneForAll
-  conditional:
-    express: true
   files:
     path: E:/filesystem
-    type: MYSQL
+    type: WINDOWS
+  ftp:
+    username: everforcc
+    password: c.c.5664
+    path: /
+  conditional:
+    express: true
+  # 下面的可能有多行数据所以用类存
+  cache:
+    # 用户token默认保存30天，要不需要一直刷新，太麻烦了
+    customerUserToken: { cachekey: CUSTOMERUSER_TOKEN,expired: 30d }
+    redisCacheTest: { cachekey: REDISCACHETEST,expired: 24h }
+    WebDataCacheMain: { cachekey: WEBDATACACHE_MAIN,expired: 24h }
+    BDRegister: { cachekey: BDREGISTER,expired: 24h }
+  bddisk: {
+    ID: 24975976,
+    API_Key: 1hsEFmgaYc3vIEhQdHAheNKh0jo2d6eh,
+    Secret_Key: Vhm1K4nUeFHzb2Rtd1OCEVAnVSvzLj6b,
+    authorizeWebUrl: http://openapi.baidu.com/oauth/2.0/authorize,
+    redirect_uriWebUrl: http://180.76.156.43:8080/open/craw/bdwp/method_a,
+    access_tokenWebUrl: https://openapi.baidu.com/oauth/2.0/token,
+    refresh_tokenWebUrl: https://openapi.baidu.com/oauth/2.0/token,
+    xpan_nas: https://pan.baidu.com/rest/2.0/xpan/nas,
+    xpan_file: http://pan.baidu.com/rest/2.0/xpan/file,
+    slice_file: https://d.pcs.baidu.com/rest/2.0/pcs/superfile2
+  }
+  encrypt: {
+    aesEnable: true,
+    defaultAeskey: default_aes_key
+  }
   test:
     str: local
     stringList:

@@ -7,9 +7,9 @@ import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
 
-@RequestMapping(value = "/open/config/yml")
+@RequestMapping(value = "/demo/init/yml")
 @RestController
-public class ConfigController {
+public class InitYMLController {
 
     /**
      * 从yml读取数据

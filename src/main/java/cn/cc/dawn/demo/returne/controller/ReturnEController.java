@@ -25,6 +25,7 @@ public class ReturnEController {
     @GetMapping("/testExceptionReturn")
     public ResultE<String> testExceptionReturn(){
         return new ResultE<String>().execute(e ->{
+            System.out.println("123");
             e.setSuccess(returnEexceptionService.userException());
         });
     }

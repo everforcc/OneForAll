@@ -16,10 +16,10 @@ import java.util.Map;
 
 import static com.alibaba.fastjson.serializer.SerializerFeature.PrettyFormat;
 
-@RequestMapping(value = "/demo/config/expression")
+@RequestMapping(value = "/demo/init/expression")
 @RestController
 @Slf4j
-public class ExpressController {
+public class InitExpressController {
 
     @Autowired(required = false)
     private ExpressTrueBean expressTrueBean;
@@ -28,16 +28,16 @@ public class ExpressController {
 
     @GetMapping(path = "/show")
     public ResultE<JSONObject> show() {
-        return new ResultE<JSONObject>().execute(e ->{
+        return new ResultE<JSONObject>().execute(e -> {
             log.info("进入方法: show()");
             Map<String, Object> result = new HashMap<>(4);
             result.put("expressTrueBean", expressTrueBean == null ? "null ==> false" : expressTrueBean.getName());
-            result.put("expressFalseBean", expressFalseBean == null ? "null ==> true": expressFalseBean.getName());
-            result.put("expressTrueBean_1", expressTrueBean);
-            result.put("expressFalseBean_1", expressFalseBean);
+            result.put("expressFalseBean", expressFalseBean == null ? "null ==> true" : expressFalseBean.getName());
+            result.put("expressTrueBean_1", expressTrueBean.getName());
+            result.put("expressFalseBean_1", expressFalseBean.getName());
             //JSONObject jsonObject = JSON.parseObject(result,Map.class);
             JSONObject jsonObject = new JSONObject(result);
-            log.info( JSON.toJSONString(jsonObject,PrettyFormat));
+            log.info(JSON.toJSONString(jsonObject, PrettyFormat));
             e.setSuccess(jsonObject);
         });
     }

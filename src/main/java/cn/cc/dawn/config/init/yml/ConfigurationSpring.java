@@ -14,7 +14,7 @@ import org.springframework.stereotype.Component;
 public class ConfigurationSpring {
 
     private Redis redis;
-    private Ftp ftp;
+
 
     @Getter
     @Setter
@@ -27,15 +27,6 @@ public class ConfigurationSpring {
         private int database;
     }
 
-    @Getter
-    @Setter
-    @AllArgsConstructor
-    @NoArgsConstructor
-    public static class Ftp {
-        private String username;
-        private String password;
-        private String path;
-    }
 
 //    public Proxy getGoogleProxy(){
 //        return new Proxy(Proxy.Type.HTTP,new InetSocketAddress(gproxy.getIp(),gproxy.getPort()));

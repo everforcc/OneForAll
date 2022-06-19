@@ -1,4 +1,5 @@
-spring:
+# 此yml放公共的配置文件
+spring: # 下面的为spring的配置，
   thymeleaf:
     enabled: false # 导入thymeleaf作为邮件模板，但是不处理页面，所以关闭
   mvc:
@@ -44,10 +45,6 @@ spring:
     type: redis
   app:
     env: local # 当前环境：[local:本地开发环境|dev:远程开发环境|sit:系统测试|uat:验收测试|prod:生产]
-  ftp:
-    username: everforcc
-    password: c.c.5664
-    path: /
   profiles: # 动态环境
     active: @deploy.type@ # 采坑记录，使用 @@ 获取 pom.xml 环境变量时，必须指定 build > resources > resource > <filtering>true</filtering>
   mail:
@@ -65,6 +62,8 @@ spring:
         info: true
   resources:
     add-mappings: false
+
+# mybatis配置
 mybatis:
   # 指定全局配置文件位置  便于管理和扫描 config-location 和 configuration不能同时使用
   # config-location: classpath:mybatis/mybatis-config.xml.txt
@@ -80,51 +79,13 @@ mybatis:
     # log-impl: org.apache.ibatis.logging.stdout.StdOutImpl
 
   # mapper-locations: classpath*:mybatis/mapper/**/*.xml
+
+# server 端口 和 tomcat配置
 server:
-  port: 80
+  port: 8080
   tomcat:
     connection-timeout: 10ms
     uri-encoding: UTF-8
+
 # 自定义配置文件全部在app节点读取
-app:
-  cache:
-    # 用户token默认保存30天，要不需要一直刷新，太麻烦了
-    customerUserToken: { cachekey: CUSTOMERUSER_TOKEN,expired: 30d }
-    redisCacheTest: { cachekey: REDISCACHETEST,expired: 24h }
-    WebDataCacheMain: { cachekey: WEBDATACACHE_MAIN,expired: 24h }
-    BDRegister: { cachekey: BDREGISTER,expired: 24h }
-  bddisk: {
-    ID: 24975976,
-    API_Key: 1hsEFmgaYc3vIEhQdHAheNKh0jo2d6eh,
-    Secret_Key: Vhm1K4nUeFHzb2Rtd1OCEVAnVSvzLj6b,
-    authorizeWebUrl: http://openapi.baidu.com/oauth/2.0/authorize,
-    redirect_uriWebUrl: http://180.76.156.43:8080/open/craw/bdwp/method_a,
-    access_tokenWebUrl: https://openapi.baidu.com/oauth/2.0/token,
-    refresh_tokenWebUrl: https://openapi.baidu.com/oauth/2.0/token,
-    xpan_nas: https://pan.baidu.com/rest/2.0/xpan/nas,
-    xpan_file: http://pan.baidu.com/rest/2.0/xpan/file,
-    slice_file: https://d.pcs.baidu.com/rest/2.0/pcs/superfile2
-  }
-  encrypt: {
-    aesEnable: true,
-    defaultAeskey: default_aes_key
-  }
-  conditional:
-    express: true
-  files:
-    path: E:/filesystem
-    type: WINDOWS
-  test:
-    str: string
-    stringList:
-      - str1
-      - str2
-      - str3
-    gproxy:
-      ip: 127.0.0.1
-      port: 41091
-    testCache:
-      expired: 30d  # 下面的暂时未使用,过期时间，30 天, Duration， ehcache 和 redis 共有配置
-      heap: 1     # ehcache 堆内保持数据行数
-      offheap: 1B  # ehcache 堆外占用内存
-      disk: 1B   # ehcache 磁盘占用空间
+# 每个环境定义自己的不要设置通用，避免问题

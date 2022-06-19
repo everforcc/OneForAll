@@ -6,8 +6,8 @@ import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
 
 @RestController
-@RequestMapping(value ="/demo/init")
-public class InitController {
+@RequestMapping(value ="/demo/init/txt")
+public class InitTXTController {
 
     @Autowired
     InitService initService;

@@ -7,6 +7,7 @@ import lombok.Getter;
 import lombok.NoArgsConstructor;
 import lombok.Setter;
 
+import javax.validation.constraints.NotNull;
 import javax.validation.constraints.Pattern;
 import javax.validation.constraints.Size;
 
@@ -26,6 +27,7 @@ public class ValidatedDto extends CommonFiledDto {
      * 文件大小用字节数来处理 byte[]
      */
 
+    @NotNull
     @Size(max = 10, message = "字段最多10位")
     private String strLength;
 }

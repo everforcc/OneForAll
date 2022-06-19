@@ -9,11 +9,11 @@ import java.util.Map;
 
 @RequestMapping(value = "/demo/init/map")
 @RestController
-public class PropertiesController {
+public class InitPropertiesController {
 
-    @GetMapping("/map")
-    public Map<String, String> str(){
-        return PropertiesHeader.spring4uMap();
+    @GetMapping("/ys")
+    public Map<String, String> str() {
+        return PropertiesHeader.ysCardMap();
     }
 
 }

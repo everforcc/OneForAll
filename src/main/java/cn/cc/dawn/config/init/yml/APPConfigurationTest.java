@@ -17,12 +17,24 @@ import java.util.List;
 @ConfigurationProperties(prefix = "app.test")
 public class APPConfigurationTest {
 
+    /**
+     * 测试字符串
+     */
     private String str;
 
+    /**
+     * 测试字符list
+     */
     private List<String> stringList;
 
+    /**
+     * 测试对象
+     */
     private Gproxy gproxy;
 
+    /**
+     * 测试对象复杂属性
+     */
     private UserCache testCache;
 
     @Getter
