@@ -17,6 +17,7 @@ import org.springframework.security.core.authority.SimpleGrantedAuthority;
 import org.springframework.security.core.userdetails.UserDetails;
 import org.springframework.stereotype.Component;
 
+import javax.validation.constraints.Pattern;
 import java.util.*;
 import java.util.stream.Collectors;
 
@@ -32,6 +33,7 @@ public class CustomUser extends CommonFiledDto implements UserDetails {
 
     private String username;
 
+    @Pattern(regexp = "^(?![^a-z]+$)(?![^A-Z]+$)(?!\\D+$)(?![a-zA-Z0-9]+$).{8,}$", message = "密码至少有一个小写，大写，数字，字符，最短8位")
     private String password;
 
     /**
