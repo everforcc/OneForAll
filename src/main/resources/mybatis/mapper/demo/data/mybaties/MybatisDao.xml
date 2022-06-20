@@ -1,0 +1,27 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper
+        PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+        "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="cn.cc.dawn.demo.data.mybaties.dao.MybatisDao">
+
+    <!-- foreach in -->
+    <select id="pagesIn" resultType="java.lang.String">
+        SELECT e.`name` FROM cc_mybatis_plus_user e
+        WHERE e.`age` IN
+        <foreach collection="list" item="id" open="(" close=")" separator=",">
+            #{id}
+        </foreach>
+    </select>
+
+    <!-- 批量插入 -->
+    <insert id="insertList" parameterType="java.util.List">
+        INSERT INTO cc_mybatis_plus_user
+        (id, NAME, age, email, VERSION, deleted, create_time, update_time)
+        VALUES
+        <foreach collection="list" item="item" index="mybatisUserList" separator=",">
+            (#{item.id}, #{item.name}, #{item.age}, #{item.email}, #{item.version}, #{item.deleted},
+            #{item.createTime}, #{item.updateTime} )
+        </foreach>
+    </insert>
+
+</mapper>
