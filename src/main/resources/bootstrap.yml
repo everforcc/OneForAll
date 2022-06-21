@@ -62,6 +62,8 @@ spring: # 下面的为spring的配置，
         info: true
   resources:
     add-mappings: false
+  jackson:
+    default-property-inclusion: non_null # 返回对象字段为null则不显示
 
 # mybatis配置
 mybatis:
