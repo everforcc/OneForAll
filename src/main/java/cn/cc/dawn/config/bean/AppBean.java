@@ -33,6 +33,7 @@ import org.springframework.web.servlet.config.annotation.WebMvcConfigurer;
 
 import java.nio.charset.Charset;
 import java.util.Collections;
+import java.util.Objects;
 import java.util.Optional;
 import java.util.concurrent.ExecutorService;
 import java.util.concurrent.LinkedBlockingQueue;
@@ -175,7 +176,19 @@ public class AppBean {
         } else if (e instanceof NoHandlerFoundException) {
             return new ResultE<Void>(Code.A00007).setException("404：请求url不存在");
         } else if (e instanceof JSONException) {
+            JSONException jsonException = (JSONException) e;
+
             return new ResultE<Void>(Code.A00008).setException(String.format("500：JSON 序列化或反序列化异常：%s", e.getMessage()));
+        } else if (e instanceof MethodArgumentTypeMismatchException) {
+            MethodArgumentTypeMismatchException methodArgumentTypeMismatchException = (MethodArgumentTypeMismatchException)e;
+
+            String errmsg = "参数转换失败，方法："+ Objects.requireNonNull(methodArgumentTypeMismatchException.getParameter().getMethod()).getName()
+                    +",期望参数类型："+methodArgumentTypeMismatchException.getParameter().getParameterType()
+                    +",参数："+methodArgumentTypeMismatchException.getName()
+                    +",信息："+e.getMessage();
+            log.error(errmsg);
+
+            return new ResultE<Void>(Code.A00008).setException(String.format("500：参数转换异常：%s", e.getMessage()));
         } else if (e instanceof BindException || e instanceof MethodArgumentTypeMismatchException) {
             return new ResultE<Void>(Code.A00008).setException(String.format("500：参数转换异常：%s", e.getMessage()));
         } else if (e instanceof HttpRequestMethodNotSupportedException) {

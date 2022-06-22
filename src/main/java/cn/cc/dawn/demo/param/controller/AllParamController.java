@@ -7,6 +7,7 @@
 package cn.cc.dawn.demo.param.controller;
 
 import cn.cc.dawn.demo.param.dto.ParamDto;
+import cn.cc.dawn.utils.enums.impl.StatusEnum;
 import lombok.extern.slf4j.Slf4j;
 import org.springframework.web.bind.annotation.*;
 import org.springframework.web.multipart.MultipartFile;
@@ -24,6 +25,12 @@ public class AllParamController {
     @GetMapping("/reqParam")
     public String reqParam(@RequestParam("param") String param){
         log.info("reqParam参数 param: {}", param);
+        return "123";
+    }
+
+    @GetMapping("/reqEnumParam")
+    public String reqEnumParam(@RequestParam("param") StatusEnum param){
+        log.info("reqParam参数 param: {}", param.getCode());
         return "123";
     }
 
@@ -79,10 +86,10 @@ public class AllParamController {
      * @param paramDto
      * @return
      */
-    @PostMapping("/postObj")
-    public String postObj(@RequestBody final ParamDto paramDto){
+    @PutMapping("/postObj")
+    public ParamDto postObj(@RequestBody final ParamDto paramDto){
         log.info("postObj参数 param: {}", paramDto.toString());
-        return "123";
+        return paramDto;
     }
 
     /**
