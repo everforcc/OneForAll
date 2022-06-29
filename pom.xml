@@ -68,6 +68,11 @@
             <artifactId>spring-boot-starter-web</artifactId>
             <version>${spring-boot}</version>
         </dependency>
+        <!-- 重试 -->
+        <dependency>
+            <groupId>org.springframework.retry</groupId>
+            <artifactId>spring-retry</artifactId>
+        </dependency>
         <!-- 数据校验 -->
         <dependency>
             <groupId>org.springframework.boot</groupId>
