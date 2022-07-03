@@ -1,5 +1,0 @@
-
-###
-GET http://localhost:80/demo/config/expression/show
-Accept: application/json
-

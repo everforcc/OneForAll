@@ -1,0 +1,6 @@
+GET http://{{host}}:{{port}}/demo/novel/pool/tpool
+Accept: application/json
+
+###
+GET http://{{host}}:{{port}}/demo/novel/pool/tpool2
+Accept: application/json

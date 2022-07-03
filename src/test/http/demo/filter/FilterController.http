@@ -1,2 +1,2 @@
-GET http://localhost:81/demo/filter/t
+GET http://{{host}}:{{port}}/demo/filter/t
 Accept: application/json

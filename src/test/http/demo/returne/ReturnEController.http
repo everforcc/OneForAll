@@ -1,4 +1,4 @@
-GET http://localhost:80/returne/exception
+GET http://{{host}}:{{port}}/returne/exception
 Accept: application/json
 
 ###

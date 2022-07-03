@@ -1,0 +1,7 @@
+GET http://{{host}}:{{port}}/open/craw/page/findData/41
+Accept: application/json
+
+###
+###
+GET http://{{host}}:{{port}}/open/craw/page/findAll
+Accept: application/json

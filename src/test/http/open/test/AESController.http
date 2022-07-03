@@ -1,18 +1,3 @@
-GET http://localhost:81/open/aes/t111
+GET http://{{host}}:{{port}}/open/aes/t111
 Accept: application/json
 
-###
-GET http://localhost:81/open/application/app
-Accept: application/json
-
-###
-GET http://localhost:81/open/application/aeskey
-Accept: application/json
-
-###
-GET http://localhost:81/open/application/singleThread
-Accept: application/json
-
-###
-GET http://localhost:81/open/application/thread1
-Accept: application/json

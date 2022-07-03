@@ -1,0 +1,4 @@
+GET http://{{host}}:{{port}}/local/mys/ys/article/20516789
+Accept: application/json
+
+###

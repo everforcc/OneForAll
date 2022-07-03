@@ -1,4 +1,4 @@
-GET http://localhost:80/demo/data/redis/redissonController/tLock/1
+GET http://{{host}}:{{port}}/demo/data/redis/redissonController/tLock/1
 Accept: application/json
 
 ###

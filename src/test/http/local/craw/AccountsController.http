@@ -1,6 +1,0 @@
-
-###
-GET http://localhost:80/craw/findAll
-Accept: application/json
-
-###

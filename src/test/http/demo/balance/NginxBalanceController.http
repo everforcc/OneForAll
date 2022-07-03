@@ -1,6 +1,6 @@
-GET http://localhost:81/demo/ng/nginx1
+GET http://{{host}}:{{port}}/demo/ng/nginx1
 Accept: application/json
 
 ###
-GET http://localhost:81/demo/ng/nginx2
+GET http://{{host}}:{{port}}/demo/ng/nginx2
 Accept: application/json

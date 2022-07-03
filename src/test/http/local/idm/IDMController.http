@@ -1,5 +1,5 @@
 ###
-POST http://localhost:81/local/idm/test/down
+POST http://{{host}}:{{port}}/local/idm/test/down
 Accept: application/json
 
 {

@@ -1,0 +1,30 @@
+### 01. 主表
+POST http://{{host}}:{{port}}/open/craw/add/addroot
+Accept: application/json
+Content-Type: application/json
+
+{
+  "webroot": "https://i0.hdslb.com",
+  "webname": "bilibili图床",
+  "softtype": "web",
+  "webtype": "图床",
+  "vip": "EFFECT"
+}
+
+
+
+
+### 02. insert sub
+GET http://{{host}}:{{port}}/open/craw/add/addtag
+Accept: application/json
+token: 7a1620347169f7942aa59cda3a61eebd88d610630b9751a8445dfb4e69838707cdc8f7cf3e53cadddaf3014d75ecd5290a640d0167e2750cee4319a64c9a5acb2c21a45eac123acc3dca249efcc52963fdf16e7241593ef06bef4b326a6581904c1b4b85d1caec83b0714b7d9f63fa2bb96830488925f29b1e6953e84d9b217e791a56b96626d383711a1f00c46ee1e5a8da8308f07affca5336c064883ba7bcabce0f854b2adb8b98d34e873eb7ab56920e4aabf2b8051a9cb2e712bf53c0554bb9f6dc8058a895fa7ddcad1a3d671d3800ff1d51848e2230505f40261d5999f4dcee0febf0e2cef32328cf0152bd1efae61ac8dba66b2b98acca7675501fd75933ec63c29741e67293074bfaba04461b3584c000faeb47e0115b02983f35f2724e0a4682d14928ec8ba1eb7e80dbec1f6416e91133c80825517bcc76d3aea825aa334b98984cc5c73a503104a22f1d1bc5b726125b3ad8044c59a748fc7de5eda898791c3430f41142663a379d0e0e2aace38a4abfdf829d84dc5f576592509d86bcf8a33683655171ef198c0b1adb160228d95455a7e9c0c447125b0ba5aab20fcbb57cc2633a464b6f4e0282c166d21089a562710653bdbbe72263253ff7
+
+{
+"weburl": "https://www.heimikr.com/2-5cy/14871.html",
+"webrootname": "2.5次元",
+"webname": "2.5次元-萌妹写真]腐团儿Ikaros - 42套写真图包合集[42套1.49G]",
+"softtype": "web",
+"webtype": "h-图片"
+}
+
+### 03. 数据表

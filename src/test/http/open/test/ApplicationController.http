@@ -1,0 +1,15 @@
+###
+GET http://{{host}}:{{port}}/open/application/app
+Accept: application/json
+
+###
+GET http://{{host}}:{{port}}/open/application/aeskey
+Accept: application/json
+
+###
+GET http://{{host}}:{{port}}/open/application/singleThread
+Accept: application/json
+
+###
+GET http://{{host}}:{{port}}/open/application/thread1
+Accept: application/json

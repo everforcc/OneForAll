@@ -1,4 +1,4 @@
-POST http://localhost:81/common/upload/write
+POST http://{{host}}:{{port}}/common/upload/write
 Content-Type: multipart/form-data; boundary=WebAppBoundary; charset=utf-8
 User-Agent: PostmanRuntime/7.29.0
 Accept-Encoding: gzip, deflate, br
