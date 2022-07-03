@@ -9,7 +9,7 @@ package cn.cc.dawn.utils.commons.regex;
 
 import org.junit.Test;
 
-public class PassWordTests {
+public class RegexUtilsTests {
 
     @Test
     public void groupLow(){

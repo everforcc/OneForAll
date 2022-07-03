@@ -8,7 +8,7 @@ class OneForAllApplicationTests {
 
 	@Test
 	void contextLoads() {
-		System.out.println("从帐号密码登录修改为token登录后，之前的不能用了，重新下载测试");
+		System.out.println("如果输出这句话表示执行了maven-test");
 	}
 
 }

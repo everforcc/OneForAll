@@ -1,4 +1,4 @@
-package cn.cc.dawn.http;
+package cn.cc.dawn.utils.http;
 
 import cn.cc.dawn.utils.http.dto.HttpParamDto;
 import cn.cc.dawn.utils.http.IHttp;
@@ -15,7 +15,7 @@ import java.net.URLEncoder;
 
 @SpringBootTest
 @Slf4j
-public class IHttpT {
+public class IHttpTests {
 
     IHttp IHttp = new HttpApacheImpl();
 

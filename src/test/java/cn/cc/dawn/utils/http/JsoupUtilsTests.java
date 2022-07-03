@@ -1,4 +1,4 @@
-package cn.cc.dawn.jdkcraw;
+package cn.cc.dawn.utils.http;
 
 import cn.cc.dawn.utils.http.JsoupUtils;
 import cn.cc.dawn.utils.commons.io.JInputStreamCharUtils;
@@ -16,8 +16,9 @@ import java.util.Map;
  * 2020/7/3
  */
 @SpringBootTest
-public class Dujuzi {
+public class JsoupUtilsTests {
 
+    // Dujuzi
     @Test
     public void compile(){
         System.out.println("1");

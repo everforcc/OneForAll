@@ -8,7 +8,7 @@ import org.junit.Test;
 import java.util.HashMap;
 import java.util.Map;
 
-public class NovelRegT {
+public class NovelReqRegDtoTests {
 
     @Test
     public void tReg(){

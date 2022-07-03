@@ -12,7 +12,7 @@ import org.junit.Test;
 import java.text.ParseException;
 import java.util.Date;
 
-public class DateTests {
+public class RFastDateFormatTests {
 
     @Test
     public void before(){

@@ -1,4 +1,4 @@
-package cn.cc.dawn.utils;
+package cn.cc.dawn.demo.function;
 
 import cn.cc.dawn.demo.function.dto.ValidatedDto;
 import lombok.extern.slf4j.Slf4j;
@@ -7,7 +7,7 @@ import org.springframework.boot.test.context.SpringBootTest;
 
 @SpringBootTest
 @Slf4j
-public class FileUtils {
+public class ValidatedDtoTests {
 
     @Test
     void contextLoads() {

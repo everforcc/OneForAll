@@ -3,6 +3,6 @@ import org.springframework.boot.test.context.SpringBootTest;
 
 
 @SpringBootTest
-public class MailTemplatesComponent {
+public class MailFreemarkerComponentTests {
 
 }

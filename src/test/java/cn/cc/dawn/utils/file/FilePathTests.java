@@ -1,7 +1,6 @@
-package cn.cc.dawn.demo.servlet;
+package cn.cc.dawn.utils.file;
 
 
-import cn.cc.dawn.utils.file.FilePath;
 import com.google.common.io.ByteStreams;
 import org.apache.commons.io.FileUtils;
 import org.junit.Test;
@@ -9,7 +8,7 @@ import org.junit.Test;
 import java.io.File;
 import java.io.IOException;
 
-public class FileTest {
+public class FilePathTests {
 
     @Test
     public void t1(){

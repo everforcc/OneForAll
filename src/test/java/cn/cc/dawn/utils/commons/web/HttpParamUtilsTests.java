@@ -1,4 +1,4 @@
-package cn.cc.dawn.utils.http;
+package cn.cc.dawn.utils.commons.web;
 
 import org.junit.jupiter.api.Test;
 import org.springframework.boot.test.context.SpringBootTest;
@@ -12,7 +12,7 @@ import java.util.ArrayList;
 import java.util.List;
 
 @SpringBootTest
-public class THttpParamUtils {
+public class HttpParamUtilsTests {
 
     @Test
     void paramsToMap(){

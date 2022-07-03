@@ -5,7 +5,7 @@
  * Copyright
  */
 
-package cn.cc.dawn.local.busi.github;
+package cn.cc.dawn.webapi.github;
 
 import cn.cc.dawn.webapi.github.dto.UserReposDto;
 import com.alibaba.fastjson.JSONObject;
@@ -19,7 +19,7 @@ import org.junit.Test;
 import java.io.IOException;
 import java.util.List;
 
-public class UserReposTests {
+public class UserReposDtoTests {
 
     @Test
     public void userRepos(){

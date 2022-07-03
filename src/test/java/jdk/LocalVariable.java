@@ -1,4 +1,4 @@
-package cn.cc.dawn.jdk;
+package jdk;
 
 import org.junit.jupiter.api.Test;
 

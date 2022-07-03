@@ -1,4 +1,4 @@
-package cn.cc.dawn.jdk;
+package cn.cc.dawn.local.craw.business.ys;
 
 import cn.cc.dawn.local.craw.business.ys.dto.YsCardVO;
 import com.alibaba.fastjson.JSON;
@@ -9,7 +9,7 @@ import org.junit.jupiter.api.Test;
 import java.util.ArrayList;
 import java.util.List;
 
-public class JSONTest {
+public class YsCardVOTests {
 
     @Test
     public void jsonOrder(){

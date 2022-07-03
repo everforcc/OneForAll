@@ -12,7 +12,7 @@ import java.sql.SQLException;
 
 @Slf4j
 @SpringBootTest
-class Sp03DataApplicationTests {
+class DruidConfigTests {
 
     @Autowired
     DataSource dataSource;
