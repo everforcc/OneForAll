@@ -2,6 +2,7 @@ package cn.cc.dawn.utils.exception;
 
 
 public enum Code implements ICode {
+    T00000("已加入线程,请等待"),
     A00000("成功"),
     A00001("失败"),
     A00002("自定义异常，将会以 exception 内容替换 message 内容，一般用于抛出带动态参数消息，直接在前端弹窗"),

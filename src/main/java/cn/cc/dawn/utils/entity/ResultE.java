@@ -78,6 +78,20 @@ public class ResultE<E> implements IJson{
         return this;
     }
 
+    public ResultE<String> thread(final ICall iCall) {
+        try {
+            setICode(Code.T00000);
+            RExecute rExecute = new RExecute(iCall, this);
+            Thread thread = new Thread(rExecute);
+            thread.start();
+        } catch (Exception e) {
+            setException(e);
+        }
+        ResultE<String> resultE = new ResultE<>();
+        resultE.setException("已放入线程");
+        return resultE;
+    }
+
     public ResultE<E> call(final ICall iCall) {
         try {
             setICode(Code.A00000);

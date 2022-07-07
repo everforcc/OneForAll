@@ -9,6 +9,8 @@ import cn.cc.dawn.utils.file.constant.FileRegexConstant;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Component;
 
+import javax.annotation.PostConstruct;
+import javax.annotation.Resource;
 import java.io.File;
 
 /**
@@ -18,8 +20,17 @@ import java.io.File;
 public class FilePath {
 
     // 获取文件根目录
+    private static APPConfiguration appConfiguration;
+
     @Autowired
-    APPConfiguration appConfiguration;
+    private APPConfiguration config;
+
+
+    @PostConstruct
+    public void init() {
+        appConfiguration = config;
+    }
+
 
     /**
      * 测试文件存放目录

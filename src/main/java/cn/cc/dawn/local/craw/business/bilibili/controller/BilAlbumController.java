@@ -42,8 +42,8 @@ public class BilAlbumController {
          * 3403527 蒋七七ChiChan
          * 51588985 是一只九龄
          */
-        return new ResultE<String>().execute(e ->
-                e.setSuccess(bilAlbumService.upAllalbum(uid))
+        return new ResultE<String>().thread(() ->
+                bilAlbumService.upAllalbum(uid)
         );
     }
 

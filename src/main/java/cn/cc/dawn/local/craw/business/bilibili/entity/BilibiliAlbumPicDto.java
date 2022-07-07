@@ -12,7 +12,7 @@ import lombok.Setter;
 @AllArgsConstructor
 public class BilibiliAlbumPicDto extends CommonFiledDto {
 
-    private String doc_id ;
+    //private String doc_id ;
 
     private String img_width ;
     private String img_height ;

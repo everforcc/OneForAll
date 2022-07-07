@@ -1,6 +1,6 @@
 
 ### 所有相册
-GET http://{{host}}:{{port}}/local/craw/bilalbum/allalbum/123
+GET http://{{host}}:{{port}}/local/craw/bilalbum/allalbum/252341715
 Accept: application/json
 
 ### 查看是否完成

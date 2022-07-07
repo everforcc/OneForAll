@@ -218,7 +218,8 @@ public class Bilibili_Album {
             for(int j = 0 ; j < picSize ; j++ ){
                 bilibiliAlbumPicDto = bilibiliAlbumPicDtoList.get(j);
                 String img_src = bilibiliAlbumPicDto.getImg_src();
-                String doc_id = bilibiliAlbumPicDto.getDoc_id();
+                //String doc_id = bilibiliAlbumPicDto.getDoc_id();
+                String doc_id = bilibiliAlbumDto.getDoc_id();
                 log.info("图片下载地址: {}",img_src);
 
                 if(down) {
