@@ -11,11 +11,11 @@ import javax.validation.constraints.NotNull;
 @Service
 @Validated
 @Transactional
-//@RequiredArgsConstructor
 public class ValidatedService {
 
-    public String testPattern(@Valid @NotNull(message = "【fileSystemDto】不能为null") final ValidatedDto fileSystemDto){
-        System.out.println(fileSystemDto.getName());
+    public String testValidate(@Valid @NotNull(message = "【validatedDto】不能为null") final ValidatedDto validatedDto){
+        System.out.println(validatedDto.getFileName());
+        System.out.println(validatedDto.getStrLength().length());
         return "";
     }
 

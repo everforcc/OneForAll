@@ -13,7 +13,7 @@ public class ValidatedDtoTests {
     void contextLoads() {
         log.info("文件名测试");
         ValidatedDto fileSystemDto = new ValidatedDto();
-        fileSystemDto.setName("中文/");
+        fileSystemDto.setFileName("中文/");
         log.info("文件名测试通过");
     }
 

@@ -1,9 +1,9 @@
-POST http://{{host}}:{{port}}/demo/filesystem/exception
+POST http://{{host}}:{{port}}/demo/validated/validate
 Accept: application/json
 token: {{token}}
 
 {
-"name":"文件名",
-"strLength":"1234567890"
+"name":"文件名名名1",
+"strLength":"文件名名名文件名名名名1"
 }
 ###

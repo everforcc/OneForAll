@@ -1,5 +1,7 @@
 package jdk;
 
+import com.alibaba.fastjson.JSON;
+import com.alibaba.fastjson.JSONObject;
 import org.junit.jupiter.api.Test;
 
 public class LocalVariable {
@@ -15,6 +17,13 @@ public class LocalVariable {
     public void test_1_1(boolean type){
         type = true;
         System.out.println("2." + type);
+    }
+
+    @Test
+    public void testJson(){
+        String json = "{}";
+        JSONObject jsonObject = JSON.parseObject(json);
+        System.out.println(jsonObject.toJSONString());
     }
 
 }

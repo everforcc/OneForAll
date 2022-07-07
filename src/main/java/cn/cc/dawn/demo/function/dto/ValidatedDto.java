@@ -7,7 +7,7 @@ import lombok.Getter;
 import lombok.NoArgsConstructor;
 import lombok.Setter;
 
-import javax.validation.constraints.NotNull;
+import javax.validation.constraints.NotEmpty;
 import javax.validation.constraints.Pattern;
 import javax.validation.constraints.Size;
 
@@ -21,13 +21,14 @@ public class ValidatedDto extends CommonFiledDto {
      * @see RegexCommonEnum
      */
     @Pattern(regexp = "^((?!(\\<+|\\>+|\\/|\\\\+|\\|+|\\:+|\"+|\\*+|\\?+|\\；+|\\ +)).)*$",message="文件/文件夹命名有误")
-    private String name;
+    private String fileName;
 
     /**
      * 文件大小用字节数来处理 byte[]
      */
 
-    @NotNull
+    // ValidationMessages.properties
+    @NotEmpty
     @Size(max = 10, message = "字段最多10位")
     private String strLength;
 }
