@@ -13,6 +13,16 @@ Content-Type: application/json
 ### 登录后直接将返回的token,放入 http-client.env.json 之后直接全局引用即可,可以按照用户名来区分
 ##
 
+### 校验用户名密码是否符合规则
+POST http://{{host}}:{{port}}/open/auth/check
+Accept: application/json
+Content-Type: application/json
+
+{
+  "username": "cc",
+  "password": "AAaa11\\.."
+}
+
 ###
 POST http://{{host}}:{{port}}/open/auth/logout
 Accept: application/json

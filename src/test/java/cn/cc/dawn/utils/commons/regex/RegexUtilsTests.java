@@ -39,7 +39,7 @@ public class RegexUtilsTests {
          */
         // !@#$%^&*_
         //String pattern = "^(?![^a-z]+$)(?![^A-Z]+$)(?!\\D+$)(?![a-zA-Z0-9]+$)(?!\\s+$).{8,}$";
-        String pattern = "^(?![^a-z]+$)(?![^A-Z]+$)(?!\\D+$)(?![^!@#$%^&*_]+$)(?=[a-zA-Z0-9!@#$%^&*_]+$).{8,}$";
+        String pattern = "^(?![^a-z]+$)(?![^A-Z]+$)(?!\\D+$)(?![^!@#$%^&*_\\.]+$)(?=[a-zA-Z0-9!@#$%^&*_\\.]+$).{8,}$";
 
         String pas_01 = "aaaaaaaa";
         String pas_02 = "AAAAAAAA";
@@ -86,34 +86,41 @@ public class RegexUtilsTests {
         String pas_38 = "AAaa11__";
         String pas_39 = "AAaa11!@#$%^&*_";
 
+        // 新加个 .
+        String pas_40 = "AAaa11..";
+        String pas_41 = "AAaa11\\.";
+
+
         // 四种字符不全
-        System.out.println("[01] [" + RegexUtils.matcheStr(pattern, pas_01) + "]");
-        System.out.println("[02] [" + RegexUtils.matcheStr(pattern, pas_02) + "]");
-        System.out.println("[03] [" + RegexUtils.matcheStr(pattern, pas_03) + "]");
-        System.out.println("[04] [" + RegexUtils.matcheStr(pattern, pas_04) + "]");
-        System.out.println("[05] [" + RegexUtils.matcheStr(pattern, pas_05) + "]");
-        System.out.println("[06] [" + RegexUtils.matcheStr(pattern, pas_06) + "]");
-        System.out.println("[07] [" + RegexUtils.matcheStr(pattern, pas_07) + "]");
-        System.out.println("[08] [" + RegexUtils.matcheStr(pattern, pas_08) + "]");
-        System.out.println("[09] [" + RegexUtils.matcheStr(pattern, pas_09) + "]");
-        System.out.println("[10] [" + RegexUtils.matcheStr(pattern, pas_10) + "]");
-        System.out.println("[11] [" + RegexUtils.matcheStr(pattern, pas_11) + "]");
-        System.out.println("[12] [" + RegexUtils.matcheStr(pattern, pas_12) + "]");
-        System.out.println("[13] [" + RegexUtils.matcheStr(pattern, pas_13) + "]");
-        System.out.println("[14] [" + RegexUtils.matcheStr(pattern, pas_14) + "]");
-        System.out.println("[16] [" + RegexUtils.matcheStr(pattern, pas_16) + "]");
-        System.out.println("[17] [" + RegexUtils.matcheStr(pattern, pas_17) + "]");
-        System.out.println("[18] [" + RegexUtils.matcheStr(pattern, pas_18) + "]");
-        System.out.println("[30] [" + RegexUtils.matcheStr(pattern, pas_30) + "]");
-        System.out.println("[31] [" + RegexUtils.matcheStr(pattern, pas_31) + "]");
-        System.out.println("[32] [" + RegexUtils.matcheStr(pattern, pas_32) + "]");
-        System.out.println("[33] [" + RegexUtils.matcheStr(pattern, pas_33) + "]");
-        System.out.println("[34] [" + RegexUtils.matcheStr(pattern, pas_34) + "]");
-        System.out.println("[35] [" + RegexUtils.matcheStr(pattern, pas_35) + "]");
-        System.out.println("[36] [" + RegexUtils.matcheStr(pattern, pas_36) + "]");
-        System.out.println("[37] [" + RegexUtils.matcheStr(pattern, pas_37) + "]");
-        System.out.println("[38] [" + RegexUtils.matcheStr(pattern, pas_38) + "]");
-        System.out.println("[39] [" + RegexUtils.matcheStr(pattern, pas_39) + "]");
+        System.out.println("[01] [" + pas_01 + "] [" + RegexUtils.matcheStr(pattern, pas_01) + "]");
+        System.out.println("[02] [" + pas_02 + "] [" + RegexUtils.matcheStr(pattern, pas_02) + "]");
+        System.out.println("[03] [" + pas_03 + "] [" + RegexUtils.matcheStr(pattern, pas_03) + "]");
+        System.out.println("[04] [" + pas_04 + "] [" + RegexUtils.matcheStr(pattern, pas_04) + "]");
+        System.out.println("[05] [" + pas_05 + "] [" + RegexUtils.matcheStr(pattern, pas_05) + "]");
+        System.out.println("[06] [" + pas_06 + "] [" + RegexUtils.matcheStr(pattern, pas_06) + "]");
+        System.out.println("[07] [" + pas_07 + "] [" + RegexUtils.matcheStr(pattern, pas_07) + "]");
+        System.out.println("[08] [" + pas_08 + "] [" + RegexUtils.matcheStr(pattern, pas_08) + "]");
+        System.out.println("[09] [" + pas_09 + "] [" + RegexUtils.matcheStr(pattern, pas_09) + "]");
+        System.out.println("[10] [" + pas_10 + "] [" + RegexUtils.matcheStr(pattern, pas_10) + "]");
+        System.out.println("[11] [" + pas_11 + "] [" + RegexUtils.matcheStr(pattern, pas_11) + "]");
+        System.out.println("[12] [" + pas_12 + "] [" + RegexUtils.matcheStr(pattern, pas_12) + "]");
+        System.out.println("[13] [" + pas_13 + "] [" + RegexUtils.matcheStr(pattern, pas_13) + "]");
+        System.out.println("[14] [" + pas_14 + "] [" + RegexUtils.matcheStr(pattern, pas_14) + "]");
+        System.out.println("[16] [" + pas_16 + "] [" + RegexUtils.matcheStr(pattern, pas_16) + "]");
+        System.out.println("[17] [" + pas_17 + "] [" + RegexUtils.matcheStr(pattern, pas_17) + "]");
+        System.out.println("[18] [" + pas_18 + "] [" + RegexUtils.matcheStr(pattern, pas_18) + "]");
+        System.out.println("[30] [" + pas_30 + "] [" + RegexUtils.matcheStr(pattern, pas_30) + "]");
+        System.out.println("[31] [" + pas_31 + "] [" + RegexUtils.matcheStr(pattern, pas_31) + "]");
+        System.out.println("[32] [" + pas_32 + "] [" + RegexUtils.matcheStr(pattern, pas_32) + "]");
+        System.out.println("[33] [" + pas_33 + "] [" + RegexUtils.matcheStr(pattern, pas_33) + "]");
+        System.out.println("[34] [" + pas_34 + "] [" + RegexUtils.matcheStr(pattern, pas_34) + "]");
+        System.out.println("[35] [" + pas_35 + "] [" + RegexUtils.matcheStr(pattern, pas_35) + "]");
+        System.out.println("[36] [" + pas_36 + "] [" + RegexUtils.matcheStr(pattern, pas_36) + "]");
+        System.out.println("[37] [" + pas_37 + "] [" + RegexUtils.matcheStr(pattern, pas_37) + "]");
+        System.out.println("[38] [" + pas_38 + "] [" + RegexUtils.matcheStr(pattern, pas_38) + "]");
+        System.out.println("[39] [" + pas_39 + "] [" + RegexUtils.matcheStr(pattern, pas_39) + "]");
+        System.out.println("[40] [" + pas_40 + "] [" + RegexUtils.matcheStr(pattern, pas_40) + "]");
+        System.out.println("[41] [" + pas_41 + "] [" + RegexUtils.matcheStr(pattern, pas_41) + "]");
 
     }
 

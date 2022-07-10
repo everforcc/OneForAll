@@ -9,11 +9,14 @@ import cn.cc.dawn.utils.exception.AppCode;
 import lombok.extern.slf4j.Slf4j;
 import org.springframework.cache.annotation.Cacheable;
 import org.springframework.stereotype.Service;
+import org.springframework.validation.annotation.Validated;
 
 import javax.annotation.Resource;
+import javax.validation.Valid;
 
 @Slf4j
 @Service
+@Validated
 public class AuthService {
 
     @Resource
@@ -27,6 +30,11 @@ public class AuthService {
 
         AppCode.A00101.assertHasTrue(RObjectsUtils.nonNull(customUser));
 
+        return customUser.token();
+    }
+
+    public String check(@Valid CustomUser customUser){
+        log.info("用户: 数据校验");
         return customUser.token();
     }
 

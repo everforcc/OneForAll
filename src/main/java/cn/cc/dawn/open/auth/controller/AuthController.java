@@ -1,5 +1,6 @@
 package cn.cc.dawn.open.auth.controller;
 
+import cn.cc.dawn.open.auth.dto.CustomUser;
 import cn.cc.dawn.open.auth.service.AuthService;
 import cn.cc.dawn.open.auth.vo.CustomUserLoginVO;
 import cn.cc.dawn.utils.entity.ResultE;
@@ -26,6 +27,13 @@ public class AuthController {
     public ResultE<String> login(@RequestBody CustomUserLoginVO customUserLoginVO){
         return new ResultE<String>().execute(result -> {
             result.setSuccess(authService.authToken(customUserLoginVO.getUsername(),customUserLoginVO));
+        });
+    }
+
+    @PostMapping("/check")
+    public ResultE<String> check(@RequestBody CustomUser customUser){
+        return new ResultE<String>().execute(result -> {
+            result.setSuccess(authService.check(customUser));
         });
     }
 
