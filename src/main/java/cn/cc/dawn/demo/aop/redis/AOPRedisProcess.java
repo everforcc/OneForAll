@@ -41,7 +41,7 @@ public class AOPRedisProcess {
             System.out.println("总共执行时长: [" + (end - start) + "] 毫秒");
             System.out.println("环绕通知结束 日志记录");
         } catch (Throwable t) {
-            System.out.println("出现错误");
+            //System.out.println("出现错误");
         }
         return result;
     }

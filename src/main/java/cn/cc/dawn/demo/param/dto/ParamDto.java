@@ -12,23 +12,23 @@ import lombok.Getter;
 import lombok.NoArgsConstructor;
 import lombok.Setter;
 
-//@Getter
-//@Setter
+@Getter
+@Setter
 @AllArgsConstructor
 @NoArgsConstructor
-public class ParamDto {
+public class ParamDto extends BaseMerge{
 
     private FieldEnum statusEnum;
     private String name;
     private String description;
 
-    public FieldEnum getStatusEnum() {
+    /*public FieldEnum getStatusEnum() {
         return statusEnum;
     }
 
     public void setStatusEnum(FieldEnum statusEnum) {
         this.statusEnum = statusEnum;
-    }
+    }*/
 
     public String getName() {
         return name;
@@ -50,4 +50,11 @@ public class ParamDto {
     public String toString() {
         return JSONObject.toJSONString(this);
     }
+
+    public static void main(String[] args) {
+        ParamDto paramDto = new ParamDto();
+        paramDto.setStatusEnum(FieldEnum.UNEFFECT);
+        //paramDto.setStatusEnum("");
+    }
+
 }

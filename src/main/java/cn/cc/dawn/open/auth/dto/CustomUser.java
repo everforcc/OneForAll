@@ -31,7 +31,12 @@ public class CustomUser extends CommonFiledDto implements UserDetails {
 
     private int id;
 
+//    private String reg = "";
+//
+//    @Pattern(regexp = reg)
     private String username;
+
+
 
     @Pattern(regexp = "^(?![^a-z]+$)(?![^A-Z]+$)(?!\\D+$)(?![^!@#$%^&*_\\.]+$)(?=[a-zA-Z0-9!@#$%^&*_\\.]+$).{8,}$", message = "密码至少有一个小写，大写，数字，字符 !@#$%^&*_. ，最短8位")
     private String password;

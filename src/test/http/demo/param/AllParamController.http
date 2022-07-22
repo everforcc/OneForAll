@@ -5,11 +5,15 @@ GET http://{{host}}:{{port}}/demo/param/reqParam?param=abc
 Accept: application/json
 token: {{token}}
 
-### 2. queryString
+### 2. reqEnumParam
 GET http://{{host}}:{{port}}/demo/param/reqEnumParam?param=1
 Accept: application/json
 token: {{token}}
 
+### 2. reqEnumParamKey
+GET http://{{host}}:{{port}}/demo/param/reqEnumParamKey?param=2
+Accept: application/json
+token: {{token}}
 
 ### 2. dto
 GET http://{{host}}:{{port}}/demo/param/reqDto?name=abc&description=description

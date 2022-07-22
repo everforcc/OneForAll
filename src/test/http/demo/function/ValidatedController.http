@@ -7,3 +7,8 @@ token: {{token}}
 "strLength":"文件名名名文件名名名名1"
 }
 ###
+GET http://{{host}}:{{port}}/demo/validated/ps/4
+Accept: application/json
+token: {{token}}
+
+###

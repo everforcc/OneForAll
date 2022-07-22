@@ -6,7 +6,7 @@ token: {{token}}
 {
   "subject": "主题-thymeleaf",
   "from": "718497737@qq.com",
-  "toMail": "2212355809@qq.com",
+  "toMail": "wang18839118972@126.com",
   "context": {
     "username": "username",
     "num": "num",
@@ -22,7 +22,7 @@ token: {{token}}
 {
   "subject": "主题-freemarker",
   "from": "718497737@qq.com",
-  "toMail": "2212355809@qq.com",
+  "toMail": "wang18839118972@126.com",
   "context": {
     "username": "username",
     "num": "num",

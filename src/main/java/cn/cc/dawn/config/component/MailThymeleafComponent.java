@@ -67,7 +67,7 @@ public class MailThymeleafComponent {
                     /**
                      * 实现接口 InputStreamSource
                      */
-                    //helper.addAttachment("面包.jpg", new FileUrlResource(new URL("https://gitee.com/MyYukino/media/raw/master/picture/面包.jpg")));
+                    helper.addAttachment("面包.jpg", new FileUrlResource(new URL("https://gitee.com/MyYukino/media/raw/master/picture/面包.jpg")));
                 }
             }
 

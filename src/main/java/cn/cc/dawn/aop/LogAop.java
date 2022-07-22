@@ -69,6 +69,7 @@ public class LogAop {
         } catch (Throwable t) {
             t.printStackTrace();
             log.info("出现错误");
+            throw new RuntimeException(t.getMessage());
         }
         return result;
     }

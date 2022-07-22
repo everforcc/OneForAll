@@ -6,11 +6,14 @@
 
 package cn.cc.dawn.demo.param.controller;
 
+import cn.cc.dawn.demo.param.dto.FieldEnum;
 import cn.cc.dawn.demo.param.dto.ParamDto;
 import cn.cc.dawn.utils.enums.impl.StatusEnum;
 import lombok.extern.slf4j.Slf4j;
 import org.springframework.web.bind.annotation.*;
 import org.springframework.web.multipart.MultipartFile;
+
+import java.util.Objects;
 
 @Slf4j
 @RequestMapping(value = "/demo/param")
@@ -31,6 +34,15 @@ public class AllParamController {
     @GetMapping("/reqEnumParam")
     public String reqEnumParam(@RequestParam("param") StatusEnum param){
         log.info("reqParam参数 param: {}", param.getCode());
+        return "123";
+    }
+
+    @GetMapping("/reqEnumParamKey")
+    public String reqEnumParamKey(@RequestParam(value = "param", required = false) Integer param){
+        log.info("reqParam参数 param");
+        if (Objects.nonNull(param)){
+            log.info("reqParam参数 param: {}", FieldEnum.getEnum(param));
+        }
         return "123";
     }
 
