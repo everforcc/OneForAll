@@ -22,9 +22,10 @@ public class JAESUtil {
     /**
      * 此方法仅spring初始化的时候使用
      * 如果要使用自定义的key，请使用带 key构造的方法
-     * @param defaultKey
+     *
+     * @param defaultKey 默认key
      */
-    public static void setKey(String defaultKey){
+    public static void setKey(String defaultKey) {
         DEFAULT_KEY = defaultKey;
     }
 
@@ -74,9 +75,10 @@ public class JAESUtil {
         return cipher;
     }
 
-    public static String aes_encrypt(String password){
-        return aes_encrypt(password,DEFAULT_KEY);
+    public static String aes_encrypt(String password) {
+        return aes_encrypt(password, DEFAULT_KEY);
     }
+
     public static String aes_encrypt(String password, String strKey) {
         try {
             if (RStringUtils.isBlank(strKey)) {
@@ -136,6 +138,7 @@ public class JAESUtil {
         return null;
     }
 //
+
     /**
      * 返回数据格式为{AES}加密字符串
      *
