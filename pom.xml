@@ -57,8 +57,9 @@
         <com.codeborne.phantomjsdriver>1.4.0</com.codeborne.phantomjsdriver>
 
         <okhttp3.version>3.14.7</okhttp3.version>
-
         <webjars-locator-core.version>0.41</webjars-locator-core.version>
+        <com.github.excel4j>3.0.0</com.github.excel4j>
+
     </properties>
 
     <dependencies>
@@ -113,7 +114,6 @@
             <artifactId>spring-boot-starter-data-redis</artifactId>
             <version>${spring-boot}</version>
         </dependency>
-
 
 
         <!-- convert -->
@@ -435,7 +435,12 @@
             <version>3.5.0</version>
         </dependency>
 
-
+        <!-- excle -->
+        <dependency>
+            <groupId>com.github.crab2died</groupId>
+            <artifactId>Excel4J</artifactId>
+            <version>${com.github.excel4j}</version>
+        </dependency>
 
     </dependencies>
     <!-- 依赖包 -->

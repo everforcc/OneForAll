@@ -11,7 +11,9 @@ import lombok.Getter;
 import lombok.NoArgsConstructor;
 import lombok.Setter;
 
-
+/**
+ * 扫二维码跳转链接
+ */
 @Getter
 @Setter
 @NoArgsConstructor

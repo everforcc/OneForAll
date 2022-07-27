@@ -6,6 +6,7 @@
 
 package cn.cc.dawn.utils.commons.lang;
 
+import cn.cc.dawn.utils.constant.DateFormatConstant;
 import org.apache.commons.lang3.time.FastDateFormat;
 import org.junit.Test;
 
@@ -19,7 +20,7 @@ public class RFastDateFormatTests {
         Date date = new Date();
 
         String behand = "20220606";
-        FastDateFormat fastDateFormat = FastDateFormat.getInstance("yyyyMMdd");
+        FastDateFormat fastDateFormat = FastDateFormat.getInstance(DateFormatConstant.yyyyMMdd);
         Date nextDate = null;
         try {
             nextDate =  fastDateFormat.parse(behand);

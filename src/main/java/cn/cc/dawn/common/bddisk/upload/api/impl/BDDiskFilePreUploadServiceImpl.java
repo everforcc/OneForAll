@@ -4,12 +4,12 @@
  * @Date 2022-05-23 10:10
  */
 
-package cn.cc.dawn.common.bddisk.upload.service.impl;
+package cn.cc.dawn.common.bddisk.upload.api.impl;
 
-import cn.cc.dawn.common.bddisk.accesstoken.service.IBDDiskOfferAuthService;
+import cn.cc.dawn.common.bddisk.accesstoken.serv.IBDDiskOfferAuthService;
 import cn.cc.dawn.common.bddisk.upload.dto.BDDiskFilePreUploadReqDto;
 import cn.cc.dawn.common.bddisk.upload.dto.BDDiskFilePreUploadResDto;
-import cn.cc.dawn.common.bddisk.upload.service.IBDDiskFilePreUploadService;
+import cn.cc.dawn.common.bddisk.upload.api.IBDDiskFilePreUploadApi;
 import cn.cc.dawn.common.bddisk.upload.vo.BDFileVo;
 import cn.cc.dawn.config.init.yml.APPConfigurationBDDisk;
 import cn.cc.dawn.utils.http.dto.HttpParamDto;
@@ -22,9 +22,12 @@ import org.springframework.stereotype.Service;
 
 import javax.annotation.Resource;
 
+/**
+ * 1. 预上传
+ */
 @Slf4j
 @Service
-public class BDDiskFilePreUploadServiceImpl implements IBDDiskFilePreUploadService {
+public class BDDiskFilePreUploadServiceImpl implements IBDDiskFilePreUploadApi {
 
 //    @Autowired
 //    IFile iFile;
@@ -35,6 +38,12 @@ public class BDDiskFilePreUploadServiceImpl implements IBDDiskFilePreUploadServi
     @Autowired
     APPConfigurationBDDisk appConfigurationBDDisk;
 
+    /**
+     * 1. 预上传
+     * @param bdFileVo 文件信息
+     * @param userid   用户id
+     * @return 文件信息
+     */
     @Override
     public BDFileVo preUploadFile(BDFileVo bdFileVo, int userid) {
 //        String localPath = bdFileVo.getLocalPath();

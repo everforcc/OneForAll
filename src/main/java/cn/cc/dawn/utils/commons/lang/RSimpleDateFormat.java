@@ -50,19 +50,4 @@ public class RSimpleDateFormat {
         }
     }
 
-    public static void main(String[] args) {
-        SimpleDateFormat simpleDateFormat = new SimpleDateFormat(DateFormatConstant.yyyyMMdd);
-        String dateStr = "20220228";
-        try {
-            simpleDateFormat.setLenient(false);
-            simpleDateFormat.parse(dateStr);
-            System.out.println(true);
-        } catch (ParseException e) {
-            System.err.println(e.getMessage());
-            throw new RuntimeException(e);
-        }
-
-
-    }
-
 }

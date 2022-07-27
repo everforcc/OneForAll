@@ -18,7 +18,7 @@ import java.util.Map;
 public class JSONInit {
 
     private static String initJSON(String name){
-        ClassPathResource classPathResource = new ClassPathResource("init/json/ys/" + name);
+        ClassPathResource classPathResource = new ClassPathResource("init/json/" + name);
         StringBuffer stringBuffer = new StringBuffer();
         try {
             InputStream inputStream = classPathResource.getInputStream();
@@ -36,7 +36,11 @@ public class JSONInit {
     }
 
     public static String getYSJson(){
-        return initJSON("YsCard.json");
+        return initJSON("ys/YsCard.json");
+    }
+
+    public static String getBD_FileList(){
+        return initJSON("bd/filelist.json");
     }
 
 }

@@ -10,9 +10,13 @@ import cn.cc.dawn.utils.constant.CommonCharConstant;
 import cn.cc.dawn.utils.commons.web.HttpParamUtils;
 import cn.cc.dawn.utils.annotation.ReflectFileFiled;
 
+/**
+ * <a href="https://pan.baidu.com/union/doc/pksg0s9ns">...</a>
+ * 网盘用户信息请求信息
+ */
 public class BDDiskUInfoReqDto {
 
-    private String method = "uinfo";
+    private final String method = "uinfo";
 
     private String access_token;
 

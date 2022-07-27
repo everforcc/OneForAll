@@ -1,13 +1,20 @@
 package cn.cc.dawn.common.bddisk.accesstoken.controller;
 
 import cn.cc.dawn.common.bddisk.accesstoken.dto.BDRegisterCallBackDto;
-import cn.cc.dawn.common.bddisk.accesstoken.service.IBDRegisterService;
+import cn.cc.dawn.common.bddisk.accesstoken.serv.IBDRegisterService;
 import com.alibaba.fastjson.JSONObject;
 import lombok.extern.slf4j.Slf4j;
-import org.springframework.web.bind.annotation.*;
+import org.springframework.web.bind.annotation.GetMapping;
+import org.springframework.web.bind.annotation.RequestMapping;
+import org.springframework.web.bind.annotation.RequestParam;
+import org.springframework.web.bind.annotation.RestController;
 
 import javax.annotation.Resource;
 
+/**
+ * 百度扫码
+ * 回调接口
+ */
 @RequestMapping("/open/craw/bdwp")
 @RestController
 @Slf4j
@@ -16,13 +23,16 @@ public class BDRegisterController {
     @Resource
     IBDRegisterService ibdRegisterService;
 
+    /**
+     * 不知道是哪种类型,写两个接口测试
+     */
     @GetMapping("/method_a")
-    public String method_a(@RequestParam(value = "expires_in",required = false)String expires_in,
-                             @RequestParam(value = "access_token",required = false)String access_token,
-                             @RequestParam(value = "session_secret",required = false)String session_secret,
-                             @RequestParam(value = "session_key",required = false)String session_key,
-                             @RequestParam(value = "scope",required = false)String scope,
-                             @RequestParam(value = "code",required = false)String code){
+    public String method_a(@RequestParam(value = "expires_in", required = false) String expires_in,
+                           @RequestParam(value = "access_token", required = false) String access_token,
+                           @RequestParam(value = "session_secret", required = false) String session_secret,
+                           @RequestParam(value = "session_key", required = false) String session_key,
+                           @RequestParam(value = "scope", required = false) String scope,
+                           @RequestParam(value = "code", required = false) String code) {
         log.info("a: expires_in: " + expires_in);
         log.info("a: access_token: " + access_token);
         log.info("a: session_secret: " + session_secret);
@@ -39,13 +49,16 @@ public class BDRegisterController {
         return JSONObject.toJSONString(ibdRegisterService.saveRedis_1(bdRegisterCallBackDto));
     }
 
+    /**
+     * 不知道是哪种类型,写两个接口测试
+     */
     @GetMapping("/method_a/")
-    public String method_a2(@RequestParam(value = "expires_in",required = false)String expires_in,
-                         @RequestParam(value = "access_token",required = false)String access_token,
-                         @RequestParam(value = "session_secret",required = false)String session_secret,
-                         @RequestParam(value = "session_key",required = false)String session_key,
-                         @RequestParam(value = "scope",required = false)String scope,
-                         @RequestParam(value = "code",required = false)String code){
+    public String method_a2(@RequestParam(value = "expires_in", required = false) String expires_in,
+                            @RequestParam(value = "access_token", required = false) String access_token,
+                            @RequestParam(value = "session_secret", required = false) String session_secret,
+                            @RequestParam(value = "session_key", required = false) String session_key,
+                            @RequestParam(value = "scope", required = false) String scope,
+                            @RequestParam(value = "code", required = false) String code) {
         log.info("method_a2: expires_in: " + expires_in);
         log.info("method_a2: access_token: " + access_token);
         log.info("method_a2: session_secret: " + session_secret);
@@ -62,12 +75,12 @@ public class BDRegisterController {
     }
 
     @GetMapping("/method_b")
-    public String method_b1(@RequestParam(value = "expires_in",required = false)String expires_in,
-                          @RequestParam(value = "access_token",required = false)String access_token,
-                          @RequestParam(value = "session_secret",required = false)String session_secret,
-                          @RequestParam(value = "session_key",required = false)String session_key,
-                          @RequestParam(value = "scope",required = false)String scope,
-                          @RequestParam(value = "code",required = false)String code){
+    public String method_b1(@RequestParam(value = "expires_in", required = false) String expires_in,
+                            @RequestParam(value = "access_token", required = false) String access_token,
+                            @RequestParam(value = "session_secret", required = false) String session_secret,
+                            @RequestParam(value = "session_key", required = false) String session_key,
+                            @RequestParam(value = "scope", required = false) String scope,
+                            @RequestParam(value = "code", required = false) String code) {
         log.info("method_b1: expires_in: " + expires_in);
         log.info("method_b1: access_token: " + access_token);
         log.info("method_b1: session_secret: " + session_secret);
@@ -84,12 +97,12 @@ public class BDRegisterController {
     }
 
     @GetMapping("/method_b/")
-    public String method_b2(@RequestParam(value = "expires_in",required = false)String expires_in,
-                         @RequestParam(value = "access_token",required = false)String access_token,
-                         @RequestParam(value = "session_secret",required = false)String session_secret,
-                         @RequestParam(value = "session_key",required = false)String session_key,
-                         @RequestParam(value = "scope",required = false)String scope,
-                         @RequestParam(value = "code",required = false)String code){
+    public String method_b2(@RequestParam(value = "expires_in", required = false) String expires_in,
+                            @RequestParam(value = "access_token", required = false) String access_token,
+                            @RequestParam(value = "session_secret", required = false) String session_secret,
+                            @RequestParam(value = "session_key", required = false) String session_key,
+                            @RequestParam(value = "scope", required = false) String scope,
+                            @RequestParam(value = "code", required = false) String code) {
         log.info("method_b2: expires_in: " + expires_in);
         log.info("method_b2: access_token: " + access_token);
         log.info("method_b2: session_secret: " + session_secret);

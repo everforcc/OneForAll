@@ -4,13 +4,13 @@
  * @Date 2022-05-22 10:51
  */
 
-package cn.cc.dawn.common.bddisk.uinfo.service.impl;
+package cn.cc.dawn.common.bddisk.uinfo.api.impl;
 
-import cn.cc.dawn.common.bddisk.accesstoken.service.IBDDiskOfferAuthService;
+import cn.cc.dawn.common.bddisk.accesstoken.serv.IBDDiskOfferAuthService;
 import cn.cc.dawn.common.bddisk.constant.BDDiskErrorCode;
 import cn.cc.dawn.common.bddisk.uinfo.dto.BDDiskUInfoReqDto;
 import cn.cc.dawn.common.bddisk.uinfo.dto.BDDiskUInfoResDto;
-import cn.cc.dawn.common.bddisk.uinfo.service.IBDDiskUInfoReqService;
+import cn.cc.dawn.common.bddisk.uinfo.api.BDDiskUInfoReqApi;
 import cn.cc.dawn.common.bddisk.uinfo.service.IBDDiskUInfoResService;
 import cn.cc.dawn.config.cache.CacheUserDefine;
 import cn.cc.dawn.config.init.yml.APPConfigurationBDDisk;
@@ -31,7 +31,7 @@ import java.util.Objects;
 
 @Slf4j
 @Service
-public class BDDiskUInfoReqServiceImpl implements IBDDiskUInfoReqService {
+public class BDDiskUInfoReqApiImpl implements BDDiskUInfoReqApi {
 
     @Autowired
     IBDDiskOfferAuthService ibdDiskOfferAuthService;

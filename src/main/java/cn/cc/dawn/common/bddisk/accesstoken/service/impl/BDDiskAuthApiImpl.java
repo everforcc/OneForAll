@@ -6,20 +6,20 @@
 
 package cn.cc.dawn.common.bddisk.accesstoken.service.impl;
 
-import cn.cc.dawn.common.bddisk.constant.BDDiskConstant;
 import cn.cc.dawn.common.bddisk.accesstoken.dto.BDDiskAuthDto;
 import cn.cc.dawn.common.bddisk.accesstoken.dto.BDDiskRefreshTokenDto;
 import cn.cc.dawn.common.bddisk.accesstoken.dto.BDDiskTokenReqDto;
 import cn.cc.dawn.common.bddisk.accesstoken.dto.BDDiskTokenResultDto;
-import cn.cc.dawn.common.bddisk.accesstoken.service.IBDDiskAuthService;
-import cn.cc.dawn.common.bddisk.accesstoken.service.IBDDiskTokenResultDtoService;
+import cn.cc.dawn.common.bddisk.accesstoken.service.IBDDiskAuthApi;
+import cn.cc.dawn.common.bddisk.accesstoken.serv.IBDDiskTokenResultDtoService;
+import cn.cc.dawn.common.bddisk.constant.BDDiskConstant;
 import cn.cc.dawn.config.cache.CacheConstant;
 import cn.cc.dawn.config.cache.CacheUserDefine;
 import cn.cc.dawn.config.init.yml.APPConfigurationBDDisk;
-import cn.cc.dawn.utils.http.dto.HttpParamDto;
 import cn.cc.dawn.utils.commons.lang.RStringUtils;
 import cn.cc.dawn.utils.exception.AppCode;
 import cn.cc.dawn.utils.http.IHttp;
+import cn.cc.dawn.utils.http.dto.HttpParamDto;
 import com.alibaba.fastjson.JSONObject;
 import lombok.extern.slf4j.Slf4j;
 import org.redisson.api.RBucket;
@@ -29,23 +29,28 @@ import org.springframework.stereotype.Service;
 
 import java.util.concurrent.TimeUnit;
 
+/**
+ * 用户认证流程
+ */
 @Slf4j
 @Service
-public class BDDiskAuthImpl implements IBDDiskAuthService {
+public class BDDiskAuthApiImpl implements IBDDiskAuthApi {
 
     @Autowired
     APPConfigurationBDDisk appConfigurationBDDisk;
     @Autowired
     IHttp httpApacheImpl;
-//    @Autowired
+    //    @Autowired
 //    IRedisTemplate redisBoundValueOperationsUtils;
     @Autowired
     RedissonClient redissonClient;
     @Autowired
     IBDDiskTokenResultDtoService ibdDiskTokenResultDtoService;
+
     /**
-     * 基本上就是固定数值
-     * @return
+     * 1. 返回用户扫码地址
+     *
+     * @return 用户扫码地址
      */
     @Override
     public String getUserAuthUrl() {
@@ -53,9 +58,9 @@ public class BDDiskAuthImpl implements IBDDiskAuthService {
         String redirect_uriWebUrl = appConfigurationBDDisk.getRedirect_uriWebUrl();
         String client_id = appConfigurationBDDisk.getAPI_Key();
 
-        final RBucket<String> bdDiskOrderUserAuthRBucket = redissonClient.getBucket(CacheUserDefine.BD_DISK_ORDERUSESR_AUTH.formatKey(client_id,redirect_uriWebUrl));
+        final RBucket<String> bdDiskOrderUserAuthRBucket = redissonClient.getBucket(CacheUserDefine.BD_DISK_ORDERUSESR_AUTH.formatKey(client_id, redirect_uriWebUrl));
         String orderUserAuthUrl = bdDiskOrderUserAuthRBucket.get();
-        if(RStringUtils.isBlank(orderUserAuthUrl)) {
+        if (RStringUtils.isBlank(orderUserAuthUrl)) {
             log.info("从缓存中获取地址: ");
             String authorizeWebUrl = appConfigurationBDDisk.getAuthorizeWebUrl();
             BDDiskAuthDto bdDiskAuthDto = new BDDiskAuthDto(client_id, redirect_uriWebUrl);
@@ -71,8 +76,11 @@ public class BDDiskAuthImpl implements IBDDiskAuthService {
      * 根据用户uuid保存到redis
      * 并入库，如果数据库存在旧的覆盖掉
      * 用户 -> code -> AccessToken
-     * @param code
-     * @return
+     *
+     * @param userid        用户系统id
+     * @param code          扫码后返回的code
+     * @param coverOldToken 是否要刷新token,如果true就表示强制刷新,默认使用旧的
+     * @return 网盘对应的token
      */
     @Override
     public String getAccessToken(int userid, String code, boolean coverOldToken) {
@@ -87,11 +95,11 @@ public class BDDiskAuthImpl implements IBDDiskAuthService {
          * 从redis取出来
          * 如果true就表示强制覆盖掉，不再从redis取数据
          */
-        if(!coverOldToken) {
+        if (!coverOldToken) {
             bdAccessToken = bdDiskTokenResultDtoRBucket.get();
         }
 
-        if(RStringUtils.isBlank(bdAccessToken)) {
+        if (RStringUtils.isBlank(bdAccessToken)) {
 
             BDDiskTokenReqDto bdDiskTokenReqDto = new BDDiskTokenReqDto(client_id, secret_Key, redirect_uriWebUrl);
             // 请求数据的code
@@ -106,34 +114,36 @@ public class BDDiskAuthImpl implements IBDDiskAuthService {
 
             //String resultJson = "{\"expires_in\":2592000,\"refresh_token\":\"122.69ba09269f6b5d7d50836be337a033f8.YGKwCs2e8T3AECCs4vGXeVcnUjhDKaXU_IaQjnw.Aas7Og\",\"access_token\":\"121.0fb83417d70c997200958befd51b8a4a.Y74bioNT1ki9PUQ1cLpW3fE5_3SdYyGCoHIbL3-.3c4HvQ\",\"session_secret\":\"\",\"session_key\":\"\",\"scope\":\"basic netdisk\"}";
             //String errorJson = {"error":"invalid_grant","error_description":"invalid code , expired or revoked"};
-            log.info("code换token返回数据: {}",resultJson);
+            log.info("code换token返回数据: {}", resultJson);
 
             BDDiskTokenResultDto bdDiskTokenResultDto = JSONObject.parseObject(resultJson, BDDiskTokenResultDto.class);
             // 请求时的code
             bdDiskTokenResultDto.setCode(code);
 
             // 对返回数据进行校验
-            AppCode.A01400.assertHasTrue(RStringUtils.isBlank(bdDiskTokenResultDto.getError()),bdDiskTokenResultDto.getError_description());
+            AppCode.A01400.assertHasTrue(RStringUtils.isBlank(bdDiskTokenResultDto.getError()), bdDiskTokenResultDto.getError_description());
 
             // 入库
-            ibdDiskTokenResultDtoService.insert(bdDiskTokenResultDto,userid);
+            ibdDiskTokenResultDtoService.insert(bdDiskTokenResultDto, userid);
             // 放入redis
             bdAccessToken = bdDiskTokenResultDto.getAccess_token();
-            bdDiskTokenResultDtoRBucket.set(bdAccessToken,bdDiskTokenResultDto.getExpires_in() - BDDiskConstant.holdTime, TimeUnit.SECONDS);
+            bdDiskTokenResultDtoRBucket.set(bdAccessToken, bdDiskTokenResultDto.getExpires_in() - BDDiskConstant.holdTime, TimeUnit.SECONDS);
 
             log.info("请求链接, {}", redirect_uriWebUrlWithParams);
             log.info("返回json, {}", resultJson);
-        }else {
-            log.info("从缓存中取出数据, {}",bdAccessToken);
+        } else {
+            log.info("从缓存中取出数据, {}", bdAccessToken);
         }
 
         return bdAccessToken;
     }
 
     /**
-     * 主动刷新token
-     * @param refresh_token
-     * @return
+     * 3. 主动刷新token
+     *
+     * @param userid        用户id
+     * @param refresh_token 刷新token需要的特殊token,之前接口有返回
+     * @return 返回刷新后的token
      */
     @Override
     public BDDiskTokenResultDto refreshAccessToken(int userid, String refresh_token) {
@@ -141,7 +151,7 @@ public class BDDiskAuthImpl implements IBDDiskAuthService {
         String secret_Key = appConfigurationBDDisk.getSecret_Key();
         String refresh_tokenWebUrl = appConfigurationBDDisk.getRefresh_tokenWebUrl();
 
-        BDDiskRefreshTokenDto bdDiskRefreshTokenDto = new BDDiskRefreshTokenDto(client_id,secret_Key);
+        BDDiskRefreshTokenDto bdDiskRefreshTokenDto = new BDDiskRefreshTokenDto(client_id, secret_Key);
         bdDiskRefreshTokenDto.setRefresh_token(refresh_token);
         String refresh_tokenWebUrlParams = bdDiskRefreshTokenDto.toStringWithBaseUrl(refresh_tokenWebUrl);
 
@@ -157,7 +167,7 @@ public class BDDiskAuthImpl implements IBDDiskAuthService {
         /**
          * 放入redis
          */
-        bdDiskTokenResultDtoRBucket.set(access_token,bdDiskTokenResultDto.getExpires_in() - BDDiskConstant.holdTime, TimeUnit.SECONDS);
+        bdDiskTokenResultDtoRBucket.set(access_token, bdDiskTokenResultDto.getExpires_in() - BDDiskConstant.holdTime, TimeUnit.SECONDS);
 
         log.info("刷新成功: {}", bdDiskTokenResultDto);
 

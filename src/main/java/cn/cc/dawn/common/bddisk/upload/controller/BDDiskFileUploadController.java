@@ -6,8 +6,8 @@
 
 package cn.cc.dawn.common.bddisk.upload.controller;
 
-import cn.cc.dawn.common.bddisk.upload.service.IBDDiskFilePreUploadService;
-import cn.cc.dawn.common.bddisk.upload.service.IBDDiskUploadFlowService;
+import cn.cc.dawn.common.bddisk.upload.api.IBDDiskFilePreUploadApi;
+import cn.cc.dawn.common.bddisk.upload.flow.IBDDiskUploadFlow;
 import cn.cc.dawn.common.bddisk.upload.vo.BDFileVo;
 import cn.cc.dawn.open.auth.dto.CustomUser;
 import cn.cc.dawn.utils.entity.ResultE;
@@ -24,21 +24,21 @@ import org.springframework.web.bind.annotation.RestController;
 public class BDDiskFileUploadController {
 
     @Autowired
-    IBDDiskFilePreUploadService ibdDiskFilePreUploadService;
+    IBDDiskFilePreUploadApi ibdDiskFilePreUploadApi;
     @Autowired
-    IBDDiskUploadFlowService ibdDiskUploadFlowService;
+    IBDDiskUploadFlow ibdDiskUploadFlow;
 
     @PostMapping("/preupload")
     public ResultE<BDFileVo> preUpload(@AuthenticationPrincipal CustomUser customUser, @RequestBody String json){
         return new ResultE<BDFileVo>().execute(e ->{
-            e.setSuccess(ibdDiskFilePreUploadService.preUploadFile(JSONObject.parseObject(json, BDFileVo.class), customUser.getId()));
+            e.setSuccess(ibdDiskFilePreUploadApi.preUploadFile(JSONObject.parseObject(json, BDFileVo.class), customUser.getId()));
         });
     }
 
     @PostMapping("/flow")
     public ResultE<Boolean> flow(@AuthenticationPrincipal CustomUser customUser, @RequestBody String json){
         return new ResultE<Boolean>().execute(e ->{
-            e.setSuccess(ibdDiskUploadFlowService.upload(JSONObject.parseObject(json, BDFileVo.class), customUser.getId()));
+            e.setSuccess(ibdDiskUploadFlow.upload(JSONObject.parseObject(json, BDFileVo.class), customUser.getId()));
         });
     }
 

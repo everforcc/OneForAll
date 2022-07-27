@@ -15,7 +15,7 @@ import cn.cc.dawn.utils.commons.web.HttpParamUtils;
  */
 public class BDDiskRefreshTokenDto {
 
-    private String grant_type = BDDiskConstant.refresh_token;
+    private final String grant_type = BDDiskConstant.refresh_token;
     private String refresh_token;
     private String client_id;
     private String client_secret;

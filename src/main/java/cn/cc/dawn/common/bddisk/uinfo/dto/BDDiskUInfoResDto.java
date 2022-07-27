@@ -14,7 +14,9 @@ import lombok.NoArgsConstructor;
 import lombok.Setter;
 
 /**
- * bddisk用户信息
+ * <a href="https://pan.baidu.com/union/doc/pksg0s9ns">...</a>
+ * 网盘用户信息请求返回
+ * bddisk 用户信息
  */
 @Getter
 @Setter

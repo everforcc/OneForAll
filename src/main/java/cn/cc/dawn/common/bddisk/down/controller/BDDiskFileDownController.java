@@ -15,6 +15,10 @@ import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
 
+/**
+ * 下载接口
+ * 测试下载程序,没走完整流程
+ */
 @RestController
 @RequestMapping(value = "/common/bddisk/down")
 public class BDDiskFileDownController {
@@ -23,8 +27,8 @@ public class BDDiskFileDownController {
     IBDDiskFileDownService ibdDiskFileDownService;
 
     @GetMapping("/d")
-    public ResultE<Boolean> d(@AuthenticationPrincipal CustomUser customUser){
-        return new ResultE<Boolean>().execute(e ->{
+    public ResultE<Boolean> d(@AuthenticationPrincipal CustomUser customUser) {
+        return new ResultE<Boolean>().execute(e -> {
             e.setSuccess(ibdDiskFileDownService.downFile(customUser.getId()));
         });
     }
