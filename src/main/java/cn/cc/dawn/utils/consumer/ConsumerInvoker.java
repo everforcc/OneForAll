@@ -41,16 +41,16 @@ public class ConsumerInvoker<T> {
                                             Consumer<T> exceptionConsumer,
                                             Consumer<T> finallyConsumer) {
         try {
-            log.info("进入异步操作");
+            log.info("进入 异步 操作");
             Thread.sleep(6 * 1000);
             invokeConsumer.accept(t);
         } catch (Exception e) {
-            log.error("异步调用操作异常", e);
+            log.error("异步 调用操作异常", e);
             if (exceptionConsumer != null) {
                 exceptionConsumer.accept(t);
             }
         } finally {
-            log.info("进入 finally 操作");
+            log.info("进入 异步 finally 操作");
             if (finallyConsumer != null) {
                 finallyConsumer.accept(t);
             }
@@ -58,5 +58,33 @@ public class ConsumerInvoker<T> {
         return CompletableFuture.completedFuture(t);
     }
 
+    /**
+     * 同步调用操作
+     *
+     * @param t                 操作实体
+     * @param invokeConsumer    需要同步执行的方法
+     * @param exceptionConsumer 同步执行发生异常时需要执行的操作
+     * @param finallyConsumer   同步执行结束后 finally 需要执行的操作
+     */
+    public void syncInvoke(T t,
+                           Consumer<T> invokeConsumer,
+                           Consumer<T> exceptionConsumer,
+                           Consumer<T> finallyConsumer) {
+        try {
+            log.info("进入 同步 操作");
+            Thread.sleep(6 * 1000);
+            invokeConsumer.accept(t);
+        } catch (Exception e) {
+            log.error("同步  调用操作异常", e);
+            if (exceptionConsumer != null) {
+                exceptionConsumer.accept(t);
+            }
+        } finally {
+            log.info("进入 同步 finally 操作");
+            if (finallyConsumer != null) {
+                finallyConsumer.accept(t);
+            }
+        }
+    }
 
 }
