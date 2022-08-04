@@ -64,6 +64,14 @@ spring: # 下面的为spring的配置，
     add-mappings: false
   jackson:
     default-property-inclusion: non_null # 返回对象字段为null则不显示
+  task:
+    execution:
+      pool:
+        max-size: 8
+        core-size: 4
+        keep-alive: 10s
+        queue-capacity: 1000
+      thread-name-prefix: UserThread
 
 # mybatis配置
 mybatis:

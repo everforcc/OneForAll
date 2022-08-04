@@ -1,0 +1,3 @@
+### 测试异步代码
+GET http://{{host}}:{{port}}/open/asyn/consumer
+Accept: application/json
