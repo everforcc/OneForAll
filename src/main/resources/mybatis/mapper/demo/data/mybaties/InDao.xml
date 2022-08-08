@@ -1,0 +1,20 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper
+        PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+        "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="cn.cc.dawn.demo.data.mybaties.dao.InDao">
+
+    <!-- foreach in -->
+    <select id="whereIn" resultType="java.lang.String">
+        SELECT e.`orderno` FROM cc_t_order e
+        WHERE e.`id` IN
+        <foreach collection="stringList" index="index" open="(" close=")" item="id" separator=",">
+            <if test="(index % 1000) == 999">
+                ) OR e.`id` IN(
+            </if>
+            #{id}
+        </foreach>
+    </select>
+
+
+</mapper>

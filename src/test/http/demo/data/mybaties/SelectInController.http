@@ -1,0 +1,4 @@
+
+### 1. foreach in 1000 >
+GET http://{{host}}:{{port}}/open/data/mybatis/in
+token: {{token}}
