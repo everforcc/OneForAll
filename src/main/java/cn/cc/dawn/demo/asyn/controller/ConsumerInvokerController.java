@@ -5,7 +5,7 @@
  * Copyright
  */
 
-package cn.cc.dawn.demo.asyn;
+package cn.cc.dawn.demo.asyn.controller;
 
 import cn.cc.dawn.demo.param.dto.FieldEnum;
 import cn.cc.dawn.demo.param.dto.ParamDto;

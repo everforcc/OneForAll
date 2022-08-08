@@ -1,0 +1,16 @@
+### 没有返回值 异步测试
+GET http://{{host}}:{{port}}/open/asyn/withOutReturn
+Accept: application/json
+
+### 有返回值 异步测试
+GET http://{{host}}:{{port}}/open/asyn/withReturn
+Accept: application/json
+
+### 方法内出现异常
+GET http://{{host}}:{{port}}/open/asyn/withException
+Accept: application/json
+
+### 使用自定义线程池
+GET http://{{host}}:{{port}}/open/asyn/withUserThread
+Accept: application/json
+

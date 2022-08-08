@@ -1,0 +1,3 @@
+### 回调函数测试
+GET http://{{host}}:{{port}}/open/callback/userCallback
+Accept: application/json
