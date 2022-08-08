@@ -10,7 +10,7 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.validation.annotation.Validated;
 import org.springframework.web.bind.annotation.*;
 
-@RequestMapping("/demo/validated")
+@RequestMapping("/open/validated")
 @RestController
 @Slf4j
 @Validated
@@ -24,6 +24,14 @@ public class ValidatedController {
         return new ResultE<String>().execute(e ->{
             ValidatedDto validatedDto = JSONObject.parseObject(json, ValidatedDto.class);
             e.setSuccess(validatedService.testValidate(validatedDto));
+        });
+    }
+
+    @PostMapping("/validateWithOut")
+    public ResultE<String> validateWithOut(@RequestBody String json){
+        return new ResultE<String>().execute(e ->{
+            ValidatedDto validatedDto = JSONObject.parseObject(json, ValidatedDto.class);
+            e.setSuccess(validatedService.testValidateWithOut(validatedDto));
         });
     }
 

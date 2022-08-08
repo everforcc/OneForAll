@@ -1,11 +1,24 @@
-POST http://{{host}}:{{port}}/demo/validated/validate
+POST http://{{host}}:{{port}}/open/validated/validate
 Accept: application/json
 token: {{token}}
 
 {
-"name":"文件名名名1",
-"strLength":"文件名名名文件名名名名1"
+"name": "文件名名名1",
+"strLength": "文件名名名文件名名名",
+"withOutGroup": "文件名名名文件名名名名111111"
 }
+
+###
+POST http://{{host}}:{{port}}/open/validated/validateWithOut
+Accept: application/json
+token: {{token}}
+
+{
+"name": "文件名名名1",
+"strLength": "文件名名名文件名名名",
+"withOutGroup": "文件名名名文件名名名名111111"
+}
+
 ###
 GET http://{{host}}:{{port}}/demo/validated/ps/4
 Accept: application/json

@@ -2,6 +2,7 @@ package cn.cc.dawn.demo.function.dto;
 
 import cn.cc.dawn.utils.dto.CommonFiledDto;
 import cn.cc.dawn.utils.enums.RegexCommonEnum;
+import cn.cc.dawn.utils.i.validated.ISave;
 import lombok.AllArgsConstructor;
 import lombok.Getter;
 import lombok.NoArgsConstructor;
@@ -20,7 +21,7 @@ public class ValidatedDto extends CommonFiledDto {
     /**
      * @see RegexCommonEnum
      */
-    @Pattern(regexp = "^((?!(\\<+|\\>+|\\/|\\\\+|\\|+|\\:+|\"+|\\*+|\\?+|\\；+|\\ +)).)*$",message="文件/文件夹命名有误")
+    @Pattern(regexp = "^((?!(\\<+|\\>+|\\/|\\\\+|\\|+|\\:+|\"+|\\*+|\\?+|\\；+|\\ +)).)*$", message = "文件/文件夹命名有误")
     private String fileName;
 
     /**
@@ -29,6 +30,11 @@ public class ValidatedDto extends CommonFiledDto {
 
     // ValidationMessages.properties
     @NotEmpty
-    @Size(max = 10, message = "字段最多10位")
+    @Size(max = 10, message = " strLength 最多10位", groups = ISave.class)
     private String strLength;
+
+    @NotEmpty
+    @Size(max = 10, message = " withOutGroup 最多10位")
+    private String withOutGroup;
+
 }

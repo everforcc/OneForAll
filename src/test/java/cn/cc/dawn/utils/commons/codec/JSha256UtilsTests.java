@@ -7,10 +7,24 @@
 
 package cn.cc.dawn.utils.commons.codec;
 
+import org.apache.commons.codec.binary.Hex;
 import org.junit.Test;
 
 public class JSha256UtilsTests {
 
+    /**
+     * 16进制测试
+     */
+    @Test
+    public void hex() {
+        String str = "str-str-str-str-str-str";
+        String result = Hex.encodeHexString(str.getBytes(), true);
+        System.out.println(result);
+    }
+
+    /**
+     * 测试 sha256
+     */
     @Test
     public void createKeysTests() {
         String str = "str-str-str-str-str-str";
