@@ -1,0 +1,9 @@
+
+### 1. 有异常
+GET http://{{host}}:{{port}}/open/data/tran/withOutTry
+
+### 2.
+GET http://{{host}}:{{port}}/open/data/tran/withTry
+
+### 3.
+GET http://{{host}}:{{port}}/open/data/tran/withOutException
