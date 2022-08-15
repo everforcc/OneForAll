@@ -3,9 +3,23 @@ Accept: application/json
 token: {{token}}
 
 {
-"name": "文件名名名1",
-"strLength": "文件名名名文件名名名",
-"withOutGroup": "文件名名名文件名名名名111111"
+    "name": "文件名名名1",
+    "strLength": "文件名名名文件名名名",
+    "withOutGroup": "文件名名名文件名名名名111111",
+    "innerObj": {
+        "strLength": "inner-strL",
+        "strRegex": "aa#"
+    }
+}
+
+### 测试数据
+{
+    "name": "文件名名名1",
+    "strLength": "文件名名名文件名名名",
+    "withOutGroup": "文件名名名文件名名名名111111",
+    "innerObj": {
+        "strLength": "inner-strL"
+    }
 }
 
 ###

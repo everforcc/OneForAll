@@ -8,7 +8,9 @@ import lombok.Getter;
 import lombok.NoArgsConstructor;
 import lombok.Setter;
 
+import javax.validation.Valid;
 import javax.validation.constraints.NotEmpty;
+import javax.validation.constraints.NotNull;
 import javax.validation.constraints.Pattern;
 import javax.validation.constraints.Size;
 
@@ -29,12 +31,35 @@ public class ValidatedDto extends CommonFiledDto {
      */
 
     // ValidationMessages.properties
-    @NotEmpty
+    @NotEmpty(groups = ISave.class)
     @Size(max = 10, message = " strLength 最多10位", groups = ISave.class)
     private String strLength;
 
     @NotEmpty
     @Size(max = 10, message = " withOutGroup 最多10位")
     private String withOutGroup;
+
+    @Valid
+    @NotNull(message = "内部对象: 不能为空", groups = ISave.class)
+    InnerObj innerObj;
+
+    @Getter
+    @Setter
+    @AllArgsConstructor
+    @NoArgsConstructor
+    public static class InnerObj {
+
+        @NotEmpty(message = "内部对象: strLength 不能为空", groups = ISave.class)
+        @Size(max = 10, message = "内部对象: strLength 最多10位", groups = ISave.class)
+        private String strLength;
+
+        @Pattern(regexp = "[a-zA-Z0-9.-]{1,3}", message = "内部对象: strRegex 不匹配", groups = ISave.class)
+        private String strRegex;
+
+        @NotEmpty
+        @Size(max = 10, message = " withOutGroup 最多10位")
+        private String withOutGroup;
+
+    }
 
 }

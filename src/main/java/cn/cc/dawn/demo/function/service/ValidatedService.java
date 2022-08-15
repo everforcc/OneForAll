@@ -15,7 +15,7 @@ import javax.validation.constraints.NotNull;
 public class ValidatedService {
 
     @Validated(ISave.class)
-    public String testValidate(@Valid @NotNull(message = "【validatedDto】不能为null") final ValidatedDto validatedDto) {
+    public String testValidate(@Valid  ValidatedDto validatedDto) {//@NotNull(message = "【validatedDto】不能为null") final
         System.out.println(validatedDto.getFileName());
         System.out.println(validatedDto.getStrLength().length());
 

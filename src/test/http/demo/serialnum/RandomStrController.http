@@ -1,0 +1,7 @@
+###
+GET http://{{host}}:{{port}}/open/random/str
+Accept: application/json
+
+###
+GET http://{{host}}:{{port}}/open/random/str
+Accept: application/json
