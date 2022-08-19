@@ -7,6 +7,7 @@
 
     <!-- 配置好的属性在下面可以${}引入,在最上层控制 -->
     <!--设置自定义pattern属性-->
+    <!-- %.-4096msg%n -->
     <property name="pattern" value="%d{HH:mm:ss} [%-5level] [%thread] [%logger] [%X{X-B3-TraceId}] %msg%n"/>
     <!-- 输出日志位置 -->
     <!-- 输出日志文件名 -->

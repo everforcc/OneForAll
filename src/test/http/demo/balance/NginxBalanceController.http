@@ -1,5 +1,6 @@
 GET http://{{host}}:{{port}}/demo/ng/nginx1
 Accept: application/json
+token: {{token}}
 
 ###
 GET http://{{host}}:{{port}}/demo/ng/nginx2

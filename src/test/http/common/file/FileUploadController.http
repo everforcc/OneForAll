@@ -1,15 +1,13 @@
-POST http://{{host}}:{{port}}/common/upload/write
+POST http://{{host}}:{{port}}/open/file/upload/write
 Content-Type: multipart/form-data; boundary=WebAppBoundary; charset=utf-8
-User-Agent: PostmanRuntime/7.29.0
 Accept-Encoding: gzip, deflate, br
-token: {{token}}
 
 --WebAppBoundary
-Content-Disposition: form-data; name="file"; filename="002.png"
+Content-Disposition: form-data; name="file"; filename="1652338908954.png"
 Content-Type: audio/mpeg
 
 
-< E:\filesystem\upload\002.png
+< E:\filesystem\test\1652338908954.png
 --WebAppBoundary--
 
 
