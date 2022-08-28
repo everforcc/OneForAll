@@ -8,6 +8,7 @@
 package cn.cc.dawn.demo.retry;
 
 import lombok.extern.slf4j.Slf4j;
+import org.springframework.retry.annotation.Backoff;
 import org.springframework.retry.annotation.Retryable;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.RequestMapping;
@@ -30,7 +31,7 @@ public class RetryController {
     /**
      * 异常重试参数
      */
-    @Retryable(value = RuntimeException.class, maxAttempts = 5)
+    @Retryable(value = RuntimeException.class, maxAttempts = 5, backoff = @Backoff(delay = 1000L))
     public void retryException(){
         log.info("错误重试");
         throw new RuntimeException("错误重试");
