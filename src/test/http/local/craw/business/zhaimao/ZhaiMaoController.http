@@ -1,0 +1,3 @@
+###
+GET http://{{host}}:{{port}}/open/zhaimao/mryt?url=https://zhaimaoba.com/219.html
+Accept: application/json
