@@ -1,6 +1,6 @@
-package cn.cc.dawn.demo.function;
+package cn.cc.dawn.demo.valid;
 
-import cn.cc.dawn.demo.function.dto.ValidatedDto;
+import cn.cc.dawn.demo.valid.dto.ValidatedDto;
 import lombok.extern.slf4j.Slf4j;
 import org.junit.jupiter.api.Test;
 import org.springframework.boot.test.context.SpringBootTest;

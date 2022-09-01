@@ -1,4 +1,4 @@
-package cn.cc.dawn.demo.function.dto;
+package cn.cc.dawn.demo.valid.dto;
 
 import cn.cc.dawn.utils.dto.CommonFiledDto;
 import cn.cc.dawn.utils.enums.RegexCommonEnum;
@@ -9,11 +9,13 @@ import lombok.NoArgsConstructor;
 import lombok.Setter;
 
 import javax.validation.Valid;
-import javax.validation.constraints.NotEmpty;
-import javax.validation.constraints.NotNull;
-import javax.validation.constraints.Pattern;
-import javax.validation.constraints.Size;
+import javax.validation.constraints.*;
+import java.math.BigDecimal;
+import java.util.List;
 
+/**
+ * 也可以继承自定义实现
+ */
 @Getter
 @Setter
 @AllArgsConstructor
@@ -38,6 +40,30 @@ public class ValidatedDto extends CommonFiledDto {
     @NotEmpty
     @Size(max = 10, message = " withOutGroup 最多10位")
     private String withOutGroup;
+
+    /**
+     * integer 校验示例
+     */
+    @Min(0)
+    @Max(100)
+    @NotNull
+    private Integer age;
+
+
+    private Integer intEnum;
+
+    @Digits(integer = 3, fraction = 2)
+    @NotNull
+    private Double weight;
+
+    @DecimalMin("0.00")
+    @DecimalMax("2.00")
+    @NotNull
+    private BigDecimal bigDecimal;
+
+    @NotEmpty
+    @Size(min = 1,max = 2,message = "list个数超出期望范围")
+    private List<String> stringList;
 
     @Valid
     @NotNull(message = "内部对象: 不能为空", groups = ISave.class)

@@ -5,9 +5,9 @@
  * Copyright
  */
 
-package cn.cc.dawn.demo.function;
+package cn.cc.dawn.demo.valid;
 
-import cn.cc.dawn.demo.function.dto.ValidatedDto;
+import cn.cc.dawn.demo.valid.dto.ValidatedDto;
 import org.junit.Test;
 
 import javax.validation.ConstraintViolation;

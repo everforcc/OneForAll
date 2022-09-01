@@ -1,7 +1,7 @@
-package cn.cc.dawn.demo.function.controller;
+package cn.cc.dawn.demo.valid.controller;
 
-import cn.cc.dawn.demo.function.dto.ValidatedDto;
-import cn.cc.dawn.demo.function.service.ValidatedService;
+import cn.cc.dawn.demo.valid.dto.ValidatedDto;
+import cn.cc.dawn.demo.valid.service.ValidatedService;
 import cn.cc.dawn.utils.annotation.EnumsValited;
 import cn.cc.dawn.utils.entity.ResultE;
 import com.alibaba.fastjson.JSONObject;

@@ -1,6 +1,6 @@
-package cn.cc.dawn.demo.function.service;
+package cn.cc.dawn.demo.valid.service;
 
-import cn.cc.dawn.demo.function.dto.ValidatedDto;
+import cn.cc.dawn.demo.valid.dto.ValidatedDto;
 import cn.cc.dawn.utils.i.validated.ISave;
 import org.springframework.stereotype.Service;
 import org.springframework.transaction.annotation.Transactional;
