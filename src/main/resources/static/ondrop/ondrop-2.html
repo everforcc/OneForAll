@@ -1,0 +1,44 @@
+<!DOCTYPE HTML>
+<html>
+<head>
+    <meta charset="utf-8">
+    <title>拖拽生成新页面</title>
+    <style type="text/css">
+        #div1 {
+            width: 350px;
+            height: 70px;
+            padding: 10px;
+            border: 1px solid #aaaaaa;
+        }
+    </style>
+    <script>
+        function allowDrop(ev) {
+            ev.preventDefault();
+        }
+
+        function drag(ev) {
+
+            ev.dataTransfer.setData("Text", ev.target.id);
+        }
+
+        function drop(ev) {
+            ev.preventDefault();
+            var data = ev.dataTransfer.getData("Text");
+            //var dom = document.getElementById(data).lastChild.cloneNode();
+            var dom = document.getElementById(data).lastChild.cloneNode();
+            ev.target.appendChild(dom);
+        }
+    </script>
+</head>
+<body>
+
+<p>拖动图片</p>
+
+<!-- 放到何处 -->
+<div id="div1" ondrop="drop(event)" ondragover="allowDrop(event)"></div>
+<br>
+<div id="drag1" draggable="true" ondragstart="drag(event)"><input value="文字测试"/></div>
+<div id="drag2" draggable="true" ondragstart="drag(event)"><hr></div>
+
+</body>
+</html>

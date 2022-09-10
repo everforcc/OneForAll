@@ -1,0 +1,42 @@
+<!DOCTYPE HTML>
+<html>
+<head>
+  <meta charset="utf-8">
+  <title>拖拽生成新页面</title>
+  <style type="text/css">
+    #div1 {width:350px;height:70px;padding:10px;border:1px solid #aaaaaa;}
+  </style>
+  <script>
+      // 放到何处,然后做处理
+    function allowDrop(ev)
+    {
+      // 默认地，无法将数据/元素放置到其他元素中。如果需要设置允许放置，我们必须阻止对元素的默认处理方式。
+      ev.preventDefault();
+    }
+
+    function drag(ev)
+    {
+      // 设置被拖数据的数据类型和值：
+      ev.dataTransfer.setData("Text",ev.target.id);
+    }
+
+    function drop(ev)
+    {
+      ev.preventDefault();
+      var data=ev.dataTransfer.getData("Text");
+      ev.target.appendChild(document.getElementById(data));
+    }
+  </script>
+</head>
+<body>
+
+<p>拖动图片</p>
+
+<!-- 放到何处 -->
+<div id="div1" ondrop="drop(event)" ondragover="allowDrop(event)"></div>
+<br>
+<p id="drag1" draggable="true" ondragstart="drag(event)" >文字测试-1</p>
+<p id="drag2" draggable="true" ondragstart="drag(event)" >文字测试-2</p>
+
+</body>
+</html>
