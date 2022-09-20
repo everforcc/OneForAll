@@ -1,4 +1,4 @@
-package cn.cc.dawn.open.test;
+package cn.cc.dawn.open.test.controller;
 
 import cn.cc.dawn.config.init.yml.APPConfiguration;
 import cn.cc.dawn.config.init.yml.APPConfigurationEncrypt;

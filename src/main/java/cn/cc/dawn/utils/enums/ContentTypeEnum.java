@@ -3,7 +3,6 @@ package cn.cc.dawn.utils.enums;
 /**
  * HTTP Content-type
  * https://developer.mozilla.org/zh-CN/docs/Web/HTTP/Basics_of_HTTP/MIME_types/Common_types
- *
  */
 public enum ContentTypeEnum {
     // 二进制流
@@ -96,6 +95,23 @@ public enum ContentTypeEnum {
     ContentTypeEnum(String comment, String type) {
         this.comment = comment;
         this.type = type;
+    }
+
+    private static ContentTypeEnum[] contentTypeEnums = ContentTypeEnum.values();
+
+    /**
+     * 从枚举的 comment换成 type
+     *
+     * @param suffix 文件后缀
+     * @return contentType类型
+     */
+    public static String getContentType(String suffix) {
+        for (ContentTypeEnum contentTypeEnum : contentTypeEnums) {
+            if (suffix.equals(contentTypeEnum.comment)) {
+                return contentTypeEnum.type;
+            }
+        }
+        return "未知类型";
     }
 
     public String utf8() {

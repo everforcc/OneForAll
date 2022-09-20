@@ -5,6 +5,8 @@ import lombok.extern.slf4j.Slf4j;
 import org.aspectj.lang.ProceedingJoinPoint;
 import org.aspectj.lang.annotation.*;
 import org.springframework.stereotype.Service;
+import org.springframework.web.context.request.RequestContextHolder;
+import org.springframework.web.context.request.ServletRequestAttributes;
 
 /**
  * @author everforcc 2021-09-25
@@ -25,7 +27,7 @@ public class LogAop {
      * ..*表示子孙包
      * .*(..) 表示所有参数的方法
      */
-    @Pointcut("execution(* cn.cc.dawn.demo..*.controller..*.*(..))")
+    @Pointcut("execution(* cn.cc.dawn.open..*.controller..*.*(..))")
     public void pointCut(){
 
     }
@@ -33,7 +35,8 @@ public class LogAop {
     // 配置连接点 方法开始执行时通知
     @Before("pointCut()")
     public void beforeLog() {
-        log.info("当前线程id:" + Thread.currentThread ().getId());
+        log.info("当前线程id: " + Thread.currentThread ().getId());
+        log.info("当前请求路径: " + getPath());
         //log.info("开始执行前置通知  日志记录:");
     }
     //    方法执行完后通知
@@ -72,6 +75,20 @@ public class LogAop {
             throw new RuntimeException(t.getMessage());
         }
         return result;
+    }
+
+    /**
+     * 获得 controller 请求URL
+     *
+     * @return String
+     */
+    private String getPath() {
+        try {
+            return ((ServletRequestAttributes) RequestContextHolder.currentRequestAttributes()).getRequest().getRequestURI();
+        } catch (Exception e) {
+            log.error(e.getMessage(), e);
+            return "请求 URL 获取失败";
+        }
     }
 
 }

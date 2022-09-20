@@ -1,4 +1,4 @@
-package cn.cc.dawn.open.test;
+package cn.cc.dawn.open.test.controller;
 
 import lombok.extern.slf4j.Slf4j;
 import org.springframework.web.bind.annotation.RequestMapping;

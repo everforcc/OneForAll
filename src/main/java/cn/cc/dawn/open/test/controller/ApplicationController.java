@@ -1,4 +1,4 @@
-package cn.cc.dawn.open.test;
+package cn.cc.dawn.open.test.controller;
 
 import cn.cc.dawn.utils.commons.codec.JAESUtil;
 import cn.cc.dawn.utils.commons.lang.RObjectsUtils;
