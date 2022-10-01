@@ -15,7 +15,9 @@ import com.github.crab2died.ExcelUtils;
 import com.github.crab2died.exceptions.Excel4JException;
 import org.junit.Test;
 
+import java.io.File;
 import java.io.IOException;
+import java.io.PrintStream;
 import java.util.Date;
 import java.util.List;
 
@@ -48,10 +50,10 @@ public class FileListResDtoTests {
         String path = "./FileListResDto.xlsx";
         // 导出到excle
         try {
-            ExcelUtils.getInstance().exportObjects2Excel(fileListResDtoList, FileListResDto.class, true, "sheet0", true, path);
-        } catch (Excel4JException e) {
-            throw new RuntimeException(e);
-        } catch (IOException e) {
+            //ExcelUtils.getInstance().exportObjects2Excel(fileListResDtoList, FileListResDto.class, true, "sheet0", true, path);
+            // (List<?> data, Class clazz, boolean isWriteHeader, Appendable appendable)
+            ExcelUtils.getInstance().exportObjects2CSV(fileListResDtoList, FileListResDto.class, false, path);
+        } catch (Exception e) {
             throw new RuntimeException(e);
         }
     }
