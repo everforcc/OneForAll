@@ -15,10 +15,8 @@ import com.google.common.collect.Lists;
 import org.junit.Before;
 import org.junit.Test;
 
-import java.util.ArrayList;
-import java.util.Arrays;
-import java.util.Date;
-import java.util.List;
+import java.math.BigDecimal;
+import java.util.*;
 
 public class TestApiTests {
 
@@ -60,6 +58,23 @@ public class TestApiTests {
     }
 
     @Test
+    public void tJSONObject() {
+        JSONObject jsonObject = new JSONObject();
+        jsonObject.put("staff_123", "aaa");
+        jsonObject.put("dept_123", "aaa");
+
+        for (Map.Entry<String, Object> entry : jsonObject.entrySet()) {
+            if (entry.getKey().startsWith("staff_")) {
+                jsonObject.put(entry.getKey(), "staff_bbb");
+            }
+        }
+        jsonObject.remove("aaa");
+        System.out.println(jsonObject.getString("staff_123"));
+
+        //Joiner.on
+    }
+
+    @Test
     public void tList() {
         List<String> list = Lists.newArrayList("a", "b");
         System.out.println(list.toString());
@@ -82,6 +97,15 @@ public class TestApiTests {
             stringList.add("a");
             tListRecursion(stringList, i);
         }
+    }
+
+    @Test
+    public void tBigDecimal() {
+        String str = "1";
+        BigDecimal bigDecimal = new BigDecimal(str);
+        BigDecimal percent = new BigDecimal(100);
+        BigDecimal result = bigDecimal.divide(percent);
+        System.out.println(result.toString());
     }
 
 }
