@@ -1,0 +1,2 @@
+GET http://{{host}}:{{port}}/open/xss/str?str="{\"id\":\"1001\",\"name\":\"张三\",\"password\":\"zhangsan\"}"
+Accept: application/json

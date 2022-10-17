@@ -42,6 +42,7 @@
         <net.sf.json>2.4</net.sf.json>
         <com.alibaba.fastjson>1.2.58</com.alibaba.fastjson>
         <commons-io>2.6</commons-io>
+        <commons-text>1.9</commons-text>
         <commons-lang3>3.10</commons-lang3>
         <com.google.guava>30.1.1-jre</com.google.guava>
         <org.projectlombok>1.18.20</org.projectlombok>
@@ -275,6 +276,12 @@
             <groupId>commons-io</groupId>
             <artifactId>commons-io</artifactId>
             <version>${commons-io}</version>
+        </dependency>
+
+        <dependency>
+            <groupId>org.apache.commons</groupId>
+            <artifactId>commons-text</artifactId>
+            <version>${commons-text}</version>
         </dependency>
 
         <!-- 封装的lang包，目前用来校验数据 -->

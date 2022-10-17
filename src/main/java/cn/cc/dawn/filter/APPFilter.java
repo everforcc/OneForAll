@@ -1,6 +1,7 @@
 package cn.cc.dawn.filter;
 
 
+import cn.cc.dawn.config.wrapper.BodyReaderHttpServletRequestWrapper;
 import cn.cc.dawn.utils.commons.codec.JUUIDUtils;
 import cn.cc.dawn.utils.constant.HttpHeadersConstant;
 import lombok.extern.slf4j.Slf4j;
@@ -11,16 +12,17 @@ import javax.servlet.*;
 import javax.servlet.annotation.WebFilter;
 import javax.servlet.http.HttpServletRequest;
 import java.io.IOException;
-import java.util.*;
+import java.util.Enumeration;
 
 @Slf4j
 @Component
-@WebFilter(urlPatterns="/*")
+@WebFilter(urlPatterns = "/*")
 public class APPFilter implements Filter {
 
 
     /**
      * 正式使用 security，这里不做太多的处理
+     *
      * @param filterConfig
      * @throws ServletException
      */
@@ -61,21 +63,21 @@ public class APPFilter implements Filter {
 
         //方式二：getParameterNames()：获取所有参数名称
         Enumeration<String> a = httpServletRequest.getParameterNames();
-        String parm=null;
-        String val="";
+        String parm = null;
+        String val = "";
         log.debug("请求参数");
-        while(a.hasMoreElements()){
+        while (a.hasMoreElements()) {
             //参数名
-            parm=a.nextElement();
+            parm = a.nextElement();
             //值
-            val=httpServletRequest.getParameter(parm);
+            val = httpServletRequest.getParameter(parm);
             log.debug("parm: " + parm + " val: " + val);
         }
 
-
-
-
         filterChain.doFilter(servletRequest, servletResponse);//doFilter将请求转发给过滤器链下一个filter , 如果没有filter那就是你请求的资源
+
+        // 增加参数处理
+        filterChain.doFilter(new BodyReaderHttpServletRequestWrapper(httpServletRequest), servletResponse);
     }
 
     @Override
