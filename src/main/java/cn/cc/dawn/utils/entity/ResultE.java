@@ -14,6 +14,7 @@ import org.slf4j.MDC;
 
 import javax.validation.ConstraintViolation;
 import javax.validation.ConstraintViolationException;
+import javax.validation.ValidationException;
 import java.util.Collections;
 import java.util.List;
 import java.util.Objects;
@@ -23,7 +24,7 @@ import java.util.stream.Collectors;
 @Slf4j
 @Getter
 @Setter
-public class ResultE<E> implements IJson{
+public class ResultE<E> implements IJson {
 
     /**
      * 全局code
@@ -59,6 +60,7 @@ public class ResultE<E> implements IJson{
 
     /**
      * 系统中请求日志追踪
+     *
      * @return
      */
     public String getMdc() {
@@ -104,6 +106,7 @@ public class ResultE<E> implements IJson{
 
     /**
      * 1. 单行数据
+     *
      * @param data
      * @return
      */
@@ -122,6 +125,7 @@ public class ResultE<E> implements IJson{
 
     /**
      * 2. page数据
+     *
      * @param pageE
      * @return
      */
@@ -136,6 +140,7 @@ public class ResultE<E> implements IJson{
         this.rowCount = this.eList.size(); // 设置结果集大小
         return this; // 保证链式请求，返回:this
     }
+
     /**
      * 3.1 全部查询后需要重新逻辑计算的数据
      *
@@ -145,7 +150,7 @@ public class ResultE<E> implements IJson{
      * @return
      */
     public ResultE<E> setSuccess(final List<E> data, int number, int size) {
-         setICode(Code.A00000);
+        setICode(Code.A00000);
         if (Objects.nonNull(data) && data.size() > 0) {
             this.totalCount = data.size();
             this.pageCount = new Double(Math.ceil(new Double(data.size()) / size)).intValue();
@@ -153,8 +158,10 @@ public class ResultE<E> implements IJson{
         }
         return this; // 保证链式请求，返回:this
     }
+
     /**
      * 3.2 全部查询后 不 需要重新逻辑计算的数据
+     *
      * @param data
      * @return
      */
@@ -170,6 +177,7 @@ public class ResultE<E> implements IJson{
 
     /**
      * 设置返回数据
+     *
      * @param data
      * @return
      */
@@ -183,6 +191,7 @@ public class ResultE<E> implements IJson{
      */
     public ResultE() {
     }
+
     public ResultE(ICode code) {
         this.code = code.name();
         this.exception = code.getComment();
@@ -190,22 +199,25 @@ public class ResultE<E> implements IJson{
 
     /**
      * 设置异常信息
-     * @param exception
-     * @return
+     *
+     * @param exception 异常
+     * @return 返回对象
      */
     public ResultE setException(String exception) {
         this.exception = exception;
         return this;
     }
 
+    /**
+     * 设置异常信息
+     *
+     * @param exception 异常
+     * @return 返回对象
+     */
     public ResultE setException(Exception e) {
 
-        log.error(e.getMessage(), e);
-
-        exception = e.getMessage();
-        log.error(e.getMessage(), e);
-        // 数据校验异常
         if (e instanceof ConstraintViolationException) {
+            // 框架内 数据校验异常
             ConstraintViolationException exception = (ConstraintViolationException) e;
             String message = exception.getConstraintViolations().stream()
                     .map(ConstraintViolation::getMessage)
@@ -213,21 +225,37 @@ public class ResultE<E> implements IJson{
                     .orElse(null);
             this.code = Code.A00004.name();
             this.exception = message;
-        }else if(e instanceof UserException){
-            UserException userException = (UserException)e;
+        } else if (e instanceof ValidationException) {
+            // java 原生校验的注解
+            ValidationException validationException = (ValidationException) e;
+            String localizedMessage = validationException.getLocalizedMessage();
+            this.code = Code.A00004.name();
+            this.exception = localizedMessage;
+
+            // 其他api记录下,暂时没用
+            String message = validationException.getMessage();
+            Throwable throwable = validationException.getCause();
+            StackTraceElement[] stackTraceElements = validationException.getStackTrace();
+            Throwable[] throwables = validationException.getSuppressed();
+            // 其他api记录下,暂时没用
+
+        } else if (e instanceof UserException) {
+            UserException userException = (UserException) e;
             this.code = userException.getCode().name();
             //this.exception = userException.getCode().getComment();
             this.exception = e.getMessage();
-        }else {
+        } else {
             this.code = Code.A00001.name();
             this.exception = e.getMessage();
         }
 
+        log.error("公共异常: {}", exception, e);
         return this;
     }
 
     /**
      * 设置code信息
+     *
      * @param code
      * @return
      */
@@ -239,6 +267,7 @@ public class ResultE<E> implements IJson{
 
     /**
      * 重写tostring为json
+     *
      * @return
      */
     @Override
