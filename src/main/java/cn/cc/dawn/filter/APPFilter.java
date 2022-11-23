@@ -74,9 +74,8 @@ public class APPFilter implements Filter {
             log.debug("parm: " + parm + " val: " + val);
         }
 
-        filterChain.doFilter(servletRequest, servletResponse);//doFilter将请求转发给过滤器链下一个filter , 如果没有filter那就是你请求的资源
-
-        // 增加参数处理
+        //filterChain.doFilter(servletRequest, servletResponse);//doFilter将请求转发给过滤器链下一个filter , 如果没有filter那就是你请求的资源
+        // 增加参数处理,是否有用待测试
         filterChain.doFilter(new BodyReaderHttpServletRequestWrapper(httpServletRequest), servletResponse);
     }
 
