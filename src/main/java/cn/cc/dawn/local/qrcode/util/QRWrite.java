@@ -29,7 +29,6 @@ public class QRWrite {
         int weight = 100;
         int height = 100;
         writeQRCode(param,weight,height);
-
     }
 
     private static String filePath = "E:\\filesystem\\test\\qrcode\\" + System.currentTimeMillis() + ".png";;

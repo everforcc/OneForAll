@@ -17,15 +17,15 @@ import java.util.Map;
 @Slf4j
 public class Init {
 
-    private static Map<Integer,String> map ;
-    private static Integer i = 0 ;
+    private static Map<Integer, String> map;
+    private static Integer i = 0;
 
-    private Init(Map<Integer,String> map){
-        this.map=map;
-    };
+    private Init(Map<Integer, String> map) {
+        this.map = map;
+    }
 
-    public static synchronized  Init getInstanse(){
-        if(map == null){
+    public static synchronized Init getInstanse() {
+        if (map == null) {
             map = new HashMap<>();
             map = initNOWSFUN();
             log.info("初始化--------");
@@ -34,32 +34,32 @@ public class Init {
     }
 
 
-    public String getFun(){
-        int a = new Double(Math.random()* 1000).intValue()  + 1 ;
-        System.out.println("a:"+a);
+    public String getFun() {
+        int a = new Double(Math.random() * 1000).intValue() + 1;
+        log.info("a: {}", a);
         return map.get(a);
     }
 
-     static Map<Integer,String> initNOWSFUN(){
-         /**
-          * 1.
-          * File file = new File("src/main/resources/static/assets/test.txt");
-          * InputStream inputStream=new FileInputStream(file);
-          * 2.
-          * File file = ResourceUtils.getFile("classpath:static/assets/test.txt");
-          * InputStream inputStream=new FileInputStream(file);
-          * 3.
-          * ClassPathResource classPathResource = new ClassPathResource("static/assets/test.txt");
-          * InputStream inputStream = classPathResource.getInputStream();
-          */
+    static Map<Integer, String> initNOWSFUN() {
+        /**
+         * 1.
+         * File file = new File("src/main/resources/static/assets/test.txt");
+         * InputStream inputStream=new FileInputStream(file);
+         * 2.
+         * File file = ResourceUtils.getFile("classpath:static/assets/test.txt");
+         * InputStream inputStream=new FileInputStream(file);
+         * 3.
+         * ClassPathResource classPathResource = new ClassPathResource("static/assets/test.txt");
+         * InputStream inputStream = classPathResource.getInputStream();
+         */
         ClassPathResource classPathResource = new ClassPathResource("init/txt/NOWSFUN.txt");
 
         try {
             InputStream inputStream = classPathResource.getInputStream();
             BufferedReader bufferedReader = new BufferedReader(new InputStreamReader(inputStream));
             String content;
-            while((content = bufferedReader.readLine() )!=null){
-                map.put(i,content);
+            while ((content = bufferedReader.readLine()) != null) {
+                map.put(i, content);
                 i++;
             }
         } catch (IOException e) {

@@ -8,6 +8,7 @@
 package cn.cc.dawn.webapi.github.dto;
 
 import com.alibaba.fastjson.JSONObject;
+import com.alibaba.fastjson.annotation.JSONField;
 import com.alibaba.fastjson.serializer.SerializerFeature;
 import lombok.AllArgsConstructor;
 import lombok.Getter;
@@ -20,12 +21,14 @@ import java.util.Date;
 @Setter
 @NoArgsConstructor
 @AllArgsConstructor
-public class UserReposDto {
+public class UserReposResDto {
 
     private String id;
     private String name;
     private String full_name;
+    @JSONField(format = "yyyy-MM-dd HH:mm:ss")
     private String created_at;
+    @JSONField(format = "yyyy-MM-dd HH:mm:ss")
     private String updated_at;
 
     @Override
