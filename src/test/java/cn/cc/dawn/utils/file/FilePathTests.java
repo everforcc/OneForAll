@@ -11,7 +11,7 @@ import java.io.IOException;
 public class FilePathTests {
 
     @Test
-    public void t1(){
+    public void t1() {
         try {
             File file = FilePath.build().ofPath("项目/boc/临时").ofFileName("sj-健康监测二维码.jpg").file();
             System.out.println(file.length());

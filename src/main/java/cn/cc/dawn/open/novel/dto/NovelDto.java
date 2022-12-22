@@ -6,6 +6,8 @@ import lombok.Getter;
 import lombok.NoArgsConstructor;
 import lombok.Setter;
 
+import java.util.Objects;
+
 @Getter
 @Setter
 @AllArgsConstructor
@@ -20,4 +22,16 @@ public class NovelDto extends CommonFiledDto {
 
     // 缺一个 html id
 
+    @Override
+    public boolean equals(Object o) {
+        if (this == o) return true;
+        if (o == null || getClass() != o.getClass()) return false;
+        NovelDto novelDto = (NovelDto) o;
+        return Objects.equals(sourceurl, novelDto.sourceurl) && Objects.equals(sourcename, novelDto.sourcename);
+    }
+
+    @Override
+    public int hashCode() {
+        return Objects.hash(sourceurl, sourcename);
+    }
 }
