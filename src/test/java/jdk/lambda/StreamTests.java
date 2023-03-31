@@ -115,6 +115,26 @@ public class StreamTests {
     }
 
     @Test
+    public void streamParallelStream() {
+        List<Integer> integerList = new ArrayList<>();
+        List<Integer> integerListSync = new ArrayList<>();
+        for (int i = 0; i < 1000; i++) {
+            integerList.add(i);
+            integerListSync.add(i);
+        }
+
+        List<Integer> list = new ArrayList<>();
+        List<Integer> listSync = Collections.synchronizedList(new ArrayList<>());
+
+        integerList.parallelStream().forEach(list::add);
+        integerListSync.parallelStream().forEach(listSync::add);
+
+        System.out.println("list.size(): " + list.size());
+        System.out.println("线程安全的对象listSync.size(): " + listSync.size());
+    }
+
+
+    @Test
     public void streamTTT() {
         Set<AutoCloseableDto> autoCloseableDtoHashSet = new HashSet<>();
         autoCloseableDtoHashSet.add(new AutoCloseableDto("aaa"));
