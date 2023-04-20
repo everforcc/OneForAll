@@ -5,7 +5,7 @@
  * Copyright
  */
 
-package cn.cc.dawn.demo.excle4jdemo;
+package com.github.crab2died.excle4jdemo.dto;
 
 import com.github.crab2died.annotation.ExcelField;
 

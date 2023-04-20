@@ -5,10 +5,11 @@
  * Copyright
  */
 
-package cn.cc.dawn.demo.excle4jdemo;
+package com.github.crab2died.excle4jdemo;
 
 import com.alibaba.fastjson.JSONObject;
 import com.github.crab2died.ExcelUtils;
+import com.github.crab2died.excle4jdemo.dto.Student1;
 import org.junit.Test;
 
 import java.util.ArrayList;
@@ -16,8 +17,15 @@ import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
 
-public class Excle4jTest {
+/**
+ * 写入excel
+ */
+public class Excle4j2ExcleTest {
 
+    /**
+     * 1. 从对象 写入excel
+     * @throws Exception
+     */
     @Test
     public void testObject2Excel() throws Exception {
         //String tempPath = "/normal_template.xlsx";
@@ -41,6 +49,10 @@ public class Excle4jTest {
 
     }
 
+    /**
+     * 2. 从 map 写入excel
+     * @throws Exception
+     */
     @Test
     public void testMap2Excel() throws Exception {
         List<Map<String, String>> list = new ArrayList<>();
@@ -59,7 +71,7 @@ public class Excle4jTest {
     }
 
     /**
-     * list/list 纯自定义导出excel
+     * 3. list/list 纯自定义导出excel
      * @throws Exception 异常
      */
     @Test
@@ -81,6 +93,10 @@ public class Excle4jTest {
         ExcelUtils.getInstance().exportObjects2Excel(list, targetPath);
     }
 
+    /**
+     * 4. 从 json 写入excel
+     * @throws Exception
+     */
     @Test
     public void testJSON2Excel() throws Exception {
         JSONObject jsonObject = new JSONObject();
