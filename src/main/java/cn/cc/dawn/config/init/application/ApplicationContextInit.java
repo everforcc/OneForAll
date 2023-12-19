@@ -15,7 +15,6 @@ import org.springframework.core.annotation.Order;
 import org.springframework.stereotype.Component;
 
 import java.util.Map;
-import java.util.Objects;
 import java.util.concurrent.ConcurrentHashMap;
 import java.util.concurrent.ExecutorService;
 
@@ -38,7 +37,7 @@ public class ApplicationContextInit {
     /**
      * 线程服务
      * 单线程bean singleThread
-     *           multiThread
+     * multiThread
      */
     private static ExecutorService executorService;
 
@@ -63,6 +62,7 @@ public class ApplicationContextInit {
     @Bean
     public CommandLineRunner beanInitPrintCommandLineRunner(ApplicationContext context) {
         applicationContext = context;
+        log.info("applicationContext: {}", applicationContext);
         return args -> {
             log.info("初始化完成，可以列出系统信息，端口，环境之类的");
         };
@@ -81,14 +81,16 @@ public class ApplicationContextInit {
 
     /**
      * 1.2. 获取 ApplicationContext 对象
+     *
      * @return
      */
-    public static ApplicationContext getApplicationContext(){
+    public static ApplicationContext getApplicationContext() {
         return applicationContext;
     }
 
     /**
      * 2.1. cache bean
+     *
      * @return
      */
     public static CacheManager getCacheManager() {
@@ -97,6 +99,7 @@ public class ApplicationContextInit {
 
     /**
      * 2.2. redis bean
+     *
      * @return
      */
     public static RedissonClient getRedissonClient() {
@@ -104,7 +107,8 @@ public class ApplicationContextInit {
     }
 
     /**
-     *  2.3.1. 单线程
+     * 2.3.1. 单线程
+     *
      * @return
      */
     public static ExecutorService getSingleThread() {
@@ -112,7 +116,8 @@ public class ApplicationContextInit {
     }
 
     /**
-     *  2.3.2. 多线程
+     * 2.3.2. 多线程
+     *
      * @return
      */
     public static ExecutorService getMultiThread() {
@@ -122,6 +127,7 @@ public class ApplicationContextInit {
 
     /**
      * 不指定bean name
+     *
      * @param clazz
      * @param <T>
      * @return
@@ -138,17 +144,18 @@ public class ApplicationContextInit {
 
     /**
      * 指定bean name
+     *
      * @param beanName
      * @param clazz
      * @param <T>
      * @return
      */
-    public static <T> T getBean(String beanName,Class<T> clazz) {
+    public static <T> T getBean(String beanName, Class<T> clazz) {
         if (!beanMap.containsKey(beanName)) {
             /**
              *  保存初始化的bean
              */
-            beanMap.put(beanName, applicationContext.getBean(beanName,clazz));
+            beanMap.put(beanName, applicationContext.getBean(beanName, clazz));
         }
         return (T) beanMap.get(clazz.getName());
     }

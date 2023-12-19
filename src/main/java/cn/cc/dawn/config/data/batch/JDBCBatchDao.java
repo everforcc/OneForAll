@@ -39,6 +39,8 @@ public class JDBCBatchDao {
         }
         log.info("批量操作执行SQL：{}", sql);
         Connection connection = sqlSessionTemplate.getConnection();
+        // 是否自动提交
+        connection.setAutoCommit(false);
         try (PreparedStatement statement = connection.prepareStatement(sql)) {
             for (int i = 0; i < params.size(); i++) {
                 Object[] data = params.get(i);

@@ -8,9 +8,14 @@
     <select id="whereIn" resultType="java.lang.String">
         SELECT e.`orderno` FROM cc_t_order e
         WHERE e.`id` IN
-        <foreach collection="stringList" index="index" open="(" close=")" item="id" separator=",">
-            <if test="(index % 1000) == 999">
-                ) OR e.`id` IN(
+        <foreach collection="stringList" index="index" open="(" close=")" item="id">
+            <if test="index != 0">
+                <choose>
+                      <when test="(index % 1000) == 999">
+                          ) OR e.`id` IN(
+                      </when>
+                      <otherwise> , </otherwise>
+                </choose>
             </if>
             #{id}
         </foreach>
