@@ -27,5 +27,10 @@ public class LocalVariable {
     }
 
 
+    @Test
+    public void testFormat(){
+        String format = String.format("%06d", 1);
+        System.out.println(format);
+    }
 
 }

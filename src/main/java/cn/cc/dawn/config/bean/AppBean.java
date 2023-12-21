@@ -31,6 +31,8 @@ import org.springframework.web.servlet.NoHandlerFoundException;
 import org.springframework.web.servlet.config.annotation.CorsRegistry;
 import org.springframework.web.servlet.config.annotation.WebMvcConfigurer;
 
+import javax.validation.ConstraintViolation;
+import javax.validation.ConstraintViolationException;
 import java.nio.charset.Charset;
 import java.util.Collections;
 import java.util.Objects;
@@ -195,6 +197,13 @@ public class AppBean {
             return new ResultE<Void>(Code.A00009).setException(String.format("405：请求方式不被该接口支持，或者请求url错误未映射到正确的方法：%s", e.getMessage()));
         } else if (e instanceof AccessDeniedException) {
             return new ResultE<Void>(Code.A00011).setException("403：无操作权限");
+        } else if (e instanceof ConstraintViolationException) {
+            ConstraintViolationException exception = (ConstraintViolationException) e;
+            String message = exception.getConstraintViolations().stream()
+                    .map(ConstraintViolation::getMessage)
+                    .findFirst()
+                    .orElse(null);
+            return new ResultE<Void>(AppCode.A00100).setException(message);
         }
         ResultE resultE = new ResultE<Void>(AppCode.A00104).setException(e.getCause().getMessage());
         return resultE;

@@ -2,7 +2,7 @@ package cn.cc.dawn.demo.valid.controller;
 
 import cn.cc.dawn.demo.valid.dto.ValidatedDto;
 import cn.cc.dawn.demo.valid.service.ValidatedService;
-import cn.cc.dawn.utils.annotation.EnumsValited;
+import cn.cc.dawn.utils.annotation.PageSize;
 import cn.cc.dawn.utils.entity.ResultE;
 import com.alibaba.fastjson.JSONObject;
 import lombok.extern.slf4j.Slf4j;
@@ -40,8 +40,8 @@ public class ValidatedController {
      * @param pageSize 大小
      * @return 返回结果
      */
-    @GetMapping("/ps/{pageSize}")
-    public ResultE<String> ps(@EnumsValited @PathVariable Long pageSize){
+    @GetMapping("/user/{pageSize}")
+    public ResultE<String> user(@PageSize @PathVariable Long pageSize){
         return new ResultE<String>().execute(e ->{
             log.info("pageSize: 【{}】",pageSize);
         });

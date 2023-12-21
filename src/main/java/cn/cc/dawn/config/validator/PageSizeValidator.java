@@ -7,14 +7,17 @@
 
 package cn.cc.dawn.config.validator;
 
-import cn.cc.dawn.utils.annotation.EnumsValited;
+import cn.cc.dawn.utils.annotation.PageSize;
 import lombok.extern.slf4j.Slf4j;
 
 import javax.validation.ConstraintValidator;
 import javax.validation.ConstraintValidatorContext;
 
+/**
+ * 数据枚举格式校验
+ */
 @Slf4j
-public class EnumsValidator implements ConstraintValidator<EnumsValited, Object> {
+public class PageSizeValidator implements ConstraintValidator<PageSize, Object> {
 
     private long[] longs = {1L, 2L, 3L};
 
