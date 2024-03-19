@@ -9,10 +9,16 @@ spring:
       max-file-size: 2MB
       max-request-size: 4MB
   redis:
-    host: 43.143.232.133
-    port: 6379
-    password: c.c.5664
-    database: 15
+    cluster:
+      nodes: 10.250.250.21:5201,10.250.250.21:5202,10.250.250.21:5203,10.250.250.21:5204,10.250.250.21:5205,10.250.250.21:5206
+      max-redirects: 5
+    password: hkzkdev
+    timeout: 3000
+  #    单机
+#    host: 43.140.221.95
+#    port: 6379
+#    password: c.c.5664
+#    database: 15
   cache:
     type: redis
   resources:

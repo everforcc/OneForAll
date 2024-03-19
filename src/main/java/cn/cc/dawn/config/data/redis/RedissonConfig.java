@@ -1,17 +1,21 @@
 package cn.cc.dawn.config.data.redis;
 
-import cn.cc.dawn.config.init.yml.ConfigurationSpring;
 import org.redisson.Redisson;
 import org.redisson.api.RAtomicLong;
 import org.redisson.api.RAtomicLongReactive;
 import org.redisson.api.RedissonClient;
 import org.redisson.api.RedissonReactiveClient;
-import org.redisson.client.codec.Codec;
-import org.redisson.codec.JsonJacksonCodec;
+import org.redisson.config.ClusterServersConfig;
 import org.redisson.config.Config;
-import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.beans.factory.annotation.Value;
 import org.springframework.context.annotation.Bean;
 import org.springframework.context.annotation.Configuration;
+import redis.clients.jedis.HostAndPort;
+import redis.clients.jedis.JedisCluster;
+import redis.clients.jedis.JedisPoolConfig;
+
+import java.util.HashSet;
+import java.util.Set;
 
 /**
  * 参考文档
@@ -29,25 +33,55 @@ public class RedissonConfig {
      * 内存大小
      */
 
-    @Autowired
-    ConfigurationSpring configurationSpring;
+//    @Autowired
+//    ConfigurationSpring configurationSpring;
+//
+//    @Bean
+//    public RedissonClient redissonClientSingle() {
+//        Config config = new Config();
+//        ConfigurationSpring.Redis redisConfig = configurationSpring.getRedis();
+//        config.useSingleServer().setAddress("redis://" + redisConfig.getHost() + ":" + redisConfig.getPort() + "")
+//                .setPassword(redisConfig.getPassword())
+//                .setDatabase(redisConfig.getDatabase());
+//        /**
+//         * 设置编码，防止查看的时候乱码
+//         */
+//        Codec codec = new JsonJacksonCodec();
+//        config.setCodec(codec);
+//        RedissonClient redisson = Redisson.create(config);
+//
+//        return redisson;
+//    }
 
-    @Bean
-    public RedissonClient redissonClientSingle() {
-        Config config = new Config();
-        ConfigurationSpring.Redis redisConfig = configurationSpring.getRedis();
-        config.useSingleServer().setAddress("redis://" + redisConfig.getHost() + ":" + redisConfig.getPort() + "")
-                .setPassword(redisConfig.getPassword())
-                .setDatabase(redisConfig.getDatabase());
-        /**
-         * 设置编码，防止查看的时候乱码
-         */
-        Codec codec = new JsonJacksonCodec();
-        config.setCodec(codec);
-        RedissonClient redisson = Redisson.create(config);
+    @Value("${spring.redis.cluster.nodes}")
+    private String clusterNodes;
 
-        return redisson;
-    }
+    @Value("${spring.redis.password}")
+    private String password;
+
+    @Value("${spring.redis.timeout}")
+    private int timeout;
+
+    @Value("${spring.redis.cluster.max-redirects}")
+    private int maxRedirects;
+
+//    @Bean
+//    public JedisCluster getJedisCluster() {
+//        Set<HostAndPort> nodes = new HashSet<>();
+//        String[] cluster = clusterNodes.split(",");
+//        for (String node : cluster) {
+//            String[] hostAndPort = node.split(":");
+//            nodes.add(new HostAndPort(hostAndPort[0], Integer.parseInt(hostAndPort[1])));
+//        }
+//
+//        JedisPoolConfig jedisPoolConfig = new JedisPoolConfig();
+//        jedisPoolConfig.setMaxTotal(100);
+//        jedisPoolConfig.setMaxIdle(20);
+//        jedisPoolConfig.setMinIdle(10);
+//        jedisPoolConfig.setMaxWaitMillis(10000);
+//
+//        return new JedisCluster(nodes, timeout, timeout, maxRedirects, password, jedisPoolConfig);
+//    }
 
     public static void main(String[] args) {
         // 示例代码
@@ -70,15 +104,25 @@ public class RedissonConfig {
     /**
      * 1. 集群
      */
-//    public RedissonClient redissonClientCluster() {
-//        Config config = new Config();
-//        config.useClusterServers()
-//                .setScanInterval(2000) // cluster state scan interval in milliseconds
+    @Bean
+    public RedissonClient redissonClientCluster() {
+        Config config = new Config();
+        ClusterServersConfig clusterServersConfig = config.useClusterServers();
+        clusterServersConfig.setScanInterval(2000); // cluster state scan interval in milliseconds
 //                .addNodeAddress("redis://127.0.0.1:6380", "redis://127.0.0.1:6381")
 //                .addNodeAddress("redis://127.0.0.1:6382");
-//        RedissonClient redisson = Redisson.create(config);
-//        return redisson;
-//    }
+        clusterServersConfig.setPassword(password);
+        clusterServersConfig.setTimeout(timeout);
+
+        String[] cluster = clusterNodes.split(",");
+        for (String node : cluster) {
+            String[] hostAndPort = node.split(":");
+            clusterServersConfig.addNodeAddress("redis://" + hostAndPort[0] + ":" + hostAndPort[1]);
+        }
+
+        RedissonClient redisson = Redisson.create(config);
+        return redisson;
+    }
 
     /**
      * 2. 单例模式

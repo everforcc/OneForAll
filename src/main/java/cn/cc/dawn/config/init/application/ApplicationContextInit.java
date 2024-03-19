@@ -9,6 +9,7 @@ import org.springframework.boot.CommandLineRunner;
 import org.springframework.boot.autoconfigure.condition.ConditionalOnExpression;
 import org.springframework.cache.CacheManager;
 import org.springframework.context.ApplicationContext;
+import org.springframework.context.ConfigurableApplicationContext;
 import org.springframework.context.annotation.Bean;
 import org.springframework.core.Ordered;
 import org.springframework.core.annotation.Order;
@@ -62,6 +63,7 @@ public class ApplicationContextInit {
     @Bean
     public CommandLineRunner beanInitPrintCommandLineRunner(ApplicationContext context) {
         applicationContext = context;
+
         log.info("applicationContext: {}", applicationContext);
         return args -> {
             log.info("初始化完成，可以列出系统信息，端口，环境之类的");

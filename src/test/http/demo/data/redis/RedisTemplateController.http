@@ -1,11 +1,13 @@
 
 ### 增
-GET http://{{host}}:{{port}}/open/data/redis/redisTemplateController/add/redisCacheable/qwe
+GET http://{{host}}:{{port}}/demo/data/redis/redisTemplateController/add/redisCacheable/qwer
 Accept: application/json
+token: {{token}}
 
 ### 查
-GET http://{{host}}:{{port}}/redisTemplate/getValue/key_20211223_1716
+GET http://{{host}}:{{port}}/demo/data/redis/redisTemplateController/getValue/redisCacheable
 Accept: application/json
+token: {{token}}
 
 ### 删
 GET http://{{host}}:{{port}}/redisTemplate/remove/key_20211223_1716
