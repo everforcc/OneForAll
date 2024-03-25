@@ -105,6 +105,7 @@ public class SPSecurityConfig{
                      * 这块随后使用处理到配置文件
                      */
                     .antMatchers("/open/**", SystemUrlConstant.package_open).permitAll()
+                    .antMatchers("/actuator/**").permitAll()
                     .antMatchers("/local/**").permitAll()
                     .antMatchers("/user/**").permitAll()
                     .antMatchers("/error/**").permitAll()

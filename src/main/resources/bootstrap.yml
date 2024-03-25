@@ -75,7 +75,12 @@ spring: # 下面的为spring的配置，
         keep-alive: 10s
         queue-capacity: 1000
       thread-name-prefix: UserThread
-
+  boot:
+    admin:
+      client:
+        url: http://localhost:80
+  application:
+    name: oneforall
 # mybatis配置
 mybatis:
   # 指定全局配置文件位置  便于管理和扫描 config-location 和 configuration不能同时使用
@@ -103,3 +108,17 @@ server:
 
 # 自定义配置文件全部在app节点读取
 # 每个环境定义自己的不要设置通用，避免问题
+management:
+  endpoints:
+    web:
+      exposure:
+        include: '*'
+    jmx:
+      exposure:
+        include: '*'
+  endpoint:
+    health:
+      show-components: always
+logging:
+  file:
+    name: logs/OneForAll.log

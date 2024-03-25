@@ -60,12 +60,20 @@
         <okhttp3.version>3.14.7</okhttp3.version>
         <webjars-locator-core.version>0.41</webjars-locator-core.version>
         <com.github.excel4j>3.0.0</com.github.excel4j>
-
+        <spring-boot-admin.version>2.3.1</spring-boot-admin.version>
     </properties>
 
     <dependencies>
+        <dependency>
+            <groupId>org.springframework.boot</groupId>
+            <artifactId>spring-boot-starter-actuator</artifactId>
+        </dependency>
         <!-- springstarter start -->
-
+        <dependency>
+            <groupId>de.codecentric</groupId>
+            <artifactId>spring-boot-admin-starter-client</artifactId>
+            <version>${spring-boot-admin.version}</version>
+        </dependency>
         <!-- web -->
         <dependency>
             <groupId>org.springframework.boot</groupId>
