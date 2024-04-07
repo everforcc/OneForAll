@@ -47,6 +47,41 @@ public class TestApiTests {
     }
 
     @Test
+    public void tQuote() {
+        BigDecimal bigDecimal1 = new BigDecimal(1);
+        BigDecimal bigDecimal2 = new BigDecimal(2);
+        Map<Integer,TTTT> ttttMap = new HashMap<>();
+        TTTT tttt = new TTTT();
+        tttt.setB(bigDecimal1);
+        ttttMap.put(1, tttt);
+        System.out.println(ttttMap.get(1));
+        tttt.setB(bigDecimal2);
+        System.out.println(ttttMap.get(1));
+    }
+
+    class TTTT {
+        private BigDecimal b;
+
+        public TTTT() {
+        }
+
+        public BigDecimal getB() {
+            return b;
+        }
+
+        public void setB(BigDecimal b) {
+            this.b = b;
+        }
+
+        @Override
+        public String toString() {
+            return "TTTT{" +
+                    "b=" + b +
+                    '}';
+        }
+    }
+
+    @Test
     public void tjsonAry() {
         JSONArray jsonArray = new JSONArray();
         jsonArray.add("a");
