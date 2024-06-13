@@ -14,7 +14,7 @@ spring: # 下面的为spring的配置，
   datasource:
     username: cceverfor
     password: 5664c.c.
-    url: jdbc:mysql://43.143.232.133:3308/oneforall?characterEncoding=UTF-8&&serverTimezone=GMT&&rewriteBatchedStatements=true # 编码和时区 &userSSL=false
+    url: jdbc:mysql://43.140.221.95:3308/oneforall?characterEncoding=UTF-8&&serverTimezone=GMT&&rewriteBatchedStatements=true # 编码和时区 &userSSL=false
     #username: a0yhrwlul53j
     #password: pscale_pw_-Yb-3tlCQj1TxxksyjnWlIB3g-ZfgKgLGjQgQ7tiGm8
     #url: jdbc:mysql://6ocz8lzsq4hd.us-east-4.psdb.cloud/oneforall # ?characterEncoding=UTF-8&&serverTimezone=GMT # 编码和时区 &userSSL=false
@@ -40,7 +40,7 @@ spring: # 下面的为spring的配置，
     useGlobalDataSourceStat: true
     connectionProperties: druid.stat.mergeSql=true;druid.stat.slowSqlMillis=500
   redis:
-    host: 43.143.232.133
+    host: 43.140.221.95
     port: 6379
     password: c.c.5664
     database: 13
