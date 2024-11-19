@@ -1,27 +1,17 @@
-spring:
-  mvc:
-    view:
-      prefix: /
-      suffix: .html
-    throw-exception-if-no-handler-found: true
-  servlet:
-    multipart:
-      max-file-size: 10240000000
-      max-request-size: 10240000000
+param:
+  server:
+    port:
+  mysql:
+    ip:
+    port:
+    un:
+    pas:
   redis:
-    host: 180.76.156.43
-    port: 6379
-    password: c.c.5664
-    database: 14
-  cache:
-    type: redis
-  resources:
-    add-mappings: false
-server:
-  port: 8080
-  tomcat:
-    connection-timeout: 10ms
-    uri-encoding: UTF-8
+    ip:
+    port:
+    pas:
+    db: 13
+    timeout: 3000
 
 app:
   cache:

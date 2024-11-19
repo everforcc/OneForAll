@@ -2,18 +2,17 @@ param:
   server:
     port: 81
   mysql:
-    ip: 127.0.0.1
+    ip: 8.146.199.165
     port: 3308
-    un: username
-    pas: c.c.
+    un: cceverfor
+    pas: 5664c.c.
   redis:
-    ip: 127.0.0.1
+    ip: 8.146.199.165
     port: 5200
-    pas: c.c.
+    pas: hkzksingledev
     db: 15
     timeout: 3000
 
-# 自定义配置文件全部在app节点读取
 # 项目数据
 app:
   # 这部分数据是固定的，所以直接在根目录一个类存

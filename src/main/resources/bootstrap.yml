@@ -1,3 +1,32 @@
+# 不同版本或者时期需要修改的数据
+# 服务过期
+# 不同环境
+param:
+  server:
+    port: 8080
+  mysql:
+    ip: 127.0.0.1
+    port: 3306
+    un: root
+    pas: root
+  redis:
+    ip: 127.0.0.1
+    port: 6379
+    pas: root
+    db: 0
+    timeout: 3000
+  mail:
+    qq:
+      un: 718497737@qq.com
+      ps: kxwpeamttpgqbgaf
+
+# server 端口 和 tomcat配置
+server:
+  port: ${param.server.port}
+  tomcat:
+    connection-timeout: 10ms
+    uri-encoding: UTF-8
+
 # 此yml放公共的配置文件
 spring: # 下面的为spring的配置，
   thymeleaf:
@@ -12,9 +41,9 @@ spring: # 下面的为spring的配置，
       max-file-size: 2MB
       max-request-size: 4MB
   datasource:
-    username: cceverfor
-    password: 5664c.c.
-    url: jdbc:mysql://43.140.221.95:3308/oneforall?characterEncoding=UTF-8&&serverTimezone=GMT&&rewriteBatchedStatements=true # 编码和时区 &userSSL=false
+    username: ${param.mysql.un}
+    password: ${param.mysql.pas}
+    url: jdbc:mysql://${param.mysql.ip}:${param.mysql.port}/oneforall?characterEncoding=UTF-8&&serverTimezone=GMT&&rewriteBatchedStatements=true # 编码和时区 &userSSL=false
     #username: a0yhrwlul53j
     #password: pscale_pw_-Yb-3tlCQj1TxxksyjnWlIB3g-ZfgKgLGjQgQ7tiGm8
     #url: jdbc:mysql://6ocz8lzsq4hd.us-east-4.psdb.cloud/oneforall # ?characterEncoding=UTF-8&&serverTimezone=GMT # 编码和时区 &userSSL=false
@@ -40,21 +69,22 @@ spring: # 下面的为spring的配置，
     useGlobalDataSourceStat: true
     connectionProperties: druid.stat.mergeSql=true;druid.stat.slowSqlMillis=500
   redis:
-    host: 43.140.221.95
-    port: 6379
-    password: c.c.5664
-    database: 13
+    host: ${param.redis.ip}
+    port: ${param.redis.port}
+    password: ${param.redis.pas}
+    database: ${param.redis.db}
+    timeout: ${param.redis.timeout}
   cache:
     type: redis
   app:
-    env: local # 当前环境：[local:本地开发环境|dev:远程开发环境|sit:系统测试|uat:验收测试|prod:生产]
+    env: @deploy.type@ # 当前环境：[local:本地开发环境|dev:远程开发环境|sit:系统测试|uat:验收测试|prod:生产]
   profiles: # 动态环境
     active: @deploy.type@ # 采坑记录，使用 @@ 获取 pom.xml 环境变量时，必须指定 build > resources > resource > <filtering>true</filtering>
   mail:
     host: smtp.qq.com
     port: 465
-    username: 718497737@qq.com
-    password: kxwpeamttpgqbgaf
+    username: ${param.mail.qq.un}
+    password: ${param.mail.qq.ps}
     protocol: smtps
     # properties.mail.smtp.ssl.enable: true
     properties:
@@ -99,12 +129,6 @@ mybatis:
 
   # mapper-locations: classpath*:mybatis/mapper/**/*.xml
 
-# server 端口 和 tomcat配置
-server:
-  port: 8080
-  tomcat:
-    connection-timeout: 10ms
-    uri-encoding: UTF-8
 
 # 自定义配置文件全部在app节点读取
 # 每个环境定义自己的不要设置通用，避免问题

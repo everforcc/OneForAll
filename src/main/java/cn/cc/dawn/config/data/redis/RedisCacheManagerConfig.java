@@ -1,4 +1,4 @@
-package cn.cc.dawn.config.data.redis;
+//package cn.cc.dawn.config.data.redis;
 
 import cn.cc.dawn.config.cache.AppCache;
 import cn.cc.dawn.config.init.yml.APPConfigurationCache;
@@ -13,7 +13,7 @@ import org.springframework.data.redis.serializer.RedisSerializationContext;
 import org.springframework.data.redis.serializer.StringRedisSerializer;
 
 //@Configuration
-public class RedisCacheManagerConfig {
+//public class RedisCacheManagerConfig {
 
 //    @Autowired
 //    APPConfigurationCache appConfigurationCache;
@@ -44,4 +44,4 @@ public class RedisCacheManagerConfig {
 //                ).build();
 //    }
 
-}
+//}

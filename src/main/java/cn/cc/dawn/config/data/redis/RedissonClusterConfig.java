@@ -10,12 +10,6 @@
 //import org.springframework.beans.factory.annotation.Value;
 //import org.springframework.context.annotation.Bean;
 //import org.springframework.context.annotation.Configuration;
-//import redis.clients.jedis.HostAndPort;
-//import redis.clients.jedis.JedisCluster;
-//import redis.clients.jedis.JedisPoolConfig;
-//
-//import java.util.HashSet;
-//import java.util.Set;
 //
 ///**
 // * 参考文档
@@ -24,7 +18,7 @@
 // * []()
 // */
 //@Configuration
-//public class RedissonConfig {
+//public class RedissonClusterConfig {
 //
 ////    @Autowired
 ////    ConfigurationSpring configurationSpring;
